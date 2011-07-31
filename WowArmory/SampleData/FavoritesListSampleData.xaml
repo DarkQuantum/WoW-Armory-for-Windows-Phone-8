@@ -1,0 +1,141 @@
+<ViewModels:FavoritesListViewModel 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:ViewModels="clr-namespace:WowArmory.ViewModels"
+	xmlns:Models="clr-namespace:WowArmory.Core.Models;assembly=WowArmory.Core"
+	xmlns:Pages="clr-namespace:WowArmory.Core.Pages;assembly=WowArmory.Core">
+
+	<ViewModels:FavoritesListViewModel.Characters>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Smoochie" TitlePrefix="" TitleSuffix=" the Kingslayer" Class="Paladin" Level="80" Gender="Female" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="4190" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Novacek" TitlePrefix="" TitleSuffix=" the Kingslayer" Class="Warrior" Level="80" Gender="Male" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="7940" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Tinuviel" TitlePrefix="" TitleSuffix=" the Kingslayer" Class="Druid" Level="80" Gender="Female" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="2725" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Paramour" TitlePrefix="" TitleSuffix=" the Kingslayer" Class="Warlock" Level="80" Gender="Female" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="6815" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Omra" TitlePrefix="" TitleSuffix=" the Kingslayer" Class="Priest" Level="80" Gender="Male" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="4940" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Meson" TitlePrefix="" TitleSuffix=" the Kingslayer" Class="Shaman" Level="80" Gender="Male" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="6365" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Myon" TitlePrefix="Brewmaster " TitleSuffix="" Class="Hunter" Level="80" Gender="Female" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="4760" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Valdyran" TitlePrefix="" TitleSuffix=" the Argent Champion" Class="DeathKnight" Gender="Male" Level="80" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="3725" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Nuavis" TitlePrefix="" TitleSuffix=" the Kingslayer" Class="Rogue" Level="80" Gender="Male" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="2885" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+		<Models:ArmoryCharacter>
+			<Models:ArmoryCharacter.CharacterSheetPage>
+				<Pages:CharacterSheetPage>
+					<Pages:CharacterSheetPage.CharacterInfo>
+						<Models:CharacterInfo>
+							<Models:CharacterInfo.Character>
+								<Models:Character Name="Tinyscalp" TitlePrefix="" TitleSuffix=" the Kingslayer" Class="Mage" Level="80" Gender="Male" GuildName="NovaceK" Realm="Lordaeron" AchievementPoints="1770" />
+							</Models:CharacterInfo.Character>
+						</Models:CharacterInfo>
+					</Pages:CharacterSheetPage.CharacterInfo>
+				</Pages:CharacterSheetPage>
+			</Models:ArmoryCharacter.CharacterSheetPage>
+		</Models:ArmoryCharacter>
+	</ViewModels:FavoritesListViewModel.Characters>
+
+</ViewModels:FavoritesListViewModel>
