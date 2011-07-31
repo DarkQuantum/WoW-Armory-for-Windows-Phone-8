@@ -7,6 +7,7 @@ Show others your new item that you just got or view the characters of your frien
 
 Get detailed information about your characters and the characters you add to your personal favorites.
 Look at the characters items and get an ingame like tooltip showing you:
+
 * Bonus attributes
 * Enchants
 * Sockets
@@ -17,6 +18,7 @@ You aren't quite sure how much reputation progress you made with a specific fact
 No problem! Just select your character or any character which you are interested in and switch to the reputation tab to see every faction in the game with the current progress.
 
 A list of the currently implemented features:
+
 * Pin characters to your favorites
 * Change the sorting of your favorites
 * Search characters by name (realm is optional)
