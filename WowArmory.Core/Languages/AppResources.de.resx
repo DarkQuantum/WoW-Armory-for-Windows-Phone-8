@@ -375,4 +375,13 @@
   <data name="UI_CharacterList_Search_Error_Unknown_Text" xml:space="preserve">
     <value>Es konnten keine Daten vom Battle.Net empfangen werden</value>
   </data>
+  <data name="UI_Main_FirstTimeUsage_Caption" xml:space="preserve">
+    <value>Danke das du diese App verwendest</value>
+  </data>
+  <data name="UI_Main_FirstTimeUsage_Text" xml:space="preserve">
+    <value>Bevor du fortfährst, solltest du dir Einstellungen ansehen und alles nach deinen Wünschen einstellen. Wenn es für dich ok ist, wird nun die Einstellungsseite angezeigt?</value>
+  </data>
+  <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
+    <value>Willkommensnachricht erneut anzeigen</value>
+  </data>
 </root>

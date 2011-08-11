@@ -375,4 +375,13 @@
   <data name="UI_CharacterList_Search_Error_Unknown_Text" xml:space="preserve">
     <value>Could not retrieve data from Battle.Net</value>
   </data>
+  <data name="UI_Main_FirstTimeUsage_Caption" xml:space="preserve">
+    <value>Thanks for using this app</value>
+  </data>
+  <data name="UI_Main_FirstTimeUsage_Text" xml:space="preserve">
+    <value>Before you continue you may want to check out the settings and set everything the way you like. The settings page will now open automatically if that's ok for you?</value>
+  </data>
+  <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
+    <value>Show welcome message again</value>
+  </data>
 </root>

@@ -76,12 +76,15 @@ namespace WowArmory.Views
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		private void SaveSettings(object sender, EventArgs e)
 		{
-			// set settings
+			// set settings which should be saved immediately
 			IsolatedStorageManager.Region = ViewModel.SelectedRegion.Key;
 			BattleNetClient.Current.Region = IsolatedStorageManager.Region;
 
 			// save settings
 			IsolatedStorageManager.Save();
+
+			// set settings which should be saved once the app is shut down
+			IsolatedStorageManager.SetValue("Temp_Setting_IsFirstTimeUsage", ViewModel.IsFirstTimeUsage);
 
 			// navigate back to previous page
 			ApplicationController.Current.NavigateBack();

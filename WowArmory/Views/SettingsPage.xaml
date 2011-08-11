@@ -33,10 +33,15 @@
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<controls:Pivot>
 				<controls:PivotItem Header="{Binding LocalizedResources.UI_Settings_PivotItem_General, Source={StaticResource LocalizedResources}}">
-					<tk:ListPicker x:Name="lpRegion"
-								   Header="{Binding LocalizedResources.UI_Settings_General_Region, Source={StaticResource LocalizedResources}}"
-								   ItemsSource="{Binding Regions}" DisplayMemberPath="Value"
-								   SelectedItem="{Binding SelectedRegion, Mode=TwoWay}" />
+					<StackPanel Orientation="Vertical">
+						<tk:ListPicker x:Name="lpRegion"
+									   Header="{Binding LocalizedResources.UI_Settings_General_Region, Source={StaticResource LocalizedResources}}"
+									   ItemsSource="{Binding Regions}" DisplayMemberPath="Value"
+									   SelectedItem="{Binding SelectedRegion, Mode=TwoWay}" />
+						<tk:ToggleSwitch x:Name="tsIsFirstTimeUsage"
+										 Header="{Binding LocalizedResources.UI_Settings_General_IsFirstTimeUsage, Source={StaticResource LocalizedResources}}"
+										 IsChecked="{Binding IsFirstTimeUsage, Mode=TwoWay}" />
+					</StackPanel>
 				</controls:PivotItem>
 			</controls:Pivot>
 		</Grid>

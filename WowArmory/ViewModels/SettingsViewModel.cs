@@ -51,6 +51,14 @@ namespace WowArmory.ViewModels
 		/// The currently selected region.
 		/// </value>
 		public KeyValuePair<Region, string> SelectedRegion { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the app is used for the first time.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the app is used for the first time; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsFirstTimeUsage { get; set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -88,6 +96,7 @@ namespace WowArmory.ViewModels
 		public void ResetSettings()
 		{
 			SelectedRegion = Regions.Where(r => r.Key == IsolatedStorageManager.Region).FirstOrDefault();
+			IsFirstTimeUsage = IsolatedStorageManager.GetValue("Temp_Setting_IsFirstTimeUsage", false);
 		}
 		//----------------------------------------------------------------------
 		#endregion

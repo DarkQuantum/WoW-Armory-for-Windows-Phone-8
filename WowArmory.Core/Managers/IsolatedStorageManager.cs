@@ -26,6 +26,24 @@ namespace WowArmory.Core.Managers
 				SetValue("Setting_Region", value);
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the application is used for the first time.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the application is used for the first time; otherwise, <c>false</c>.
+		/// </value>
+		public static bool IsFirstTimeUsage
+		{
+			get
+			{
+				return GetValue("Setting_IsFirstTimeUsage", true);
+			}
+			set
+			{
+				SetValue("Setting_IsFirstTimeUsage", value);
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------

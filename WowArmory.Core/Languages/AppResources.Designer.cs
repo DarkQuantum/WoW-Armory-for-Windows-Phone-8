@@ -790,6 +790,24 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thanks for using this app.
+        /// </summary>
+        public static string UI_Main_FirstTimeUsage_Caption {
+            get {
+                return ResourceManager.GetString("UI_Main_FirstTimeUsage_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Before you continue you may want to check out the settings and set everything the way you like. The settings page will now open automatically if that&apos;s ok for you?.
+        /// </summary>
+        public static string UI_Main_FirstTimeUsage_Text {
+            get {
+                return ResourceManager.GetString("UI_Main_FirstTimeUsage_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login queue!.
         /// </summary>
         public static string UI_RealmList_Queue {
@@ -813,6 +831,15 @@ namespace WowArmory.Core.Languages {
         public static string UI_Settings_ApplicationBar_Save {
             get {
                 return ResourceManager.GetString("UI_Settings_ApplicationBar_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show welcome message again.
+        /// </summary>
+        public static string UI_Settings_General_IsFirstTimeUsage {
+            get {
+                return ResourceManager.GetString("UI_Settings_General_IsFirstTimeUsage", resourceCulture);
             }
         }
         
