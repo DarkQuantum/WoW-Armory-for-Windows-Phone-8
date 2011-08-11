@@ -5,26 +5,96 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowArmory", "WowArmory\WowA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowArmory.Core", "WowArmory.Core\WowArmory.Core.csproj", "{311B0216-014C-4FB7-B8C1-34A4292B3B16}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Phone.Controls.Toolkit", "Microsoft.Phone.Controls.Toolkit\Microsoft.Phone.Controls.Toolkit.csproj", "{0754458A-7AFC-463A-B27D-2F6980522119}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{98CA23BF-C174-44CD-9934-0A9F42EEA2CB}"
 	ProjectSection(SolutionItems) = preProject
 		Lib\GalaSoft.MvvmLight.Extras.WP7.dll = Lib\GalaSoft.MvvmLight.Extras.WP7.dll
 		Lib\GalaSoft.MvvmLight.Extras.WP7.XML = Lib\GalaSoft.MvvmLight.Extras.WP7.XML
 		Lib\GalaSoft.MvvmLight.WP7.dll = Lib\GalaSoft.MvvmLight.WP7.dll
 		Lib\GalaSoft.MvvmLight.WP7.XML = Lib\GalaSoft.MvvmLight.WP7.XML
-		Lib\ImageTools.Controls.dll = Lib\ImageTools.Controls.dll
-		Lib\ImageTools.dll = Lib\ImageTools.dll
-		Lib\ImageTools.IO.Gif.dll = Lib\ImageTools.IO.Gif.dll
-		Lib\ImageTools.IO.Png.dll = Lib\ImageTools.IO.Png.dll
-		Lib\ImageTools.Utils.dll = Lib\ImageTools.Utils.dll
-		Lib\PhoneCodeContractsAssemblies.dll = Lib\PhoneCodeContractsAssemblies.dll
-		Lib\System.Windows.Interactivity.dll = Lib\System.Windows.Interactivity.dll
+		Lib\PhoneToolkit.snk = Lib\PhoneToolkit.snk
+		Lib\Telerik.Windows.Controls.Chart.dll = Lib\Telerik.Windows.Controls.Chart.dll
+		Lib\Telerik.Windows.Controls.Data.dll = Lib\Telerik.Windows.Controls.Data.dll
+		Lib\Telerik.Windows.Controls.DataVisualization.dll = Lib\Telerik.Windows.Controls.DataVisualization.dll
+		Lib\Telerik.Windows.Controls.Input.dll = Lib\Telerik.Windows.Controls.Input.dll
+		Lib\Telerik.Windows.Controls.Primitives.dll = Lib\Telerik.Windows.Controls.Primitives.dll
+		Lib\Telerik.Windows.Core.dll = Lib\Telerik.Windows.Core.dll
+		Lib\Telerik.Windows.Data.dll = Lib\Telerik.Windows.Data.dll
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution Files", "{1758EB4A-95E4-4AD8-A4F4-061E0643AA53}"
 	ProjectSection(SolutionItems) = preProject
-		PhoneToolkit.snk = PhoneToolkit.snk
+		Json_NET_License.txt = Json_NET_License.txt
+		LICENSE = LICENSE
+		README.markdown = README.markdown
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Media", "Media", "{E58D69AE-8433-4FA0-B650-4A188AA862DF}"
+	ProjectSection(SolutionItems) = preProject
+		Media\ApplicationIcon.png = Media\ApplicationIcon.png
+		Media\ApplicationIcon.psd = Media\ApplicationIcon.psd
+		Media\Artwork_Background_Panorama.png = Media\Artwork_Background_Panorama.png
+		Media\Artwork_Background_Panorama.psd = Media\Artwork_Background_Panorama.psd
+		Media\Artwork_PCMarketplace_Large.png = Media\Artwork_PCMarketplace_Large.png
+		Media\Artwork_PCMarketplace_Large.psd = Media\Artwork_PCMarketplace_Large.psd
+		Media\Artwork_PhoneMarketplace_Large.png = Media\Artwork_PhoneMarketplace_Large.png
+		Media\Artwork_PhoneMarketplace_Large.psd = Media\Artwork_PhoneMarketplace_Large.psd
+		Media\Artwork_PhoneMarketplace_Small.png = Media\Artwork_PhoneMarketplace_Small.png
+		Media\Artwork_PhoneMarketplace_Small.psd = Media\Artwork_PhoneMarketplace_Small.psd
+		Media\Background.png = Media\Background.png
+		Media\Background.psd = Media\Background.psd
+		Media\MainPage_Button.psd = Media\MainPage_Button.psd
+		Media\MainPage_Button_Base.png = Media\MainPage_Button_Base.png
+		Media\MainPage_Button_Highlight.png = Media\MainPage_Button_Highlight.png
+		Media\MainPage_Button_Mask.png = Media\MainPage_Button_Mask.png
+		Media\MainPage_Button_Pressed.png = Media\MainPage_Button_Pressed.png
+		Media\RealmList_Population.png = Media\RealmList_Population.png
+		Media\RealmList_Queue.png = Media\RealmList_Queue.png
+		Media\RealmList_Status.psd = Media\RealmList_Status.psd
+		Media\RealmList_Status_Offline.png = Media\RealmList_Status_Offline.png
+		Media\RealmList_Status_Online.png = Media\RealmList_Status_Online.png
+		Media\SplashScreenImage.jpg = Media\SplashScreenImage.jpg
+		Media\SplashScreenImage.psd = Media\SplashScreenImage.psd
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Phone.Controls.Toolkit", "Lib\Microsoft.Phone.Controls.Toolkit\Microsoft.Phone.Controls.Toolkit.csproj", "{0754458A-7AFC-463A-B27D-2F6980522119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.WindowsPhone", "Lib\Newtonsoft.Json\Newtonsoft.Json.WindowsPhone.csproj", "{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterDetails", "CharacterDetails", "{6ABB592A-EDA1-4333-99BD-ED0395E75D01}"
+	ProjectSection(SolutionItems) = preProject
+		Media\CharacterDetails\Faction_Header.psd = Media\CharacterDetails\Faction_Header.psd
+		Media\CharacterDetails\Faction_Header_0.png = Media\CharacterDetails\Faction_Header_0.png
+		Media\CharacterDetails\Faction_Header_1.png = Media\CharacterDetails\Faction_Header_1.png
+		Media\CharacterDetails\Profession_Bar.png = Media\CharacterDetails\Profession_Bar.png
+		Media\CharacterDetails\Profession_Bar.psd = Media\CharacterDetails\Profession_Bar.psd
+		Media\CharacterDetails\Reputation_Bar.psd = Media\CharacterDetails\Reputation_Bar.psd
+		Media\CharacterDetails\Reputation_Bar_0.png = Media\CharacterDetails\Reputation_Bar_0.png
+		Media\CharacterDetails\Reputation_Bar_1.png = Media\CharacterDetails\Reputation_Bar_1.png
+		Media\CharacterDetails\Reputation_Bar_2.png = Media\CharacterDetails\Reputation_Bar_2.png
+		Media\CharacterDetails\Reputation_Bar_3.png = Media\CharacterDetails\Reputation_Bar_3.png
+		Media\CharacterDetails\Reputation_Bar_4.png = Media\CharacterDetails\Reputation_Bar_4.png
+		Media\CharacterDetails\Reputation_Bar_5.png = Media\CharacterDetails\Reputation_Bar_5.png
+		Media\CharacterDetails\Reputation_Bar_6.png = Media\CharacterDetails\Reputation_Bar_6.png
+		Media\CharacterDetails\Reputation_Bar_7.png = Media\CharacterDetails\Reputation_Bar_7.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Icons", "Icons", "{E38956DD-0E34-4549-8EB0-F6C634AD6327}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainPage", "MainPage", "{22D83C24-EFA4-4D83-A082-EA8591A5EA85}"
+	ProjectSection(SolutionItems) = preProject
+		Media\Icons\MainPage\Characters.png = Media\Icons\MainPage\Characters.png
+		Media\Icons\MainPage\Help.png = Media\Icons\MainPage\Help.png
+		Media\Icons\MainPage\News.png = Media\Icons\MainPage\News.png
+		Media\Icons\MainPage\Realms.png = Media\Icons\MainPage\Realms.png
+		Media\Icons\MainPage\Settings.png = Media\Icons\MainPage\Settings.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationBar", "ApplicationBar", "{D30C058C-315B-4D7F-8B27-BE2C0DF35184}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{B6517931-2F91-4538-A374-A055163BBDE4}"
+	ProjectSection(SolutionItems) = preProject
+		Media\ApplicationBar\Settings\cancel.png = Media\ApplicationBar\Settings\cancel.png
+		Media\ApplicationBar\Settings\save.png = Media\ApplicationBar\Settings\save.png
 	EndProjectSection
 EndProject
 Global
@@ -47,8 +117,21 @@ Global
 		{0754458A-7AFC-463A-B27D-2F6980522119}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0754458A-7AFC-463A-B27D-2F6980522119}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0754458A-7AFC-463A-B27D-2F6980522119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0754458A-7AFC-463A-B27D-2F6980522119} = {98CA23BF-C174-44CD-9934-0A9F42EEA2CB}
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E} = {98CA23BF-C174-44CD-9934-0A9F42EEA2CB}
+		{6ABB592A-EDA1-4333-99BD-ED0395E75D01} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
+		{E38956DD-0E34-4549-8EB0-F6C634AD6327} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
+		{D30C058C-315B-4D7F-8B27-BE2C0DF35184} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
+		{22D83C24-EFA4-4D83-A082-EA8591A5EA85} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
+		{B6517931-2F91-4538-A374-A055163BBDE4} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 	EndGlobalSection
 EndGlobal

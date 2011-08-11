@@ -1,0 +1,114 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="WowArmory.Views.CharacterDetailsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core" xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" mc:Ignorable="d"
+	d:DesignWidth="480" d:DesignHeight="800"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="false">
+
+	<phone:PhoneApplicationPage.DataContext>
+		<Binding Path="CharacterDetails" Source="{StaticResource ViewModelLocator}" />
+	</phone:PhoneApplicationPage.DataContext>
+	
+	<phone:PhoneApplicationPage.Resources>		
+		<Style x:Key="ProfessionHeaderTextStyle" BasedOn="{StaticResource PhoneTextTitle2Style}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+		</Style>
+		
+		<Style x:Key="ProfessionTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+		</Style>
+
+		<!--<LinearGradientBrush x:Key="ProfessionBar" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="#fca55f" Offset="0" />
+			<GradientStop Color="#f87a2f" Offset="0.5" />
+			<GradientStop Color="#c35e22" Offset="0.5" />
+			<GradientStop Color="#dd6d2a" Offset="1" />
+		</LinearGradientBrush>-->
+		<ImageBrush x:Key="ProfessionBar" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Profession_Bar.png" Stretch="None" />
+		
+		<ImageBrush x:Key="ReputationBar_0" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_0.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_1" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_1.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_2" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_2.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_3" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_3.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_4" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_4.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_5" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_5.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_6" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_6.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_7" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_7.png" Stretch="None" />
+	</phone:PhoneApplicationPage.Resources>
+	
+	<Grid x:Name="LayoutRoot" Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+		</Grid.RowDefinitions>
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<Image Grid.Column="0" Grid.ColumnSpan="2" Source="{Binding CharacterFaction, Converter={StaticResource AppImageUrl}, ConverterParameter='CharacterDetails/Faction_Header_{0}.png'}" Width="480" Height="64" />
+			<Image Grid.Column="0" helper:AsyncImageLoader.ImageUrl="{Binding Character.Thumbnail, Converter={StaticResource ThumbnailImageUrl}}" Width="64" Height="64" />
+			<Grid Grid.Column="1" Margin="6,0,0,0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="*" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Character.Name}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" />
+				<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+					<TextBlock Text="{Binding Character.Level}" Foreground="White" VerticalAlignment="Center" />
+					<TextBlock Text="{Binding Character.Class, Converter={StaticResource ClassToLocalizedString}}" Foreground="White" VerticalAlignment="Center" Margin="4,0,0,0" />
+				</StackPanel>
+				<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Character.Realm, Converter={StaticResource StringToUppercase}}" FontSize="{StaticResource PhoneFontSizeXSmall}" Foreground="White" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0" />
+				<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Character.Guild.Name, Converter={StaticResource StringToUppercase}}" FontSize="{StaticResource PhoneFontSizeXSmall}" Foreground="White" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0" />
+			</Grid>
+		</Grid>
+		<Grid Grid.Row="1">
+			<controls:Pivot x:Name="CharacterPivot" SelectionChanged="CharacterPivot_SelectionChanged">
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Character, Source={StaticResource LocalizedResources}}">
+					
+				</controls:PivotItem>
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Achievements, Source={StaticResource LocalizedResources}}">
+
+				</controls:PivotItem>
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Reputation, Source={StaticResource LocalizedResources}}">
+					<ScrollViewer>
+						<StackPanel x:Name="spReputation" Orientation="Vertical" VerticalAlignment="Top" />
+					</ScrollViewer>
+				</controls:PivotItem>
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Professions, Source={StaticResource LocalizedResources}}">
+					<StackPanel x:Name="spProfessions" Orientation="Vertical" VerticalAlignment="Top" />
+				</controls:PivotItem>
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Titles, Source={StaticResource LocalizedResources}}">
+
+				</controls:PivotItem>
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Pets, Source={StaticResource LocalizedResources}}">
+
+				</controls:PivotItem>
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Mounts, Source={StaticResource LocalizedResources}}">
+
+				</controls:PivotItem>
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Companions, Source={StaticResource LocalizedResources}}">
+
+				</controls:PivotItem>
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Progression, Source={StaticResource LocalizedResources}}">
+
+				</controls:PivotItem>
+			</controls:Pivot>
+		</Grid>
+	</Grid>    
+</phone:PhoneApplicationPage>

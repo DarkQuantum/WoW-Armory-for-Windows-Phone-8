@@ -5,36 +5,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-
-// This is a very special primitive control that works around a limitation in
-// the core animation subsystem of Silverlight: there is no way to declare in
-// VSM states relative properties, such as animating from 0 to 33% the width of
-// the control, using double animations for translation.
-//
-// It's a tough problem to solve property, but this primitive, unsupported
-// control does offer a solution based on magic numbers that still allows a
-// designer to make alterations to their animation values to present their 
-// vision for custom templates.
-//
-// This is instrumental in offering a Windows Phone ProgressBar implementation
-// that uses the render thread instead of animating UI thread-only properties.
-//
-// For questions, please see
-// http://www.jeff.wilcox.name/performanceprogressbar/
-//
-// This control is licensed Ms-PL and as such comes with no warranties or
-// official support.
-//
-// Style Note
-// - - -
-// The style that must be used with this is present at the bottom of this file.
-//
 
 namespace Microsoft.Phone.Controls.Unsupported
 {
@@ -85,14 +59,14 @@ namespace Microsoft.Phone.Controls.Unsupported
 		/// </summary>
 		/// <param name="sender">The source object.</param>
 		/// <param name="e">The event arguments.</param>
-		private void OnSizeChanged( object sender, SizeChangedEventArgs e )
+		private void OnSizeChanged(object sender, SizeChangedEventArgs e)
 		{
-			if ( e != null && e.NewSize.Height > 0 && e.NewSize.Width > 0 )
+			if (e != null && e.NewSize.Height > 0 && e.NewSize.Width > 0)
 			{
 				_knownWidth = e.NewSize.Width;
 				_knownHeight = e.NewSize.Height;
 
-				Clip = new RectangleGeometry { Rect = new Rect( 0, 0, _knownWidth, _knownHeight ), };
+				Clip = new RectangleGeometry { Rect = new Rect(0, 0, _knownWidth, _knownHeight), };
 
 				UpdateAnyAnimationValues();
 			}
@@ -105,44 +79,44 @@ namespace Microsoft.Phone.Controls.Unsupported
 		/// </summary>
 		private void UpdateAnyAnimationValues()
 		{
-			if ( _knownHeight > 0 && _knownWidth > 0 )
+			if (_knownHeight > 0 && _knownWidth > 0)
 			{
 				// Initially, before any special animations have been found,
 				// the visual state groups of the control must be explored. 
 				// By definition they must be at the implementation root of the
 				// control, and this is designed to not walk into any other
 				// depth.
-				if ( _specialAnimations == null )
+				if (_specialAnimations == null)
 				{
 					_specialAnimations = new List<AnimationValueAdapter>();
 
-					foreach ( VisualStateGroup group in VisualStateManager.GetVisualStateGroups( this ) )
+					foreach (VisualStateGroup group in VisualStateManager.GetVisualStateGroups(this))
 					{
-						if ( group == null )
+						if (group == null)
 						{
 							continue;
 						}
-						foreach ( VisualState state in group.States )
+						foreach (VisualState state in group.States)
 						{
-							if ( state != null )
+							if (state != null)
 							{
 								Storyboard sb = state.Storyboard;
-								if ( sb != null )
+								if (sb != null)
 								{
 									// Examine all children of the storyboards,
 									// looking for either type of double
 									// animation.
-									foreach ( Timeline timeline in sb.Children )
+									foreach (Timeline timeline in sb.Children)
 									{
-										DoubleAnimation da = timeline as DoubleAnimation;
-										DoubleAnimationUsingKeyFrames dakeys = timeline as DoubleAnimationUsingKeyFrames;
-										if ( da != null )
+										var da = timeline as DoubleAnimation;
+										var dakeys = timeline as DoubleAnimationUsingKeyFrames;
+										if (da != null)
 										{
-											ProcessDoubleAnimation( da );
+											ProcessDoubleAnimation(da);
 										}
-										else if ( dakeys != null )
+										else if (dakeys != null)
 										{
-											ProcessDoubleAnimationWithKeys( dakeys );
+											ProcessDoubleAnimationWithKeys(dakeys);
 										}
 									}
 								}
@@ -162,9 +136,9 @@ namespace Microsoft.Phone.Controls.Unsupported
 		/// </summary>
 		private void UpdateKnownAnimations()
 		{
-			foreach ( AnimationValueAdapter adapter in _specialAnimations )
+			foreach (AnimationValueAdapter adapter in _specialAnimations)
 			{
-				adapter.UpdateWithNewDimension( _knownWidth, _knownHeight );
+				adapter.UpdateWithNewDimension(_knownWidth, _knownHeight);
 			}
 		}
 
@@ -173,15 +147,15 @@ namespace Microsoft.Phone.Controls.Unsupported
 		/// special values to store with an adapter.
 		/// </summary>
 		/// <param name="da">The double animation using key frames instance.</param>
-		private void ProcessDoubleAnimationWithKeys( DoubleAnimationUsingKeyFrames da )
+		private void ProcessDoubleAnimationWithKeys(DoubleAnimationUsingKeyFrames da)
 		{
 			// Look through all keyframes in the instance.
-			foreach ( DoubleKeyFrame frame in da.KeyFrames )
+			foreach (DoubleKeyFrame frame in da.KeyFrames)
 			{
-				var d = DoubleAnimationFrameAdapter.GetDimensionFromMagicNumber( frame.Value );
-				if ( d.HasValue )
+				var d = DoubleAnimationFrameAdapter.GetDimensionFromMagicNumber(frame.Value);
+				if (d.HasValue)
 				{
-					_specialAnimations.Add( new DoubleAnimationFrameAdapter( d.Value, frame ) );
+					_specialAnimations.Add(new DoubleAnimationFrameAdapter(d.Value, frame));
 				}
 			}
 		}
@@ -190,25 +164,25 @@ namespace Microsoft.Phone.Controls.Unsupported
 		/// Processes a double animation looking for special values.
 		/// </summary>
 		/// <param name="da">The double animation instance.</param>
-		private void ProcessDoubleAnimation( DoubleAnimation da )
+		private void ProcessDoubleAnimation(DoubleAnimation da)
 		{
 			// Look for a special value in the To property.
-			if ( da.To.HasValue )
+			if (da.To.HasValue)
 			{
-				var d = DoubleAnimationToAdapter.GetDimensionFromMagicNumber( da.To.Value );
-				if ( d.HasValue )
+				var d = DoubleAnimationToAdapter.GetDimensionFromMagicNumber(da.To.Value);
+				if (d.HasValue)
 				{
-					_specialAnimations.Add( new DoubleAnimationToAdapter( d.Value, da ) );
+					_specialAnimations.Add(new DoubleAnimationToAdapter(d.Value, da));
 				}
 			}
 
 			// Look for a special value in the From property.
-			if ( da.From.HasValue )
+			if (da.From.HasValue)
 			{
-				var d = DoubleAnimationFromAdapter.GetDimensionFromMagicNumber( da.To.Value );
-				if ( d.HasValue )
+				var d = DoubleAnimationFromAdapter.GetDimensionFromMagicNumber(da.To.Value);
+				if (d.HasValue)
 				{
-					_specialAnimations.Add( new DoubleAnimationFromAdapter( d.Value, da ) );
+					_specialAnimations.Add(new DoubleAnimationFromAdapter(d.Value, da));
 				}
 			}
 		}
@@ -246,7 +220,7 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// Initializes a new instance of the AnimationValueAdapter type.
 			/// </summary>
 			/// <param name="dimension">The dimension of interest for updates.</param>
-			public AnimationValueAdapter( DoubleAnimationDimension dimension )
+			public AnimationValueAdapter(DoubleAnimationDimension dimension)
 			{
 				Dimension = dimension;
 			}
@@ -263,7 +237,7 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// </summary>
 			/// <param name="width">The width of the control.</param>
 			/// <param name="height">The height of the control.</param>
-			public abstract void UpdateWithNewDimension( double width, double height );
+			public abstract void UpdateWithNewDimension(double width, double height);
 		}
 
 		private abstract class GeneralAnimationValueAdapter<T> : AnimationValueAdapter
@@ -283,7 +257,7 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// Sets the value for the underlying property of interest.
 			/// </summary>
 			/// <param name="newValue">The new value for the property.</param>
-			protected abstract void SetValue( double newValue );
+			protected abstract void SetValue(double newValue);
 
 			/// <summary>
 			/// Gets the initial value (minus the magic number portion) that the
@@ -304,12 +278,12 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// </summary>
 			/// <param name="d">The dimension of interest.</param>
 			/// <param name="instance">The animation type instance.</param>
-			public GeneralAnimationValueAdapter( DoubleAnimationDimension d, T instance )
-				: base( d )
+			public GeneralAnimationValueAdapter(DoubleAnimationDimension d, T instance)
+				: base(d)
 			{
 				Instance = instance;
 
-				InitialValue = StripMagicNumberOff( GetValue() );
+				InitialValue = StripMagicNumberOff(GetValue());
 				_ratio = InitialValue / 100;
 			}
 
@@ -319,7 +293,7 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// <param name="number">The initial number.</param>
 			/// <returns>Returns a double with an adjustment for the magic
 			/// portion of the number.</returns>
-			public double StripMagicNumberOff( double number )
+			public double StripMagicNumberOff(double number)
 			{
 				return Dimension == DoubleAnimationDimension.Width ? number - .1 : number - .2;
 			}
@@ -331,16 +305,16 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// <param name="number">The double value.</param>
 			/// <returns>Returs a double animation dimension, if the number was
 			/// partially magic; otherwise, returns null.</returns>
-			public static DoubleAnimationDimension? GetDimensionFromMagicNumber( double number )
+			public static DoubleAnimationDimension? GetDimensionFromMagicNumber(double number)
 			{
-				double floor = Math.Floor( number );
+				double floor = Math.Floor(number);
 				double remainder = number - floor;
 
-				if ( remainder >= .1 - SimpleDoubleComparisonEpsilon && remainder <= .1 + SimpleDoubleComparisonEpsilon )
+				if (remainder >= .1 - SimpleDoubleComparisonEpsilon && remainder <= .1 + SimpleDoubleComparisonEpsilon)
 				{
 					return DoubleAnimationDimension.Width;
 				}
-				if ( remainder >= .2 - SimpleDoubleComparisonEpsilon && remainder <= .2 + SimpleDoubleComparisonEpsilon )
+				if (remainder >= .2 - SimpleDoubleComparisonEpsilon && remainder <= .2 + SimpleDoubleComparisonEpsilon)
 				{
 					return DoubleAnimationDimension.Height;
 				}
@@ -353,10 +327,10 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// </summary>
 			/// <param name="width">The width of the control.</param>
 			/// <param name="height">The height of the control.</param>
-			public override void UpdateWithNewDimension( double width, double height )
+			public override void UpdateWithNewDimension(double width, double height)
 			{
 				double size = Dimension == DoubleAnimationDimension.Width ? width : height;
-				UpdateValue( size );
+				UpdateValue(size);
 			}
 
 			/// <summary>
@@ -364,9 +338,9 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// </summary>
 			/// <param name="sizeToUse">The size of interest to use with a ratio
 			/// computation.</param>
-			private void UpdateValue( double sizeToUse )
+			private void UpdateValue(double sizeToUse)
 			{
-				SetValue( sizeToUse * _ratio );
+				SetValue(sizeToUse * _ratio);
 			}
 		}
 
@@ -388,7 +362,7 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// Sets the value for the underlying property of interest.
 			/// </summary>
 			/// <param name="newValue">The new value for the property.</param>
-			protected override void SetValue( double newValue )
+			protected override void SetValue(double newValue)
 			{
 				Instance.To = newValue;
 			}
@@ -398,8 +372,8 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// </summary>
 			/// <param name="dimension">The dimension of interest.</param>
 			/// <param name="instance">The instance of the animation type.</param>
-			public DoubleAnimationToAdapter( DoubleAnimationDimension dimension, DoubleAnimation instance )
-				: base( dimension, instance )
+			public DoubleAnimationToAdapter(DoubleAnimationDimension dimension, DoubleAnimation instance)
+				: base(dimension, instance)
 			{
 			}
 		}
@@ -422,7 +396,7 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// Sets the value for the underlying property of interest.
 			/// </summary>
 			/// <param name="newValue">The new value for the property.</param>
-			protected override void SetValue( double newValue )
+			protected override void SetValue(double newValue)
 			{
 				Instance.From = newValue;
 			}
@@ -433,8 +407,8 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// </summary>
 			/// <param name="dimension">The dimension of interest.</param>
 			/// <param name="instance">The instance of the animation type.</param>
-			public DoubleAnimationFromAdapter( DoubleAnimationDimension dimension, DoubleAnimation instance )
-				: base( dimension, instance )
+			public DoubleAnimationFromAdapter(DoubleAnimationDimension dimension, DoubleAnimation instance)
+				: base(dimension, instance)
 			{
 			}
 		}
@@ -457,7 +431,7 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// Sets the value for the underlying property of interest.
 			/// </summary>
 			/// <param name="newValue">The new value for the property.</param>
-			protected override void SetValue( double newValue )
+			protected override void SetValue(double newValue)
 			{
 				Instance.Value = newValue;
 			}
@@ -468,8 +442,8 @@ namespace Microsoft.Phone.Controls.Unsupported
 			/// </summary>
 			/// <param name="dimension">The dimension of interest.</param>
 			/// <param name="instance">The instance of the animation type.</param>
-			public DoubleAnimationFrameAdapter( DoubleAnimationDimension dimension, DoubleKeyFrame frame )
-				: base( dimension, frame )
+			public DoubleAnimationFrameAdapter(DoubleAnimationDimension dimension, DoubleKeyFrame frame)
+				: base(dimension, frame)
 			{
 			}
 		}

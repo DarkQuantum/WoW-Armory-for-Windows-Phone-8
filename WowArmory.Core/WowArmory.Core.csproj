@@ -49,24 +49,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ImageTools">
-      <HintPath>..\Lib\ImageTools.dll</HintPath>
-    </Reference>
-    <Reference Include="ImageTools.Controls">
-      <HintPath>..\Lib\ImageTools.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="ImageTools.IO.Gif">
-      <HintPath>..\Lib\ImageTools.IO.Gif.dll</HintPath>
-    </Reference>
-    <Reference Include="ImageTools.IO.Png">
-      <HintPath>..\Lib\ImageTools.IO.Png.dll</HintPath>
-    </Reference>
-    <Reference Include="ImageTools.Utils">
-      <HintPath>..\Lib\ImageTools.Utils.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Interop" />
-    <Reference Include="PhoneCodeContractsAssemblies, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
@@ -78,220 +62,177 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Armory.cs" />
-    <Compile Include="Converter\IntToVisibilityConverter.cs" />
-    <Compile Include="Converter\StringNotNullOrEmptyToVisibilityConverter.cs" />
-    <Compile Include="Enumerations\ActivityFeedEventType.cs" />
-    <Compile Include="Enumerations\CharacterClass.cs" />
-    <Compile Include="Enumerations\CharacterFaction.cs" />
-    <Compile Include="Enumerations\CharacterGender.cs" />
-    <Compile Include="Enumerations\CharacterItemRarity.cs" />
-    <Compile Include="Enumerations\CharacterItemSlot.cs" />
-    <Compile Include="Enumerations\CharacterRace.cs" />
-    <Compile Include="Enumerations\ConvertToType.cs" />
-    <Compile Include="Enumerations\ItemBonding.cs" />
-    <Compile Include="Enumerations\ItemInventoryType.cs" />
-    <Compile Include="Enumerations\ItemSource.cs" />
-    <Compile Include="Enumerations\RealmLanguage.cs" />
-    <Compile Include="Enumerations\RealmType.cs" />
-    <Compile Include="Enumerations\Region.cs" />
-    <Compile Include="Helpers\ApplicationExtensions.cs" />
-    <Compile Include="Helpers\AsyncImageLoader.cs" />
-    <Compile Include="Helpers\TextBoxWatermark.cs" />
-    <Compile Include="Languages\AppResources.de-DE.Designer.cs">
-      <DependentUpon>AppResources.de-DE.resx</DependentUpon>
+    <Compile Include="BattleNet\BattleNetSettings.Designer.cs">
+      <DependentUpon>BattleNetSettings.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="BattleNet\BattleNetClient.cs" />
+    <Compile Include="BattleNet\Models\ApiResponse.cs" />
+    <Compile Include="BattleNet\Models\ApiResponseReason.cs" />
+    <Compile Include="BattleNet\Models\CharacterAchievements.cs" />
+    <Compile Include="BattleNet\Models\CharacterAppearance.cs" />
+    <Compile Include="BattleNet\Models\CharacterClass.cs" />
+    <Compile Include="BattleNet\Models\CharacterFaction.cs" />
+    <Compile Include="BattleNet\Models\CharacterFields.cs" />
+    <Compile Include="BattleNet\IconSize.cs" />
+    <Compile Include="BattleNet\Models\CharacterGender.cs" />
+    <Compile Include="BattleNet\Models\CharacterGlyphs.cs" />
+    <Compile Include="BattleNet\Models\CharacterProfessions.cs" />
+    <Compile Include="BattleNet\Models\CharacterProgression.cs" />
+    <Compile Include="BattleNet\Models\CharacterRace.cs" />
+    <Compile Include="BattleNet\Models\CharacterStats.cs" />
+    <Compile Include="BattleNet\Models\CharacterTalents.cs" />
+    <Compile Include="BattleNet\Models\CharacterTitle.cs" />
+    <Compile Include="BattleNet\Models\GlyphItem.cs" />
+    <Compile Include="BattleNet\Models\ItemQuality.cs" />
+    <Compile Include="BattleNet\Models\Profession.cs" />
+    <Compile Include="BattleNet\Models\RaidBoss.cs" />
+    <Compile Include="BattleNet\Models\RaidProgression.cs" />
+    <Compile Include="BattleNet\Models\Realm.cs" />
+    <Compile Include="BattleNet\Models\RealmList.cs" />
+    <Compile Include="BattleNet\Models\RealmPopulation.cs" />
+    <Compile Include="BattleNet\Models\RealmType.cs" />
+    <Compile Include="BattleNet\Models\Reputation.cs" />
+    <Compile Include="BattleNet\Models\ReputationStanding.cs" />
+    <Compile Include="BattleNet\Models\TalentTree.cs" />
+    <Compile Include="BattleNet\Region.cs" />
+    <Compile Include="BattleNet\Helpers\ApiUrlField.cs" />
+    <Compile Include="BattleNet\Helpers\EnumHelper.cs" />
+    <Compile Include="BattleNet\Models\Character.cs" />
+    <Compile Include="BattleNet\Models\CharacterGuild.cs" />
+    <Compile Include="BattleNet\Models\CharacterGuildEmblem.cs" />
+    <Compile Include="BattleNet\Models\CharacterItems.cs" />
+    <Compile Include="BattleNet\Models\Item.cs" />
+    <Compile Include="BattleNet\Models\ItemTooltipParams.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\ClassToLocalizedStringConverter.cs" />
+    <Compile Include="Converters\RaceToFactionConverter.cs" />
+    <Compile Include="Converters\StringToUppercaseConverter.cs" />
+    <Compile Include="Converters\ThumbnailImageUrlConverter.cs" />
+    <Compile Include="Converters\AppImageUrlConverter.cs" />
+    <Compile Include="Extensions\ApplicationExtensions.cs" />
+    <Compile Include="Extensions\EnumExtentions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Helper\AsyncImageLoader.cs" />
     <Compile Include="Languages\AppResources.Designer.cs">
-      <DependentUpon>AppResources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Languages\LocalizedStrings.cs" />
-    <Compile Include="Models\ActivityFeedEvent.cs" />
-    <Compile Include="Models\ArmoryCharacter.cs" />
-    <Compile Include="Models\Bars\HealthBar.cs" />
-    <Compile Include="Models\Bars\SecondBar.cs" />
-    <Compile Include="Models\CharacterProfession.cs" />
-    <Compile Include="Models\CharacterProfessions.cs" />
-    <Compile Include="Models\CharacterStats.cs" />
-    <Compile Include="Models\CharacterTalentSpec.cs" />
-    <Compile Include="Models\CharacterTalentSpecs.cs" />
-    <Compile Include="Models\ItemToolTip.cs" />
-    <Compile Include="Models\ItemToolTipDamageData.cs" />
-    <Compile Include="Models\ItemToolTipSetBonus.cs" />
-    <Compile Include="Models\ItemToolTipSetData.cs" />
-    <Compile Include="Models\ItemToolTipSetItem.cs" />
-    <Compile Include="Models\ItemToolTipSocket.cs" />
-    <Compile Include="Models\ItemToolTipSocketData.cs" />
-    <Compile Include="Models\Realm.cs" />
-    <Compile Include="Models\ReputationFaction.cs" />
-    <Compile Include="Models\SearchResultCharacter.cs" />
-    <Compile Include="Models\Stats\Armor.cs" />
-    <Compile Include="Models\Stats\Agility.cs" />
-    <Compile Include="Models\Stats\Defenses.cs" />
-    <Compile Include="Models\Stats\DefensesArmor.cs" />
-    <Compile Include="Models\Stats\DefensesBlock.cs" />
-    <Compile Include="Models\Stats\DefensesDefense.cs" />
-    <Compile Include="Models\Stats\DefensesDodge.cs" />
-    <Compile Include="Models\Stats\DefensesParry.cs" />
-    <Compile Include="Models\Stats\DefensesResilience.cs" />
-    <Compile Include="Models\Stats\Melee.cs" />
-    <Compile Include="Models\Stats\MeleeCritChance.cs" />
-    <Compile Include="Models\Stats\MeleeExpertise.cs" />
-    <Compile Include="Models\Stats\MeleeHitRating.cs" />
-    <Compile Include="Models\Stats\MeleeMainHandDamage.cs" />
-    <Compile Include="Models\Stats\MeleeMainHandSpeed.cs" />
-    <Compile Include="Models\Stats\MeleeOffHandDamage.cs" />
-    <Compile Include="Models\Stats\MeleeOffHandSpeed.cs" />
-    <Compile Include="Models\Stats\MeleePower.cs" />
-    <Compile Include="Models\Stats\Ranged.cs" />
-    <Compile Include="Models\Stats\RangedCritChance.cs" />
-    <Compile Include="Models\Stats\RangedDamage.cs" />
-    <Compile Include="Models\Stats\RangedHitRating.cs" />
-    <Compile Include="Models\Stats\RangedPower.cs" />
-    <Compile Include="Models\Stats\RangedSpeed.cs" />
-    <Compile Include="Models\Stats\RangedWeaponSkill.cs" />
-    <Compile Include="Models\Stats\Spell.cs" />
-    <Compile Include="Models\Stats\SpellBonusDamage.cs" />
-    <Compile Include="Models\Stats\SpellBonusDamagePetBonus.cs" />
-    <Compile Include="Models\Stats\SpellBonusHealing.cs" />
-    <Compile Include="Models\Stats\SpellCritChance.cs" />
-    <Compile Include="Models\Stats\SpellHasteRating.cs" />
-    <Compile Include="Models\Stats\SpellHitRating.cs" />
-    <Compile Include="Models\Stats\SpellManaRegen.cs" />
-    <Compile Include="Models\Stats\SpellPenetration.cs" />
-    <Compile Include="Models\Stats\Stamina.cs" />
-    <Compile Include="Models\Stats\Intellect.cs" />
-    <Compile Include="Models\Stats\Spirit.cs" />
-    <Compile Include="Models\Stats\Strength.cs" />
-    <Compile Include="Models\CharacterBars.cs" />
-    <Compile Include="Models\Stats\BaseStats.cs" />
-    <Compile Include="Models\CharacterItem.cs" />
-    <Compile Include="Models\CharacterItems.cs" />
-    <Compile Include="Pages\CharacterActivityFeedPage.cs" />
-    <Compile Include="Pages\CharacterReputationPage.cs" />
-    <Compile Include="Pages\CharacterTalentsPage.cs" />
-    <Compile Include="Pages\ItemToolTipPage.cs" />
-    <Compile Include="Storage\CharacterStorageData.cs" />
-    <Compile Include="Storage\StorageManager.cs" />
-    <Compile Include="Helpers\Tools.cs" />
-    <Compile Include="Models\Character.cs" />
-    <Compile Include="Models\CharacterInfo.cs" />
-    <Compile Include="Models\CharacterTab.cs" />
-    <Compile Include="Pages\ArmoryPage.cs" />
-    <Compile Include="Pages\CharacterSheetPage.cs" />
-    <Compile Include="Pages\SearchPage.cs" />
+    <Compile Include="Managers\CacheManager.cs" />
+    <Compile Include="Managers\IsolatedStorageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Languages\AppResources.de-DE.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>AppResources.de-DE.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="BattleNet\BattleNetSettings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>BattleNetSettings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Languages\AppResources.de.resx" />
     <EmbeddedResource Include="Languages\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Characters\class_deathknight.jpg" />
-    <Resource Include="Images\Characters\class_druid.jpg" />
-    <Resource Include="Images\Characters\class_hunter.jpg" />
-    <Resource Include="Images\Characters\class_mage.jpg" />
-    <Resource Include="Images\Characters\class_paladin.jpg" />
-    <Resource Include="Images\Characters\class_priest.jpg" />
-    <Resource Include="Images\Characters\class_rogue.jpg" />
-    <Resource Include="Images\Characters\class_shaman.jpg" />
-    <Resource Include="Images\Characters\class_warlock.jpg" />
-    <Resource Include="Images\Characters\class_warrior.jpg" />
-    <Resource Include="Images\Characters\portrait_empty_0.png" />
-    <Resource Include="Images\Characters\portrait_empty_1.png" />
-    <Resource Include="Images\Characters\race_bloodelf_female.jpg" />
-    <Resource Include="Images\Characters\race_bloodelf_male.jpg" />
-    <Resource Include="Images\Characters\race_draenei_female.jpg" />
-    <Resource Include="Images\Characters\race_draenei_male.jpg" />
-    <Resource Include="Images\Characters\race_dwarf_female.jpg" />
-    <Resource Include="Images\Characters\race_dwarf_male.jpg" />
-    <Resource Include="Images\Characters\race_gnome_female.jpg" />
-    <Resource Include="Images\Characters\race_gnome_male.jpg" />
-    <Resource Include="Images\Characters\race_human_female.jpg" />
-    <Resource Include="Images\Characters\race_human_male.jpg" />
-    <Resource Include="Images\Characters\race_nightelf_female.jpg" />
-    <Resource Include="Images\Characters\race_nightelf_male.jpg" />
-    <Resource Include="Images\Characters\race_orc_female.jpg" />
-    <Resource Include="Images\Characters\race_orc_male.jpg" />
-    <Resource Include="Images\Characters\race_tauren_female.jpg" />
-    <Resource Include="Images\Characters\race_tauren_male.jpg" />
-    <Resource Include="Images\Characters\race_troll_female.jpg" />
-    <Resource Include="Images\Characters\race_troll_male.jpg" />
-    <Resource Include="Images\Characters\race_undead_female.jpg" />
-    <Resource Include="Images\Characters\race_undead_male.jpg" />
+    <ProjectReference Include="..\Lib\Newtonsoft.Json\Newtonsoft.Json.WindowsPhone.csproj">
+      <Project>{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}</Project>
+      <Name>Newtonsoft.Json.WindowsPhone</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Icons\achievementpoints.png" />
-    <Resource Include="Images\Icons\achievementpoints_large.png" />
-    <Resource Include="Images\Icons\Professions\alchemy.png" />
-    <Resource Include="Images\Icons\Professions\archaeology.png" />
-    <Resource Include="Images\Icons\Professions\blacksmithing.png" />
-    <Resource Include="Images\Icons\Professions\cooking.png" />
-    <Resource Include="Images\Icons\Professions\enchanting.png" />
-    <Resource Include="Images\Icons\Professions\engineering.png" />
-    <Resource Include="Images\Icons\Professions\firstaid.png" />
-    <Resource Include="Images\Icons\Professions\fishing.png" />
-    <Resource Include="Images\Icons\Professions\herbalism.png" />
-    <Resource Include="Images\Icons\Professions\inscription.png" />
-    <Resource Include="Images\Icons\Professions\jewelcrafting.png" />
-    <Resource Include="Images\Icons\Professions\leatherworking.png" />
-    <Resource Include="Images\Icons\Professions\mining.png" />
-    <Resource Include="Images\Icons\Professions\skinning.png" />
-    <Resource Include="Images\Icons\Professions\tailoring.png" />
+    <Resource Include="..\media\characterdetails\Faction_Header_0.png">
+      <Link>Images\CharacterDetails\Faction_Header_0.png</Link>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\bg_faction_0.png" />
-    <Resource Include="Images\bg_faction_1.png" />
-    <Resource Include="Images\bookmark_off.png" />
-    <Resource Include="Images\bookmark_on.png" />
-    <Resource Include="Images\faction_0.png" />
-    <Resource Include="Images\faction_1.png" />
-    <Resource Include="Images\feed_icon.png" />
-    <Resource Include="Images\feed_icon_achievement.png" />
-    <Resource Include="Images\feed_icon_bosskill.png" />
-    <Resource Include="Images\feed_icon_criteria.png" />
-    <Resource Include="Images\feed_icon_loot.png" />
-    <Resource Include="Images\item_rarity_1.png" />
-    <Resource Include="Images\item_rarity_2.png" />
-    <Resource Include="Images\item_rarity_3.png" />
-    <Resource Include="Images\item_rarity_4.png" />
-    <Resource Include="Images\item_rarity_5.png" />
-    <Resource Include="Images\item_rarity_7.png" />
-    <Resource Include="Images\item_selected.png" />
-    <Resource Include="Images\refresh.png" />
-    <Resource Include="Images\socket_blue.png" />
-    <Resource Include="Images\socket_meta.png" />
-    <Resource Include="Images\socket_red.png" />
-    <Resource Include="Images\socket_yellow.png" />
+    <Resource Include="..\media\characterdetails\Faction_Header_1.png">
+      <Link>Images\CharacterDetails\Faction_Header_1.png</Link>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\PaperDoll\cape.png" />
-    <Resource Include="Images\PaperDoll\chest.png" />
-    <Resource Include="Images\PaperDoll\feet.png" />
-    <Resource Include="Images\PaperDoll\finger.png" />
-    <Resource Include="Images\PaperDoll\hands.png" />
-    <Resource Include="Images\PaperDoll\head.png" />
-    <Resource Include="Images\PaperDoll\legs.png" />
-    <Resource Include="Images\PaperDoll\mainhand.png" />
-    <Resource Include="Images\PaperDoll\neck.png" />
-    <Resource Include="Images\PaperDoll\ranged.png" />
-    <Resource Include="Images\PaperDoll\relic.png" />
-    <Resource Include="Images\PaperDoll\secondaryhand.png" />
-    <Resource Include="Images\PaperDoll\shirt.png" />
-    <Resource Include="Images\PaperDoll\shoulder.png" />
-    <Resource Include="Images\PaperDoll\tabard.png" />
-    <Resource Include="Images\PaperDoll\trinket.png" />
-    <Resource Include="Images\PaperDoll\waist.png" />
-    <Resource Include="Images\PaperDoll\wrist.png" />
+    <Resource Include="..\Media\CharacterDetails\Profession_Bar.png">
+      <Link>Images\CharacterDetails\Profession_Bar.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\CharacterDetails\Reputation_Bar_0.png">
+      <Link>Images\CharacterDetails\Reputation_Bar_0.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Reputation_Bar_1.png">
+      <Link>Images\CharacterDetails\Reputation_Bar_1.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Reputation_Bar_2.png">
+      <Link>Images\CharacterDetails\Reputation_Bar_2.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Reputation_Bar_3.png">
+      <Link>Images\CharacterDetails\Reputation_Bar_3.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Reputation_Bar_4.png">
+      <Link>Images\CharacterDetails\Reputation_Bar_4.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Reputation_Bar_5.png">
+      <Link>Images\CharacterDetails\Reputation_Bar_5.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Reputation_Bar_6.png">
+      <Link>Images\CharacterDetails\Reputation_Bar_6.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Reputation_Bar_7.png">
+      <Link>Images\CharacterDetails\Reputation_Bar_7.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\MainPage\Characters.png">
+      <Link>Images\Icons\MainPage\Characters.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\MainPage\Help.png">
+      <Link>Images\Icons\MainPage\Help.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\MainPage\News.png">
+      <Link>Images\Icons\MainPage\News.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\MainPage\Realms.png">
+      <Link>Images\Icons\MainPage\Realms.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\MainPage\Settings.png">
+      <Link>Images\Icons\MainPage\Settings.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\MainPage_Button_Base.png">
+      <Link>Images\MainPage_Button_Base.png</Link>
+    </Resource>
+    <Resource Include="..\Media\MainPage_Button_Highlight.png">
+      <Link>Images\MainPage_Button_Highlight.png</Link>
+    </Resource>
+    <Resource Include="..\Media\MainPage_Button_Mask.png">
+      <Link>Images\MainPage_Button_Mask.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\MainPage_Button_Pressed.png">
+      <Link>Images\MainPage_Button_Pressed.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\RealmList_Status_Offline.png">
+      <Link>Images\RealmList_Status_Offline.png</Link>
+    </Resource>
+    <Resource Include="..\Media\RealmList_Status_Online.png">
+      <Link>Images\RealmList_Status_Online.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\RealmList_Population.png">
+      <Link>Images\RealmList_Population.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\RealmList_Queue.png">
+      <Link>Images\RealmList_Queue.png</Link>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

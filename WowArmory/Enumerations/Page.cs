@@ -1,0 +1,13 @@
+﻿namespace WowArmory.Enumerations
+{
+	public enum Page
+	{
+		Main,
+		Settings,
+		Help,
+		News,
+		RealmList,
+		CharacterList,
+		CharacterDetails
+	}
+}

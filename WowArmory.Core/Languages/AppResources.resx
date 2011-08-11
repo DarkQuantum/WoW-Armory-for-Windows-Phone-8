@@ -117,527 +117,239 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Application_Title" xml:space="preserve">
-    <value>World of Warcraft™ - Armory</value>
+  <data name="APP_Name" xml:space="preserve">
+    <value>World of Warcraft™ Armory</value>
   </data>
-  <data name="Application_Title_AllCaps" xml:space="preserve">
-    <value>WORLD OF WARCRAFT™ - ARMORY</value>
+  <data name="APP_Name_AllCaps" xml:space="preserve">
+    <value>WORLD OF WARCRAFT™ ARMORY</value>
   </data>
-  <data name="Armory_Locale" xml:space="preserve">
-    <value>en_us</value>
+  <data name="APP_Subname" xml:space="preserve">
+    <value>Have your characters always with you</value>
   </data>
-  <data name="Character_Class_1" xml:space="preserve">
-    <value>Warrior</value>
-  </data>
-  <data name="Character_Class_11" xml:space="preserve">
-    <value>Druid</value>
-  </data>
-  <data name="Character_Class_2" xml:space="preserve">
-    <value>Paladin</value>
-  </data>
-  <data name="Character_Class_3" xml:space="preserve">
-    <value>Hunter</value>
-  </data>
-  <data name="Character_Class_4" xml:space="preserve">
-    <value>Rogue</value>
-  </data>
-  <data name="Character_Class_5" xml:space="preserve">
-    <value>Priest</value>
-  </data>
-  <data name="Character_Class_6" xml:space="preserve">
+  <data name="BattleNet_Classes_DeathKnight" xml:space="preserve">
     <value>Death Knight</value>
   </data>
-  <data name="Character_Class_7" xml:space="preserve">
-    <value>Shaman</value>
+  <data name="BattleNet_Classes_Druid" xml:space="preserve">
+    <value>Druid</value>
   </data>
-  <data name="Character_Class_8" xml:space="preserve">
+  <data name="BattleNet_Classes_Hunter" xml:space="preserve">
+    <value>Hunter</value>
+  </data>
+  <data name="BattleNet_Classes_Mage" xml:space="preserve">
     <value>Mage</value>
   </data>
-  <data name="Character_Class_9" xml:space="preserve">
+  <data name="BattleNet_Classes_Paladin" xml:space="preserve">
+    <value>Paladin</value>
+  </data>
+  <data name="BattleNet_Classes_Priest" xml:space="preserve">
+    <value>Priest</value>
+  </data>
+  <data name="BattleNet_Classes_Rogue" xml:space="preserve">
+    <value>Rogue</value>
+  </data>
+  <data name="BattleNet_Classes_Shaman" xml:space="preserve">
+    <value>Shaman</value>
+  </data>
+  <data name="BattleNet_Classes_Warlock" xml:space="preserve">
     <value>Warlock</value>
   </data>
-  <data name="Character_Faction_0" xml:space="preserve">
-    <value>Alliance</value>
+  <data name="BattleNet_Classes_Warrior" xml:space="preserve">
+    <value>Warrior</value>
   </data>
-  <data name="Character_Faction_1" xml:space="preserve">
-    <value>Horde</value>
+  <data name="BattleNet_Races_BloodElf" xml:space="preserve">
+    <value>Blood Elf</value>
   </data>
-  <data name="Character_Gender_0" xml:space="preserve">
-    <value>Male</value>
+  <data name="BattleNet_Races_Draenei" xml:space="preserve">
+    <value>Draenei</value>
   </data>
-  <data name="Character_Gender_1" xml:space="preserve">
-    <value>Female</value>
+  <data name="BattleNet_Races_Dwarf" xml:space="preserve">
+    <value>Dwarf</value>
   </data>
-  <data name="Item_AllowableClasses" xml:space="preserve">
-    <value>Classes</value>
+  <data name="BattleNet_Races_Gnome" xml:space="preserve">
+    <value>Gnome</value>
   </data>
-  <data name="Item_Armor" xml:space="preserve">
-    <value>{0} Armor</value>
+  <data name="BattleNet_Races_Human" xml:space="preserve">
+    <value>Human</value>
   </data>
-  <data name="Item_Bonding_BindsOnEquip" xml:space="preserve">
-    <value>Binds when equipped</value>
+  <data name="BattleNet_Races_NightElf" xml:space="preserve">
+    <value>Night Elf</value>
   </data>
-  <data name="Item_Bonding_BindsOnPickup" xml:space="preserve">
-    <value>Binds when picked up</value>
+  <data name="BattleNet_Races_Orc" xml:space="preserve">
+    <value>Orc</value>
   </data>
-  <data name="Item_Bonding_BindsOnUse" xml:space="preserve">
-    <value>Binds when used</value>
+  <data name="BattleNet_Races_Tauren" xml:space="preserve">
+    <value>Tauren</value>
   </data>
-  <data name="Item_BonusAgility" xml:space="preserve">
-    <value>+{0} Agility</value>
+  <data name="BattleNet_Races_Troll" xml:space="preserve">
+    <value>Troll</value>
   </data>
-  <data name="Item_BonusIntellect" xml:space="preserve">
-    <value>+{0} Intellect</value>
+  <data name="BattleNet_Races_Undead" xml:space="preserve">
+    <value>Undead</value>
   </data>
-  <data name="Item_BonusSpirit" xml:space="preserve">
-    <value>+{0} Spirit</value>
-  </data>
-  <data name="Item_BonusStamina" xml:space="preserve">
-    <value>+{0} Stamina</value>
-  </data>
-  <data name="Item_BonusStrength" xml:space="preserve">
-    <value>+{0} Strength</value>
-  </data>
-  <data name="Item_Bonus_ArmorPenetration" xml:space="preserve">
-    <value>Equip: Increases your armor penetration rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_AttackPower" xml:space="preserve">
-    <value>Equip: Increases your attack power by {0}</value>
-  </data>
-  <data name="Item_Bonus_BlockRating" xml:space="preserve">
-    <value>Equip: Increases your shield block rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_BlockValue" xml:space="preserve">
-    <value>Equip: Increases the block value of your shield by {0}</value>
-  </data>
-  <data name="Item_Bonus_CritRating" xml:space="preserve">
-    <value>Equip: Improves critical strike rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_CritSpellRating" xml:space="preserve">
-    <value>Equip: Improves spell critical strike rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_DefenseSkillRating" xml:space="preserve">
-    <value>Equip: Increases defense rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_DodgeRating" xml:space="preserve">
-    <value>Equip: Increases your dodge rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_ExpertiseRating" xml:space="preserve">
-    <value>Equip: Increases your expertise rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_FeralAttackPower" xml:space="preserve">
-    <value>Equip: Increases your feral attack power by {0}</value>
-  </data>
-  <data name="Item_Bonus_HasteRating" xml:space="preserve">
-    <value>Equip: Improves haste rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_HasteSpellRating" xml:space="preserve">
-    <value>Equip: Improves spell haste rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_HealthRegen" xml:space="preserve">
-    <value>Equip: Increases your health regeneration by {0}</value>
-  </data>
-  <data name="Item_Bonus_HitRating" xml:space="preserve">
-    <value>Equip: Improves hit rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_HitSpellRating" xml:space="preserve">
-    <value>Equip: Improves spell hit rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_HitTakenRating" xml:space="preserve">
-    <value>Equip: Improves hit avoidance rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_ManaRegen" xml:space="preserve">
-    <value>Equip: Restores {0} mana per 5 secs</value>
-  </data>
-  <data name="Item_Bonus_ParryRating" xml:space="preserve">
-    <value>Equip: Increases your parry rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_RangedAttackPower" xml:space="preserve">
-    <value>Equip: Increases your ranged attack power by {0}</value>
-  </data>
-  <data name="Item_Bonus_ResilienceRating" xml:space="preserve">
-    <value>Equip: Improves your resilience rating by {0}</value>
-  </data>
-  <data name="Item_Bonus_SpellPenetration" xml:space="preserve">
-    <value>Equip: Increases spell penetration by {0}</value>
-  </data>
-  <data name="Item_Bonus_SpellPower" xml:space="preserve">
-    <value>Equip: Increases spell power by {0}</value>
-  </data>
-  <data name="Item_Damage" xml:space="preserve">
-    <value>Damage</value>
-  </data>
-  <data name="Item_Damage_DamagePerSecond" xml:space="preserve">
-    <value>damage per second</value>
-  </data>
-  <data name="Item_Damage_Speed" xml:space="preserve">
-    <value>Speed</value>
-  </data>
-  <data name="Item_DropRate_0" xml:space="preserve">
-    <value>None</value>
-  </data>
-  <data name="Item_DropRate_1" xml:space="preserve">
-    <value>Extremely Low (1% - 2%)</value>
-  </data>
-  <data name="Item_DropRate_2" xml:space="preserve">
-    <value>Very Low (3% - 14%)</value>
-  </data>
-  <data name="Item_DropRate_3" xml:space="preserve">
-    <value>Low (15% - 24%)</value>
-  </data>
-  <data name="Item_DropRate_4" xml:space="preserve">
-    <value>Medium (25% - 50%)</value>
-  </data>
-  <data name="Item_DropRate_5" xml:space="preserve">
-    <value>High (51% - 99%)</value>
-  </data>
-  <data name="Item_DropRate_6" xml:space="preserve">
-    <value>Guaranteed (100%)</value>
-  </data>
-  <data name="Item_Durability" xml:space="preserve">
-    <value>Durability: {0} / {1}</value>
-  </data>
-  <data name="Item_Heroic" xml:space="preserve">
-    <value>Heroic</value>
-  </data>
-  <data name="Item_InventoryType_Back" xml:space="preserve">
-    <value>Back</value>
-  </data>
-  <data name="Item_InventoryType_Bag" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Item_InventoryType_Chest" xml:space="preserve">
-    <value>Chest</value>
-  </data>
-  <data name="Item_InventoryType_Chest2" xml:space="preserve">
-    <value>Chest</value>
-  </data>
-  <data name="Item_InventoryType_Feet" xml:space="preserve">
-    <value>Feet</value>
-  </data>
-  <data name="Item_InventoryType_Finger" xml:space="preserve">
-    <value>Finger</value>
-  </data>
-  <data name="Item_InventoryType_Hand" xml:space="preserve">
-    <value>Hand</value>
-  </data>
-  <data name="Item_InventoryType_Head" xml:space="preserve">
-    <value>Head</value>
-  </data>
-  <data name="Item_InventoryType_HeldOffHand" xml:space="preserve">
-    <value>Held On Off Hand</value>
-  </data>
-  <data name="Item_InventoryType_Legs" xml:space="preserve">
-    <value>Legs</value>
-  </data>
-  <data name="Item_InventoryType_MainHand" xml:space="preserve">
-    <value>Main Hand</value>
-  </data>
-  <data name="Item_InventoryType_Neck" xml:space="preserve">
-    <value>Neck</value>
-  </data>
-  <data name="Item_InventoryType_NonEquip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Item_InventoryType_OffHand" xml:space="preserve">
-    <value>Off Hand</value>
-  </data>
-  <data name="Item_InventoryType_OffHand2" xml:space="preserve">
-    <value>Off Hand</value>
-  </data>
-  <data name="Item_InventoryType_OneHand" xml:space="preserve">
-    <value>One-Hand</value>
-  </data>
-  <data name="Item_InventoryType_Projectile" xml:space="preserve">
-    <value>Projectile</value>
-  </data>
-  <data name="Item_InventoryType_Quiver" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Item_InventoryType_Ranged" xml:space="preserve">
-    <value>Ranged</value>
-  </data>
-  <data name="Item_InventoryType_Ranged2" xml:space="preserve">
-    <value>Ranged</value>
-  </data>
-  <data name="Item_InventoryType_Relic" xml:space="preserve">
-    <value>Relic</value>
-  </data>
-  <data name="Item_InventoryType_Shirt" xml:space="preserve">
-    <value>Shirt</value>
-  </data>
-  <data name="Item_InventoryType_Shoulder" xml:space="preserve">
-    <value>Shoulders</value>
-  </data>
-  <data name="Item_InventoryType_Tabard" xml:space="preserve">
-    <value>Tabard</value>
-  </data>
-  <data name="Item_InventoryType_Thrown" xml:space="preserve">
-    <value>Thrown</value>
-  </data>
-  <data name="Item_InventoryType_Trinket" xml:space="preserve">
-    <value>Trinket</value>
-  </data>
-  <data name="Item_InventoryType_TwoHand" xml:space="preserve">
-    <value>Two Hand</value>
-  </data>
-  <data name="Item_InventoryType_Waist" xml:space="preserve">
-    <value>Waist</value>
-  </data>
-  <data name="Item_InventoryType_Wrist" xml:space="preserve">
-    <value>Wrist</value>
-  </data>
-  <data name="Item_Level" xml:space="preserve">
-    <value>Item Level {0}</value>
-  </data>
-  <data name="Item_MaxCount_Unique" xml:space="preserve">
-    <value>Unique</value>
-  </data>
-  <data name="Item_MaxCount_UniqueEquipabble" xml:space="preserve">
-    <value>{0}-Equipped</value>
-  </data>
-  <data name="Item_RequiredLevel" xml:space="preserve">
-    <value>Requires Level {0}</value>
-  </data>
-  <data name="Item_Set" xml:space="preserve">
-    <value>Set</value>
-  </data>
-  <data name="Item_Socket" xml:space="preserve">
-    <value>Socket</value>
-  </data>
-  <data name="Item_Socket_Blue" xml:space="preserve">
-    <value>Blue</value>
-  </data>
-  <data name="Item_Socket_Bonus" xml:space="preserve">
-    <value>Socket Bonus</value>
-  </data>
-  <data name="Item_Socket_Meta" xml:space="preserve">
-    <value>Meta</value>
-  </data>
-  <data name="Item_Socket_Red" xml:space="preserve">
-    <value>Red</value>
-  </data>
-  <data name="Item_Socket_Yellow" xml:space="preserve">
-    <value>Yellow</value>
-  </data>
-  <data name="Item_Source_bossDrop" xml:space="preserve">
-    <value>Boss Drop</value>
-  </data>
-  <data name="Item_Source_createdByPlans" xml:space="preserve">
-    <value>Created</value>
-  </data>
-  <data name="Item_Source_createdBySpell" xml:space="preserve">
-    <value>Created</value>
-  </data>
-  <data name="Item_Source_creatureDrop" xml:space="preserve">
-    <value>Drop</value>
-  </data>
-  <data name="Item_Source_creatureHerb" xml:space="preserve">
-    <value>Herbalism</value>
-  </data>
-  <data name="Item_Source_creatureMine" xml:space="preserve">
-    <value>Mining</value>
-  </data>
-  <data name="Item_Source_creatureSkin" xml:space="preserve">
-    <value>Skinning</value>
-  </data>
-  <data name="Item_Source_currency" xml:space="preserve">
-    <value>Currency</value>
-  </data>
-  <data name="Item_Source_factionReward" xml:space="preserve">
-    <value>Reputation Reward</value>
-  </data>
-  <data name="Item_Source_gameObjectDrop" xml:space="preserve">
-    <value>Chest Drop</value>
-  </data>
-  <data name="Item_Source_none" xml:space="preserve">
-    <value />
-  </data>
-  <data name="Item_Source_objQuest" xml:space="preserve">
-    <value>Quest Item</value>
-  </data>
-  <data name="Item_Source_pickPocket" xml:space="preserve">
-    <value>Pickpocket</value>
-  </data>
-  <data name="Item_Source_planForItem" xml:space="preserve">
-    <value>Plans</value>
-  </data>
-  <data name="Item_Source_providedQuest" xml:space="preserve">
-    <value>Quest Item</value>
-  </data>
-  <data name="Item_Source_pvpReward" xml:space="preserve">
-    <value>PvP Reward</value>
-  </data>
-  <data name="Item_Source_questReward" xml:space="preserve">
-    <value>Quest Reward</value>
-  </data>
-  <data name="Item_Source_reagentSpell" xml:space="preserve">
-    <value>Reagent</value>
-  </data>
-  <data name="Item_Source_startsQuest" xml:space="preserve">
-    <value>Quest Item</value>
-  </data>
-  <data name="Item_Source_vendor" xml:space="preserve">
-    <value>Vendor</value>
-  </data>
-  <data name="Item_Source_vendorPvp" xml:space="preserve">
-    <value>PvP Reward</value>
-  </data>
-  <data name="Item_Source_worldDrop" xml:space="preserve">
-    <value>Drop</value>
-  </data>
-  <data name="Page_Title_Search" xml:space="preserve">
-    <value>search</value>
-  </data>
-  <data name="Regions" xml:space="preserve">
-    <value>Europe;USA;China;Korea;Taiwan</value>
-  </data>
-  <data name="Region_China" xml:space="preserve">
-    <value>China</value>
-  </data>
-  <data name="Region_Europe" xml:space="preserve">
+  <data name="BattleNet_Region_Europe" xml:space="preserve">
     <value>Europe</value>
   </data>
-  <data name="Region_Korea" xml:space="preserve">
-    <value>Korea</value>
-  </data>
-  <data name="Region_Taiwan" xml:space="preserve">
-    <value>Taiwan</value>
-  </data>
-  <data name="Region_USA" xml:space="preserve">
+  <data name="BattleNet_Region_USA" xml:space="preserve">
     <value>USA</value>
   </data>
-  <data name="UI_ApplicationBar_RemoveAll" xml:space="preserve">
-    <value>remove all</value>
+  <data name="BattleNet_Reputation_Exalted" xml:space="preserve">
+    <value>Exalted</value>
   </data>
-  <data name="UI_ApplicationBar_Search" xml:space="preserve">
-    <value>search</value>
+  <data name="BattleNet_Reputation_Friendly" xml:space="preserve">
+    <value>Friendly</value>
   </data>
-  <data name="UI_ApplicationBar_Settings" xml:space="preserve">
-    <value>settings</value>
+  <data name="BattleNet_Reputation_Hated" xml:space="preserve">
+    <value>Hated</value>
   </data>
-  <data name="UI_CharacterDetails_Armor" xml:space="preserve">
-    <value>Armor</value>
+  <data name="BattleNet_Reputation_Honored" xml:space="preserve">
+    <value>Honored</value>
   </data>
-  <data name="UI_CharacterDetails_Attributes" xml:space="preserve">
-    <value>Attributes</value>
+  <data name="BattleNet_Reputation_Hostile" xml:space="preserve">
+    <value>Hostile</value>
   </data>
-  <data name="UI_CharacterDetails_Block" xml:space="preserve">
-    <value>Block</value>
+  <data name="BattleNet_Reputation_Neutral" xml:space="preserve">
+    <value>Neutral</value>
   </data>
-  <data name="UI_CharacterDetails_BonusDamage" xml:space="preserve">
-    <value>Bonus Damage</value>
+  <data name="BattleNet_Reputation_Revered" xml:space="preserve">
+    <value>Revered</value>
   </data>
-  <data name="UI_CharacterDetails_BonusHealing" xml:space="preserve">
-    <value>Bonus Healing</value>
+  <data name="BattleNet_Reputation_Unfriendly" xml:space="preserve">
+    <value>Unfriendly</value>
   </data>
-  <data name="UI_CharacterDetails_Boss" xml:space="preserve">
-    <value>Boss</value>
+  <data name="Pages_Main_Button_Characters" xml:space="preserve">
+    <value>Characters</value>
   </data>
-  <data name="UI_CharacterDetails_CritChance" xml:space="preserve">
-    <value>Crit Chance</value>
+  <data name="Pages_Main_Button_Help" xml:space="preserve">
+    <value>Help</value>
   </data>
-  <data name="UI_CharacterDetails_Damage" xml:space="preserve">
-    <value>Damage</value>
+  <data name="Pages_Main_Button_News" xml:space="preserve">
+    <value>News</value>
   </data>
-  <data name="UI_CharacterDetails_Defense" xml:space="preserve">
-    <value>Defense</value>
+  <data name="Pages_Main_Button_Realms" xml:space="preserve">
+    <value>Realms</value>
   </data>
-  <data name="UI_CharacterDetails_Defenses" xml:space="preserve">
-    <value>Defenses</value>
+  <data name="Pages_Main_Button_Settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
-  <data name="UI_CharacterDetails_Dodge" xml:space="preserve">
-    <value>Dodge</value>
-  </data>
-  <data name="UI_CharacterDetails_DropRate" xml:space="preserve">
-    <value>Drop Rate</value>
-  </data>
-  <data name="UI_CharacterDetails_Expertise" xml:space="preserve">
-    <value>Expertise</value>
-  </data>
-  <data name="UI_CharacterDetails_General" xml:space="preserve">
-    <value>General</value>
-  </data>
-  <data name="UI_CharacterDetails_HasteRating" xml:space="preserve">
-    <value>Haste Rating</value>
-  </data>
-  <data name="UI_CharacterDetails_HitRating" xml:space="preserve">
-    <value>Hit Rating</value>
-  </data>
-  <data name="UI_CharacterDetails_ManaRegen" xml:space="preserve">
-    <value>Mana Regen</value>
-  </data>
-  <data name="UI_CharacterDetails_Melee" xml:space="preserve">
-    <value>Melee</value>
-  </data>
-  <data name="UI_CharacterDetails_Parry" xml:space="preserve">
-    <value>Parry</value>
+  <data name="Page_RealmList_Title" xml:space="preserve">
+    <value>Detailed realm information and status</value>
   </data>
   <data name="UI_CharacterDetails_PivotItem_Achievements" xml:space="preserve">
     <value>achievements</value>
   </data>
-  <data name="UI_CharacterDetails_PivotItem_Activity" xml:space="preserve">
-    <value>activity</value>
-  </data>
   <data name="UI_CharacterDetails_PivotItem_Character" xml:space="preserve">
     <value>character</value>
+  </data>
+  <data name="UI_CharacterDetails_PivotItem_Companions" xml:space="preserve">
+    <value>companions</value>
+  </data>
+  <data name="UI_CharacterDetails_PivotItem_Guild" xml:space="preserve">
+    <value>guild</value>
+  </data>
+  <data name="UI_CharacterDetails_PivotItem_Mounts" xml:space="preserve">
+    <value>mounts</value>
+  </data>
+  <data name="UI_CharacterDetails_PivotItem_Pets" xml:space="preserve">
+    <value>pets</value>
+  </data>
+  <data name="UI_CharacterDetails_PivotItem_Professions" xml:space="preserve">
+    <value>professions</value>
+  </data>
+  <data name="UI_CharacterDetails_PivotItem_Progression" xml:space="preserve">
+    <value>progression</value>
   </data>
   <data name="UI_CharacterDetails_PivotItem_Reputation" xml:space="preserve">
     <value>reputation</value>
   </data>
-  <data name="UI_CharacterDetails_PivotItem_Statistics" xml:space="preserve">
-    <value>statistics</value>
+  <data name="UI_CharacterDetails_PivotItem_Titles" xml:space="preserve">
+    <value>titles</value>
   </data>
-  <data name="UI_CharacterDetails_PivotItem_Talents" xml:space="preserve">
-    <value>talents</value>
+  <data name="UI_CharacterDetails_Professions_None" xml:space="preserve">
+    <value>This character has no professions</value>
   </data>
-  <data name="UI_CharacterDetails_Power" xml:space="preserve">
-    <value>Power</value>
+  <data name="UI_CharacterDetails_Professions_Primary" xml:space="preserve">
+    <value>Professions</value>
   </data>
-  <data name="UI_CharacterDetails_Ranged" xml:space="preserve">
-    <value>Ranged</value>
+  <data name="UI_CharacterDetails_Professions_Primary_None" xml:space="preserve">
+    <value>This character has no primary professions</value>
   </data>
-  <data name="UI_CharacterDetails_Resilience" xml:space="preserve">
-    <value>Resilience</value>
+  <data name="UI_CharacterDetails_Professions_Secondary" xml:space="preserve">
+    <value>Secondary Skills</value>
   </data>
-  <data name="UI_CharacterDetails_Source" xml:space="preserve">
-    <value>Source</value>
+  <data name="UI_CharacterDetails_Professions_Secondary_None" xml:space="preserve">
+    <value>This character has no secondary professions</value>
   </data>
-  <data name="UI_CharacterDetails_Speed" xml:space="preserve">
-    <value>Speed</value>
+  <data name="BattleNet_Realm_Population_High" xml:space="preserve">
+    <value>High</value>
   </data>
-  <data name="UI_CharacterDetails_Spell" xml:space="preserve">
-    <value>Spell</value>
+  <data name="BattleNet_Realm_Population_Low" xml:space="preserve">
+    <value>Low</value>
   </data>
-  <data name="UI_Favorites_MessageBox_RemoveAll_Body" xml:space="preserve">
-    <value>All saved characters will be removed from your favorites.</value>
+  <data name="BattleNet_Realm_Population_Medium" xml:space="preserve">
+    <value>Medium</value>
   </data>
-  <data name="UI_Favorites_MessageBox_RemoveAll_Title" xml:space="preserve">
-    <value>Remove all</value>
+  <data name="BattleNet_Realm_Population_NotAvailable" xml:space="preserve">
+    <value>Not available</value>
   </data>
-  <data name="UI_PivotHeader_Characters" xml:space="preserve">
-    <value>characters</value>
+  <data name="BattleNet_Realm_Type_PvE" xml:space="preserve">
+    <value>PvE</value>
   </data>
-  <data name="UI_PivotHeader_Guilds" xml:space="preserve">
-    <value>guilds</value>
+  <data name="BattleNet_Realm_Type_PvP" xml:space="preserve">
+    <value>PvP</value>
   </data>
-  <data name="UI_Search_CouldNotRetrieveInformation" xml:space="preserve">
-    <value>Could not retrieve information from armory</value>
+  <data name="BattleNet_Realm_Type_RP" xml:space="preserve">
+    <value>RP</value>
   </data>
-  <data name="UI_Search_Name" xml:space="preserve">
-    <value>name</value>
+  <data name="BattleNet_Realm_Type_RPPvP" xml:space="preserve">
+    <value>RPPvP</value>
   </data>
-  <data name="UI_Search_NoCharacterFound" xml:space="preserve">
-    <value>No character found</value>
+  <data name="UI_Common_LoadingData" xml:space="preserve">
+    <value>Loading data...</value>
   </data>
-  <data name="UI_Search_NoResultFound" xml:space="preserve">
-    <value>No result found</value>
+  <data name="UI_RealmList_Queue" xml:space="preserve">
+    <value>Login queue!</value>
   </data>
-  <data name="UI_Search_Realm" xml:space="preserve">
-    <value>realm (optional)</value>
+  <data name="Page_CharacterList_Title" xml:space="preserve">
+    <value>Search characters and manage your favorites</value>
   </data>
-  <data name="UI_Search_Search" xml:space="preserve">
-    <value>search</value>
+  <data name="Page_Settings_Title" xml:space="preserve">
+    <value>Change your settings</value>
+  </data>
+  <data name="Page_Help_Title" xml:space="preserve">
+    <value>Read more about this app</value>
+  </data>
+  <data name="Page_News_Title" xml:space="preserve">
+    <value>Latest news for this app</value>
+  </data>
+  <data name="UI_Help_PivotItem_About" xml:space="preserve">
+    <value>about</value>
+  </data>
+  <data name="About_Copyright" xml:space="preserve">
+    <value>©2010-2011 Christian Krueger. All rights reserved.</value>
+  </data>
+  <data name="About_CreatedBy" xml:space="preserve">
+    <value>Created by Christian Krueger</value>
+  </data>
+  <data name="About_Links" xml:space="preserve">
+    <value>Follow @wp7wowarmory on twitter or visit the facebook page:</value>
+  </data>
+  <data name="About_Trademarks" xml:space="preserve">
+    <value>All trademarks referenced in this application are the properties of their respective owners.</value>
+  </data>
+  <data name="About_Version" xml:space="preserve">
+    <value>Version 2.0</value>
+  </data>
+  <data name="About_FacebookURL" xml:space="preserve">
+    <value>facebook.com/wp7wowarmory</value>
+  </data>
+  <data name="About_VersionName" xml:space="preserve">
+    <value>Cataclysm Edition</value>
+  </data>
+  <data name="UI_Settings_PivotItem_General" xml:space="preserve">
+    <value>general</value>
+  </data>
+  <data name="UI_Settings_General_Region" xml:space="preserve">
+    <value>Battle.Net region</value>
   </data>
   <data name="UI_Settings_ApplicationBar_Cancel" xml:space="preserve">
     <value>cancel</value>
@@ -645,262 +357,22 @@
   <data name="UI_Settings_ApplicationBar_Save" xml:space="preserve">
     <value>save</value>
   </data>
-  <data name="UI_Settings_PivotItem_General" xml:space="preserve">
-    <value>general</value>
+  <data name="UI_CharacterList_Search_Error_CharacterNotFound_Caption" xml:space="preserve">
+    <value>Character not found</value>
   </data>
-  <data name="UI_Settings_Region" xml:space="preserve">
-    <value>region</value>
+  <data name="UI_CharacterList_Search_Error_CharacterNotFound_Text" xml:space="preserve">
+    <value>The specified character could not be found</value>
   </data>
-  <data name="UI_Settings_Title" xml:space="preserve">
-    <value>Settings</value>
+  <data name="UI_CharacterList_Search_Error_RealmNotFound_Caption" xml:space="preserve">
+    <value>Realm not found</value>
   </data>
-  <data name="UI_Settings_TitleAllCaps" xml:space="preserve">
-    <value>SETTINGS</value>
+  <data name="UI_CharacterList_Search_Error_RealmNotFound_Text" xml:space="preserve">
+    <value>The specified realm could not be found</value>
   </data>
-  <data name="UI_String_Agility" xml:space="preserve">
-    <value>Agility</value>
+  <data name="UI_CharacterList_Search_Error_Unknown_Caption" xml:space="preserve">
+    <value>No data retrieved</value>
   </data>
-  <data name="UI_String_Armor" xml:space="preserve">
-    <value>Armor</value>
-  </data>
-  <data name="UI_CharacterDetails_SecondBarType_f" xml:space="preserve">
-    <value>Focus</value>
-  </data>
-  <data name="UI_String_Health" xml:space="preserve">
-    <value>Health</value>
-  </data>
-  <data name="UI_String_Intellect" xml:space="preserve">
-    <value>Intellect</value>
-  </data>
-  <data name="UI_String_Level" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="UI_String_Loading" xml:space="preserve">
-    <value>Loading...</value>
-  </data>
-  <data name="UI_CharacterDetails_SecondBarType_m" xml:space="preserve">
-    <value>Mana</value>
-  </data>
-  <data name="UI_CharacterDetails_SecondBarType_r" xml:space="preserve">
-    <value>Rage</value>
-  </data>
-  <data name="UI_CharacterDetails_SecondBarType_p" xml:space="preserve">
-    <value>Runic Power</value>
-  </data>
-  <data name="UI_String_Spirit" xml:space="preserve">
-    <value>Spirit</value>
-  </data>
-  <data name="UI_String_Stamina" xml:space="preserve">
-    <value>Stamina</value>
-  </data>
-  <data name="UI_String_Strength" xml:space="preserve">
-    <value>Strength</value>
-  </data>
-  <data name="UI_CharacterDetails_CouldNotLoadItemToolTip" xml:space="preserve">
-    <value>Could not retrieve item information from armory</value>
-  </data>
-  <data name="UI_CharacterDetails_SecondBarType_e" xml:space="preserve">
-    <value>Energy</value>
-  </data>
-  <data name="UI_SearchResult_Title" xml:space="preserve">
-    <value>Search Result</value>
-  </data>
-  <data name="UI_SearchResult_TitleAllCaps" xml:space="preserve">
-    <value>SEARCH RESULT</value>
-  </data>
-  <data name="UI_SearchResult_PivotItem_Characters" xml:space="preserve">
-    <value>characters</value>
-  </data>
-  <data name="UI_SearchResult_PivotItem_Guilds" xml:space="preserve">
-    <value>guilds</value>
-  </data>
-  <data name="SearchType_All" xml:space="preserve">
-    <value>all</value>
-  </data>
-  <data name="SearchType_ArenaTeams" xml:space="preserve">
-    <value>arena teams</value>
-  </data>
-  <data name="SearchType_Characters" xml:space="preserve">
-    <value>characters</value>
-  </data>
-  <data name="SearchType_Guilds" xml:space="preserve">
-    <value>guilds</value>
-  </data>
-  <data name="SearchType_Items" xml:space="preserve">
-    <value>items</value>
-  </data>
-  <data name="Page_Title_SearchResult" xml:space="preserve">
-    <value>search result</value>
-  </data>
-  <data name="UI_Search_CouldNotRetrieveCharacter" xml:space="preserve">
-    <value>Could not retrieve character information from armory</value>
-  </data>
-  <data name="UI_Search_CouldNotRetrieveInformation_Caption" xml:space="preserve">
-    <value>Armory Error</value>
-  </data>
-  <data name="UI_Error_Unknown_Text" xml:space="preserve">
-    <value>An unknown error occured.</value>
-  </data>
-  <data name="UI_Error_Unknown_Title" xml:space="preserve">
-    <value>Error occured</value>
-  </data>
-  <data name="UI_Settings_PivotItem_About" xml:space="preserve">
-    <value>about</value>
-  </data>
-  <data name="About_Copyright" xml:space="preserve">
-    <value>©2010 Christian Krueger. All rights reserved.</value>
-  </data>
-  <data name="About_CreatedBy" xml:space="preserve">
-    <value>Created by Christian Krueger</value>
-  </data>
-  <data name="About_Trademarks" xml:space="preserve">
-    <value>All trademarks referenced in this application are the properties of their respective owners.</value>
-  </data>
-  <data name="About_Version" xml:space="preserve">
-    <value>Version 1.3</value>
-  </data>
-  <data name="UI_Reputation_0" xml:space="preserve">
-    <value>Hated</value>
-  </data>
-  <data name="UI_Reputation_1" xml:space="preserve">
-    <value>Hostile</value>
-  </data>
-  <data name="UI_Reputation_2" xml:space="preserve">
-    <value>Unfriendly</value>
-  </data>
-  <data name="UI_Reputation_3" xml:space="preserve">
-    <value>Neutral</value>
-  </data>
-  <data name="UI_Reputation_4" xml:space="preserve">
-    <value>Friendly</value>
-  </data>
-  <data name="UI_Reputation_5" xml:space="preserve">
-    <value>Honored</value>
-  </data>
-  <data name="UI_Reputation_6" xml:space="preserve">
-    <value>Revered</value>
-  </data>
-  <data name="UI_Reputation_7" xml:space="preserve">
-    <value>Exalted</value>
-  </data>
-  <data name="UI_CharacterDetails_PivotItem_Professions" xml:space="preserve">
-    <value>professions</value>
-  </data>
-  <data name="UI_CharacterDetails_Professions_Primary" xml:space="preserve">
-    <value>Primary Professions</value>
-  </data>
-  <data name="UI_CharacterDetails_Professions_Secondary" xml:space="preserve">
-    <value>Secondary Professions</value>
-  </data>
-  <data name="UI_CharacterDetails_Professions_Primary_None" xml:space="preserve">
-    <value>This character has no primary professions</value>
-  </data>
-  <data name="UI_CharacterDetails_Professions_Secondary_None" xml:space="preserve">
-    <value>This character has no secondary professions</value>
-  </data>
-  <data name="UI_CharacterDetails_Professions_None" xml:space="preserve">
-    <value>This character has no professions</value>
-  </data>
-  <data name="About_Links" xml:space="preserve">
-    <value>For the latest news and development information you can follow @wp7wowarmory on twitter.</value>
-  </data>
-  <data name="UI_Search_ArmoryError" xml:space="preserve">
-    <value>The armory did not provide any information</value>
-  </data>
-  <data name="UI_Favorites_MessageBox_RemoveSelected_Body" xml:space="preserve">
-    <value>{0} will be removed from your favorites.</value>
-  </data>
-  <data name="UI_Favorites_MessageBox_RemoveSelected_Title" xml:space="preserve">
-    <value>Remove character</value>
-  </data>
-  <data name="UI_Favorites_ContextMenuItem_Refresh" xml:space="preserve">
-    <value>refresh</value>
-  </data>
-  <data name="UI_Favorites_ContextMenuItem_Remove" xml:space="preserve">
-    <value>remove</value>
-  </data>
-  <data name="UI_Settings_FavoritesSortBy" xml:space="preserve">
-    <value>sort favorites by</value>
-  </data>
-  <data name="Settings_FavoritesSortBy" xml:space="preserve">
-    <value>Name;Level;Achievements</value>
-  </data>
-  <data name="Settings_FavoritesSortBy_Achievements" xml:space="preserve">
-    <value>Achievements</value>
-  </data>
-  <data name="Settings_FavoritesSortBy_Level" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="Settings_FavoritesSortBy_Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
-  <data name="UI_Search_Region" xml:space="preserve">
-    <value>region</value>
-  </data>
-  <data name="UI_Search_NameLengthInvalid" xml:space="preserve">
-    <value>Please enter at least 2 characters for the name</value>
-  </data>
-  <data name="UI_Search_NameLengthInvalid_Caption" xml:space="preserve">
-    <value>Search input</value>
-  </data>
-  <data name="UI_Search_NoNameSpecified" xml:space="preserve">
-    <value>Please specify a name to search for in the armory</value>
-  </data>
-  <data name="UI_Search_NoNameSpecified_Caption" xml:space="preserve">
-    <value>Search input</value>
-  </data>
-  <data name="UI_TextBox_Optional" xml:space="preserve">
-    <value>optional</value>
-  </data>
-  <data name="UI_Favorites_MessageBox_NothingToRemove_Body" xml:space="preserve">
-    <value>There is nothing to remove</value>
-  </data>
-  <data name="UI_Favorites_MessageBox_NothingToRemove_Title" xml:space="preserve">
-    <value>Not possible</value>
-  </data>
-  <data name="UI_Search_NoCharacterFound_Title" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="UI_Settings_AutoUpdate" xml:space="preserve">
-    <value>update character automatically</value>
-  </data>
-  <data name="UI_Settings_AutoUpdateSinceLastUpdate" xml:space="preserve">
-    <value>1;2;5;7</value>
-  </data>
-  <data name="UI_Settings_AutoUpdateSinceLastUpdate_1" xml:space="preserve">
-    <value>1 day</value>
-  </data>
-  <data name="UI_Settings_AutoUpdateSinceLastUpdate_2" xml:space="preserve">
-    <value>2 days</value>
-  </data>
-  <data name="UI_Settings_AutoUpdateSinceLastUpdate_5" xml:space="preserve">
-    <value>5 days</value>
-  </data>
-  <data name="UI_Settings_AutoUpdateSinceLastUpdate_7" xml:space="preserve">
-    <value>1 week</value>
-  </data>
-  <data name="UI_Settings_AutoUpdateTimeInterval" xml:space="preserve">
-    <value>since last update</value>
-  </data>
-  <data name="UI_Settings_UseAutoUpdateTimeInterval" xml:space="preserve">
-    <value>use auto update time interval</value>
-  </data>
-  <data name="UI_CharacterDetails_Achievements" xml:space="preserve">
-    <value>Achievements</value>
-  </data>
-  <data name="UI_CharacterDetails_ActivityText_Achievement" xml:space="preserve">
-    <value>Earned the achievement [{0}] for {1} points.</value>
-  </data>
-  <data name="UI_CharacterDetails_ActivityText_Criteria" xml:space="preserve">
-    <value>Completed step [{0}] of achievement [{1}].</value>
-  </data>
-  <data name="UI_CharacterDetails_ActivityText_Loot" xml:space="preserve">
-    <value>Obtained [{0}].</value>
-  </data>
-  <data name="UI_CharacterDetails_ActivityText_Bosskill" xml:space="preserve">
-    <value>{0} {1}.</value>
-  </data>
-  <data name="UI_CharacterDetails_ActivityText_FeatOfStrength" xml:space="preserve">
-    <value>Earned the feat of strength [{0}].</value>
+  <data name="UI_CharacterList_Search_Error_Unknown_Text" xml:space="preserve">
+    <value>Could not retrieve data from Battle.Net</value>
   </data>
 </root>

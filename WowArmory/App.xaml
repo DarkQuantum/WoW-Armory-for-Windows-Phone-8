@@ -2,19 +2,25 @@
     x:Class="WowArmory.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
-	xmlns:vm="clr-namespace:WowArmory.ViewModels"
-	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	mc:Ignorable="d"
 	xmlns:unsupported="clr-namespace:Microsoft.Phone.Controls.Unsupported"
-	xmlns:lang="clr-namespace:WowArmory.Core.Languages;assembly=WowArmory.Core">
+	xmlns:vm="clr-namespace:WowArmory.ViewModels"
+	xmlns:lang="clr-namespace:WowArmory.Core.Languages;assembly=WowArmory.Core"
+	xmlns:cnv="clr-namespace:WowArmory.Core.Converters;assembly=WowArmory.Core"
+	xmlns:System="clr-namespace:System;assembly=mscorlib">
 
 	<!--Application Resources-->
 	<Application.Resources>
+		<vm:ViewModelLocator x:Key="ViewModelLocator" />
 		<lang:LocalizedStrings x:Key="LocalizedResources" />
-		<vm:ViewModelLocator x:Key="ViewModelLocator" d:IsDataSource="True" />
+		<cnv:BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+		<cnv:StringToUppercaseConverter x:Key="StringToUppercase" />
+		<cnv:ThumbnailImageUrlConverter x:Key="ThumbnailImageUrl" />
+		<cnv:AppImageUrlConverter x:Key="AppImageUrl" />
+		<cnv:ClassToLocalizedStringConverter x:Key="ClassToLocalizedString" />
+		<cnv:RaceToFactionConverter x:Key="RaceToFaction" />
+		
+		<System:Double x:Key="PhoneFontSizeXSmall">16</System:Double>
 		
 		<Style x:Key="PerformanceProgressBar" TargetType="ProgressBar">
 			<Setter Property="Foreground" Value="{StaticResource PhoneAccentBrush}"/>

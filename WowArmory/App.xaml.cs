@@ -1,56 +1,12 @@
-﻿// 
-// Copyright (c) 2010 Christian Krueger <christian.krueger@krueger-c.com>
-// 
-// All rights reserved.
-// 
-// Permission is hereby granted, free of charge and for non-commercial usage
-// only, to any person obtaining a copy of this software and associated
-// documentation files (the "Software"), to deal in the Software without
-// restriction, including without limitation the rights to use, copy, modify,
-// merge, publish, and/or distribute copies of the Software, and to permit
-// persons to whom the Software is furnished to do so, subject to the following
-// conditions:
-// 
-// The above copyright notice and this permission notice shall be included
-// in all copies or substantial portions of the Software.
-// 
-// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-// AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
-// IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE 
-// ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE 
-// LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR 
-// CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-// SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
-// INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
-// CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
-// ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF 
-// THE POSSIBILITY OF SUCH DAMAGE.
-// 
-
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Globalization;
-using System.IO;
-using System.IO.IsolatedStorage;
-using System.Text;
-using System.Threading;
+﻿using System;
 using System.Windows;
 using System.Windows.Navigation;
-using System.Xml;
-using System.Xml.Serialization;
 using Microsoft.Phone.Controls;
-using Microsoft.Phone.Info;
 using Microsoft.Phone.Shell;
-using Microsoft.Unsupported;
-using WowArmory.Core;
-using WowArmory.Core.Enumerations;
-using WowArmory.Core.Helpers;
-using WowArmory.Core.Languages;
-using WowArmory.Core.Models;
-using WowArmory.Core.Pages;
-using WowArmory.Core.Storage;
-using WowArmory.ViewModels;
+using Telerik.Windows.Controls;
+using WowArmory.Controllers;
+using WowArmory.Core.Managers;
+using WowArmory.Enumerations;
 
 namespace WowArmory
 {
@@ -64,8 +20,6 @@ namespace WowArmory
 		/// </summary>
 		/// <returns>The root frame of the Phone Application.</returns>
 		public PhoneApplicationFrame RootFrame { get; private set; }
-
-		public string PhoneID { get; set; }
 		//---------------------------------------------------------------------------
 		#endregion
 		//---------------------------------------------------------------------------
@@ -99,14 +53,6 @@ namespace WowArmory
 			// Standard Silverlight initialization
 			InitializeComponent();
 
-			try
-			{
-				PhoneID = Convert.ToBase64String( (byte[])DeviceExtendedProperties.GetValue( "DeviceUniqueId" ) );
-			}
-			catch ( Exception ex )
-			{
-			}
-
 			// Phone-specific initialization
 			InitializePhoneApplication();
 		}
@@ -115,52 +61,26 @@ namespace WowArmory
 		// This code will not execute when the application is reactivated
 		private void Application_Launching( object sender, LaunchingEventArgs e )
 		{
-			TiltEffect.SetIsTiltEnabled( RootFrame, false );
 		}
 
 		// Code to execute when the application is activated (brought to foreground)
 		// This code will not execute when the application is first launched
 		private void Application_Activated( object sender, ActivatedEventArgs e )
 		{
-			// TODO: Load state from PhoneApplicationService.Current.State
-			var state = this.RetrieveFromPhoneState();
-
-			if ( state != null && state.Count > 0 )
-			{
-				if ( state.ContainsKey( "IsTiltEnabled" ) ) { TiltEffect.SetIsTiltEnabled( RootFrame, (bool)state[ "IsTiltEnabled" ] ); }
-				if ( state.ContainsKey( "Search_TypeIndex" ) ) { ViewModelLocator.SearchStatic.SelectedSearchTypeIndex = (int)state[ "Search_TypeIndex" ]; }
-				if ( state.ContainsKey( "Search_Name" ) ) { ViewModelLocator.SearchStatic.SearchName = (string)state[ "Search_Name" ]; }
-				if ( state.ContainsKey( "Search_Realm" ) ) { ViewModelLocator.SearchStatic.SearchRealm = (string)state[ "Search_Realm" ]; }
-				if ( state.ContainsKey( "SearchResult_Result" ) ) { ViewModelLocator.SearchResultStatic.Result = (Core.Pages.SearchPage)state[ "SearchResult_Result" ]; }
-				if ( state.ContainsKey( "CharacterDetails_SelectedCharacter" ) ) { ViewModelLocator.CharacterDetailsStatic.SelectedCharacter = (ArmoryCharacter)state[ "CharacterDetails_SelectedCharacter" ]; }
-			}
 		}
 
 		// Code to execute when the application is deactivated (sent to background)
 		// This code will not execute when the application is closing
 		private void Application_Deactivated( object sender, DeactivatedEventArgs e )
 		{
-			//state.Add( "SearchResult_Result", ViewModelLocator.SearchResultStatic.Result );
-
-			this.SaveToPhoneState( "IsTiltEnabled", TiltEffect.GetIsTiltEnabled( RootFrame ) );
-			this.SaveToPhoneState( "Search_TypeIndex", ViewModelLocator.SearchStatic.SelectedSearchTypeIndex );
-			this.SaveToPhoneState( "Search_Name", ViewModelLocator.SearchStatic.SearchName );
-			this.SaveToPhoneState( "Search_Realm", ViewModelLocator.SearchStatic.SearchRealm );
-			if ( ViewModelLocator.SearchResultStatic.Result != null )
-			{
-				this.SaveToPhoneState( "SearchResult_Result", ViewModelLocator.SearchResultStatic.Result );
-			}
-			if ( ViewModelLocator.CharacterDetailsStatic.SelectedCharacter != null )
-			{
-				this.SaveToPhoneState( "CharacterDetails_SelectedCharacter", ViewModelLocator.CharacterDetailsStatic.SelectedCharacter );
-			}
+			IsolatedStorageManager.Save();
 		}
 
 		// Code to execute when the application is closing (eg, user hit Back)
 		// This code will not execute when the application is deactivated
 		private void Application_Closing( object sender, ClosingEventArgs e )
 		{
-			StorageManager.SaveSettings();
+			IsolatedStorageManager.Save();
 		}
 
 		// Code to execute if a navigation fails
@@ -194,36 +114,10 @@ namespace WowArmory
 			if ( phoneApplicationInitialized )
 				return;
 
-			var cultureInfo = Thread.CurrentThread.CurrentCulture;
-			var regionInfo = RegionInfo.CurrentRegion;
-
-			if ( regionInfo.EnglishName.Equals( "United States", StringComparison.CurrentCultureIgnoreCase ) )
-			{
-				Armory.Current.Region = Region.USA;
-			}
-			else
-			{
-				Armory.Current.Region = Region.Europe;
-			}
-
-			Armory.Current.Locale = AppResources.Armory_Locale;
-
-			StorageManager.LoadSettings();
-
-			if ( StorageManager.Settings.ContainsKey( "region" ) )
-			{
-				Armory.Current.Region = (Region)StorageManager.Settings[ "region" ];
-			}
-
-			if ( !StorageManager.Settings.ContainsKey( "autoUpdateCharacter" ) )
-			{
-				StorageManager.Settings.Upsert( "autoUpdateCharacter", true );
-			}
-
 			// Create the frame but don't set it as RootVisual yet; this allows the splash
 			// screen to remain active until the application is ready to render.
 			//RootFrame = new PhoneApplicationFrame();
-			RootFrame = new TransitionFrame();
+			RootFrame = new RadPhoneApplicationFrame();
 			RootFrame.Navigated += CompleteInitializePhoneApplication;
 
 			// Handle navigation failures
@@ -231,6 +125,15 @@ namespace WowArmory
 
 			// Ensure we don't initialize again
 			phoneApplicationInitialized = true;
+
+			// register all available pages
+			ApplicationController.Current.Register(Page.Main, new Uri("/Views/MainPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.Settings, new Uri("/Views/SettingsPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.Help, new Uri("/Views/HelpPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.News, new Uri("/Views/NewsPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.RealmList, new Uri("/Views/RealmListPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.CharacterList, new Uri("/Views/CharacterListPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.CharacterDetails, new Uri("/Views/CharacterDetailsPage.xaml", UriKind.Relative));
 		}
 
 		// Do not add any additional code to this method

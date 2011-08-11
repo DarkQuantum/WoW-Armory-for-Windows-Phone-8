@@ -1,31 +1,14 @@
 World of Warcraft(tm) Armory Application for Windows Phone 7
 ============================================================
 
-#### With this app you always have your characters with you ####
+#### Your mobile access to the World of Warcraft(tm) armory anywhere, anytime ####
 
-Show others your new item that you just got or view the characters of your friends or guild mates.
+# Credits #
 
-Get detailed information about your characters and the characters you add to your personal favorites.
-Look at the characters items and get an ingame like tooltip showing you:
+This application was developed by Christian Krueger.
 
-* Bonus attributes
-* Enchants
-* Sockets
-* Set Bonus
-* Source/Boss/Drop Rate
-
-You aren't quite sure how much reputation progress you made with a specific faction?
-No problem! Just select your character or any character which you are interested in and switch to the reputation tab to see every faction in the game with the current progress.
-
-A list of the currently implemented features:
-
-* Pin characters to your favorites
-* Change the sorting of your favorites
-* Search characters by name (realm is optional)
-* View Character Details (like attributes and gear)
-* Detailed character item information
-* Current reputation
-* Character professions
+Part of this application is based on the source code of n-battle-net-api from shimmanning (Femor).
+Thanks for your awesome work!
 
 # License #
 

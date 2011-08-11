@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle( "World of Warcraft - Armory" )]
-[assembly: AssemblyDescription( "World of Warcraft - Armory" )]
+[assembly: AssemblyTitle("World of Warcraft™ Armory for Windows Phone 7")]
+[assembly: AssemblyDescription("World of Warcraft™ Armory for Windows Phone 7")]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "" )]
-[assembly: AssemblyProduct( "World of Warcraft - Armory" )]
-[assembly: AssemblyCopyright( "Copyright © Christian Krueger 2010" )]
+[assembly: AssemblyProduct("World of Warcraft™ Armory for Windows Phone 7")]
+[assembly: AssemblyCopyright("Copyright © 2011 Christian Krueger")]
 [assembly: AssemblyTrademark( "" )]
 [assembly: AssemblyCulture( "" )]
 
@@ -31,6 +31,6 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
-[assembly: AssemblyVersion( "1.3.0" )]
-[assembly: AssemblyFileVersion( "1.3.0" )]
-[assembly: NeutralResourcesLanguageAttribute( "en-US" )]
+[assembly: AssemblyVersion("2.0.0")]
+[assembly: AssemblyFileVersion("2.0.0")]
+[assembly: NeutralResourcesLanguageAttribute("en")]
