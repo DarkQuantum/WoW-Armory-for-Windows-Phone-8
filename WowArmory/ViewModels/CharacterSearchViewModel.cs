@@ -1,23 +1,25 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
+﻿using System;
+using System.Windows;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using WowArmory.Controllers;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
-using WowArmory.Core.Extensions;
+using WowArmory.Core.Languages;
 using WowArmory.Core.Managers;
-using WowArmory.Models;
+using WowArmory.Enumerations;
 
 namespace WowArmory.ViewModels
 {
-	public class RealmListViewModel : ViewModelBase
+	public class CharacterSearchViewModel : ViewModelBase
 	{
 		//----------------------------------------------------------------------
 		#region --- Fields ---
 		//----------------------------------------------------------------------
-		private ObservableCollection<RealmItem> _realms;
 		private bool _isProgressBarVisible = false;
 		private bool _isProgressBarIndeterminate = false;
+		private string _realm;
+		private string _name;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -26,22 +28,6 @@ namespace WowArmory.ViewModels
 		//----------------------------------------------------------------------
 		#region --- Properties ---
 		//----------------------------------------------------------------------
-		/// <summary>
-		/// Gets or sets the realms.
-		/// </summary>
-		/// <value>
-		/// The realms.
-		/// </value>
-		public ObservableCollection<RealmItem> Realms
-		{
-			get { return _realms; }
-			set
-			{
-				_realms = value;
-				RaisePropertyChanged("Realms");
-			}
-		}
-
 		/// <summary>
 		/// Gets or sets a value indicating whether the progress bar is visible.
 		/// </summary>
@@ -77,6 +63,54 @@ namespace WowArmory.ViewModels
 				RaisePropertyChanged("IsProgressBarIndeterminate");
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets the realm used in the search.
+		/// </summary>
+		/// <value>
+		/// The realm used in the search.
+		/// </value>
+		public string Realm
+		{
+			get
+			{
+				return _realm;
+			}
+			set
+			{
+				if (_realm == value)
+				{
+					return;
+				}
+
+				_realm = value;
+				RaisePropertyChanged("Realm");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the name used in the search.
+		/// </summary>
+		/// <value>
+		/// The name used in the search.
+		/// </value>
+		public string Name
+		{
+			get
+			{
+				return _name;
+			}
+			set
+			{
+				if (_name == value)
+				{
+					return;
+				}
+
+				_name = value;
+				RaisePropertyChanged("Name");
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -85,18 +119,24 @@ namespace WowArmory.ViewModels
 		//----------------------------------------------------------------------
 		#region --- Commands ---
 		//----------------------------------------------------------------------
-
+		public RelayCommand SearchCharacterCommand { get; private set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
-		
+
 
 		//----------------------------------------------------------------------
 		#region --- Constructor ---
 		//----------------------------------------------------------------------
-		public RealmListViewModel()
+		/// <summary>
+		/// Initializes a new instance of the <see cref="CharacterSearchViewModel"/> class.
+		/// </summary>
+		public CharacterSearchViewModel()
 		{
-			LoadRealms();
+			InitializeCommands();
+
+			Realm = IsolatedStorageManager.GetValue("CharacterSearch_LastRealm", String.Empty);
+			Name = IsolatedStorageManager.GetValue("CharacterSearch_LastName", String.Empty);
 		}
 		//----------------------------------------------------------------------
 		#endregion
@@ -107,39 +147,60 @@ namespace WowArmory.ViewModels
 		#region --- Methods ---
 		//----------------------------------------------------------------------
 		/// <summary>
-		/// Loads the realms.
+		/// Initializes the commands.
 		/// </summary>
-		private void LoadRealms()
+		private void InitializeCommands()
 		{
-			IsProgressBarVisible = true;
-			IsProgressBarIndeterminate = true;
-
-			BattleNetClient.Current.Region = AppSettingsManager.Region;
-
-			if (CacheManager.RealmList == null)
-			{
-				BattleNetClient.Current.GetRealmListAsync(BattleNetClient.Current.Region, realmList =>
-				{
-				    CacheManager.RealmList = realmList;
-					ConstructBindableRealmList(CacheManager.RealmList);
-				});
-			}
-			else
-			{
-				ConstructBindableRealmList(CacheManager.RealmList);
-			}
+			SearchCharacterCommand = new RelayCommand(SearchCharacter);
 		}
 
 		/// <summary>
-		/// Constructs the bindable realm list.
+		/// Searches for the specified character.
 		/// </summary>
-		/// <param name="realmList">The realm list.</param>
-		private void ConstructBindableRealmList(RealmList realmList)
+		private void SearchCharacter()
 		{
-			Realms = realmList.Realms.Select(realm => new RealmItem(realm)).ToObservableCollection();
+			IsolatedStorageManager.SetValue("CharacterSearch_LastRealm", Realm);
+			IsolatedStorageManager.SetValue("CharacterSearch_LastName", Name);
 
+			BattleNetClient.Current.Region = AppSettingsManager.Region;
+
+			if (String.IsNullOrEmpty(Realm))
+			{
+				MessageBox.Show(AppResources.UI_CharacterSearch_MissingRealm_Text, AppResources.UI_CharacterSearch_Missing_Caption, MessageBoxButton.OK);
+				return;
+			}
+
+			if (String.IsNullOrEmpty(Name))
+			{
+				MessageBox.Show(AppResources.UI_CharacterSearch_MissingName_Text, AppResources.UI_CharacterSearch_Missing_Caption, MessageBoxButton.OK);
+				return;
+			}
+
+			IsProgressBarIndeterminate = true;
+			IsProgressBarVisible = true;
+
+			BattleNetClient.Current.GetCharacterAsync(Realm, Name, CharacterFields.All, OnCharacterRetrievedFromArmory);
+		}
+
+		/// <summary>
+		/// Called when the character was retrieved from the armory.
+		/// </summary>
+		/// <param name="character">The character retrieved from the armory.</param>
+		private void OnCharacterRetrievedFromArmory(Character character)
+		{
 			IsProgressBarVisible = false;
 			IsProgressBarIndeterminate = false;
+
+			if (!character.IsValid)
+			{
+				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_CharacterSearch_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_CharacterSearch_Error_Unknown_Caption;
+				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_CharacterSearch_Error_{0}_Text", character.ReasonType)) ?? AppResources.UI_CharacterSearch_Error_Unknown_Text;
+				MessageBox.Show(reasonText, reasonCaption, MessageBoxButton.OK);
+				return;
+			}
+
+			ViewModelLocator.CharacterDetailsStatic.Character = character;
+			ApplicationController.Current.NavigateTo(Page.CharacterDetails);
 		}
 		//----------------------------------------------------------------------
 		#endregion

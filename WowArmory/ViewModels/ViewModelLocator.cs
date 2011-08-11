@@ -11,6 +11,7 @@
 		private static NewsViewModel _news;
 		private static RealmListViewModel _realmList;
 		private static CharacterListViewModel _characterList;
+		private static CharacterSearchViewModel _characterSearch;
 		private static CharacterDetailsViewModel _characterDetails;
 		//----------------------------------------------------------------------
 		#endregion
@@ -114,6 +115,22 @@
 		public static CharacterListViewModel CharacterListStatic
 		{
 			get { return _characterList ?? (_characterList = new CharacterListViewModel()); }
+		}
+
+		/// <summary>
+		/// Gets the character search view model.
+		/// </summary>
+		public CharacterSearchViewModel CharacterSearch
+		{
+			get { return CharacterSearchStatic; }
+		}
+
+		/// <summary>
+		/// Gets the static character search view model.
+		/// </summary>
+		public static CharacterSearchViewModel CharacterSearchStatic
+		{
+			get { return _characterSearch ?? (_characterSearch = new CharacterSearchViewModel()); }
 		}
 
 		/// <summary>

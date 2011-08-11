@@ -357,22 +357,22 @@
   <data name="UI_Settings_ApplicationBar_Save" xml:space="preserve">
     <value>save</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_CharacterNotFound_Caption" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_CharacterNotFound_Caption" xml:space="preserve">
     <value>Character not found</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_CharacterNotFound_Text" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_CharacterNotFound_Text" xml:space="preserve">
     <value>The specified character could not be found</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_RealmNotFound_Caption" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_RealmNotFound_Caption" xml:space="preserve">
     <value>Realm not found</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_RealmNotFound_Text" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_RealmNotFound_Text" xml:space="preserve">
     <value>The specified realm could not be found</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_Unknown_Caption" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_Unknown_Caption" xml:space="preserve">
     <value>No data retrieved</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_Unknown_Text" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_Unknown_Text" xml:space="preserve">
     <value>Could not retrieve data from Battle.Net</value>
   </data>
   <data name="UI_Main_FirstTimeUsage_Caption" xml:space="preserve">
@@ -383,5 +383,35 @@
   </data>
   <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
     <value>Show welcome message again</value>
+  </data>
+  <data name="UI_Settings_General_CharacterList_OrderBy_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="UI_Settings_General_CharacterList_OrderBy_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_Search" xml:space="preserve">
+    <value>search</value>
+  </data>
+  <data name="Page_CharacterSearch_Title" xml:space="preserve">
+    <value>Search for a character on the armory</value>
+  </data>
+  <data name="UI_CharacterSearch_Name" xml:space="preserve">
+    <value>Character name</value>
+  </data>
+  <data name="UI_CharacterSearch_Realm" xml:space="preserve">
+    <value>Realm name</value>
+  </data>
+  <data name="UI_CharacterSearch_SearchCharacter" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="UI_CharacterSearch_MissingName_Text" xml:space="preserve">
+    <value>Please sepcify a character name</value>
+  </data>
+  <data name="UI_CharacterSearch_MissingRealm_Text" xml:space="preserve">
+    <value>Please specify a realm name</value>
+  </data>
+  <data name="UI_CharacterSearch_Missing_Caption" xml:space="preserve">
+    <value>Input missing</value>
   </data>
 </root>

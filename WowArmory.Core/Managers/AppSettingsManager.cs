@@ -1,4 +1,5 @@
 ﻿using WowArmory.Core.BattleNet;
+using WowArmory.Core.Enumerations;
 
 namespace WowArmory.Core.Managers
 {
@@ -40,6 +41,24 @@ namespace WowArmory.Core.Managers
 			set
 			{
 				IsolatedStorageManager.SetValue("Setting_IsFirstTimeUsage", value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the key in which the character list is ordered by.
+		/// </summary>
+		/// <value>
+		/// The key in which the character list is ordered by.
+		/// </value>
+		public static CharacterListOrderBy CharacterListOrderBy
+		{
+			get
+			{
+				return IsolatedStorageManager.GetValue("Setting_CharacterListOrderBy", CharacterListOrderBy.Name);
+			}
+			set
+			{
+				IsolatedStorageManager.SetValue("Setting_CharacterListOrderBy", value);
 			}
 		}
 		//----------------------------------------------------------------------

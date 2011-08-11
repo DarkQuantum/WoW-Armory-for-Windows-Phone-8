@@ -1,12 +1,19 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using WowArmory.Controllers;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
+using WowArmory.Core.Enumerations;
+using WowArmory.Core.Extensions;
 using WowArmory.Core.Languages;
+using WowArmory.Core.Managers;
+using WowArmory.Core.Storage;
 using WowArmory.Enumerations;
+using WowArmory.Models;
 
 namespace WowArmory.ViewModels
 {
@@ -17,6 +24,9 @@ namespace WowArmory.ViewModels
 		//----------------------------------------------------------------------
 		private bool _isProgressBarVisible = false;
 		private bool _isProgressBarIndeterminate = false;
+		private ObservableCollection<CharacterListItem> _favoriteCharacters;
+		private CharacterListItem _selectedCharacter;
+		private Region _previousRegion = BattleNetClient.Current.Region;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -60,6 +70,51 @@ namespace WowArmory.ViewModels
 				RaisePropertyChanged("IsProgressBarIndeterminate");
 			}
 		}
+
+		/// <summary>
+		/// Gets the favorite characters.
+		/// </summary>
+		public ObservableCollection<CharacterListItem> FavoriteCharacters
+		{
+			get
+			{
+				return _favoriteCharacters;
+			}
+			set
+			{
+				if (_favoriteCharacters == value)
+				{
+					return;
+				}
+
+				_favoriteCharacters = value;
+				RaisePropertyChanged("FavoriteCharacters");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the selected character.
+		/// </summary>
+		/// <value>
+		/// The selected character.
+		/// </value>
+		public CharacterListItem SelectedCharacter
+		{
+			get
+			{
+				return _selectedCharacter;
+			}
+			set
+			{
+				if (_selectedCharacter == value)
+				{
+					return;
+				}
+
+				_selectedCharacter = value;
+				RaisePropertyChanged("SelectedCharacter");
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -68,7 +123,6 @@ namespace WowArmory.ViewModels
 		//----------------------------------------------------------------------
 		#region --- Commands ---
 		//----------------------------------------------------------------------
-		public RelayCommand ShowTestCharacterCommand { get; private set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -83,6 +137,7 @@ namespace WowArmory.ViewModels
 		public CharacterListViewModel()
 		{
 			InitializeCommands();
+			RefreshView();
 		}
 		//----------------------------------------------------------------------
 		#endregion
@@ -97,15 +152,34 @@ namespace WowArmory.ViewModels
 		/// </summary>
 		private void InitializeCommands()
 		{
-			ShowTestCharacterCommand = new RelayCommand(ShowTestCharacter);
 		}
 
 		/// <summary>
-		/// Shows the test character.
+		/// Refreshes the view.
 		/// </summary>
-		private void ShowTestCharacter()
+		public void RefreshView()
 		{
-			RetrieveCharacterFromArmory("Lordaeron", "Timothy");
+			var characters = IsolatedStorageManager.StoredCharacters;
+
+			switch (AppSettingsManager.CharacterListOrderBy)
+			{
+				case CharacterListOrderBy.Level:
+					{
+						FavoriteCharacters = characters.OrderBy(c => c.Level).Select(c => new CharacterListItem(c)).ToObservableCollection();
+					} break;
+				default:
+					{
+						FavoriteCharacters = characters.OrderBy(c => c.Character).Select(c => new CharacterListItem(c)).ToObservableCollection();
+					} break;
+			}
+
+			SelectedCharacter = null;
+		}
+
+		public void ShowSelectedCharacter()
+		{
+			BattleNetClient.Current.Region = SelectedCharacter.Region;
+			RetrieveCharacterFromArmory(SelectedCharacter.Realm, SelectedCharacter.Character);
 		}
 
 		/// <summary>
@@ -132,8 +206,8 @@ namespace WowArmory.ViewModels
 
 			if (!character.IsValid)
 			{
-				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_CharacterList_Search_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_CharacterList_Search_Error_Unknown_Caption;
-				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_CharacterList_Search_Error_{0}_Text", character.ReasonType)) ?? AppResources.UI_CharacterList_Search_Error_Unknown_Text;
+				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_CharacterSearch_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_CharacterSearch_Error_Unknown_Caption;
+				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_CharacterSearch_Error_{0}_Text", character.ReasonType)) ?? AppResources.UI_CharacterSearch_Error_Unknown_Text;
 				MessageBox.Show(reasonText, reasonCaption, MessageBoxButton.OK);
 				return;
 			}

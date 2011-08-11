@@ -134,6 +134,7 @@ namespace WowArmory
 			ApplicationController.Current.Register(Page.News, new Uri("/Views/NewsPage.xaml", UriKind.Relative));
 			ApplicationController.Current.Register(Page.RealmList, new Uri("/Views/RealmListPage.xaml", UriKind.Relative));
 			ApplicationController.Current.Register(Page.CharacterList, new Uri("/Views/CharacterListPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.CharacterSearch, new Uri("/Views/CharacterSearchPage.xaml", UriKind.Relative));
 			ApplicationController.Current.Register(Page.CharacterDetails, new Uri("/Views/CharacterDetailsPage.xaml", UriKind.Relative));
 		}
 

@@ -107,10 +107,12 @@
     <Compile Include="BattleNet\Models\ItemTooltipParams.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\ClassToLocalizedStringConverter.cs" />
+    <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\RaceToFactionConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
     <Compile Include="Converters\ThumbnailImageUrlConverter.cs" />
     <Compile Include="Converters\AppImageUrlConverter.cs" />
+    <Compile Include="Enumerations\CharacterListOrderBy.cs" />
     <Compile Include="Extensions\ApplicationExtensions.cs" />
     <Compile Include="Extensions\EnumExtentions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
@@ -242,6 +244,14 @@
     </Resource>
     <Resource Include="..\Media\CharacterDetails\Favorite_1.png">
       <Link>Images\CharacterDetails\Favorite_1.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Badge\Badge_0.png">
+      <Link>Images\Badge\Badge_0.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_1.png">
+      <Link>Images\Badge\Badge_1.png</Link>
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

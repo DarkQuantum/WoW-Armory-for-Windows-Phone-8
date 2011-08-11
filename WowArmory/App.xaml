@@ -19,6 +19,7 @@
 		<cnv:AppImageUrlConverter x:Key="AppImageUrl" />
 		<cnv:ClassToLocalizedStringConverter x:Key="ClassToLocalizedString" />
 		<cnv:RaceToFactionConverter x:Key="RaceToFaction" />
+		<cnv:InverseBooleanConverter x:Key="InverseBoolean" />
 		
 		<System:Double x:Key="PhoneFontSizeXSmall">16</System:Double>
 		

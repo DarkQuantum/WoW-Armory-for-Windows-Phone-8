@@ -3,11 +3,9 @@ using System.Globalization;
 using System.Windows.Media;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
 using WowArmory.Core.Converters;
 using WowArmory.Core.Managers;
-using WowArmory.Core.Storage;
 
 namespace WowArmory.ViewModels
 {

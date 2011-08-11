@@ -8,6 +8,7 @@
 		News,
 		RealmList,
 		CharacterList,
+		CharacterSearch,
 		CharacterDetails
 	}
 }

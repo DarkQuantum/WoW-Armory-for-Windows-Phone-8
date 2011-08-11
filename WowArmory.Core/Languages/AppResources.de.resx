@@ -357,22 +357,22 @@
   <data name="UI_Settings_ApplicationBar_Save" xml:space="preserve">
     <value>speichern</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_CharacterNotFound_Caption" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_CharacterNotFound_Caption" xml:space="preserve">
     <value>Charakter nicht gefunden</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_CharacterNotFound_Text" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_CharacterNotFound_Text" xml:space="preserve">
     <value>Der angegebene Charakter konnte nicht gefunden werden</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_RealmNotFound_Caption" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_RealmNotFound_Caption" xml:space="preserve">
     <value>Realm nicht gefunden</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_RealmNotFound_Text" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_RealmNotFound_Text" xml:space="preserve">
     <value>Der angegebene Realm konnte nicht gefunden werden</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_Unknown_Caption" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_Unknown_Caption" xml:space="preserve">
     <value>Keine Daten empfangen</value>
   </data>
-  <data name="UI_CharacterList_Search_Error_Unknown_Text" xml:space="preserve">
+  <data name="UI_CharacterSearch_Error_Unknown_Text" xml:space="preserve">
     <value>Es konnten keine Daten vom Battle.Net empfangen werden</value>
   </data>
   <data name="UI_Main_FirstTimeUsage_Caption" xml:space="preserve">
@@ -383,5 +383,35 @@
   </data>
   <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
     <value>Willkommensnachricht erneut anzeigen</value>
+  </data>
+  <data name="UI_Settings_General_CharacterList_OrderBy_Level" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="UI_Settings_General_CharacterList_OrderBy_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_Search" xml:space="preserve">
+    <value>suchen</value>
+  </data>
+  <data name="Page_CharacterSearch_Title" xml:space="preserve">
+    <value>Suche einen Charakter im Arsenal</value>
+  </data>
+  <data name="UI_CharacterSearch_Name" xml:space="preserve">
+    <value>Charakter Name</value>
+  </data>
+  <data name="UI_CharacterSearch_Realm" xml:space="preserve">
+    <value>Realm Name</value>
+  </data>
+  <data name="UI_CharacterSearch_SearchCharacter" xml:space="preserve">
+    <value>Suchen</value>
+  </data>
+  <data name="UI_CharacterSearch_MissingName_Text" xml:space="preserve">
+    <value>Bitte einen Charakter Namen angeben</value>
+  </data>
+  <data name="UI_CharacterSearch_MissingRealm_Text" xml:space="preserve">
+    <value>Bitte einen Realm Namen angeben</value>
+  </data>
+  <data name="UI_CharacterSearch_Missing_Caption" xml:space="preserve">
+    <value>Fehlende Eingabe</value>
   </data>
 </root>
