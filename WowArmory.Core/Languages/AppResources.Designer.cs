@@ -142,7 +142,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Have your characters always with you.
+        ///   Looks up a localized string similar to Access your characters anywhere, anytime.
         /// </summary>
         public static string APP_Subname {
             get {
