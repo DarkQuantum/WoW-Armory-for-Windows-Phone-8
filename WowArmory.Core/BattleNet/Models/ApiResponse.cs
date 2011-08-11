@@ -9,6 +9,9 @@ namespace WowArmory.Core.BattleNet.Models
 	public class ApiResponse
 	{
 		[DataMember]
+		public Region Region { get; set; }
+
+		[DataMember]
 		[XmlElement("status", IsNullable = true)]
 		public string Status { get; set; }
 

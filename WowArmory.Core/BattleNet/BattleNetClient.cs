@@ -178,6 +178,7 @@ namespace WowArmory.Core.BattleNet
 			CallApiMethodAsync(apiMethod, jsonResult =>
 			{
 				var character = JsonConvert.DeserializeObject<Character>(jsonResult);
+				character.Region = Region;
 				action(character);
 			});
 		}
@@ -196,6 +197,7 @@ namespace WowArmory.Core.BattleNet
 			CallApiMethodAsync(apiMethod, jsonResult =>
 			{
 				var realmList = JsonConvert.DeserializeObject<RealmList>(jsonResult.Replace("n/a", "notavailable"));
+				realmList.Region = Region;
 				action(realmList);
 			});
 		}

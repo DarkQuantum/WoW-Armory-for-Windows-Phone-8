@@ -6,7 +6,9 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core" xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" mc:Ignorable="d"
+	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core"
+	xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7" mc:Ignorable="d"
 	d:DesignWidth="480" d:DesignHeight="800"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -56,8 +58,9 @@
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
-			<Image Grid.Column="0" Grid.ColumnSpan="2" Source="{Binding CharacterFaction, Converter={StaticResource AppImageUrl}, ConverterParameter='CharacterDetails/Faction_Header_{0}.png'}" Width="480" Height="64" />
+			<Image Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding CharacterFaction, Converter={StaticResource AppImageUrl}, ConverterParameter='CharacterDetails/Faction_Header_{0}.png'}" Width="480" Height="64" />
 			<Image Grid.Column="0" helper:AsyncImageLoader.ImageUrl="{Binding Character.Thumbnail, Converter={StaticResource ThumbnailImageUrl}}" Width="64" Height="64" />
 			<Grid Grid.Column="1" Margin="6,0,0,0">
 				<Grid.RowDefinitions>
@@ -76,15 +79,24 @@
 				<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Character.Realm, Converter={StaticResource StringToUppercase}}" FontSize="{StaticResource PhoneFontSizeXSmall}" Foreground="White" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0" />
 				<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Character.Guild.Name, Converter={StaticResource StringToUppercase}}" FontSize="{StaticResource PhoneFontSizeXSmall}" Foreground="White" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0" />
 			</Grid>
+			<Grid Grid.Column="2">
+				<Image Source="{Binding FavoriteImage}" Width="64" Height="64" HorizontalAlignment="Right" VerticalAlignment="Center">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="MouseLeftButtonDown">
+							<cmd:EventToCommand Command="{Binding ToggleCharacterFavoriteCommand}" />
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</Image>
+			</Grid>
 		</Grid>
 		<Grid Grid.Row="1">
 			<controls:Pivot x:Name="CharacterPivot" SelectionChanged="CharacterPivot_SelectionChanged">
 				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Character, Source={StaticResource LocalizedResources}}">
 					
 				</controls:PivotItem>
-				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Achievements, Source={StaticResource LocalizedResources}}">
+				<!--<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Achievements, Source={StaticResource LocalizedResources}}">
 
-				</controls:PivotItem>
+				</controls:PivotItem>-->
 				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Reputation, Source={StaticResource LocalizedResources}}">
 					<ScrollViewer>
 						<StackPanel x:Name="spReputation" Orientation="Vertical" VerticalAlignment="Top" />
@@ -93,7 +105,7 @@
 				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Professions, Source={StaticResource LocalizedResources}}">
 					<StackPanel x:Name="spProfessions" Orientation="Vertical" VerticalAlignment="Top" />
 				</controls:PivotItem>
-				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Titles, Source={StaticResource LocalizedResources}}">
+				<!--<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Titles, Source={StaticResource LocalizedResources}}">
 
 				</controls:PivotItem>
 				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Pets, Source={StaticResource LocalizedResources}}">
@@ -107,7 +119,7 @@
 				</controls:PivotItem>
 				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Progression, Source={StaticResource LocalizedResources}}">
 
-				</controls:PivotItem>
+				</controls:PivotItem>-->
 			</controls:Pivot>
 		</Grid>
 	</Grid>    

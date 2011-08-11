@@ -9,7 +9,7 @@ namespace WowArmory.Core.BattleNet.Models
 	{
 		[DataMember]
 		[XmlElement("selected", IsNullable = true)]
-		public bool Selected { get; set; }
+		public bool? Selected { get; set; }
 		[DataMember]
 		[XmlElement("name")]
 		public string Name { get; set; }

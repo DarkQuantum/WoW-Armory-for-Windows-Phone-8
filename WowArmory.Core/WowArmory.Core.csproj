@@ -125,6 +125,7 @@
     <Compile Include="Managers\CacheManager.cs" />
     <Compile Include="Managers\IsolatedStorageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Storage\CharacterStorageData.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BattleNet\BattleNetSettings.resx">
@@ -233,6 +234,14 @@
   <ItemGroup>
     <Resource Include="..\Media\RealmList_Queue.png">
       <Link>Images\RealmList_Queue.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\CharacterDetails\Favorite_0.png">
+      <Link>Images\CharacterDetails\Favorite_0.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Favorite_1.png">
+      <Link>Images\CharacterDetails\Favorite_1.png</Link>
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
