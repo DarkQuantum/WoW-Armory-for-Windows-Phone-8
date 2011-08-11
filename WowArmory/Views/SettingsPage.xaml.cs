@@ -77,8 +77,8 @@ namespace WowArmory.Views
 		private void SaveSettings(object sender, EventArgs e)
 		{
 			// set settings which should be saved immediately
-			IsolatedStorageManager.Region = ViewModel.SelectedRegion.Key;
-			BattleNetClient.Current.Region = IsolatedStorageManager.Region;
+			AppSettingsManager.Region = ViewModel.SelectedRegion.Key;
+			BattleNetClient.Current.Region = AppSettingsManager.Region;
 
 			// save settings
 			IsolatedStorageManager.Save();

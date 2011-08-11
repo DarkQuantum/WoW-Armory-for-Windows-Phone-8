@@ -34,7 +34,7 @@ namespace WowArmory.Core.BattleNet
 		/// </summary>
 		public static BattleNetClient Current
 		{
-			get { return _instance ?? (_instance = new BattleNetClient(IsolatedStorageManager.Region, CultureInfo.CurrentUICulture)); }
+			get { return _instance ?? (_instance = new BattleNetClient(AppSettingsManager.Region, CultureInfo.CurrentUICulture)); }
 		}
 
 		/// <summary>

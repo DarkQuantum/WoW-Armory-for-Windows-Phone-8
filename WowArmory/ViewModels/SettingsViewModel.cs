@@ -95,7 +95,7 @@ namespace WowArmory.ViewModels
 		/// </summary>
 		public void ResetSettings()
 		{
-			SelectedRegion = Regions.Where(r => r.Key == IsolatedStorageManager.Region).FirstOrDefault();
+			SelectedRegion = Regions.Where(r => r.Key == AppSettingsManager.Region).FirstOrDefault();
 			IsFirstTimeUsage = IsolatedStorageManager.GetValue("Temp_Setting_IsFirstTimeUsage", false);
 		}
 		//----------------------------------------------------------------------

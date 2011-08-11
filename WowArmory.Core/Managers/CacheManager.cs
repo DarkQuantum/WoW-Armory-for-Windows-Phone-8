@@ -14,6 +14,7 @@ namespace WowArmory.Core.Managers
 		//----------------------------------------------------------------------
 		private static readonly Dictionary<string, ImageSource> _imageCache = new Dictionary<string,ImageSource>();
 		private static RealmList _realmList = null;
+		private static Dictionary<Region, RealmList> _cachedRealmLists = null;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -40,6 +41,24 @@ namespace WowArmory.Core.Managers
 		{
 			get { return _realmList; }
 			set { _realmList = value; }
+		}
+
+		/// <summary>
+		/// Gets or sets the cached realm lists used by list pickers.
+		/// </summary>
+		/// <value>
+		/// The cached realm lists used by list pickers.
+		/// </value>
+		public static Dictionary<Region, RealmList> CachedRealmLists
+		{
+			get
+			{
+				return _cachedRealmLists;
+			}
+			set
+			{
+				_cachedRealmLists = value;
+			}
 		}
 		//----------------------------------------------------------------------
 		#endregion

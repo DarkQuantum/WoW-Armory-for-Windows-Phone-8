@@ -121,6 +121,7 @@
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
     <Compile Include="Languages\LocalizedStrings.cs" />
+    <Compile Include="Managers\AppSettingsManager.cs" />
     <Compile Include="Managers\CacheManager.cs" />
     <Compile Include="Managers\IsolatedStorageManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

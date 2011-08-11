@@ -42,10 +42,10 @@ namespace WowArmory.Views
 		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
 		private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
 		{
-			if (IsolatedStorageManager.IsFirstTimeUsage)
+			if (AppSettingsManager.IsFirstTimeUsage)
 			{
 				IsolatedStorageManager.SetValue("Temp_Setting_IsFirstTimeUsage", false);
-				IsolatedStorageManager.IsFirstTimeUsage = false;
+				AppSettingsManager.IsFirstTimeUsage = false;
 				IsolatedStorageManager.Save();
 
 				if (MessageBox.Show(AppResources.UI_Main_FirstTimeUsage_Text, AppResources.UI_Main_FirstTimeUsage_Caption, MessageBoxButton.OKCancel) == MessageBoxResult.OK)
