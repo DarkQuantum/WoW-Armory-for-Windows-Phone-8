@@ -26,6 +26,7 @@
 							</Image.OpacityMask>
 						</Image>
 						<Image Source="{Binding QualityAsInt, Converter={StaticResource AppImageUrl}, ConverterParameter='CharacterDetails/Item_Rarity_{0}.png'}" Width="64" Height="64" />
+						<Image Source="/WowArmory.Core;Component/Images/CharacterDetails/Item_Selected.png" Width="64" Height="64" Visibility="{TemplateBinding SelectionVisibility}" />
 					</Grid>
 				</ControlTemplate>
 			</Setter.Value>

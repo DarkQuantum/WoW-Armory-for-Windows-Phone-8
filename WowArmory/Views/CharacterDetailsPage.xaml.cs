@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using WowArmory.Controls;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
 using WowArmory.Core.Languages;
@@ -14,6 +15,16 @@ namespace WowArmory.Views
 {
 	public partial class CharacterDetailsPage : PhoneApplicationPage
 	{
+		//----------------------------------------------------------------------
+		#region --- Fields ---
+		//----------------------------------------------------------------------
+		private bool _isToolTipLoading = false;
+		private int _toolTipCancel = 0;
+		//----------------------------------------------------------------------
+		#endregion
+		//----------------------------------------------------------------------
+
+
 		//----------------------------------------------------------------------
 		#region --- Properties ---
 		//----------------------------------------------------------------------
@@ -33,6 +44,7 @@ namespace WowArmory.Views
 		{
 			InitializeComponent();
 
+			LoadView();
 			BuildReputation();
 			BuildProfessions();
 		}
@@ -51,6 +63,16 @@ namespace WowArmory.Views
 		/// <param name="e">The <see cref="System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
 		private void CharacterPivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+		}
+
+		/// <summary>
+		/// Loads the view and initializes the content.
+		/// </summary>
+		private void LoadView()
+		{
+			var powerType = ViewModel.Character.Stats.PowerType;
+			var resourceName = String.Format("{0}BarStyle", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""));
+			barPowerType.Background = (Brush)Resources[resourceName];
 		}
 
 		/// <summary>
@@ -272,6 +294,131 @@ namespace WowArmory.Views
 			grid.Children.Add(valueTextBlock);
 
 			spProfessions.Children.Add(grid);
+		}
+
+		/// <summary>
+		/// Handles the MouseLeftButtonUp event of the CharacterItemContainer control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
+		private void CharacterItemContainer_MouseLeftButtonUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			if (sender is CharacterItemContainer)
+			{
+				var itemContainer = (CharacterItemContainer)sender;
+				var isSelected = false;
+
+				if (itemContainer.SelectionVisibility == Visibility.Visible)
+				{
+					isSelected = true;
+				}
+
+				HideAllItemContainerSelections();
+				HideToolTip();
+
+				if (!isSelected)
+				{
+					ShowToolTip(itemContainer);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Hides all item container selection boxes.
+		/// </summary>
+		private void HideAllItemContainerSelections()
+		{
+			icHead.SelectionVisibility = Visibility.Collapsed;
+			icNeck.SelectionVisibility = Visibility.Collapsed;
+			icShoulder.SelectionVisibility = Visibility.Collapsed;
+			icBack.SelectionVisibility = Visibility.Collapsed;
+			icChest.SelectionVisibility = Visibility.Collapsed;
+			icShirt.SelectionVisibility = Visibility.Collapsed;
+			icTabard.SelectionVisibility = Visibility.Collapsed;
+			icWrist.SelectionVisibility = Visibility.Collapsed;
+			icHands.SelectionVisibility = Visibility.Collapsed;
+			icWaist.SelectionVisibility = Visibility.Collapsed;
+			icLegs.SelectionVisibility = Visibility.Collapsed;
+			icFeet.SelectionVisibility = Visibility.Collapsed;
+			icFinger1.SelectionVisibility = Visibility.Collapsed;
+			icFinger2.SelectionVisibility = Visibility.Collapsed;
+			icTrinket1.SelectionVisibility = Visibility.Collapsed;
+			icTrinket2.SelectionVisibility = Visibility.Collapsed;
+
+			HideToolTip();
+		}
+
+		/// <summary>
+		/// Hides the tool tip.
+		/// </summary>
+		private void HideToolTip()
+		{
+			brdItemToolTip.Visibility = Visibility.Collapsed;
+			svCharacterStats.IsEnabled = true;
+
+			if (_isToolTipLoading)
+			{
+				_isToolTipLoading = false;
+				_toolTipCancel++;
+			}
+		}
+
+		/// <summary>
+		/// Shows the tool tip.
+		/// </summary>
+		/// <param name="itemContainer">The item container.</param>
+		private void ShowToolTip(CharacterItemContainer itemContainer)
+		{
+			_isToolTipLoading = true;
+			itemContainer.SelectionVisibility = Visibility.Visible;
+			svCharacterStats.IsEnabled = false;
+			BuildToolTipLoadingText();
+			brdItemToolTip.Visibility = Visibility.Visible;
+		}
+
+		/// <summary>
+		/// Clears the tool tip.
+		/// </summary>
+		private void ClearToolTip()
+		{
+			spToolTipContent.Children.Clear();
+		}
+
+		/// <summary>
+		/// Builds the tool tip loading text.
+		/// </summary>
+		private void BuildToolTipLoadingText()
+		{
+			ClearToolTip();
+
+			var textBlock = new TextBlock();
+			textBlock.Text = AppResources.UI_Common_LoadingData;
+			textBlock.HorizontalAlignment = HorizontalAlignment.Center;
+			textBlock.Style = (Style)Resources["PhoneTextNormalStyle"];
+
+			var progressBar = new ProgressBar();
+			progressBar.IsIndeterminate = true;
+			progressBar.HorizontalAlignment = HorizontalAlignment.Stretch;
+			progressBar.Style = (Style)Resources["PerformanceProgressBar"];
+
+			spToolTipContent.Children.Add(textBlock);
+			spToolTipContent.Children.Add(progressBar);
+		}
+
+		/// <summary>
+		/// This method is called when the hardware back key is pressed.
+		/// </summary>
+		/// <param name="e">Set e.Cancel to true to indicate that the request was handled by the application.</param>
+		protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+		{
+			base.OnBackKeyPress(e);
+
+			if (brdItemToolTip.Visibility == Visibility.Visible)
+			{
+				HideAllItemContainerSelections();
+				HideToolTip();
+				e.Cancel = true;
+			}
 		}
 		//----------------------------------------------------------------------
 		#endregion

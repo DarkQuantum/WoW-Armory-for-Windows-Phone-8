@@ -1,10 +1,11 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using WowArmory.Core.BattleNet.Models;
 
 namespace WowArmory.Controls
 {
-	public class CharacterItemContainer : Button
+	public class CharacterItemContainer : Control
 	{
 		//----------------------------------------------------------------------
 		#region --- Properties ---
@@ -25,6 +26,44 @@ namespace WowArmory.Controls
 			set
 			{
 				SetValue(BackgroundImageSourceProperty, value);
+			}
+		}
+
+		public static readonly DependencyProperty SelectionVisibilityProperty = DependencyProperty.Register("SelectionVisibility", typeof(Visibility), typeof(CharacterItemContainer), new PropertyMetadata(Visibility.Collapsed));
+		/// <summary>
+		/// Gets or sets the selection box visibility.
+		/// </summary>
+		/// <value>
+		/// The selection box visibility.
+		/// </value>
+		public Visibility SelectionVisibility
+		{
+			get
+			{
+				return (Visibility)GetValue(SelectionVisibilityProperty);
+			}
+			set
+			{
+				SetValue(SelectionVisibilityProperty, value);
+			}
+		}
+
+		public static readonly DependencyProperty ItemSlotProperty = DependencyProperty.Register("ItemSlot", typeof(ItemSlot), typeof(CharacterItemContainer), null);
+		/// <summary>
+		/// Gets or sets the item slot.
+		/// </summary>
+		/// <value>
+		/// The item slot.
+		/// </value>
+		public ItemSlot ItemSlot
+		{
+			get
+			{
+				return (ItemSlot)GetValue(ItemSlotProperty);
+			}
+			set
+			{
+				SetValue(ItemSlotProperty, value);
 			}
 		}
 		//----------------------------------------------------------------------

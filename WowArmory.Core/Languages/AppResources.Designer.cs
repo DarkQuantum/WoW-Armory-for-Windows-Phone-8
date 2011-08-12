@@ -592,6 +592,366 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Agility.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Agility {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Agility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Arcane.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_ArcaneResistance {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_ArcaneResistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Armor.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Armor {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Armor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attack Power.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_AttackPower {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_AttackPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Block.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Block {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Block", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combat Regen.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_CombatRegen {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_CombatRegen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crit.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Crit {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Crit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Damage.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Damage {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Damage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodge.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Dodge {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Dodge", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DPS.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_DPS {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_DPS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expertise.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Expertise {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Expertise", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fire.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_FireResistance {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_FireResistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frost.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_FrostResistance {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_FrostResistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Haste.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Haste {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Haste", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Health.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Health {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Health", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hit.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Hit {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Hit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Intellect.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Intellect {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Intellect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mana Regen.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_ManaRegen {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_ManaRegen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mastery.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Mastery {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Mastery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nature.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_NatureResistance {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_NatureResistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parry.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Parry {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Parry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penetration.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Penetration {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Penetration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resilience.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Resilience {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Resilience", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shadow.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_ShadowResistance {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_ShadowResistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speed.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Speed {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Speed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spell Power.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_SpellPower {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_SpellPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spirit.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Spirit {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Spirit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stamina.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Stamina {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Stamina", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Strength.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Strength {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Strength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Base.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Header_Base {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Header_Base", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Defense.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Header_Defense {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Header_Defense", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to General.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Header_General {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Header_General", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Melee.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Header_Melee {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Header_Melee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranged.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Header_Ranged {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Header_Ranged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Resistance.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Header_Resistance {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Header_Resistance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spell.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Header_Spell {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Header_Spell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Focus.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_PowerType_Focus {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_PowerType_Focus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mana.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_PowerType_Mana {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_PowerType_Mana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rage.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_PowerType_Rage {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_PowerType_Rage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Runic power.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_PowerType_Runicpower {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_PowerType_Runicpower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to achievements.
         /// </summary>
         public static string UI_CharacterDetails_PivotItem_Achievements {

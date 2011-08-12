@@ -420,4 +420,124 @@
   <data name="UI_Common_Error_NoData_Text" xml:space="preserve">
     <value>Could not retrieve any data. Please check your network connectivity.</value>
   </data>
+  <data name="UI_CharacterDetails_Character_Description_Health" xml:space="preserve">
+    <value>Health</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Header_General" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_PowerType_Focus" xml:space="preserve">
+    <value>Focus</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_PowerType_Mana" xml:space="preserve">
+    <value>Mana</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_PowerType_Rage" xml:space="preserve">
+    <value>Rage</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_PowerType_Runicpower" xml:space="preserve">
+    <value>Runic power</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Agility" xml:space="preserve">
+    <value>Agility</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Intellect" xml:space="preserve">
+    <value>Intellect</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Mastery" xml:space="preserve">
+    <value>Mastery</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Spirit" xml:space="preserve">
+    <value>Spirit</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Stamina" xml:space="preserve">
+    <value>Stamina</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Strength" xml:space="preserve">
+    <value>Strength</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Header_Base" xml:space="preserve">
+    <value>Base</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_ArcaneResistance" xml:space="preserve">
+    <value>Arcane</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Armor" xml:space="preserve">
+    <value>Armor</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_AttackPower" xml:space="preserve">
+    <value>Attack Power</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Block" xml:space="preserve">
+    <value>Block</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_CombatRegen" xml:space="preserve">
+    <value>Combat Regen</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Crit" xml:space="preserve">
+    <value>Crit</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Damage" xml:space="preserve">
+    <value>Damage</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Dodge" xml:space="preserve">
+    <value>Dodge</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_DPS" xml:space="preserve">
+    <value>DPS</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Expertise" xml:space="preserve">
+    <value>Expertise</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_FireResistance" xml:space="preserve">
+    <value>Fire</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_FrostResistance" xml:space="preserve">
+    <value>Frost</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Haste" xml:space="preserve">
+    <value>Haste</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Hit" xml:space="preserve">
+    <value>Hit</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_ManaRegen" xml:space="preserve">
+    <value>Mana Regen</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_NatureResistance" xml:space="preserve">
+    <value>Nature</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Parry" xml:space="preserve">
+    <value>Parry</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Penetration" xml:space="preserve">
+    <value>Penetration</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Resilience" xml:space="preserve">
+    <value>Resilience</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_ShadowResistance" xml:space="preserve">
+    <value>Shadow</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_Speed" xml:space="preserve">
+    <value>Speed</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Description_SpellPower" xml:space="preserve">
+    <value>Spell Power</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Header_Defense" xml:space="preserve">
+    <value>Defense</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Header_Melee" xml:space="preserve">
+    <value>Melee</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Header_Ranged" xml:space="preserve">
+    <value>Ranged</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Header_Resistance" xml:space="preserve">
+    <value>Resistance</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_Header_Spell" xml:space="preserve">
+    <value>Spell</value>
+  </data>
 </root>

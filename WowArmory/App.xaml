@@ -22,6 +22,8 @@
 		<cnv:InverseBooleanConverter x:Key="InverseBoolean" />
 		<cnv:IconPathToIconUrlConverter x:Key="IconPathToIconUrl" />
 		<cnv:CharacterToThumbnailConverter x:Key="CharacterToThumbnail" />
+		<cnv:FormatToLocalizedStringConverter x:Key="FormatToLocalizedString" />
+		<cnv:StringFormatConverter x:Key="StringFormat" />
 		
 		<System:Double x:Key="PhoneFontSizeXSmall">16</System:Double>
 		

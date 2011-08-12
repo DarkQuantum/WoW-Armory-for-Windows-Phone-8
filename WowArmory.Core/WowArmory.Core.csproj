@@ -86,6 +86,7 @@
     <Compile Include="BattleNet\Models\CharacterTitle.cs" />
     <Compile Include="BattleNet\Models\GlyphItem.cs" />
     <Compile Include="BattleNet\Models\ItemQuality.cs" />
+    <Compile Include="BattleNet\Models\ItemSlot.cs" />
     <Compile Include="BattleNet\Models\Profession.cs" />
     <Compile Include="BattleNet\Models\RaidBoss.cs" />
     <Compile Include="BattleNet\Models\RaidProgression.cs" />
@@ -108,9 +109,11 @@
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\CharacterToThumbnailConverter.cs" />
     <Compile Include="Converters\ClassToLocalizedStringConverter.cs" />
+    <Compile Include="Converters\FormatToLocalizedStringConverter.cs" />
     <Compile Include="Converters\IconPathToIconUrlConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\RaceToFactionConverter.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
     <Compile Include="Converters\ThumbnailImageUrlConverter.cs" />
     <Compile Include="Converters\AppImageUrlConverter.cs" />
