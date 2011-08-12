@@ -60,6 +60,10 @@
 			<Setter Property="VerticalAlignment" Value="Center" />
 		</Style>
 		
+		<Style x:Key="CharacterDetailsItemToolTipNormalTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="#ffffffff" />
+		</Style>
+		
 		<Style x:Key="ProfessionHeaderTextStyle" BasedOn="{StaticResource PhoneTextTitle2Style}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
@@ -347,7 +351,7 @@
 									BorderBrush="#ff677180" BorderThickness="1" CornerRadius="6"
 									VerticalAlignment="Top" Visibility="Collapsed">
 								<Border.Background>
-									<SolidColorBrush Color="{StaticResource PhoneBackgroundColor}" Opacity="0.85" />
+									<SolidColorBrush Color="#dd000000" />
 								</Border.Background>
 								<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
 									<StackPanel x:Name="spToolTipContent" Orientation="Vertical">

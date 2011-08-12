@@ -540,4 +540,16 @@
   <data name="UI_CharacterDetails_Character_Header_Spell" xml:space="preserve">
     <value>Zauber</value>
   </data>
+  <data name="About_TwitterURL" xml:space="preserve">
+    <value>twitter.com/wp7wowarmory</value>
+  </data>
+  <data name="About_SourceText" xml:space="preserve">
+    <value>Diese Applikation ist Open Source und verfügbar auf GitHub:</value>
+  </data>
+  <data name="About_SourceButton" xml:space="preserve">
+    <value>Besuche Projektseite</value>
+  </data>
+  <data name="About_SourceURL" xml:space="preserve">
+    <value>http://github.com/ckrueger/WoW-Armory-for-Windows-Phone-7</value>
+  </data>
 </root>

@@ -27,6 +27,8 @@ namespace WowArmory.ViewModels
 		#region --- Commands ---
 		//----------------------------------------------------------------------
 		public RelayCommand OpenFacebookPageCommand { get; private set; }
+		public RelayCommand OpenTwitterPageCommand { get; private set; }
+		public RelayCommand OpenSourcePageCommand { get; private set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -56,6 +58,8 @@ namespace WowArmory.ViewModels
 		private void InitializeCommands()
 		{
 			OpenFacebookPageCommand = new RelayCommand(OpenFacebookPage);
+			OpenTwitterPageCommand = new RelayCommand(OpenTwitterPage);
+			OpenSourcePageCommand = new RelayCommand(OpenSourcePage);
 		}
 
 		/// <summary>
@@ -65,6 +69,26 @@ namespace WowArmory.ViewModels
 		{
 			var webBrowserTask = new WebBrowserTask();
 			webBrowserTask.URL = AppResources.About_FacebookURL;
+			webBrowserTask.Show();
+		}
+
+		/// <summary>
+		/// Opens the twitter page for this application.
+		/// </summary>
+		private void OpenTwitterPage()
+		{
+			var webBrowserTask = new WebBrowserTask();
+			webBrowserTask.URL = AppResources.About_TwitterURL;
+			webBrowserTask.Show();
+		}
+
+		/// <summary>
+		/// Opens the source page for this application.
+		/// </summary>
+		private void OpenSourcePage()
+		{
+			var webBrowserTask = new WebBrowserTask();
+			webBrowserTask.URL = AppResources.About_SourceURL;
 			webBrowserTask.Show();
 		}
 		//----------------------------------------------------------------------

@@ -355,6 +355,7 @@ namespace WowArmory.Views
 		{
 			brdItemToolTip.Visibility = Visibility.Collapsed;
 			svCharacterStats.IsEnabled = true;
+			svCharacterStats.Opacity = 1;
 
 			if (_isToolTipLoading)
 			{
@@ -372,6 +373,7 @@ namespace WowArmory.Views
 			_isToolTipLoading = true;
 			itemContainer.SelectionVisibility = Visibility.Visible;
 			svCharacterStats.IsEnabled = false;
+			svCharacterStats.Opacity = 0.25;
 			BuildToolTipLoadingText();
 			brdItemToolTip.Visibility = Visibility.Visible;
 		}
@@ -394,12 +396,14 @@ namespace WowArmory.Views
 			var textBlock = new TextBlock();
 			textBlock.Text = AppResources.UI_Common_LoadingData;
 			textBlock.HorizontalAlignment = HorizontalAlignment.Center;
-			textBlock.Style = (Style)Resources["PhoneTextNormalStyle"];
+			textBlock.Style = (Style)Resources["CharacterDetailsItemToolTipNormalTextStyle"];
+			textBlock.Margin = new Thickness(0, 12, 0, 0);
 
 			var progressBar = new ProgressBar();
 			progressBar.IsIndeterminate = true;
 			progressBar.HorizontalAlignment = HorizontalAlignment.Stretch;
 			progressBar.Style = (Style)Resources["PerformanceProgressBar"];
+			progressBar.Margin = new Thickness(0, 6, 0, 12);
 
 			spToolTipContent.Children.Add(textBlock);
 			spToolTipContent.Children.Add(progressBar);

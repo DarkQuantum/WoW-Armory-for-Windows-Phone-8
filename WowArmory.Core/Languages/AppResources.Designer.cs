@@ -97,11 +97,47 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Visit project page.
+        /// </summary>
+        public static string About_SourceButton {
+            get {
+                return ResourceManager.GetString("About_SourceButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This application is open sourced and available at GitHub:.
+        /// </summary>
+        public static string About_SourceText {
+            get {
+                return ResourceManager.GetString("About_SourceText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://github.com/ckrueger/WoW-Armory-for-Windows-Phone-7.
+        /// </summary>
+        public static string About_SourceURL {
+            get {
+                return ResourceManager.GetString("About_SourceURL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to All trademarks referenced in this application are the properties of their respective owners..
         /// </summary>
         public static string About_Trademarks {
             get {
                 return ResourceManager.GetString("About_Trademarks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to twitter.com/wp7wowarmory.
+        /// </summary>
+        public static string About_TwitterURL {
+            get {
+                return ResourceManager.GetString("About_TwitterURL", resourceCulture);
             }
         }
         
