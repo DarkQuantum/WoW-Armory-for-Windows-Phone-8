@@ -59,6 +59,9 @@ namespace WowArmory.Controls
 		//---------------------------------------------------------------------------
 		#region --- Methods ---
 		//---------------------------------------------------------------------------
+		/// <summary>
+		/// Builds the visual tree for the <see cref="T:System.Windows.Controls.Button"/> when a new template is applied.
+		/// </summary>
 		public override void OnApplyTemplate()
 		{
 			base.OnApplyTemplate();

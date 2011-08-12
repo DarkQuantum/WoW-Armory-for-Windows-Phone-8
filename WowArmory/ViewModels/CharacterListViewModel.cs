@@ -204,6 +204,12 @@ namespace WowArmory.ViewModels
 			IsProgressBarVisible = false;
 			IsProgressBarIndeterminate = false;
 
+			if (character == null)
+			{
+				MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK);
+				return;
+			}
+
 			if (!character.IsValid)
 			{
 				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_CharacterSearch_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_CharacterSearch_Error_Unknown_Caption;

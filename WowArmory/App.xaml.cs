@@ -5,8 +5,11 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Telerik.Windows.Controls;
 using WowArmory.Controllers;
+using WowArmory.Core.BattleNet.Models;
+using WowArmory.Core.Extensions;
 using WowArmory.Core.Managers;
 using WowArmory.Enumerations;
+using WowArmory.ViewModels;
 
 namespace WowArmory
 {
@@ -67,13 +70,35 @@ namespace WowArmory
 		// This code will not execute when the application is first launched
 		private void Application_Activated( object sender, ActivatedEventArgs e )
 		{
+			var state = this.RetrieveFromPhoneState();
+
+			if (state != null && state.Count > 0)
+			{
+				if (state.ContainsKey("CharacterSearch_Realm"))
+				{
+					ViewModelLocator.CharacterSearchStatic.Realm = (string)state["CharacterSearch_Realm"];
+				}
+				if (state.ContainsKey("CharacterSearch_Name"))
+				{
+					ViewModelLocator.CharacterSearchStatic.Name = (string)state["CharacterSearch_Name"];
+				}
+				if (state.ContainsKey("CharacterDetails_Character"))
+				{
+					ViewModelLocator.CharacterDetailsStatic.Character = (Character)state["CharacterDetails_Character"];
+				}
+			}
 		}
 
 		// Code to execute when the application is deactivated (sent to background)
 		// This code will not execute when the application is closing
 		private void Application_Deactivated( object sender, DeactivatedEventArgs e )
 		{
+			// save all settings
 			IsolatedStorageManager.Save();
+
+			this.SaveToPhoneState("CharacterSearch_Realm", ViewModelLocator.CharacterSearchStatic.Realm);
+			this.SaveToPhoneState("CharacterSearch_Name", ViewModelLocator.CharacterSearchStatic.Name);
+			this.SaveToPhoneState("CharacterDetails_Character", ViewModelLocator.CharacterDetailsStatic.Character);
 		}
 
 		// Code to execute when the application is closing (eg, user hit Back)

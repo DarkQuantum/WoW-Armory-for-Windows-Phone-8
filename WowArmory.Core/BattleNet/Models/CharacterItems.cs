@@ -43,6 +43,9 @@ namespace WowArmory.Core.BattleNet.Models
 		[XmlElement("waist", IsNullable = true)]
 		public Item Waist { get; set; }
 		[DataMember]
+		[XmlElement("legs", IsNullable = true)]
+		public Item Legs { get; set; }
+		[DataMember]
 		[XmlElement("feet", IsNullable = true)]
 		public Item Feet { get; set; }
 		[DataMember]

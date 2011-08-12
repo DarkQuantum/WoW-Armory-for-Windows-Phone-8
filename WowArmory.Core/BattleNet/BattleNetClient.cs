@@ -173,14 +173,31 @@ namespace WowArmory.Core.BattleNet
 		/// <param name="action">The action to execute once the response was received.</param>
 		public void GetCharacterAsync(string realmName, string characterName, CharacterFields fields, Action<Character> action)
 		{
-			var fieldsQueryString = BuildCharacterFieldsQueryString(fields);
-			var apiMethod = new Uri(BattleNetBaseUri, String.Format(BattleNetSettings.BattleNet_Api_Character, realmName, characterName, fieldsQueryString)).ToString();
-			CallApiMethodAsync(apiMethod, jsonResult =>
+			try
 			{
-				var character = JsonConvert.DeserializeObject<Character>(jsonResult);
-				character.Region = Region;
-				action(character);
-			});
+				var fieldsQueryString = BuildCharacterFieldsQueryString(fields);
+				var apiMethod = new Uri(BattleNetBaseUri, String.Format(BattleNetSettings.BattleNet_Api_Character, realmName, characterName, fieldsQueryString)).ToString();
+				CallApiMethodAsync(apiMethod, jsonResult =>
+				{
+					try
+					{
+						var character = JsonConvert.DeserializeObject<Character>(jsonResult);
+						if (character != null)
+						{
+							character.Region = Region;
+						}
+						action(character);
+					}
+					catch (Exception ex)
+					{
+						action(null);
+					}
+				});
+			}
+			catch (Exception ex)
+			{
+				action(null);
+			}
 		}
 
 		/// <summary>
@@ -190,16 +207,33 @@ namespace WowArmory.Core.BattleNet
 		/// <param name="action">The action to execute once the response was received.</param>
 		public void GetRealmListAsync(Region region, Action<RealmList> action)
 		{
-			var oldRegion = Region;
-			Region = region;
-			var apiMethod = new Uri(BattleNetBaseUri, BattleNetSettings.BattleNet_Api_RealmStatus).ToString();
-			Region = oldRegion;
-			CallApiMethodAsync(apiMethod, jsonResult =>
+			try
 			{
-				var realmList = JsonConvert.DeserializeObject<RealmList>(jsonResult.Replace("n/a", "notavailable"));
-				realmList.Region = Region;
-				action(realmList);
-			});
+				var oldRegion = Region;
+				Region = region;
+				var apiMethod = new Uri(BattleNetBaseUri, BattleNetSettings.BattleNet_Api_RealmStatus).ToString();
+				Region = oldRegion;
+				CallApiMethodAsync(apiMethod, jsonResult =>
+				{
+					try
+					{
+						var realmList = JsonConvert.DeserializeObject<RealmList>(jsonResult.Replace("n/a", "notavailable"));
+						if (realmList != null)
+						{
+							realmList.Region = Region;
+						}
+						action(realmList);
+					}
+					catch (Exception ex)
+					{
+						action(null);
+					}
+				});
+			}
+			catch (Exception ex)
+			{
+				action(null);
+			}
 		}
 
 		/// <summary>
@@ -227,6 +261,17 @@ namespace WowArmory.Core.BattleNet
 		}
 
 		/// <summary>
+		/// Gets the icon url for the specified path.
+		/// </summary>
+		/// <param name="iconPath">The path to the icon.</param>
+		/// <param name="iconSize">The desired size of the icon.</param>
+		/// <returns>The icon url for the specified path.</returns>
+		public string GetIconUrl(string iconPath, IconSize iconSize = IconSize.Large)
+		{
+			return new Uri(BattleNetIconUri, String.Format("{0}/{1}.jpg", GetSettingValue(iconSize), iconPath)).ToString();
+		}
+
+		/// <summary>
 		/// Gets the icon from the specified path.
 		/// </summary>
 		/// <param name="iconPath">The path to the icon.</param>
@@ -236,7 +281,7 @@ namespace WowArmory.Core.BattleNet
 		/// </returns>
 		public ImageSource GetIcon(string iconPath, IconSize iconSize = IconSize.Large)
 		{
-			var iconUrl = new Uri(BattleNetIconUri, String.Format("{0}/{1}.jpg", GetSettingValue(iconSize), iconPath)).ToString();
+			var iconUrl = GetIconUrl(iconPath, iconSize);
 			return CacheManager.GetImageSourceFromCache(iconUrl);
 		}
 

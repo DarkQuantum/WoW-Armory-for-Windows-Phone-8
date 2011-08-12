@@ -106,7 +106,9 @@
     <Compile Include="BattleNet\Models\Item.cs" />
     <Compile Include="BattleNet\Models\ItemTooltipParams.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\CharacterToThumbnailConverter.cs" />
     <Compile Include="Converters\ClassToLocalizedStringConverter.cs" />
+    <Compile Include="Converters\IconPathToIconUrlConverter.cs" />
     <Compile Include="Converters\InverseBooleanConverter.cs" />
     <Compile Include="Converters\RaceToFactionConverter.cs" />
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
@@ -247,11 +249,206 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="..\Media\Badge\Badge_0.png">
-      <Link>Images\Badge\Badge_0.png</Link>
+    <Resource Include="..\Media\PaperDoll\chest.png">
+      <Link>Images\PaperDoll\chest.png</Link>
     </Resource>
-    <Resource Include="..\Media\Badge\Badge_1.png">
-      <Link>Images\Badge\Badge_1.png</Link>
+    <Resource Include="..\Media\PaperDoll\feet.png">
+      <Link>Images\PaperDoll\feet.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\finger.png">
+      <Link>Images\PaperDoll\finger.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\hands.png">
+      <Link>Images\PaperDoll\hands.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\head.png">
+      <Link>Images\PaperDoll\head.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\legs.png">
+      <Link>Images\PaperDoll\legs.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\mainhand.png">
+      <Link>Images\PaperDoll\mainhand.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\neck.png">
+      <Link>Images\PaperDoll\neck.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\ranged.png">
+      <Link>Images\PaperDoll\ranged.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\relic.png">
+      <Link>Images\PaperDoll\relic.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\shirt.png">
+      <Link>Images\PaperDoll\shirt.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\shoulder.png">
+      <Link>Images\PaperDoll\shoulder.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\tabard.png">
+      <Link>Images\PaperDoll\tabard.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\trinket.png">
+      <Link>Images\PaperDoll\trinket.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\waist.png">
+      <Link>Images\PaperDoll\waist.png</Link>
+    </Resource>
+    <Resource Include="..\Media\PaperDoll\wrist.png">
+      <Link>Images\PaperDoll\wrist.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\CharacterDetails\Item_Rarity_1.png">
+      <Link>Images\CharacterDetails\Item_Rarity_1.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Item_Rarity_2.png">
+      <Link>Images\CharacterDetails\Item_Rarity_2.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Item_Rarity_3.png">
+      <Link>Images\CharacterDetails\Item_Rarity_3.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Item_Rarity_4.png">
+      <Link>Images\CharacterDetails\Item_Rarity_4.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Item_Rarity_5.png">
+      <Link>Images\CharacterDetails\Item_Rarity_5.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Item_Rarity_7.png">
+      <Link>Images\CharacterDetails\Item_Rarity_7.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Item_Selected.png">
+      <Link>Images\CharacterDetails\Item_Selected.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\PaperDoll\back.png">
+      <Link>Images\PaperDoll\back.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\PaperDoll\offhand.png">
+      <Link>Images\PaperDoll\offhand.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\CharacterDetails\Item_Mask.png">
+      <Link>Images\CharacterDetails\Item_Mask.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Item_Rarity_0.png">
+      <Link>Images\CharacterDetails\Item_Rarity_0.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Thumbnails\1-0.jpg">
+      <Link>Images\Thumbnails\1-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\1-1.jpg">
+      <Link>Images\Thumbnails\1-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\10-0.jpg">
+      <Link>Images\Thumbnails\10-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\10-1.jpg">
+      <Link>Images\Thumbnails\10-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\11-0.jpg">
+      <Link>Images\Thumbnails\11-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\11-1.jpg">
+      <Link>Images\Thumbnails\11-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\2-0.jpg">
+      <Link>Images\Thumbnails\2-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\2-1.jpg">
+      <Link>Images\Thumbnails\2-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\22-0.jpg">
+      <Link>Images\Thumbnails\22-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\22-1.jpg">
+      <Link>Images\Thumbnails\22-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\3-0.jpg">
+      <Link>Images\Thumbnails\3-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\3-1.jpg">
+      <Link>Images\Thumbnails\3-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\4-0.jpg">
+      <Link>Images\Thumbnails\4-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\4-1.jpg">
+      <Link>Images\Thumbnails\4-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\5-0.jpg">
+      <Link>Images\Thumbnails\5-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\5-1.jpg">
+      <Link>Images\Thumbnails\5-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\6-0.jpg">
+      <Link>Images\Thumbnails\6-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\6-1.jpg">
+      <Link>Images\Thumbnails\6-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\7-0.jpg">
+      <Link>Images\Thumbnails\7-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\7-1.jpg">
+      <Link>Images\Thumbnails\7-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\8-0.jpg">
+      <Link>Images\Thumbnails\8-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\8-1.jpg">
+      <Link>Images\Thumbnails\8-1.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\9-0.jpg">
+      <Link>Images\Thumbnails\9-0.jpg</Link>
+    </Resource>
+    <Resource Include="..\Media\Thumbnails\9-1.jpg">
+      <Link>Images\Thumbnails\9-1.jpg</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Badge\Badge_Class_1.png">
+      <Link>Images\Badge\Badge_Class_1.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Class_11.png">
+      <Link>Images\Badge\Badge_Class_11.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Class_2.png">
+      <Link>Images\Badge\Badge_Class_2.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Class_3.png">
+      <Link>Images\Badge\Badge_Class_3.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Class_4.png">
+      <Link>Images\Badge\Badge_Class_4.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Class_5.png">
+      <Link>Images\Badge\Badge_Class_5.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Class_6.png">
+      <Link>Images\Badge\Badge_Class_6.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Class_7.png">
+      <Link>Images\Badge\Badge_Class_7.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Class_8.png">
+      <Link>Images\Badge\Badge_Class_8.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Class_9.png">
+      <Link>Images\Badge\Badge_Class_9.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Faction_0.png">
+      <Link>Images\Badge\Badge_Faction_0.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Badge\Badge_Faction_1.png">
+      <Link>Images\Badge\Badge_Faction_1.png</Link>
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

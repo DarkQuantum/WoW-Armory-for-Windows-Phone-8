@@ -844,6 +844,24 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No data retrieved.
+        /// </summary>
+        public static string UI_Common_Error_NoData_Caption {
+            get {
+                return ResourceManager.GetString("UI_Common_Error_NoData_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not retrieve any data. Please check your network connectivity..
+        /// </summary>
+        public static string UI_Common_Error_NoData_Text {
+            get {
+                return ResourceManager.GetString("UI_Common_Error_NoData_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Loading data....
         /// </summary>
         public static string UI_Common_LoadingData {

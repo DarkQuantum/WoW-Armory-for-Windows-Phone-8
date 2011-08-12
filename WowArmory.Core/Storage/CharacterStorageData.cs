@@ -23,6 +23,8 @@ namespace WowArmory.Core.Storage
 		[DataMember]
 		public int Level { get; set; }
 		[DataMember]
+		public int Gender { get; set; }
+		[DataMember]
 		public CharacterClass Class { get; set; }
 		[DataMember]
 		public CharacterFaction Faction { get; set; }

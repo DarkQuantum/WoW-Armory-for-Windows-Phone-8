@@ -1,0 +1,34 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:ctrl="clr-namespace:WowArmory.Controls"
+					xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core">
+
+	<Style TargetType="ctrl:CharacterItemContainer">
+		<Setter Property="Width" Value="64" />
+		<Setter Property="Height" Value="64" />
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="4" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ctrl:CharacterItemContainer">
+					<Grid Background="Transparent">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Normal" />
+								<VisualState x:Name="MouseOver" />
+								<VisualState x:Name="Pressed" />
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Image Source="{TemplateBinding BackgroundImageSource}" Width="64" Height="64" />
+						<Image helper:AsyncImageLoader.ImageUrl="{Binding Icon, Converter={StaticResource IconPathToIconUrl}, ConverterParameter='Large'}" Width="64" Height="64">
+							<Image.OpacityMask>
+								<ImageBrush ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Item_Mask.png" Stretch="Fill" />
+							</Image.OpacityMask>
+						</Image>
+						<Image Source="{Binding QualityAsInt, Converter={StaticResource AppImageUrl}, ConverterParameter='CharacterDetails/Item_Rarity_{0}.png'}" Width="64" Height="64" />
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

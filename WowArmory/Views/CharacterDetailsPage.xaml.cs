@@ -227,7 +227,15 @@ namespace WowArmory.Views
 			rectangle.HorizontalAlignment = HorizontalAlignment.Left;
 			rectangle.Width = rectangleWidth;
 			rectangle.Height = Double.NaN;
-			rectangle.Fill = (Brush)Resources["ProfessionBar"];
+			rectangle.Fill = (Brush)Resources["PhoneAccentBrush"];
+			var rectangleHighlight = new Rectangle();
+			Grid.SetRow(rectangleHighlight, 0);
+			Grid.SetColumn(rectangleHighlight, 0);
+			Grid.SetColumnSpan(rectangleHighlight, 3);
+			rectangleHighlight.HorizontalAlignment = HorizontalAlignment.Left;
+			rectangleHighlight.Width = rectangleWidth;
+			rectangleHighlight.Height = Double.NaN;
+			rectangleHighlight.Fill = (Brush)Resources["ProfessionBar"];
 
 			var image = new Image();
 			Grid.SetRow(image, 0);
@@ -258,6 +266,7 @@ namespace WowArmory.Views
 			valueTextBlock.Margin = new Thickness(0, 0, 6, 0);
 
 			grid.Children.Add(rectangle);
+			grid.Children.Add(rectangleHighlight);
 			grid.Children.Add(image);
 			grid.Children.Add(nameTextBlock);
 			grid.Children.Add(valueTextBlock);

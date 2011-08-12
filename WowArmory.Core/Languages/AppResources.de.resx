@@ -414,4 +414,10 @@
   <data name="UI_CharacterSearch_Missing_Caption" xml:space="preserve">
     <value>Fehlende Eingabe</value>
   </data>
+  <data name="UI_Common_Error_NoData_Caption" xml:space="preserve">
+    <value>Keine Daten empfangen</value>
+  </data>
+  <data name="UI_Common_Error_NoData_Text" xml:space="preserve">
+    <value>Es konnten keine Daten empfangen werden. Bitte überprüfe deine Netzverbindung.</value>
+  </data>
 </root>

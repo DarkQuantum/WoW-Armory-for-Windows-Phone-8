@@ -17,7 +17,14 @@ namespace WowArmory.Core.BattleNet.Models
 		public string Icon { get; set; }
 		[DataMember]
 		[XmlElement("quality")]
-		public int Quality { get; set; }
+		public ItemQuality Quality { get; set; }
+		public int QualityAsInt
+		{
+			get
+			{
+				return (int)Quality;
+			}
+		}
 		[DataMember]
 		[XmlElement("tooltipParams", IsNullable = true)]
 		public ItemTooltipParams TooltipParams { get; set; }

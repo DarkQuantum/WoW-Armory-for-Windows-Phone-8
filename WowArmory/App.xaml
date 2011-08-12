@@ -20,6 +20,8 @@
 		<cnv:ClassToLocalizedStringConverter x:Key="ClassToLocalizedString" />
 		<cnv:RaceToFactionConverter x:Key="RaceToFaction" />
 		<cnv:InverseBooleanConverter x:Key="InverseBoolean" />
+		<cnv:IconPathToIconUrlConverter x:Key="IconPathToIconUrl" />
+		<cnv:CharacterToThumbnailConverter x:Key="CharacterToThumbnail" />
 		
 		<System:Double x:Key="PhoneFontSizeXSmall">16</System:Double>
 		

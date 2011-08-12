@@ -52,25 +52,39 @@ namespace WowArmory.Core.Helper
 			if (depObj == null) return;
 			if (eventArgs.NewValue == null) return;
 
-			var image = (Image)depObj;
-			var imageUri = new Uri((string)eventArgs.NewValue);
-
-			if (String.IsNullOrEmpty(Path.GetFileNameWithoutExtension(imageUri.LocalPath))) return;
-
-			if (!CacheManager.ImageCache.ContainsKey(imageUri.ToString()))
+			try
 			{
-				var webClient = new WebClient();
-				webClient.OpenReadCompleted += delegate(object sender, OpenReadCompletedEventArgs e)
+				var image = (Image)depObj;
+				var imageUri = new Uri((string)eventArgs.NewValue);
+
+				if (String.IsNullOrEmpty(Path.GetFileNameWithoutExtension(imageUri.LocalPath))) return;
+
+				if (!CacheManager.ImageCache.ContainsKey(imageUri.ToString()))
 				{
-				    var webImage = new BitmapImage();
-				    webImage.SetSource(e.Result);
-				    image.Source = CacheManager.GetImageSourceFromCache(imageUri.ToString(), webImage);
-				};
-				webClient.OpenReadAsync(imageUri);
+					var webClient = new WebClient();
+					webClient.OpenReadCompleted += delegate(object sender, OpenReadCompletedEventArgs e)
+					{
+						try
+						{
+							var webImage = new BitmapImage();
+							webImage.SetSource(e.Result);
+							image.Source = CacheManager.GetImageSourceFromCache(imageUri.ToString(), webImage);
+						}
+						catch (Exception ex)
+						{
+							image.Source = null;
+						}
+					};
+					webClient.OpenReadAsync(imageUri);
+				}
+				else
+				{
+					image.Source = CacheManager.ImageCache[imageUri.ToString()];
+				}
 			}
-			else
+			catch (Exception ex)
 			{
-				image.Source = CacheManager.ImageCache[imageUri.ToString()];
+				return;
 			}
 		}
 		//----------------------------------------------------------------------

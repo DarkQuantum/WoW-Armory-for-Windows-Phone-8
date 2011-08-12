@@ -68,6 +68,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterDetails", "Charact
 		Media\CharacterDetails\Favorite.psd = Media\CharacterDetails\Favorite.psd
 		Media\CharacterDetails\Favorite_0.png = Media\CharacterDetails\Favorite_0.png
 		Media\CharacterDetails\Favorite_1.png = Media\CharacterDetails\Favorite_1.png
+		Media\CharacterDetails\Item_Mask.png = Media\CharacterDetails\Item_Mask.png
+		Media\CharacterDetails\Item_Rarity.psd = Media\CharacterDetails\Item_Rarity.psd
+		Media\CharacterDetails\Item_Rarity_0.png = Media\CharacterDetails\Item_Rarity_0.png
+		Media\CharacterDetails\Item_Rarity_1.png = Media\CharacterDetails\Item_Rarity_1.png
+		Media\CharacterDetails\Item_Rarity_2.png = Media\CharacterDetails\Item_Rarity_2.png
+		Media\CharacterDetails\Item_Rarity_3.png = Media\CharacterDetails\Item_Rarity_3.png
+		Media\CharacterDetails\Item_Rarity_4.png = Media\CharacterDetails\Item_Rarity_4.png
+		Media\CharacterDetails\Item_Rarity_5.png = Media\CharacterDetails\Item_Rarity_5.png
+		Media\CharacterDetails\Item_Rarity_7.png = Media\CharacterDetails\Item_Rarity_7.png
+		Media\CharacterDetails\Item_Selected.png = Media\CharacterDetails\Item_Selected.png
 		Media\CharacterDetails\Profession_Bar.png = Media\CharacterDetails\Profession_Bar.png
 		Media\CharacterDetails\Profession_Bar.psd = Media\CharacterDetails\Profession_Bar.psd
 		Media\CharacterDetails\Reputation_Bar.psd = Media\CharacterDetails\Reputation_Bar.psd
@@ -108,8 +118,68 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Badge", "Badge", "{3A47F978-1BD8-4F24-92B9-5BF3D90B990A}"
 	ProjectSection(SolutionItems) = preProject
 		Media\Badge\Badge.psd = Media\Badge\Badge.psd
-		Media\Badge\Badge_0.png = Media\Badge\Badge_0.png
-		Media\Badge\Badge_1.png = Media\Badge\Badge_1.png
+		Media\Badge\Badge_Class_1.png = Media\Badge\Badge_Class_1.png
+		Media\Badge\Badge_Class_11.png = Media\Badge\Badge_Class_11.png
+		Media\Badge\Badge_Class_2.png = Media\Badge\Badge_Class_2.png
+		Media\Badge\Badge_Class_3.png = Media\Badge\Badge_Class_3.png
+		Media\Badge\Badge_Class_4.png = Media\Badge\Badge_Class_4.png
+		Media\Badge\Badge_Class_5.png = Media\Badge\Badge_Class_5.png
+		Media\Badge\Badge_Class_6.png = Media\Badge\Badge_Class_6.png
+		Media\Badge\Badge_Class_7.png = Media\Badge\Badge_Class_7.png
+		Media\Badge\Badge_Class_8.png = Media\Badge\Badge_Class_8.png
+		Media\Badge\Badge_Class_9.png = Media\Badge\Badge_Class_9.png
+		Media\Badge\Badge_Faction_0.png = Media\Badge\Badge_Faction_0.png
+		Media\Badge\Badge_Faction_1.png = Media\Badge\Badge_Faction_1.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PaperDoll", "PaperDoll", "{980D282C-EADB-4971-A0B9-BBA5CE9F1137}"
+	ProjectSection(SolutionItems) = preProject
+		Media\PaperDoll\back.png = Media\PaperDoll\back.png
+		Media\PaperDoll\chest.png = Media\PaperDoll\chest.png
+		Media\PaperDoll\feet.png = Media\PaperDoll\feet.png
+		Media\PaperDoll\finger.png = Media\PaperDoll\finger.png
+		Media\PaperDoll\hands.png = Media\PaperDoll\hands.png
+		Media\PaperDoll\head.png = Media\PaperDoll\head.png
+		Media\PaperDoll\legs.png = Media\PaperDoll\legs.png
+		Media\PaperDoll\mainhand.png = Media\PaperDoll\mainhand.png
+		Media\PaperDoll\neck.png = Media\PaperDoll\neck.png
+		Media\PaperDoll\offhand.png = Media\PaperDoll\offhand.png
+		Media\PaperDoll\ranged.png = Media\PaperDoll\ranged.png
+		Media\PaperDoll\relic.png = Media\PaperDoll\relic.png
+		Media\PaperDoll\shirt.png = Media\PaperDoll\shirt.png
+		Media\PaperDoll\shoulder.png = Media\PaperDoll\shoulder.png
+		Media\PaperDoll\tabard.png = Media\PaperDoll\tabard.png
+		Media\PaperDoll\trinket.png = Media\PaperDoll\trinket.png
+		Media\PaperDoll\waist.png = Media\PaperDoll\waist.png
+		Media\PaperDoll\wrist.png = Media\PaperDoll\wrist.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Thumbnails", "Thumbnails", "{D08DFF7A-5CEF-4C8C-BC6C-25B0346443E5}"
+	ProjectSection(SolutionItems) = preProject
+		Media\Thumbnails\1-0.jpg = Media\Thumbnails\1-0.jpg
+		Media\Thumbnails\1-1.jpg = Media\Thumbnails\1-1.jpg
+		Media\Thumbnails\10-0.jpg = Media\Thumbnails\10-0.jpg
+		Media\Thumbnails\10-1.jpg = Media\Thumbnails\10-1.jpg
+		Media\Thumbnails\11-0.jpg = Media\Thumbnails\11-0.jpg
+		Media\Thumbnails\11-1.jpg = Media\Thumbnails\11-1.jpg
+		Media\Thumbnails\2-0.jpg = Media\Thumbnails\2-0.jpg
+		Media\Thumbnails\2-1.jpg = Media\Thumbnails\2-1.jpg
+		Media\Thumbnails\22-0.jpg = Media\Thumbnails\22-0.jpg
+		Media\Thumbnails\22-1.jpg = Media\Thumbnails\22-1.jpg
+		Media\Thumbnails\3-0.jpg = Media\Thumbnails\3-0.jpg
+		Media\Thumbnails\3-1.jpg = Media\Thumbnails\3-1.jpg
+		Media\Thumbnails\4-0.jpg = Media\Thumbnails\4-0.jpg
+		Media\Thumbnails\4-1.jpg = Media\Thumbnails\4-1.jpg
+		Media\Thumbnails\5-0.jpg = Media\Thumbnails\5-0.jpg
+		Media\Thumbnails\5-1.jpg = Media\Thumbnails\5-1.jpg
+		Media\Thumbnails\6-0.jpg = Media\Thumbnails\6-0.jpg
+		Media\Thumbnails\6-1.jpg = Media\Thumbnails\6-1.jpg
+		Media\Thumbnails\7-0.jpg = Media\Thumbnails\7-0.jpg
+		Media\Thumbnails\7-1.jpg = Media\Thumbnails\7-1.jpg
+		Media\Thumbnails\8-0.jpg = Media\Thumbnails\8-0.jpg
+		Media\Thumbnails\8-1.jpg = Media\Thumbnails\8-1.jpg
+		Media\Thumbnails\9-0.jpg = Media\Thumbnails\9-0.jpg
+		Media\Thumbnails\9-1.jpg = Media\Thumbnails\9-1.jpg
 	EndProjectSection
 EndProject
 Global
@@ -147,6 +217,8 @@ Global
 		{E38956DD-0E34-4549-8EB0-F6C634AD6327} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{D30C058C-315B-4D7F-8B27-BE2C0DF35184} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{3A47F978-1BD8-4F24-92B9-5BF3D90B990A} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
+		{980D282C-EADB-4971-A0B9-BBA5CE9F1137} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
+		{D08DFF7A-5CEF-4C8C-BC6C-25B0346443E5} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{22D83C24-EFA4-4D83-A082-EA8591A5EA85} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{B6517931-2F91-4538-A374-A055163BBDE4} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{3747578C-1B15-4E0B-9C04-608562DC793A} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}

@@ -18,7 +18,7 @@ namespace WowArmory.Models
 		{
 			get
 			{
-				return CacheManager.GetImageSourceFromCache(String.Format("/WowArmory.Core;Component/Images/Badge/Badge_{0}.png", (int)Faction));
+				return CacheManager.GetImageSourceFromCache(String.Format("/WowArmory.Core;Component/Images/Badge/Badge_Class_{0}.png", (int)Class));
 			}
 		}
 
@@ -30,6 +30,17 @@ namespace WowArmory.Models
 			get
 			{
 				return (int)Class;
+			}
+		}
+
+		/// <summary>
+		/// Gets the faction as an integer data type.
+		/// </summary>
+		public int FactionAsInt
+		{
+			get
+			{
+				return (int)Faction;
 			}
 		}
 

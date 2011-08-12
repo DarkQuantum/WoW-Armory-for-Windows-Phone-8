@@ -414,4 +414,10 @@
   <data name="UI_CharacterSearch_Missing_Caption" xml:space="preserve">
     <value>Input missing</value>
   </data>
+  <data name="UI_Common_Error_NoData_Caption" xml:space="preserve">
+    <value>No data retrieved</value>
+  </data>
+  <data name="UI_Common_Error_NoData_Text" xml:space="preserve">
+    <value>Could not retrieve any data. Please check your network connectivity.</value>
+  </data>
 </root>

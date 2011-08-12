@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using GalaSoft.MvvmLight;
+using WowArmory.Controllers;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
 using WowArmory.Core.Extensions;
+using WowArmory.Core.Languages;
 using WowArmory.Core.Managers;
 using WowArmory.Models;
 
@@ -136,6 +139,13 @@ namespace WowArmory.ViewModels
 		/// <param name="realmList">The realm list.</param>
 		private void ConstructBindableRealmList(RealmList realmList)
 		{
+			if (realmList == null)
+			{
+				MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK);
+				ApplicationController.Current.NavigateBack();
+				return;
+			}
+
 			Realms = realmList.Realms.Select(realm => new RealmItem(realm)).ToObservableCollection();
 
 			IsProgressBarVisible = false;

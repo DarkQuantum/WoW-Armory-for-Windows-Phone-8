@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core"
 	xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
-	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7" mc:Ignorable="d"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7" xmlns:ctrl="clr-namespace:WowArmory.Controls" mc:Ignorable="d"
 	d:DesignWidth="480" d:DesignHeight="800"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -31,13 +31,7 @@
 			<Setter Property="Padding" Value="0" />
 		</Style>
 
-		<!--<LinearGradientBrush x:Key="ProfessionBar" StartPoint="0,0" EndPoint="0,1">
-			<GradientStop Color="#fca55f" Offset="0" />
-			<GradientStop Color="#f87a2f" Offset="0.5" />
-			<GradientStop Color="#c35e22" Offset="0.5" />
-			<GradientStop Color="#dd6d2a" Offset="1" />
-		</LinearGradientBrush>-->
-		<ImageBrush x:Key="ProfessionBar" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Profession_Bar.png" Stretch="None" />
+		<ImageBrush x:Key="ProfessionBar" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Profession_Bar.png" Stretch="Fill" />
 		
 		<ImageBrush x:Key="ReputationBar_0" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_0.png" Stretch="None" />
 		<ImageBrush x:Key="ReputationBar_1" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_1.png" Stretch="None" />
@@ -92,7 +86,45 @@
 		<Grid Grid.Row="1">
 			<controls:Pivot x:Name="CharacterPivot" SelectionChanged="CharacterPivot_SelectionChanged">
 				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Character, Source={StaticResource LocalizedResources}}">
-					
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="*" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+						<StackPanel Grid.Column="0" Width="64" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/head.png" DataContext="{Binding Character.Items.Head}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/neck.png" DataContext="{Binding Character.Items.Neck}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/shoulder.png" DataContext="{Binding Character.Items.Shoulder}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/back.png" DataContext="{Binding Character.Items.Back}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/chest.png" DataContext="{Binding Character.Items.Chest}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/shirt.png" DataContext="{Binding Character.Items.Shirt}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/tabard.png" DataContext="{Binding Character.Items.Tabard}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/wrist.png" DataContext="{Binding Character.Items.Wrist}" />
+						</StackPanel>
+						<Grid Grid.Column="1">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="*" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+
+							<StackPanel Grid.Row="1" Height="64" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,12">
+								<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/mainhand.png" DataContext="{Binding Character.Items.MainHand}" />
+								<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/offhand.png" DataContext="{Binding Character.Items.OffHand}" Margin="3,0,3,0" />
+								<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/ranged.png" DataContext="{Binding Character.Items.Ranged}" />
+							</StackPanel>
+						</Grid>
+						<StackPanel Grid.Column="2" Width="64" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Top">
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/hands.png" DataContext="{Binding Character.Items.Hands}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/waist.png" DataContext="{Binding Character.Items.Waist}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/legs.png" DataContext="{Binding Character.Items.Legs}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/feet.png" DataContext="{Binding Character.Items.Feet}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/finger.png" DataContext="{Binding Character.Items.Finger1}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/finger.png" DataContext="{Binding Character.Items.Finger2}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/trinket.png" DataContext="{Binding Character.Items.Trinket1}" Margin="0,0,0,3" />
+							<ctrl:CharacterItemContainer BackgroundImageSource="/WowArmory.Core;Component/Images/PaperDoll/trinket.png" DataContext="{Binding Character.Items.Trinket2}" />
+						</StackPanel>
+					</Grid>
 				</controls:PivotItem>
 				<!--<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Achievements, Source={StaticResource LocalizedResources}}">
 

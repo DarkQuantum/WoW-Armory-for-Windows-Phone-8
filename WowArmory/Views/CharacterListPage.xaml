@@ -44,6 +44,8 @@
 								<ColumnDefinition Width="*" />
 								<ColumnDefinition Width="Auto" />
 							</Grid.ColumnDefinitions>
+							<Image Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding FactionAsInt, Converter={StaticResource AppImageUrl}, ConverterParameter='CharacterDetails/Faction_Header_{0}.png'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" />
+							<Image Grid.Column="0" Source="{Binding ., Converter={StaticResource CharacterToThumbnail}}" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
 							<Image Grid.Column="0" helper:AsyncImageLoader.ImageUrl="{Binding ThumbnailImageUrl}" Width="64" Height="64" HorizontalAlignment="Left" VerticalAlignment="Top" />
 							<Grid Grid.Column="1">
 								<Grid.RowDefinitions>
@@ -54,19 +56,19 @@
 									<ColumnDefinition Width="*" />
 									<ColumnDefinition Width="Auto" />
 								</Grid.ColumnDefinitions>
-								<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Text="{Binding Character}" Style="{StaticResource PhoneTextTitle3Style}" />
+								<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Text="{Binding Character}" Foreground="#ffffffff" FontSize="{StaticResource PhoneFontSizeMediumLarge}" VerticalAlignment="Center" Margin="12,-10,0,0" Padding="0" />
 								<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-									<TextBlock Text="{Binding Level}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Center" Margin="12,0,0,0" />
-									<TextBlock Text="{Binding ClassAsInt, Converter={StaticResource ClassToLocalizedString}}" Style="{StaticResource PhoneTextNormalStyle}" VerticalAlignment="Center" Margin="4,0,0,0" />
+									<TextBlock Text="{Binding Level}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="#ffffffff" VerticalAlignment="Center" Margin="12,0,0,0" />
+									<TextBlock Text="{Binding ClassAsInt, Converter={StaticResource ClassToLocalizedString}}" Foreground="#ffffffff" VerticalAlignment="Center" Margin="4,0,0,0" />
 								</StackPanel>
-								<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Guild, Converter={StaticResource StringToUppercase}}" Style="{StaticResource PhoneTextNormalStyle}" FontSize="{StaticResource PhoneFontSizeXSmall}" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,-32,0" />
+								<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Guild, Converter={StaticResource StringToUppercase}}" Foreground="#ffffffff" FontSize="{StaticResource PhoneFontSizeXSmall}" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,-32,0" />
 							</Grid>
 							<Image Grid.Column="2" Source="{Binding BadgeImage}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="64" Height="64" />
 						</Grid>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>
-			<Grid Background="#bb000000" Visibility="{Binding IsProgressBarVisible, Converter={StaticResource BooleanToVisibility}}" />
+			<Grid Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" Visibility="{Binding IsProgressBarVisible, Converter={StaticResource BooleanToVisibility}}" />
 			<TextBlock Text="{Binding LocalizedResources.UI_Common_LoadingData, Source={StaticResource LocalizedResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsProgressBarVisible, Converter={StaticResource BooleanToVisibility}}" />
 			<ProgressBar Style="{StaticResource PerformanceProgressBar}" Margin="0,36,0,0" VerticalAlignment="Center"
 						 IsIndeterminate="{Binding IsProgressBarIndeterminate}"

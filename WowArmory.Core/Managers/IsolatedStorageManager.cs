@@ -156,6 +156,7 @@ namespace WowArmory.Core.Managers
 				}
 				storageData.Thumbnail = character.Thumbnail;
 				storageData.Level = character.Level;
+				storageData.Gender = character.Gender;
 				storageData.Class = (CharacterClass)character.Class;
 				storageData.Faction = (CharacterFaction)(int)converter.Convert(character.Race, typeof(Int32), null, CultureInfo.CurrentCulture);
 				storageData.Race = (CharacterRace)character.Race;
