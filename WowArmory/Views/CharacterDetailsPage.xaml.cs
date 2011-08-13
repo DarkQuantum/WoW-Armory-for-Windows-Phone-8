@@ -369,6 +369,7 @@ namespace WowArmory.Views
 		private void HideToolTip()
 		{
 			brdItemToolTip.Visibility = Visibility.Collapsed;
+			ClearToolTip();
 			svCharacterStats.IsEnabled = true;
 			svCharacterStats.Opacity = 1;
 
