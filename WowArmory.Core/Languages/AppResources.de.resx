@@ -777,4 +777,7 @@
   <data name="Item_MaxCount_UniqueEquipped" xml:space="preserve">
     <value>Einzigartig anlegbar</value>
   </data>
+  <data name="UI_RealmList_ApplicationBar_Refresh" xml:space="preserve">
+    <value>aktualisieren</value>
+  </data>
 </root>

@@ -197,6 +197,9 @@
     <Content Include="..\Media\ApplicationBar\CharacterList\search.png">
       <Link>Images\ApplicationBar\CharacterList\search.png</Link>
     </Content>
+    <Content Include="..\Media\ApplicationBar\RealmList\refresh.png">
+      <Link>Images\ApplicationBar\RealmList\refresh.png</Link>
+    </Content>
     <Content Include="..\Media\ApplicationBar\Settings\cancel.png">
       <Link>Images\ApplicationBar\Settings\cancel.png</Link>
     </Content>

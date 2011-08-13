@@ -13,8 +13,7 @@ namespace WowArmory.Core.Managers
 		#region --- Fields ---
 		//----------------------------------------------------------------------
 		private static readonly Dictionary<string, ImageSource> _imageCache = new Dictionary<string,ImageSource>();
-		private static RealmList _realmList = null;
-		private static Dictionary<Region, RealmList> _cachedRealmLists = null;
+		private static Dictionary<Region, RealmList> _cachedRealmLists = new Dictionary<Region,RealmList>();
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -32,22 +31,10 @@ namespace WowArmory.Core.Managers
 		}
 
 		/// <summary>
-		/// Gets or sets the cached realm list.
+		/// Gets or sets the cached realm lists.
 		/// </summary>
 		/// <value>
-		/// The cached realm list.
-		/// </value>
-		public static RealmList RealmList
-		{
-			get { return _realmList; }
-			set { _realmList = value; }
-		}
-
-		/// <summary>
-		/// Gets or sets the cached realm lists used by list pickers.
-		/// </summary>
-		/// <value>
-		/// The cached realm lists used by list pickers.
+		/// The cached realm lists.
 		/// </value>
 		public static Dictionary<Region, RealmList> CachedRealmLists
 		{

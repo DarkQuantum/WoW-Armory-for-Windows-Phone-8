@@ -97,9 +97,11 @@ namespace WowArmory.ViewModels
 		//----------------------------------------------------------------------
 		#region --- Constructor ---
 		//----------------------------------------------------------------------
+		/// <summary>
+		/// Initializes a new instance of the <see cref="RealmListViewModel"/> class.
+		/// </summary>
 		public RealmListViewModel()
 		{
-			LoadRealms();
 		}
 		//----------------------------------------------------------------------
 		#endregion
@@ -112,24 +114,26 @@ namespace WowArmory.ViewModels
 		/// <summary>
 		/// Loads the realms.
 		/// </summary>
-		private void LoadRealms()
+		public void LoadRealms(bool forceRefresh = false)
 		{
 			IsProgressBarVisible = true;
 			IsProgressBarIndeterminate = true;
 
-			BattleNetClient.Current.Region = AppSettingsManager.Region;
+			var region = AppSettingsManager.Region;
+			BattleNetClient.Current.Region = region;
 
-			if (CacheManager.RealmList == null)
+			if (forceRefresh || !CacheManager.CachedRealmLists.ContainsKey(region))
 			{
-				BattleNetClient.Current.GetRealmListAsync(BattleNetClient.Current.Region, realmList =>
+				Realms = new ObservableCollection<RealmItem>();
+				BattleNetClient.Current.GetRealmListAsync(region, realmList =>
 				{
-				    CacheManager.RealmList = realmList;
-					ConstructBindableRealmList(CacheManager.RealmList);
+					CacheManager.CachedRealmLists[region] = realmList;
+					ConstructBindableRealmList(CacheManager.CachedRealmLists[region]);
 				});
 			}
 			else
 			{
-				ConstructBindableRealmList(CacheManager.RealmList);
+				ConstructBindableRealmList(CacheManager.CachedRealmLists[region]);
 			}
 		}
 

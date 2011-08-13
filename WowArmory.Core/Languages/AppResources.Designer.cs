@@ -1942,6 +1942,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to refresh.
+        /// </summary>
+        public static string UI_RealmList_ApplicationBar_Refresh {
+            get {
+                return ResourceManager.GetString("UI_RealmList_ApplicationBar_Refresh", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login queue!.
         /// </summary>
         public static string UI_RealmList_Queue {

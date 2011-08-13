@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Telerik.Windows.Controls;
 using WowArmory.Controllers;
+using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
 using WowArmory.Core.Extensions;
 using WowArmory.Core.Managers;
@@ -86,6 +88,10 @@ namespace WowArmory
 				{
 					ViewModelLocator.CharacterDetailsStatic.Character = (Character)state["CharacterDetails_Character"];
 				}
+				if (state.ContainsKey("RealmList_Cache"))
+				{
+					CacheManager.CachedRealmLists = (Dictionary<Region, RealmList>)state["RealmList_Cache"];
+				}
 			}
 		}
 
@@ -99,6 +105,7 @@ namespace WowArmory
 			this.SaveToPhoneState("CharacterSearch_Realm", ViewModelLocator.CharacterSearchStatic.Realm);
 			this.SaveToPhoneState("CharacterSearch_Name", ViewModelLocator.CharacterSearchStatic.Name);
 			this.SaveToPhoneState("CharacterDetails_Character", ViewModelLocator.CharacterDetailsStatic.Character);
+			this.SaveToPhoneState("RealmList_Cache", CacheManager.CachedRealmLists);
 		}
 
 		// Code to execute when the application is closing (eg, user hit Back)

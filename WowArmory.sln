@@ -186,6 +186,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Thumbnails", "Thumbnails", 
 		Media\Thumbnails\9-1.jpg = Media\Thumbnails\9-1.jpg
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RealmList", "RealmList", "{F223F66E-D6DF-4D1C-AAB6-9220B8418D6D}"
+	ProjectSection(SolutionItems) = preProject
+		Media\ApplicationBar\RealmList\refresh.png = Media\ApplicationBar\RealmList\refresh.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -226,5 +231,6 @@ Global
 		{22D83C24-EFA4-4D83-A082-EA8591A5EA85} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{B6517931-2F91-4538-A374-A055163BBDE4} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{3747578C-1B15-4E0B-9C04-608562DC793A} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
+		{F223F66E-D6DF-4D1C-AAB6-9220B8418D6D} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 	EndGlobalSection
 EndGlobal
