@@ -1357,6 +1357,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Item Level {0}.
+        /// </summary>
+        public static string Item_ItemLevel {
+            get {
+                return ResourceManager.GetString("Item_ItemLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Axe.
         /// </summary>
         public static string Item_ItemSubClass_2_0 {
@@ -1596,6 +1605,15 @@ namespace WowArmory.Core.Languages {
         public static string Item_MaxCount_UniqueEquipped {
             get {
                 return ResourceManager.GetString("Item_MaxCount_UniqueEquipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Requires Level {0}.
+        /// </summary>
+        public static string Item_RequiredLevel {
+            get {
+                return ResourceManager.GetString("Item_RequiredLevel", resourceCulture);
             }
         }
         

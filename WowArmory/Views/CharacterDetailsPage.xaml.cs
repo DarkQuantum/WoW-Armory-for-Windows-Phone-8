@@ -441,22 +441,40 @@ namespace WowArmory.Views
 			var normalStyle = (Style)Resources["CharacterDetailsItemToolTipNormalTextStyle"];
 			var bonusStatStyle = (Style)Resources["CharacterDetailsItemToolTipBonusStatTextStyle"];
 
+			// item name
 			ShowToolTipText(tbItemToolTipName, _itemForToolTip.Name, (Brush)Resources[String.Format("ItemQuality{0}", _itemForToolTip.Quality)]);
+			// binding
 			ShowToolTipText(tbItemToolTipBinding, AppResources.ResourceManager.GetString(String.Format("Item_Binding_{0}", _itemForToolTip.ItemBind)));
+			// unique equippable
 			if (_itemForToolTip.MaxCount == 1)
 			{
 				ShowToolTipText(tbItemToolTipMaxCount, AppResources.Item_MaxCount_UniqueEquipped);
 			}
+			// inventory type
 			ShowToolTipText(tbItemToolTipInventoryType, AppResources.ResourceManager.GetString(String.Format("Item_InventoryType_{0}", (InventoryType)_itemForToolTip.InventoryType)));
+			// sub class
 			ShowToolTipText(tbItemToolTipSubClass, AppResources.ResourceManager.GetString(String.Format("Item_ItemSubClass_{0}_{1}", _itemForToolTip.ItemClass, _itemForToolTip.ItemSubClass)));
+			// durability
 			if (_itemForToolTip.MaxDurability > 0)
 			{
 				ShowToolTipText(tbItemToolTipDurability, String.Format(AppResources.Item_Durability, _itemForToolTip.MaxDurability));
 			}
+			// required level
+			if (_itemForToolTip.RequiredLevel > 0)
+			{
+				ShowToolTipText(tbItemToolTipRequiredLevel, String.Format(AppResources.Item_RequiredLevel, _itemForToolTip.RequiredLevel));
+			}
+			// item level
+			if (_itemForToolTip.ItemLevel > 0)
+			{
+				ShowToolTipText(tbItemToolTipItemLevel, String.Format(AppResources.Item_ItemLevel, _itemForToolTip.ItemLevel));
+			}
+			// armor
 			if (_itemForToolTip.BaseArmor > 0)
 			{
 				ShowToolTipText(tbItemToolTipArmor, String.Format("{0} {1}", _itemForToolTip.BaseArmor, AppResources.UI_CharacterDetails_Character_Description_Armor));
 			}
+			// stats
 			if (_itemForToolTip.BonusStats != null && _itemForToolTip.BonusStats.Count > 0)
 			{
 				var spirit = _itemForToolTip.BonusStats.Where(s => s.Stat == ItemBonusStatType.Spirit).FirstOrDefault();
@@ -484,6 +502,7 @@ namespace WowArmory.Views
 					}
 				}
 			}
+			// sell price
 			if (_itemForToolTip.SellPrice > 0)
 			{
 				var sellPriceText = new TextBlock();
@@ -566,6 +585,8 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipIntellect, String.Empty);
 			ShowToolTipText(tbItemToolTipSpirit, String.Empty);
 			ShowToolTipText(tbItemToolTipDurability, String.Empty);
+			ShowToolTipText(tbItemToolTipRequiredLevel, String.Empty);
+			ShowToolTipText(tbItemToolTipItemLevel, String.Empty);
 			spToolTipBonusStats.Children.Clear();
 			spToolTipBonusStats.Visibility = Visibility.Collapsed;
 			spToolTipSellPrice.Children.Clear();

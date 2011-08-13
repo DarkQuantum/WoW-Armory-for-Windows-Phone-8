@@ -407,9 +407,9 @@
 										<!-- TODO Sockets -->
 										<!-- TODO Socket bonus -->
 										<TextBlock x:Name="tbItemToolTipDurability" Text="Durability" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
-										<!-- TODO Required level -->
+										<TextBlock x:Name="tbItemToolTipRequiredLevel" Text="Required Level" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<!-- TODO Required faction -->
-										<!-- TODO Item level -->
+										<TextBlock x:Name="tbItemToolTipItemLevel" Text="Item Level" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<StackPanel x:Name="spToolTipBonusStats" Orientation="Vertical" />
 										<!-- TODO Spells -->
 										<StackPanel x:Name="spToolTipSellPrice" Orientation="Horizontal" />

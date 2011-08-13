@@ -838,6 +838,9 @@
   <data name="Item_Durability" xml:space="preserve">
     <value>Haltbarkeit {0} / {0}</value>
   </data>
+  <data name="Item_ItemLevel" xml:space="preserve">
+    <value>Gegenstandsstufe {0}</value>
+  </data>
   <data name="Item_ItemSubClass_2_0" xml:space="preserve">
     <value>Axt</value>
     <comment>One-Handed Axes</comment>
@@ -927,6 +930,9 @@
   </data>
   <data name="Item_MaxCount_UniqueEquipped" xml:space="preserve">
     <value>Einzigartig anlegbar</value>
+  </data>
+  <data name="Item_RequiredLevel" xml:space="preserve">
+    <value>Erfordert Stufe {0}</value>
   </data>
   <data name="Item_SellPrice" xml:space="preserve">
     <value>Verkaufspreis:</value>
