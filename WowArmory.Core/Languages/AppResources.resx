@@ -704,7 +704,7 @@
     <comment>What's the text for this?</comment>
   </data>
   <data name="Item_BonusStats_RangedHitRating" xml:space="preserve">
-    <value>Equip: Improves hit rating by {0}.</value>
+    <value>Equip: Increases your hit rating by {0}.</value>
   </data>
   <data name="Item_BonusStats_SpellCriticalAvoidanceRating" xml:space="preserve">
     <value>TODO</value>
@@ -734,7 +734,7 @@
     <comment>What's the text for this?</comment>
   </data>
   <data name="Item_BonusStat_CriticalStrikeRating" xml:space="preserve">
-    <value>Equip: Improves critical strike rating by {0}.</value>
+    <value>Equip: Increases your critical strike rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_DamageDone" xml:space="preserve">
     <value>TODO</value>
@@ -753,7 +753,7 @@
     <value>Equip: Increases your feral attack power by {0}.</value>
   </data>
   <data name="Item_BonusStat_HasteRating" xml:space="preserve">
-    <value>Equip: Improves haste rating by {0}.</value>
+    <value>Equip: Increases your haste rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_HealingDone" xml:space="preserve">
     <value>TODO</value>
@@ -767,7 +767,7 @@
     <comment>What's the text for this?</comment>
   </data>
   <data name="Item_BonusStat_HitRating" xml:space="preserve">
-    <value>Equip: Improves hit rating by {0}.</value>
+    <value>Equip: Increases your hit rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_Hp5" xml:space="preserve">
     <value>Equip: Increases your health regeneration by {0}.</value>
@@ -782,13 +782,13 @@
     <value>Equip: Increases your mastery rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_MeleeCriticalStrikeRating" xml:space="preserve">
-    <value>Equip: Improves critical strike rating by {0}.</value>
+    <value>Equip: Increases your critical strike rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_MeleeHasteRating" xml:space="preserve">
-    <value>Equip: Improves haste rating by {0}.</value>
+    <value>Equip: Increases your haste rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_MeleeHitRating" xml:space="preserve">
-    <value>Equip: Improves hit rating by {0}.</value>
+    <value>Equip: Increases your hit rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_Mp5" xml:space="preserve">
     <value>Equip: Restores {0} mana per 5 secs.</value>
@@ -800,25 +800,25 @@
     <value>Equip: Increases your ranged attack power by {0}.</value>
   </data>
   <data name="Item_BonusStat_RangedCriticalStrikeRating" xml:space="preserve">
-    <value>Equip: Improves critical strike rating by {0}.</value>
+    <value>Equip: Increases your critical strike rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_RangedHasteRating" xml:space="preserve">
-    <value>Equip: Improves haste rating by {0}.</value>
+    <value>Equip: Increases your haste rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_ResilienceRating" xml:space="preserve">
-    <value>Equip: Improves your resilience rating by {0}.</value>
+    <value>Equip: Increases your resilience rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_ShieldBlockRating" xml:space="preserve">
     <value>Equip: Increases shield block rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_SpellCriticalStrikeRating" xml:space="preserve">
-    <value>Equip: Improves spell critical strike rating by {0}.</value>
+    <value>Equip: Increases your spell critical strike rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_SpellHasteRating" xml:space="preserve">
-    <value>Equip: Improves spell haste rating by {0}.</value>
+    <value>Equip: Increases your spell haste rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_SpellHitRating" xml:space="preserve">
-    <value>Equip: Improves spell hit rating by {0}.</value>
+    <value>Equip: Increases your spell hit rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_SpellPenetration" xml:space="preserve">
     <value>Equip: Increases spell penetration by {0}.</value>
@@ -936,6 +936,15 @@
   </data>
   <data name="Item_SellPrice" xml:space="preserve">
     <value>Sell Price:</value>
+  </data>
+  <data name="Item_WeaponInfo_Damage" xml:space="preserve">
+    <value>{0} - {1} Damage</value>
+  </data>
+  <data name="Item_WeaponInfo_Dps" xml:space="preserve">
+    <value>({0:0.0} damage per second)</value>
+  </data>
+  <data name="Item_WeaponInfo_Speed" xml:space="preserve">
+    <value>Speed {0:0.00}</value>
   </data>
   <data name="UI_RealmList_ApplicationBar_Refresh" xml:space="preserve">
     <value>refresh</value>

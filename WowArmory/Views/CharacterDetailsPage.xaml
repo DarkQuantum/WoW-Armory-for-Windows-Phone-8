@@ -394,8 +394,15 @@
 											<TextBlock x:Name="tbItemToolTipInventoryType" Grid.Column="0" Text="Inventory Type" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 											<TextBlock x:Name="tbItemToolTipSubClass" Grid.Column="1" Text="Sub Class" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										</Grid>
-										<!-- TODO Damage --> <!-- TODO Speed -->
-										<!-- TODO Damage per second -->
+										<Grid>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="*" />
+												<ColumnDefinition Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<TextBlock x:Name="tbItemToolTipWeaponInfoDamage" Grid.Column="0" Text="Damage" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+											<TextBlock x:Name="tbItemToolTipWeaponInfoSpeed" Grid.Column="1" Text="Speed" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										</Grid>
+										<TextBlock x:Name="tbItemToolTipWeaponInfoDps" Grid.Column="1" Text="Damage Per Second" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<!-- NOTE Find out how to display correct reforge information -->
 										<TextBlock x:Name="tbItemToolTipArmor" Text="Armor" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipStrength" Text="Strength" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />

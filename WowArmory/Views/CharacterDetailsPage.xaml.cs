@@ -454,6 +454,22 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipInventoryType, AppResources.ResourceManager.GetString(String.Format("Item_InventoryType_{0}", (InventoryType)_itemForToolTip.InventoryType)));
 			// sub class
 			ShowToolTipText(tbItemToolTipSubClass, AppResources.ResourceManager.GetString(String.Format("Item_ItemSubClass_{0}_{1}", _itemForToolTip.ItemClass, _itemForToolTip.ItemSubClass)));
+			// weapon information
+			if (_itemForToolTip.WeaponInfo != null)
+			{
+				// damage
+				if (_itemForToolTip.WeaponInfo.Damage != null && _itemForToolTip.WeaponInfo.Damage.Count > 0)
+				{
+					if (_itemForToolTip.WeaponInfo.Damage[0].MinDamage > 0 && _itemForToolTip.WeaponInfo.Damage[0].MaxDamage > 0)
+					{
+						ShowToolTipText(tbItemToolTipWeaponInfoDamage, String.Format(AppResources.Item_WeaponInfo_Damage, _itemForToolTip.WeaponInfo.Damage[0].MinDamage, _itemForToolTip.WeaponInfo.Damage[0].MaxDamage));
+					}
+				}
+				// speed
+				ShowToolTipText(tbItemToolTipWeaponInfoSpeed, String.Format(AppResources.Item_WeaponInfo_Speed, _itemForToolTip.WeaponInfo.WeaponSpeed));
+				// dps
+				ShowToolTipText(tbItemToolTipWeaponInfoDps, String.Format(AppResources.Item_WeaponInfo_Dps, _itemForToolTip.WeaponInfo.Dps));
+			}
 			// durability
 			if (_itemForToolTip.MaxDurability > 0)
 			{
@@ -578,6 +594,9 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipMaxCount, String.Empty);
 			ShowToolTipText(tbItemToolTipInventoryType, String.Empty);
 			ShowToolTipText(tbItemToolTipSubClass, String.Empty);
+			ShowToolTipText(tbItemToolTipWeaponInfoDamage, String.Empty);
+			ShowToolTipText(tbItemToolTipWeaponInfoSpeed, String.Empty);
+			ShowToolTipText(tbItemToolTipWeaponInfoDps, String.Empty);
 			ShowToolTipText(tbItemToolTipArmor, String.Empty);
 			ShowToolTipText(tbItemToolTipStrength, String.Empty);
 			ShowToolTipText(tbItemToolTipAgility, String.Empty);

@@ -93,6 +93,8 @@
     <Compile Include="BattleNet\Models\ItemClass.cs" />
     <Compile Include="BattleNet\Models\ItemQuality.cs" />
     <Compile Include="BattleNet\Models\ItemSlot.cs" />
+    <Compile Include="BattleNet\Models\ItemWeaponInfo.cs" />
+    <Compile Include="BattleNet\Models\ItemWeaponInfoDamage.cs" />
     <Compile Include="BattleNet\Models\Price.cs" />
     <Compile Include="BattleNet\Models\Profession.cs" />
     <Compile Include="BattleNet\Models\RaidBoss.cs" />

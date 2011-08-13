@@ -610,7 +610,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves critical strike rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your critical strike rating by {0}..
         /// </summary>
         public static string Item_BonusStat_CriticalStrikeRating {
             get {
@@ -664,7 +664,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves haste rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your haste rating by {0}..
         /// </summary>
         public static string Item_BonusStat_HasteRating {
             get {
@@ -700,7 +700,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves hit rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your hit rating by {0}..
         /// </summary>
         public static string Item_BonusStat_HitRating {
             get {
@@ -745,7 +745,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves critical strike rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your critical strike rating by {0}..
         /// </summary>
         public static string Item_BonusStat_MeleeCriticalStrikeRating {
             get {
@@ -754,7 +754,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves haste rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your haste rating by {0}..
         /// </summary>
         public static string Item_BonusStat_MeleeHasteRating {
             get {
@@ -763,7 +763,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves hit rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your hit rating by {0}..
         /// </summary>
         public static string Item_BonusStat_MeleeHitRating {
             get {
@@ -799,7 +799,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves critical strike rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your critical strike rating by {0}..
         /// </summary>
         public static string Item_BonusStat_RangedCriticalStrikeRating {
             get {
@@ -808,7 +808,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves haste rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your haste rating by {0}..
         /// </summary>
         public static string Item_BonusStat_RangedHasteRating {
             get {
@@ -817,7 +817,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves your resilience rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your resilience rating by {0}..
         /// </summary>
         public static string Item_BonusStat_ResilienceRating {
             get {
@@ -835,7 +835,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves spell critical strike rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your spell critical strike rating by {0}..
         /// </summary>
         public static string Item_BonusStat_SpellCriticalStrikeRating {
             get {
@@ -844,7 +844,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves spell haste rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your spell haste rating by {0}..
         /// </summary>
         public static string Item_BonusStat_SpellHasteRating {
             get {
@@ -853,7 +853,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves spell hit rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your spell hit rating by {0}..
         /// </summary>
         public static string Item_BonusStat_SpellHitRating {
             get {
@@ -943,7 +943,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Equip: Improves hit rating by {0}..
+        ///   Looks up a localized string similar to Equip: Increases your hit rating by {0}..
         /// </summary>
         public static string Item_BonusStats_RangedHitRating {
             get {
@@ -1623,6 +1623,33 @@ namespace WowArmory.Core.Languages {
         public static string Item_SellPrice {
             get {
                 return ResourceManager.GetString("Item_SellPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} - {1} Damage.
+        /// </summary>
+        public static string Item_WeaponInfo_Damage {
+            get {
+                return ResourceManager.GetString("Item_WeaponInfo_Damage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ({0:0.0} damage per second).
+        /// </summary>
+        public static string Item_WeaponInfo_Dps {
+            get {
+                return ResourceManager.GetString("Item_WeaponInfo_Dps", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Speed {0:0.00}.
+        /// </summary>
+        public static string Item_WeaponInfo_Speed {
+            get {
+                return ResourceManager.GetString("Item_WeaponInfo_Speed", resourceCulture);
             }
         }
         
