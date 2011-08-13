@@ -462,6 +462,19 @@
       <Link>Images\Badge\Badge_Faction_1.png</Link>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Coin_Gold.png">
+      <Link>Images\Coin_Gold.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Coin_Copper.png">
+      <Link>Images\Coin_Copper.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Coin_Silver.png">
+      <Link>Images\Coin_Silver.png</Link>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />

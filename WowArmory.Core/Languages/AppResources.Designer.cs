@@ -970,6 +970,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Durability {0} / {0}.
+        /// </summary>
+        public static string Item_Durability {
+            get {
+                return ResourceManager.GetString("Item_Durability", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ammo.
         /// </summary>
         public static string Item_InventoryType_Ammo {
@@ -1587,6 +1596,15 @@ namespace WowArmory.Core.Languages {
         public static string Item_MaxCount_UniqueEquipped {
             get {
                 return ResourceManager.GetString("Item_MaxCount_UniqueEquipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sell Price:.
+        /// </summary>
+        public static string Item_SellPrice {
+            get {
+                return ResourceManager.GetString("Item_SellPrice", resourceCulture);
             }
         }
         

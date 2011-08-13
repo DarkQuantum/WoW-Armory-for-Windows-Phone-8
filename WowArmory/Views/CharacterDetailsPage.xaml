@@ -21,6 +21,52 @@
 	</phone:PhoneApplicationPage.DataContext>
 	
 	<phone:PhoneApplicationPage.Resources>
+		<SolidColorBrush x:Key="ItemToolTipHighlightBrush" Color="#ff04ff00" />
+		<SolidColorBrush x:Key="ItemQualityPoor" Color="#ff9d9d9d" />
+		<SolidColorBrush x:Key="ItemQualityCommon" Color="#ffffffff" />
+		<SolidColorBrush x:Key="ItemQualityUncommon" Color="#ff1eff00" />
+		<SolidColorBrush x:Key="ItemQualityRare" Color="#ff0070dd" />
+		<SolidColorBrush x:Key="ItemQualityEpic" Color="#ffa335ee" />
+		<SolidColorBrush x:Key="ItemQualityLegendary" Color="#ffff8000" />
+		<SolidColorBrush x:Key="ItemQualityArtifact" Color="#ffe5cc80" />
+		<SolidColorBrush x:Key="ItemQualityHeirloom" Color="#ffe5cc80" />
+
+		<LinearGradientBrush x:Key="HealthBarStyle" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="#ff1c6400" Offset="0" />
+			<GradientStop Color="#ff2a9700" Offset="0.5" />
+		</LinearGradientBrush>
+
+		<LinearGradientBrush x:Key="ManaBarStyle" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="#ff0072ff" Offset="0" />
+			<GradientStop Color="#ff339dff" Offset="0.5" />
+		</LinearGradientBrush>
+
+		<LinearGradientBrush x:Key="FocusBarStyle" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="#ff833c14" Offset="0" />
+			<GradientStop Color="#ffa54a14" Offset="0.5" />
+		</LinearGradientBrush>
+
+		<LinearGradientBrush x:Key="RageBarStyle" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="#ff7f0000" Offset="0" />
+			<GradientStop Color="#ffcf0000" Offset="0.5" />
+		</LinearGradientBrush>
+
+		<LinearGradientBrush x:Key="RunicpowerBarStyle" StartPoint="0,0" EndPoint="0,1">
+			<GradientStop Color="#ff0095b0" Offset="0" />
+			<GradientStop Color="#ff00bee0" Offset="0.5" />
+		</LinearGradientBrush>
+
+		<ImageBrush x:Key="ProfessionBar" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Profession_Bar.png" Stretch="Fill" />
+
+		<ImageBrush x:Key="ReputationBar_0" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_0.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_1" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_1.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_2" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_2.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_3" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_3.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_4" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_4.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_5" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_5.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_6" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_6.png" Stretch="None" />
+		<ImageBrush x:Key="ReputationBar_7" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_7.png" Stretch="None" />
+		
 		<Style x:Key="CharacterDetailsHeaderTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
@@ -75,6 +121,10 @@
 			<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
 		</Style>
 
+		<Style x:Key="CharacterDetailsItemToolTipBonusStatTextStyle" BasedOn="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource ItemToolTipHighlightBrush}" />
+		</Style>
+		
 		<Style x:Key="ProfessionHeaderTextStyle" BasedOn="{StaticResource PhoneTextTitle2Style}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
@@ -84,51 +134,6 @@
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
 		</Style>
-		
-		<SolidColorBrush x:Key="ItemQualityPoor" Color="#ff9d9d9d" />
-		<SolidColorBrush x:Key="ItemQualityCommon" Color="#ffffffff" />
-		<SolidColorBrush x:Key="ItemQualityUncommon" Color="#ff1eff00" />
-		<SolidColorBrush x:Key="ItemQualityRare" Color="#ff0070dd" />
-		<SolidColorBrush x:Key="ItemQualityEpic" Color="#ffa335ee" />
-		<SolidColorBrush x:Key="ItemQualityLegendary" Color="#ffff8000" />
-		<SolidColorBrush x:Key="ItemQualityArtifact" Color="#ffe5cc80" />
-		<SolidColorBrush x:Key="ItemQualityHeirloom" Color="#ffe5cc80" />
-		
-		<LinearGradientBrush x:Key="HealthBarStyle" StartPoint="0,0" EndPoint="0,1">
-			<GradientStop Color="#ff1c6400" Offset="0" />
-			<GradientStop Color="#ff2a9700" Offset="0.5" />
-		</LinearGradientBrush>
-
-		<LinearGradientBrush x:Key="ManaBarStyle" StartPoint="0,0" EndPoint="0,1">
-			<GradientStop Color="#ff0072ff" Offset="0" />
-			<GradientStop Color="#ff339dff" Offset="0.5" />
-		</LinearGradientBrush>
-
-		<LinearGradientBrush x:Key="FocusBarStyle" StartPoint="0,0" EndPoint="0,1">
-			<GradientStop Color="#ff833c14" Offset="0" />
-			<GradientStop Color="#ffa54a14" Offset="0.5" />
-		</LinearGradientBrush>
-
-		<LinearGradientBrush x:Key="RageBarStyle" StartPoint="0,0" EndPoint="0,1">
-			<GradientStop Color="#ff7f0000" Offset="0" />
-			<GradientStop Color="#ffcf0000" Offset="0.5" />
-		</LinearGradientBrush>
-		
-		<LinearGradientBrush x:Key="RunicpowerBarStyle" StartPoint="0,0" EndPoint="0,1">
-			<GradientStop Color="#ff0095b0" Offset="0" />
-			<GradientStop Color="#ff00bee0" Offset="0.5" />
-		</LinearGradientBrush>
-
-		<ImageBrush x:Key="ProfessionBar" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Profession_Bar.png" Stretch="Fill" />
-		
-		<ImageBrush x:Key="ReputationBar_0" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_0.png" Stretch="None" />
-		<ImageBrush x:Key="ReputationBar_1" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_1.png" Stretch="None" />
-		<ImageBrush x:Key="ReputationBar_2" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_2.png" Stretch="None" />
-		<ImageBrush x:Key="ReputationBar_3" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_3.png" Stretch="None" />
-		<ImageBrush x:Key="ReputationBar_4" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_4.png" Stretch="None" />
-		<ImageBrush x:Key="ReputationBar_5" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_5.png" Stretch="None" />
-		<ImageBrush x:Key="ReputationBar_6" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_6.png" Stretch="None" />
-		<ImageBrush x:Key="ReputationBar_7" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_7.png" Stretch="None" />
 	</phone:PhoneApplicationPage.Resources>
 	
 	<Grid x:Name="LayoutRoot" Background="Transparent">
@@ -401,13 +406,13 @@
 										<!-- TODO Enchants -->
 										<!-- TODO Sockets -->
 										<!-- TODO Socket bonus -->
-										<!-- TODO Durability -->
+										<TextBlock x:Name="tbItemToolTipDurability" Text="Durability" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<!-- TODO Required level -->
 										<!-- TODO Required faction -->
 										<!-- TODO Item level -->
 										<StackPanel x:Name="spToolTipBonusStats" Orientation="Vertical" />
 										<!-- TODO Spells -->
-										<!-- TODO Sell price -->
+										<StackPanel x:Name="spToolTipSellPrice" Orientation="Horizontal" />
 										<TextBlock x:Name="tbItemToolTipSpacer" Text="---" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<!-- TODO Source -->
 									</StackPanel>

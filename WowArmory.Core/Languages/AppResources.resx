@@ -835,6 +835,9 @@
   <data name="Item_BonusStat_Strength" xml:space="preserve">
     <value>+{0} Strength</value>
   </data>
+  <data name="Item_Durability" xml:space="preserve">
+    <value>Durability {0} / {0}</value>
+  </data>
   <data name="Item_ItemSubClass_2_0" xml:space="preserve">
     <value>Axe</value>
     <comment>One-Handed Axes</comment>
@@ -924,6 +927,9 @@
   </data>
   <data name="Item_MaxCount_UniqueEquipped" xml:space="preserve">
     <value>Unique-Equipped</value>
+  </data>
+  <data name="Item_SellPrice" xml:space="preserve">
+    <value>Sell Price:</value>
   </data>
   <data name="UI_RealmList_ApplicationBar_Refresh" xml:space="preserve">
     <value>refresh</value>
