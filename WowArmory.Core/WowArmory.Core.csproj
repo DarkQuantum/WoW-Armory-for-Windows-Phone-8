@@ -85,8 +85,13 @@
     <Compile Include="BattleNet\Models\CharacterTalents.cs" />
     <Compile Include="BattleNet\Models\CharacterTitle.cs" />
     <Compile Include="BattleNet\Models\GlyphItem.cs" />
+    <Compile Include="BattleNet\Models\InventoryType.cs" />
+    <Compile Include="BattleNet\Models\Item.cs" />
+    <Compile Include="BattleNet\Models\ItemBinding.cs" />
+    <Compile Include="BattleNet\Models\ItemClass.cs" />
     <Compile Include="BattleNet\Models\ItemQuality.cs" />
     <Compile Include="BattleNet\Models\ItemSlot.cs" />
+    <Compile Include="BattleNet\Models\Price.cs" />
     <Compile Include="BattleNet\Models\Profession.cs" />
     <Compile Include="BattleNet\Models\RaidBoss.cs" />
     <Compile Include="BattleNet\Models\RaidProgression.cs" />
@@ -104,7 +109,7 @@
     <Compile Include="BattleNet\Models\CharacterGuild.cs" />
     <Compile Include="BattleNet\Models\CharacterGuildEmblem.cs" />
     <Compile Include="BattleNet\Models\CharacterItems.cs" />
-    <Compile Include="BattleNet\Models\Item.cs" />
+    <Compile Include="BattleNet\Models\CharacterItem.cs" />
     <Compile Include="BattleNet\Models\ItemTooltipParams.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\CharacterToThumbnailConverter.cs" />

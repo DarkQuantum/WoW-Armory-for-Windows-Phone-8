@@ -61,9 +61,20 @@
 		</Style>
 		
 		<Style x:Key="CharacterDetailsItemToolTipNormalTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}" />
 			<Setter Property="Foreground" Value="#ffffffff" />
+			<Setter Property="HorizontalAlignment" Value="Left" />
+			<Setter Property="TextWrapping" Value="Wrap" />
 		</Style>
-		
+
+		<Style x:Key="CharacterDetailsItemToolTipItemNameTextStyle" BasedOn="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}" />
+			<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiBold}" />
+		</Style>
+
 		<Style x:Key="ProfessionHeaderTextStyle" BasedOn="{StaticResource PhoneTextTitle2Style}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
@@ -73,7 +84,16 @@
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
 		</Style>
-
+		
+		<SolidColorBrush x:Key="ItemQualityPoor" Color="#ff9d9d9d" />
+		<SolidColorBrush x:Key="ItemQualityCommon" Color="#ffffffff" />
+		<SolidColorBrush x:Key="ItemQualityUncommon" Color="#ff1eff00" />
+		<SolidColorBrush x:Key="ItemQualityRare" Color="#ff0070dd" />
+		<SolidColorBrush x:Key="ItemQualityEpic" Color="#ffa335ee" />
+		<SolidColorBrush x:Key="ItemQualityLegendary" Color="#ffff8000" />
+		<SolidColorBrush x:Key="ItemQualityArtifact" Color="#ffe5cc80" />
+		<SolidColorBrush x:Key="ItemQualityHeirloom" Color="#ffe5cc80" />
+		
 		<LinearGradientBrush x:Key="HealthBarStyle" StartPoint="0,0" EndPoint="0,1">
 			<GradientStop Color="#ff1c6400" Offset="0" />
 			<GradientStop Color="#ff2a9700" Offset="0.5" />
@@ -349,12 +369,26 @@
 							</ScrollViewer>
 							<Border x:Name="brdItemToolTip" Grid.Row="0" Margin="2,0,2,2"
 									BorderBrush="#ff677180" BorderThickness="1" CornerRadius="6"
-									VerticalAlignment="Top" Visibility="Collapsed">
+									VerticalAlignment="Top" Visibility="Visible">
 								<Border.Background>
 									<SolidColorBrush Color="#dd000000" />
 								</Border.Background>
 								<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-									<StackPanel x:Name="spToolTipContent" Orientation="Vertical">
+									<StackPanel x:Name="spToolTipContent" Orientation="Vertical" Margin="12,8,12,12">
+										<ProgressBar x:Name="pbItemToolTip" IsIndeterminate="False" Style="{StaticResource PerformanceProgressBar}" />
+										<TextBlock x:Name="tbItemToolTipLoading" Text="Loading..." Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<TextBlock x:Name="tbItemToolTipName" Text="Name" Style="{StaticResource CharacterDetailsItemToolTipItemNameTextStyle}" />
+										<!-- NOTE Heroic flag is not returned by Battle.Net Community API -->
+										<TextBlock x:Name="tbItemToolTipBinding" Text="Binding" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<!-- NOTE Max Count is always returned as 0 by Battle.Net Community API -->
+										<Grid>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="*" />
+												<ColumnDefinition Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<TextBlock x:Name="tbItemToolTipInventoryType" Grid.Column="0" Text="Inventory Type" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+											<TextBlock x:Name="tbItemToolTipSubClass" Grid.Column="1" Text="Sub Class" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										</Grid>
 									</StackPanel>
 								</ScrollViewer>
 							</Border>

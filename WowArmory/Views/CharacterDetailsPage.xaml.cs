@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,9 @@ namespace WowArmory.Views
 		//----------------------------------------------------------------------
 		private bool _isToolTipLoading = false;
 		private int _toolTipCancel = 0;
+		private Dictionary<CharacterItemContainer, Item> _cachedItems = new Dictionary<CharacterItemContainer,Item>();
+		private CharacterItemContainer _itemContainerForToolTip;
+		private Item _itemForToolTip;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -73,6 +77,8 @@ namespace WowArmory.Views
 			var powerType = ViewModel.Character.Stats.PowerType;
 			var resourceName = String.Format("{0}BarStyle", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""));
 			barPowerType.Background = (Brush)Resources[resourceName];
+
+			HideToolTip();
 		}
 
 		/// <summary>
@@ -306,6 +312,12 @@ namespace WowArmory.Views
 			if (sender is CharacterItemContainer)
 			{
 				var itemContainer = (CharacterItemContainer)sender;
+
+				if (itemContainer.DataContext == null)
+				{
+					return;
+				}
+
 				var isSelected = false;
 
 				if (itemContainer.SelectionVisibility == Visibility.Visible)
@@ -344,6 +356,9 @@ namespace WowArmory.Views
 			icFinger2.SelectionVisibility = Visibility.Collapsed;
 			icTrinket1.SelectionVisibility = Visibility.Collapsed;
 			icTrinket2.SelectionVisibility = Visibility.Collapsed;
+			icMainHand.SelectionVisibility = Visibility.Collapsed;
+			icOffHand.SelectionVisibility = Visibility.Collapsed;
+			icRanged.SelectionVisibility = Visibility.Collapsed;
 
 			HideToolTip();
 		}
@@ -371,11 +386,59 @@ namespace WowArmory.Views
 		private void ShowToolTip(CharacterItemContainer itemContainer)
 		{
 			_isToolTipLoading = true;
+			_itemContainerForToolTip = itemContainer;
 			itemContainer.SelectionVisibility = Visibility.Visible;
 			svCharacterStats.IsEnabled = false;
 			svCharacterStats.Opacity = 0.25;
-			BuildToolTipLoadingText();
+			pbItemToolTip.IsIndeterminate = true;
+			pbItemToolTip.Visibility = Visibility.Visible;
+			ShowToolTipText(tbItemToolTipLoading, AppResources.UI_Common_LoadingData);
 			brdItemToolTip.Visibility = Visibility.Visible;
+
+			if (_cachedItems.ContainsKey(itemContainer))
+			{
+				OnItemReceived(_cachedItems[itemContainer]);
+			}
+			else
+			{
+				BattleNetClient.Current.GetItemAsync(((CharacterItem)itemContainer.DataContext).Id, OnItemReceived);
+			}
+		}
+
+		/// <summary>
+		/// Called when the item was received.
+		/// </summary>
+		/// <param name="item">The item.</param>
+		private void OnItemReceived(Item item)
+		{
+			_itemForToolTip = item;
+
+			if (item == null)
+			{
+				ClearToolTip();
+				ShowToolTipText(tbItemToolTipLoading, AppResources.UI_Common_Error_NoData_Text);
+				return;
+			}
+
+			if (!_cachedItems.ContainsKey(_itemContainerForToolTip))
+			{
+				_cachedItems.Add(_itemContainerForToolTip, _itemForToolTip);
+			}
+
+			BuildItemToolTip();
+		}
+
+		/// <summary>
+		/// Builds the item tool tip.
+		/// </summary>
+		private void BuildItemToolTip()
+		{
+			ClearToolTip();
+
+			ShowToolTipText(tbItemToolTipName, _itemForToolTip.Name, (Brush)Resources[String.Format("ItemQuality{0}", _itemForToolTip.Quality)]);
+			ShowToolTipText(tbItemToolTipBinding, AppResources.ResourceManager.GetString(String.Format("Item_Binding_{0}", _itemForToolTip.ItemBind)));
+			ShowToolTipText(tbItemToolTipInventoryType, AppResources.ResourceManager.GetString(String.Format("Item_InventoryType_{0}", (InventoryType)_itemForToolTip.InventoryType)));
+			ShowToolTipText(tbItemToolTipSubClass, AppResources.ResourceManager.GetString(String.Format("Item_ItemSubClass_{0}_{1}", _itemForToolTip.ItemClass, _itemForToolTip.ItemSubClass)));
 		}
 
 		/// <summary>
@@ -383,30 +446,29 @@ namespace WowArmory.Views
 		/// </summary>
 		private void ClearToolTip()
 		{
-			spToolTipContent.Children.Clear();
+			ShowToolTipText(tbItemToolTipLoading, String.Empty);
+			pbItemToolTip.IsIndeterminate = false;
+			pbItemToolTip.Visibility = Visibility.Collapsed;
+			ShowToolTipText(tbItemToolTipName, String.Empty);
+			ShowToolTipText(tbItemToolTipBinding, String.Empty);
+			ShowToolTipText(tbItemToolTipInventoryType, String.Empty);
+			ShowToolTipText(tbItemToolTipSubClass, String.Empty);
 		}
 
 		/// <summary>
-		/// Builds the tool tip loading text.
+		/// Shows the tool tip text.
 		/// </summary>
-		private void BuildToolTipLoadingText()
+		/// <param name="element">The element.</param>
+		/// <param name="text">The text.</param>
+		/// <param name="foregroundBrush">The foreground brush.</param>
+		private void ShowToolTipText(FrameworkElement element, string text, Brush foregroundBrush = null)
 		{
-			ClearToolTip();
-
-			var textBlock = new TextBlock();
-			textBlock.Text = AppResources.UI_Common_LoadingData;
-			textBlock.HorizontalAlignment = HorizontalAlignment.Center;
-			textBlock.Style = (Style)Resources["CharacterDetailsItemToolTipNormalTextStyle"];
-			textBlock.Margin = new Thickness(0, 12, 0, 0);
-
-			var progressBar = new ProgressBar();
-			progressBar.IsIndeterminate = true;
-			progressBar.HorizontalAlignment = HorizontalAlignment.Stretch;
-			progressBar.Style = (Style)Resources["PerformanceProgressBar"];
-			progressBar.Margin = new Thickness(0, 6, 0, 12);
-
-			spToolTipContent.Children.Add(textBlock);
-			spToolTipContent.Children.Add(progressBar);
+			((TextBlock)element).Text = text;
+			if (foregroundBrush != null)
+			{
+				((TextBlock)element).Foreground = foregroundBrush;
+			}
+			element.Visibility = !String.IsNullOrEmpty(text) ? Visibility.Visible : Visibility.Collapsed;
 		}
 
 		/// <summary>

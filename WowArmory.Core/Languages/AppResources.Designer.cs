@@ -529,6 +529,645 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Binds when equipped.
+        /// </summary>
+        public static string Item_Binding_Equipped {
+            get {
+                return ResourceManager.GetString("Item_Binding_Equipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Item_Binding_None {
+            get {
+                return ResourceManager.GetString("Item_Binding_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Binds when picked up.
+        /// </summary>
+        public static string Item_Binding_PickedUp {
+            get {
+                return ResourceManager.GetString("Item_Binding_PickedUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ammo.
+        /// </summary>
+        public static string Item_InventoryType_Ammo {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Ammo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bag.
+        /// </summary>
+        public static string Item_InventoryType_Bag {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Bag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Chest.
+        /// </summary>
+        public static string Item_InventoryType_Chest {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Chest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cloak.
+        /// </summary>
+        public static string Item_InventoryType_Cloak {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Cloak", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Feet.
+        /// </summary>
+        public static string Item_InventoryType_Feet {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Feet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Finger.
+        /// </summary>
+        public static string Item_InventoryType_Finger {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Finger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hands.
+        /// </summary>
+        public static string Item_InventoryType_Hands {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Hands", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Head.
+        /// </summary>
+        public static string Item_InventoryType_Head {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Head", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Held in Off-Hand.
+        /// </summary>
+        public static string Item_InventoryType_HeldInOffHand {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_HeldInOffHand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Legs.
+        /// </summary>
+        public static string Item_InventoryType_Legs {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Legs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main-Hand.
+        /// </summary>
+        public static string Item_InventoryType_MainHand {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_MainHand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neck.
+        /// </summary>
+        public static string Item_InventoryType_Neck {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Neck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Item_InventoryType_None {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Off-Hand.
+        /// </summary>
+        public static string Item_InventoryType_OffHand {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_OffHand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to One-Hand.
+        /// </summary>
+        public static string Item_InventoryType_OneHand {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_OneHand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranged.
+        /// </summary>
+        public static string Item_InventoryType_Ranged {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Ranged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ranged.
+        /// </summary>
+        public static string Item_InventoryType_RangedRight {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_RangedRight", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relic.
+        /// </summary>
+        public static string Item_InventoryType_Relic {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Relic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Robe.
+        /// </summary>
+        public static string Item_InventoryType_Robe {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Robe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shield.
+        /// </summary>
+        public static string Item_InventoryType_Shield {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Shield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shirt.
+        /// </summary>
+        public static string Item_InventoryType_Shirt {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Shirt", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shoulder.
+        /// </summary>
+        public static string Item_InventoryType_Shoulder {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Shoulder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabard.
+        /// </summary>
+        public static string Item_InventoryType_Tabard {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Tabard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thrown.
+        /// </summary>
+        public static string Item_InventoryType_Thrown {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Thrown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trinket.
+        /// </summary>
+        public static string Item_InventoryType_Trinket {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Trinket", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two-Hand.
+        /// </summary>
+        public static string Item_InventoryType_TwoHand {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_TwoHand", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Waist.
+        /// </summary>
+        public static string Item_InventoryType_Waist {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Waist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrist.
+        /// </summary>
+        public static string Item_InventoryType_Wrist {
+            get {
+                return ResourceManager.GetString("Item_InventoryType_Wrist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Armor.
+        /// </summary>
+        public static string Item_ItemClass_Armor {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Armor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Consumable.
+        /// </summary>
+        public static string Item_ItemClass_Consumable {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Consumable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Container.
+        /// </summary>
+        public static string Item_ItemClass_Container {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Container", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gem.
+        /// </summary>
+        public static string Item_ItemClass_Gem {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Gem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Glyph.
+        /// </summary>
+        public static string Item_ItemClass_Glyph {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Glyph", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Key.
+        /// </summary>
+        public static string Item_ItemClass_Key {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Key", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mescellaneous.
+        /// </summary>
+        public static string Item_ItemClass_Miscellaneous {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Miscellaneous", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Projectile.
+        /// </summary>
+        public static string Item_ItemClass_Projectile {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Projectile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quest.
+        /// </summary>
+        public static string Item_ItemClass_Quest {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Quest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quiver.
+        /// </summary>
+        public static string Item_ItemClass_Quiver {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Quiver", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reagent.
+        /// </summary>
+        public static string Item_ItemClass_Reagent {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Reagent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Recipe.
+        /// </summary>
+        public static string Item_ItemClass_Recipe {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Recipe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Trade Goods.
+        /// </summary>
+        public static string Item_ItemClass_TradeGoods {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_TradeGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Weapon.
+        /// </summary>
+        public static string Item_ItemClass_Weapon {
+            get {
+                return ResourceManager.GetString("Item_ItemClass_Weapon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Axe.
+        /// </summary>
+        public static string Item_ItemSubClass_2_0 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Axe.
+        /// </summary>
+        public static string Item_ItemSubClass_2_1 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Staff.
+        /// </summary>
+        public static string Item_ItemSubClass_2_10 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exotic.
+        /// </summary>
+        public static string Item_ItemSubClass_2_11 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_11", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Exotic.
+        /// </summary>
+        public static string Item_ItemSubClass_2_12 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_12", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fist Weapon.
+        /// </summary>
+        public static string Item_ItemSubClass_2_13 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miscellaneous.
+        /// </summary>
+        public static string Item_ItemSubClass_2_14 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dagger.
+        /// </summary>
+        public static string Item_ItemSubClass_2_15 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_15", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Thrown.
+        /// </summary>
+        public static string Item_ItemSubClass_2_16 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spear.
+        /// </summary>
+        public static string Item_ItemSubClass_2_17 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_17", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crossbow.
+        /// </summary>
+        public static string Item_ItemSubClass_2_18 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_18", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wand.
+        /// </summary>
+        public static string Item_ItemSubClass_2_19 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bow.
+        /// </summary>
+        public static string Item_ItemSubClass_2_2 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fishing Pole.
+        /// </summary>
+        public static string Item_ItemSubClass_2_20 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gun.
+        /// </summary>
+        public static string Item_ItemSubClass_2_3 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mace.
+        /// </summary>
+        public static string Item_ItemSubClass_2_4 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mace.
+        /// </summary>
+        public static string Item_ItemSubClass_2_5 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Polearm.
+        /// </summary>
+        public static string Item_ItemSubClass_2_6 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sword.
+        /// </summary>
+        public static string Item_ItemSubClass_2_7 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sword.
+        /// </summary>
+        public static string Item_ItemSubClass_2_8 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Item_ItemSubClass_2_9 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_2_9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Miscellaneous.
+        /// </summary>
+        public static string Item_ItemSubClass_4_0 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_4_0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cloth.
+        /// </summary>
+        public static string Item_ItemSubClass_4_1 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_4_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Leather.
+        /// </summary>
+        public static string Item_ItemSubClass_4_2 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_4_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mail.
+        /// </summary>
+        public static string Item_ItemSubClass_4_3 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_4_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plate.
+        /// </summary>
+        public static string Item_ItemSubClass_4_4 {
+            get {
+                return ResourceManager.GetString("Item_ItemSubClass_4_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search characters and manage your favorites.
         /// </summary>
         public static string Page_CharacterList_Title {

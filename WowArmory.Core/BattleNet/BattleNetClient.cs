@@ -237,6 +237,35 @@ namespace WowArmory.Core.BattleNet
 		}
 
 		/// <summary>
+		/// Gets the item for the specified id.
+		/// </summary>
+		/// <param name="itemId">The item id.</param>
+		/// <param name="action">The action.</param>
+		public void GetItemAsync(int itemId, Action<Item> action)
+		{
+			try
+			{
+				var apiMethod = new Uri(BattleNetBaseUri, String.Format(BattleNetSettings.BattleNet_Api_Item, itemId)).ToString();
+				CallApiMethodAsync(apiMethod, jsonResult =>
+				{
+					try
+					{
+						var item = JsonConvert.DeserializeObject<Item>(jsonResult);
+						action(item);
+					}
+					catch (Exception ex)
+					{
+						action(null);
+					}
+				});
+			}
+			catch (Exception ex)
+			{
+				action(null);
+			}
+		}
+
+		/// <summary>
 		/// Gets the thumbnail url for the specified path.
 		/// </summary>
 		/// <param name="thumbnailPath">The path to the thumbnail.</param>

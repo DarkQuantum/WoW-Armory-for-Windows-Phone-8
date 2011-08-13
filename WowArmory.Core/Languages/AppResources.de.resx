@@ -552,4 +552,226 @@
   <data name="About_SourceURL" xml:space="preserve">
     <value>http://github.com/ckrueger/WoW-Armory-for-Windows-Phone-7</value>
   </data>
+  <data name="Item_InventoryType_Ammo" xml:space="preserve">
+    <value>Munition</value>
+  </data>
+  <data name="Item_InventoryType_Bag" xml:space="preserve">
+    <value>Tasche</value>
+  </data>
+  <data name="Item_InventoryType_Chest" xml:space="preserve">
+    <value>Brust</value>
+  </data>
+  <data name="Item_InventoryType_Cloak" xml:space="preserve">
+    <value>Rücken</value>
+  </data>
+  <data name="Item_InventoryType_Feet" xml:space="preserve">
+    <value>Füße</value>
+  </data>
+  <data name="Item_InventoryType_Finger" xml:space="preserve">
+    <value>Finger</value>
+  </data>
+  <data name="Item_InventoryType_Hands" xml:space="preserve">
+    <value>Hände</value>
+  </data>
+  <data name="Item_InventoryType_Head" xml:space="preserve">
+    <value>Kopf</value>
+  </data>
+  <data name="Item_InventoryType_HeldInOffHand" xml:space="preserve">
+    <value>In Schildhand geführt</value>
+  </data>
+  <data name="Item_InventoryType_Legs" xml:space="preserve">
+    <value>Beine</value>
+  </data>
+  <data name="Item_InventoryType_MainHand" xml:space="preserve">
+    <value>Waffenhand</value>
+  </data>
+  <data name="Item_InventoryType_Neck" xml:space="preserve">
+    <value>Hals</value>
+  </data>
+  <data name="Item_InventoryType_None" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Item_InventoryType_OffHand" xml:space="preserve">
+    <value>Nebenhand</value>
+  </data>
+  <data name="Item_InventoryType_OneHand" xml:space="preserve">
+    <value>Einhändig</value>
+  </data>
+  <data name="Item_InventoryType_Ranged" xml:space="preserve">
+    <value>Distanzwaffe</value>
+  </data>
+  <data name="Item_InventoryType_RangedRight" xml:space="preserve">
+    <value>Fernkampf</value>
+  </data>
+  <data name="Item_InventoryType_Relic" xml:space="preserve">
+    <value>Relikt</value>
+  </data>
+  <data name="Item_InventoryType_Robe" xml:space="preserve">
+    <value>Robe</value>
+  </data>
+  <data name="Item_InventoryType_Shield" xml:space="preserve">
+    <value>Schild</value>
+  </data>
+  <data name="Item_InventoryType_Shirt" xml:space="preserve">
+    <value>Hemd</value>
+  </data>
+  <data name="Item_InventoryType_Shoulder" xml:space="preserve">
+    <value>Schultern</value>
+  </data>
+  <data name="Item_InventoryType_Tabard" xml:space="preserve">
+    <value>Wappenrock</value>
+  </data>
+  <data name="Item_InventoryType_Thrown" xml:space="preserve">
+    <value>Wurfwaffe</value>
+  </data>
+  <data name="Item_InventoryType_Trinket" xml:space="preserve">
+    <value>Schmuck</value>
+  </data>
+  <data name="Item_InventoryType_TwoHand" xml:space="preserve">
+    <value>Zweihändig</value>
+  </data>
+  <data name="Item_InventoryType_Waist" xml:space="preserve">
+    <value>Gürtel</value>
+  </data>
+  <data name="Item_InventoryType_Wrist" xml:space="preserve">
+    <value>Handgelenke</value>
+  </data>
+  <data name="Item_ItemClass_Armor" xml:space="preserve">
+    <value>Rüstung</value>
+  </data>
+  <data name="Item_ItemClass_Consumable" xml:space="preserve">
+    <value>Verbrauchbar</value>
+  </data>
+  <data name="Item_ItemClass_Container" xml:space="preserve">
+    <value>Behälter</value>
+  </data>
+  <data name="Item_ItemClass_Gem" xml:space="preserve">
+    <value>Edelstein</value>
+  </data>
+  <data name="Item_ItemClass_Glyph" xml:space="preserve">
+    <value>Glyphe</value>
+  </data>
+  <data name="Item_ItemClass_Key" xml:space="preserve">
+    <value>Schlüssel</value>
+  </data>
+  <data name="Item_ItemClass_Miscellaneous" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+  <data name="Item_ItemClass_Projectile" xml:space="preserve">
+    <value>Projektil</value>
+  </data>
+  <data name="Item_ItemClass_Quest" xml:space="preserve">
+    <value>Quest</value>
+  </data>
+  <data name="Item_ItemClass_Quiver" xml:space="preserve">
+    <value>Kächer</value>
+  </data>
+  <data name="Item_ItemClass_Reagent" xml:space="preserve">
+    <value>Reagenz</value>
+  </data>
+  <data name="Item_ItemClass_Recipe" xml:space="preserve">
+    <value>Rezept</value>
+  </data>
+  <data name="Item_ItemClass_TradeGoods" xml:space="preserve">
+    <value>Handwerkswaren</value>
+  </data>
+  <data name="Item_ItemClass_Weapon" xml:space="preserve">
+    <value>Waffe</value>
+  </data>
+  <data name="Item_Binding_Equipped" xml:space="preserve">
+    <value>Wird beim Anlegen gebunden</value>
+  </data>
+  <data name="Item_Binding_None" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Item_Binding_PickedUp" xml:space="preserve">
+    <value>Wird beim Aufheben gebunden</value>
+  </data>
+  <data name="Item_ItemSubClass_2_0" xml:space="preserve">
+    <value>Axt</value>
+    <comment>One-Handed Axes</comment>
+  </data>
+  <data name="Item_ItemSubClass_2_1" xml:space="preserve">
+    <value>Axt</value>
+    <comment>Two-Handed Axes</comment>
+  </data>
+  <data name="Item_ItemSubClass_2_10" xml:space="preserve">
+    <value>Stab</value>
+  </data>
+  <data name="Item_ItemSubClass_2_11" xml:space="preserve">
+    <value>Exotisch</value>
+    <comment>One-Handed Exotics</comment>
+  </data>
+  <data name="Item_ItemSubClass_2_12" xml:space="preserve">
+    <value>Exotisch</value>
+    <comment>Two-Handed Exotics</comment>
+  </data>
+  <data name="Item_ItemSubClass_2_13" xml:space="preserve">
+    <value>Faustwaffe</value>
+  </data>
+  <data name="Item_ItemSubClass_2_14" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+  <data name="Item_ItemSubClass_2_15" xml:space="preserve">
+    <value>Dolch</value>
+  </data>
+  <data name="Item_ItemSubClass_2_16" xml:space="preserve">
+    <value>Wurfwaffe</value>
+  </data>
+  <data name="Item_ItemSubClass_2_17" xml:space="preserve">
+    <value>Speer</value>
+  </data>
+  <data name="Item_ItemSubClass_2_18" xml:space="preserve">
+    <value>Armbrust</value>
+  </data>
+  <data name="Item_ItemSubClass_2_19" xml:space="preserve">
+    <value>Zauberstab</value>
+  </data>
+  <data name="Item_ItemSubClass_2_2" xml:space="preserve">
+    <value>Bogen</value>
+  </data>
+  <data name="Item_ItemSubClass_2_20" xml:space="preserve">
+    <value>Angel</value>
+  </data>
+  <data name="Item_ItemSubClass_2_3" xml:space="preserve">
+    <value>Schusswaffe</value>
+  </data>
+  <data name="Item_ItemSubClass_2_4" xml:space="preserve">
+    <value>Streitkolben</value>
+    <comment>One-Handed Maces</comment>
+  </data>
+  <data name="Item_ItemSubClass_2_5" xml:space="preserve">
+    <value>Streitkolben</value>
+    <comment>Two-Handed Maces</comment>
+  </data>
+  <data name="Item_ItemSubClass_2_6" xml:space="preserve">
+    <value>Stangenwaffe</value>
+  </data>
+  <data name="Item_ItemSubClass_2_7" xml:space="preserve">
+    <value>Schwert</value>
+    <comment>One-Handed Swords</comment>
+  </data>
+  <data name="Item_ItemSubClass_2_8" xml:space="preserve">
+    <value>Schwert</value>
+    <comment>Two-Handed Swords</comment>
+  </data>
+  <data name="Item_ItemSubClass_2_9" xml:space="preserve">
+    <value />
+    <comment>Obsolete</comment>
+  </data>
+  <data name="Item_ItemSubClass_4_0" xml:space="preserve">
+    <value>Verschiedenes</value>
+  </data>
+  <data name="Item_ItemSubClass_4_1" xml:space="preserve">
+    <value>Stoff</value>
+  </data>
+  <data name="Item_ItemSubClass_4_2" xml:space="preserve">
+    <value>Leder</value>
+  </data>
+  <data name="Item_ItemSubClass_4_3" xml:space="preserve">
+    <value>Kette</value>
+  </data>
+  <data name="Item_ItemSubClass_4_4" xml:space="preserve">
+    <value>Platte</value>
+  </data>
 </root>
