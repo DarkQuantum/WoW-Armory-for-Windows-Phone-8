@@ -687,6 +687,154 @@
   <data name="Item_Binding_PickedUp" xml:space="preserve">
     <value>Wird beim Aufheben gebunden</value>
   </data>
+  <data name="Item_BonusStats_MeleeCriticalAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_MeleeHitAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_RangedCriticalAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_RangedHitAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_RangedHitRating" xml:space="preserve">
+    <value>Anlegen: Erhöht Trefferwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStats_SpellCriticalAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_SpellHitAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_Agility" xml:space="preserve">
+    <value>+{0} Beweglichkeit</value>
+  </data>
+  <data name="Item_BonusStat_ArmorPenetrationRating" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Rüstungsdurchschlagwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_AttackPower" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Angriffskraft um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_BlockRating" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Blockwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_BlockValue" xml:space="preserve">
+    <value>Anlegen: Erhöht den Blockwert Eures Schildes um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_CriticalAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_CriticalStrikeRating" xml:space="preserve">
+    <value>Anlegen: Erhöht kritische Trefferwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_DamageDone" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_DefenseRating" xml:space="preserve">
+    <value>Anlegen: Erhöht die Verteidigungswertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_DodgeRating" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Ausweichwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_ExpertiseRating" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Waffenkundewertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_FeralAttackPower" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Angriffskraft in Tiergestalt um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_HasteRating" xml:space="preserve">
+    <value>Anlegen: Erhöht Tempowertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_HealingDone" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_Health" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Gesundheit um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_HitAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_HitRating" xml:space="preserve">
+    <value>Anlegen: Erhöht Trefferwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Hp5" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Gesundheitsregeneration um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Intellect" xml:space="preserve">
+    <value>+{0} Intelligenz</value>
+  </data>
+  <data name="Item_BonusStat_Mana" xml:space="preserve">
+    <value>Anlegen: Erhöht euer Mana um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Mastery" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Meisterschaftswertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_MeleeCriticalStrikeRating" xml:space="preserve">
+    <value>Anlegen: Erhöht kritische Trefferwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_MeleeHasteRating" xml:space="preserve">
+    <value>Anlegen: Erhöht Tempowertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_MeleeHitRating" xml:space="preserve">
+    <value>Anlegen: Erhöht Trefferwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Mp5" xml:space="preserve">
+    <value>Anlegen: Stellt alle 5 Sek. {0} Mana wieder her.</value>
+  </data>
+  <data name="Item_BonusStat_ParryRating" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Parierwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_RangedAttackPower" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Distanzangriffskraft um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_RangedCriticalStrikeRating" xml:space="preserve">
+    <value>Anlegen: Erhöht kritische Trefferwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_RangedHasteRating" xml:space="preserve">
+    <value>Anlegen: Erhöht Tempowertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_ResilienceRating" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Abhärtungswertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_ShieldBlockRating" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Blockwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellCriticalStrikeRating" xml:space="preserve">
+    <value>Anlegen: Erhöht kritische Zaubertrefferwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellHasteRating" xml:space="preserve">
+    <value>Anlegen: Erhöht Zaubertempowertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellHitRating" xml:space="preserve">
+    <value>Anlegen: Erhöht Zaubertrefferwertung um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellPenetration" xml:space="preserve">
+    <value>Anlegen: Erhöht eure Zauberdurchschlagskraft um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellPower" xml:space="preserve">
+    <value>Anlegen: Erhöht Zaubermacht um {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Spirit" xml:space="preserve">
+    <value>+{0} Willenskraft</value>
+  </data>
+  <data name="Item_BonusStat_Stamina" xml:space="preserve">
+    <value>+{0} Ausdauer</value>
+  </data>
+  <data name="Item_BonusStat_Strength" xml:space="preserve">
+    <value>+{0} Stärke</value>
+  </data>
   <data name="Item_ItemSubClass_2_0" xml:space="preserve">
     <value>Axt</value>
     <comment>One-Handed Axes</comment>

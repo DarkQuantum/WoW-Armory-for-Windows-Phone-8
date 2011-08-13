@@ -687,6 +687,154 @@
   <data name="Item_Binding_PickedUp" xml:space="preserve">
     <value>Binds when picked up</value>
   </data>
+  <data name="Item_BonusStats_MeleeCriticalAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_MeleeHitAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_RangedCriticalAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_RangedHitAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_RangedHitRating" xml:space="preserve">
+    <value>Equip: Improves hit rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStats_SpellCriticalAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStats_SpellHitAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_Agility" xml:space="preserve">
+    <value>+{0} Agility</value>
+  </data>
+  <data name="Item_BonusStat_ArmorPenetrationRating" xml:space="preserve">
+    <value>Equip: Increases your armor penetration rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_AttackPower" xml:space="preserve">
+    <value>Equip: Increases your attack power by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_BlockRating" xml:space="preserve">
+    <value>Equip: Increases your shield block rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_BlockValue" xml:space="preserve">
+    <value>Equip: Increases the block value of your shield by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_CriticalAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_CriticalStrikeRating" xml:space="preserve">
+    <value>Equip: Improves critical strike rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_DamageDone" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_DefenseRating" xml:space="preserve">
+    <value>Equip: Increases defense rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_DodgeRating" xml:space="preserve">
+    <value>Equip: Increases your dodge rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_ExpertiseRating" xml:space="preserve">
+    <value>Equip: Increases your expertise rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_FeralAttackPower" xml:space="preserve">
+    <value>Equip: Increases your feral attack power by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_HasteRating" xml:space="preserve">
+    <value>Equip: Improves haste rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_HealingDone" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_Health" xml:space="preserve">
+    <value>Equip: Increases your health by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_HitAvoidanceRating" xml:space="preserve">
+    <value>TODO</value>
+    <comment>What's the text for this?</comment>
+  </data>
+  <data name="Item_BonusStat_HitRating" xml:space="preserve">
+    <value>Equip: Improves hit rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Hp5" xml:space="preserve">
+    <value>Equip: Increases your health regeneration by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Intellect" xml:space="preserve">
+    <value>+{0} Intellect</value>
+  </data>
+  <data name="Item_BonusStat_Mana" xml:space="preserve">
+    <value>Equip: Increases your mana by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Mastery" xml:space="preserve">
+    <value>Equip: Increases your mastery rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_MeleeCriticalStrikeRating" xml:space="preserve">
+    <value>Equip: Improves critical strike rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_MeleeHasteRating" xml:space="preserve">
+    <value>Equip: Improves haste rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_MeleeHitRating" xml:space="preserve">
+    <value>Equip: Improves hit rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Mp5" xml:space="preserve">
+    <value>Equip: Restores {0} mana per 5 secs.</value>
+  </data>
+  <data name="Item_BonusStat_ParryRating" xml:space="preserve">
+    <value>Equip: Increases your parry rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_RangedAttackPower" xml:space="preserve">
+    <value>Equip: Increases your ranged attack power by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_RangedCriticalStrikeRating" xml:space="preserve">
+    <value>Equip: Improves critical strike rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_RangedHasteRating" xml:space="preserve">
+    <value>Equip: Improves haste rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_ResilienceRating" xml:space="preserve">
+    <value>Equip: Improves your resilience rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_ShieldBlockRating" xml:space="preserve">
+    <value>Equip: Increases shield block rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellCriticalStrikeRating" xml:space="preserve">
+    <value>Equip: Improves spell critical strike rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellHasteRating" xml:space="preserve">
+    <value>Equip: Improves spell haste rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellHitRating" xml:space="preserve">
+    <value>Equip: Improves spell hit rating by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellPenetration" xml:space="preserve">
+    <value>Equip: Increases spell penetration by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_SpellPower" xml:space="preserve">
+    <value>Equip: Increases spell power by {0}.</value>
+  </data>
+  <data name="Item_BonusStat_Spirit" xml:space="preserve">
+    <value>+{0} Spirit</value>
+  </data>
+  <data name="Item_BonusStat_Stamina" xml:space="preserve">
+    <value>+{0} Stamina</value>
+  </data>
+  <data name="Item_BonusStat_Strength" xml:space="preserve">
+    <value>+{0} Strength</value>
+  </data>
   <data name="Item_ItemSubClass_2_0" xml:space="preserve">
     <value>Axe</value>
     <comment>One-Handed Axes</comment>

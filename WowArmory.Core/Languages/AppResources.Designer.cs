@@ -556,6 +556,420 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to +{0} Agility.
+        /// </summary>
+        public static string Item_BonusStat_Agility {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Agility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your armor penetration rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_ArmorPenetrationRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_ArmorPenetrationRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your attack power by {0}..
+        /// </summary>
+        public static string Item_BonusStat_AttackPower {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_AttackPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your shield block rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_BlockRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_BlockRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases the block value of your shield by {0}..
+        /// </summary>
+        public static string Item_BonusStat_BlockValue {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_BlockValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStat_CriticalAvoidanceRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_CriticalAvoidanceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves critical strike rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_CriticalStrikeRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_CriticalStrikeRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStat_DamageDone {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_DamageDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases defense rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_DefenseRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_DefenseRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your dodge rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_DodgeRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_DodgeRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your expertise rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_ExpertiseRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_ExpertiseRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your feral attack power by {0}..
+        /// </summary>
+        public static string Item_BonusStat_FeralAttackPower {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_FeralAttackPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves haste rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_HasteRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_HasteRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStat_HealingDone {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_HealingDone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your health by {0}..
+        /// </summary>
+        public static string Item_BonusStat_Health {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Health", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStat_HitAvoidanceRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_HitAvoidanceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves hit rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_HitRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_HitRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your health regeneration by {0}..
+        /// </summary>
+        public static string Item_BonusStat_Hp5 {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Hp5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to +{0} Intellect.
+        /// </summary>
+        public static string Item_BonusStat_Intellect {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Intellect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your mana by {0}..
+        /// </summary>
+        public static string Item_BonusStat_Mana {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Mana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your mastery rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_Mastery {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Mastery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves critical strike rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_MeleeCriticalStrikeRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_MeleeCriticalStrikeRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves haste rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_MeleeHasteRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_MeleeHasteRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves hit rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_MeleeHitRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_MeleeHitRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Restores {0} mana per 5 secs..
+        /// </summary>
+        public static string Item_BonusStat_Mp5 {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Mp5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your parry rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_ParryRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_ParryRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases your ranged attack power by {0}..
+        /// </summary>
+        public static string Item_BonusStat_RangedAttackPower {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_RangedAttackPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves critical strike rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_RangedCriticalStrikeRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_RangedCriticalStrikeRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves haste rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_RangedHasteRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_RangedHasteRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves your resilience rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_ResilienceRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_ResilienceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases shield block rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_ShieldBlockRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_ShieldBlockRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves spell critical strike rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_SpellCriticalStrikeRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_SpellCriticalStrikeRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves spell haste rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_SpellHasteRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_SpellHasteRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves spell hit rating by {0}..
+        /// </summary>
+        public static string Item_BonusStat_SpellHitRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_SpellHitRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases spell penetration by {0}..
+        /// </summary>
+        public static string Item_BonusStat_SpellPenetration {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_SpellPenetration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Increases spell power by {0}..
+        /// </summary>
+        public static string Item_BonusStat_SpellPower {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_SpellPower", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to +{0} Spirit.
+        /// </summary>
+        public static string Item_BonusStat_Spirit {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Spirit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to +{0} Stamina.
+        /// </summary>
+        public static string Item_BonusStat_Stamina {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Stamina", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to +{0} Strength.
+        /// </summary>
+        public static string Item_BonusStat_Strength {
+            get {
+                return ResourceManager.GetString("Item_BonusStat_Strength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStats_MeleeCriticalAvoidanceRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStats_MeleeCriticalAvoidanceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStats_MeleeHitAvoidanceRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStats_MeleeHitAvoidanceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStats_RangedCriticalAvoidanceRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStats_RangedCriticalAvoidanceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStats_RangedHitAvoidanceRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStats_RangedHitAvoidanceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: Improves hit rating by {0}..
+        /// </summary>
+        public static string Item_BonusStats_RangedHitRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStats_RangedHitRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStats_SpellCriticalAvoidanceRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStats_SpellCriticalAvoidanceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TODO.
+        /// </summary>
+        public static string Item_BonusStats_SpellHitAvoidanceRating {
+            get {
+                return ResourceManager.GetString("Item_BonusStats_SpellHitAvoidanceRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ammo.
         /// </summary>
         public static string Item_InventoryType_Ammo {

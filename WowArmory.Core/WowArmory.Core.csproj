@@ -88,6 +88,8 @@
     <Compile Include="BattleNet\Models\InventoryType.cs" />
     <Compile Include="BattleNet\Models\Item.cs" />
     <Compile Include="BattleNet\Models\ItemBinding.cs" />
+    <Compile Include="BattleNet\Models\ItemBonusStat.cs" />
+    <Compile Include="BattleNet\Models\ItemBonusStatType.cs" />
     <Compile Include="BattleNet\Models\ItemClass.cs" />
     <Compile Include="BattleNet\Models\ItemQuality.cs" />
     <Compile Include="BattleNet\Models\ItemSlot.cs" />
@@ -127,6 +129,7 @@
     <Compile Include="Extensions\EnumExtentions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helper\AsyncImageLoader.cs" />
+    <Compile Include="Helper\UIHelper.cs" />
     <Compile Include="Languages\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

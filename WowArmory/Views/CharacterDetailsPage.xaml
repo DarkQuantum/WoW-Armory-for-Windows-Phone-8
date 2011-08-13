@@ -378,7 +378,7 @@
 										<ProgressBar x:Name="pbItemToolTip" IsIndeterminate="False" Style="{StaticResource PerformanceProgressBar}" />
 										<TextBlock x:Name="tbItemToolTipLoading" Text="Loading..." Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipName" Text="Name" Style="{StaticResource CharacterDetailsItemToolTipItemNameTextStyle}" />
-										<!-- NOTE Heroic flag is not returned by Battle.Net Community API -->
+										<!-- NOTE Heroic flag is not returned by Battle.Net Community API (yet) -->
 										<TextBlock x:Name="tbItemToolTipBinding" Text="Binding" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipMaxCount" Text="Max Count" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<Grid>
@@ -389,6 +389,27 @@
 											<TextBlock x:Name="tbItemToolTipInventoryType" Grid.Column="0" Text="Inventory Type" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 											<TextBlock x:Name="tbItemToolTipSubClass" Grid.Column="1" Text="Sub Class" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										</Grid>
+										<!-- TODO Damage --> <!-- TODO Speed -->
+										<!-- TODO Damage per second -->
+										<!-- NOTE Find out how to display correct reforge information -->
+										<TextBlock x:Name="tbItemToolTipArmor" Text="Armor" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<TextBlock x:Name="tbItemToolTipStrength" Text="Strength" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<TextBlock x:Name="tbItemToolTipAgility" Text="Agility" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<TextBlock x:Name="tbItemToolTipStamina" Text="Stamina" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<TextBlock x:Name="tbItemToolTipIntellect" Text="Intellect" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<TextBlock x:Name="tbItemToolTipSpirit" Text="Spirit" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<!-- TODO Enchants -->
+										<!-- TODO Sockets -->
+										<!-- TODO Socket bonus -->
+										<!-- TODO Durability -->
+										<!-- TODO Required level -->
+										<!-- TODO Required faction -->
+										<!-- TODO Item level -->
+										<StackPanel x:Name="spToolTipBonusStats" Orientation="Vertical" />
+										<!-- TODO Spells -->
+										<!-- TODO Sell price -->
+										<TextBlock x:Name="tbItemToolTipSpacer" Text="---" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<!-- TODO Source -->
 									</StackPanel>
 								</ScrollViewer>
 							</Border>

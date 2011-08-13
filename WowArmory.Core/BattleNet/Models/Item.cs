@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 namespace WowArmory.Core.BattleNet.Models
@@ -25,7 +26,9 @@ namespace WowArmory.Core.BattleNet.Models
 		[DataMember]
 		[XmlElement("itemBind")]
 		public ItemBinding ItemBind { get; set; }
-		// bonus stats
+		[DataMember]
+		[XmlArray("bonusStats", IsNullable = true)]
+		public List<ItemBonusStat> BonusStats { get; set; }
 		// item spells
 		[DataMember]
 		[XmlElement("buyPrice")]

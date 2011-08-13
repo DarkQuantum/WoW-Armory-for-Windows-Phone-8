@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using WowArmory.Controls;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
+using WowArmory.Core.Helper;
 using WowArmory.Core.Languages;
 using WowArmory.ViewModels;
 
@@ -444,6 +445,29 @@ namespace WowArmory.Views
 			}
 			ShowToolTipText(tbItemToolTipInventoryType, AppResources.ResourceManager.GetString(String.Format("Item_InventoryType_{0}", (InventoryType)_itemForToolTip.InventoryType)));
 			ShowToolTipText(tbItemToolTipSubClass, AppResources.ResourceManager.GetString(String.Format("Item_ItemSubClass_{0}_{1}", _itemForToolTip.ItemClass, _itemForToolTip.ItemSubClass)));
+			if (_itemForToolTip.BaseArmor > 0)
+			{
+				ShowToolTipText(tbItemToolTipArmor, String.Format("{0} {1}", _itemForToolTip.BaseArmor, AppResources.UI_CharacterDetails_Character_Description_Armor));
+			}
+			if (_itemForToolTip.BonusStats != null && _itemForToolTip.BonusStats.Count > 0)
+			{
+				var spirit = _itemForToolTip.BonusStats.Where(s => s.Stat == ItemBonusStatType.Spirit).FirstOrDefault();
+
+				if (spirit != null)
+				{
+					ShowToolTipText(tbItemToolTipSpirit, String.Format(String.Format("+{0} {1}", spirit.Amount, AppResources.UI_CharacterDetails_Character_Description_Spirit), spirit.Amount));
+				}
+
+				foreach (var stat in _itemForToolTip.BonusStats)
+				{
+					var text = String.Format(AppResources.ResourceManager.GetString(String.Format("Item_BonusStat_{0}", stat.Stat)) ?? "??? {0} ???", stat.Amount);
+					var element = UIHelper.FindChild<TextBlock>(spToolTipContent, String.Format("tbItemToolTip{0}", stat.Stat));
+					if (element != null)
+					{
+						ShowToolTipText(element, text);
+					}
+				}
+			}
 		}
 
 		/// <summary>
@@ -459,6 +483,14 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipMaxCount, String.Empty);
 			ShowToolTipText(tbItemToolTipInventoryType, String.Empty);
 			ShowToolTipText(tbItemToolTipSubClass, String.Empty);
+			ShowToolTipText(tbItemToolTipArmor, String.Empty);
+			ShowToolTipText(tbItemToolTipStrength, String.Empty);
+			ShowToolTipText(tbItemToolTipAgility, String.Empty);
+			ShowToolTipText(tbItemToolTipStamina, String.Empty);
+			ShowToolTipText(tbItemToolTipIntellect, String.Empty);
+			ShowToolTipText(tbItemToolTipSpirit, String.Empty);
+			spToolTipBonusStats.Children.Clear();
+			ShowToolTipText(tbItemToolTipSpacer, String.Empty);
 		}
 
 		/// <summary>
