@@ -437,6 +437,10 @@ namespace WowArmory.Views
 
 			ShowToolTipText(tbItemToolTipName, _itemForToolTip.Name, (Brush)Resources[String.Format("ItemQuality{0}", _itemForToolTip.Quality)]);
 			ShowToolTipText(tbItemToolTipBinding, AppResources.ResourceManager.GetString(String.Format("Item_Binding_{0}", _itemForToolTip.ItemBind)));
+			if (_itemForToolTip.MaxCount == 1)
+			{
+				ShowToolTipText(tbItemToolTipMaxCount, AppResources.Item_MaxCount_UniqueEquipped);
+			}
 			ShowToolTipText(tbItemToolTipInventoryType, AppResources.ResourceManager.GetString(String.Format("Item_InventoryType_{0}", (InventoryType)_itemForToolTip.InventoryType)));
 			ShowToolTipText(tbItemToolTipSubClass, AppResources.ResourceManager.GetString(String.Format("Item_ItemSubClass_{0}_{1}", _itemForToolTip.ItemClass, _itemForToolTip.ItemSubClass)));
 		}
@@ -451,6 +455,7 @@ namespace WowArmory.Views
 			pbItemToolTip.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipName, String.Empty);
 			ShowToolTipText(tbItemToolTipBinding, String.Empty);
+			ShowToolTipText(tbItemToolTipMaxCount, String.Empty);
 			ShowToolTipText(tbItemToolTipInventoryType, String.Empty);
 			ShowToolTipText(tbItemToolTipSubClass, String.Empty);
 		}

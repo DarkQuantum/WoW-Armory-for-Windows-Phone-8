@@ -380,7 +380,7 @@
 										<TextBlock x:Name="tbItemToolTipName" Text="Name" Style="{StaticResource CharacterDetailsItemToolTipItemNameTextStyle}" />
 										<!-- NOTE Heroic flag is not returned by Battle.Net Community API -->
 										<TextBlock x:Name="tbItemToolTipBinding" Text="Binding" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
-										<!-- NOTE Max Count is always returned as 0 by Battle.Net Community API -->
+										<TextBlock x:Name="tbItemToolTipMaxCount" Text="Max Count" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<Grid>
 											<Grid.ColumnDefinitions>
 												<ColumnDefinition Width="*" />

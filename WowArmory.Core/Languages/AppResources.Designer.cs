@@ -1168,6 +1168,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unique-Equipped.
+        /// </summary>
+        public static string Item_MaxCount_UniqueEquipped {
+            get {
+                return ResourceManager.GetString("Item_MaxCount_UniqueEquipped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search characters and manage your favorites.
         /// </summary>
         public static string Page_CharacterList_Title {
