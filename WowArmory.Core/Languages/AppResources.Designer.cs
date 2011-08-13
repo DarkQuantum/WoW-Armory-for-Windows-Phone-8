@@ -529,6 +529,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Classes:.
+        /// </summary>
+        public static string Item_AllowableClasses {
+            get {
+                return ResourceManager.GetString("Item_AllowableClasses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Binds when equipped.
         /// </summary>
         public static string Item_Binding_Equipped {
@@ -1366,6 +1375,51 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Created.
+        /// </summary>
+        public static string Item_ItemSourceType_CREATED_BY_SPELL {
+            get {
+                return ResourceManager.GetString("Item_ItemSourceType_CREATED_BY_SPELL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Drop.
+        /// </summary>
+        public static string Item_ItemSourceType_CREATURE_DROP {
+            get {
+                return ResourceManager.GetString("Item_ItemSourceType_CREATURE_DROP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Faction Reward.
+        /// </summary>
+        public static string Item_ItemSourceType_FACTION_REWARD {
+            get {
+                return ResourceManager.GetString("Item_ItemSourceType_FACTION_REWARD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quest Reward.
+        /// </summary>
+        public static string Item_ItemSourceType_REWARD_FOR_QUEST {
+            get {
+                return ResourceManager.GetString("Item_ItemSourceType_REWARD_FOR_QUEST", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vendor.
+        /// </summary>
+        public static string Item_ItemSourceType_VENDOR {
+            get {
+                return ResourceManager.GetString("Item_ItemSourceType_VENDOR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Axe.
         /// </summary>
         public static string Item_ItemSubClass_2_0 {
@@ -1609,6 +1663,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Requires {0} - {1}.
+        /// </summary>
+        public static string Item_RequiredFaction {
+            get {
+                return ResourceManager.GetString("Item_RequiredFaction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Requires Level {0}.
         /// </summary>
         public static string Item_RequiredLevel {
@@ -1623,6 +1686,24 @@ namespace WowArmory.Core.Languages {
         public static string Item_SellPrice {
             get {
                 return ResourceManager.GetString("Item_SellPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use: {0}.
+        /// </summary>
+        public static string Item_Spell_Consumable {
+            get {
+                return ResourceManager.GetString("Item_Spell_Consumable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Equip: {0}.
+        /// </summary>
+        public static string Item_Spell_NotConsumable {
+            get {
+                return ResourceManager.GetString("Item_Spell_NotConsumable", resourceCulture);
             }
         }
         

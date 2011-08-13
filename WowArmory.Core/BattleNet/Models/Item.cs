@@ -22,14 +22,18 @@ namespace WowArmory.Core.BattleNet.Models
 		[DataMember]
 		[XmlElement("stackable")]
 		public int Stackable { get; set; }
-		// allowable classes
+		[DataMember]
+		[XmlArray("allowableClasses", IsNullable = true)]
+		public List<CharacterClass> AllowableClasses { get; set; }
 		[DataMember]
 		[XmlElement("itemBind")]
 		public ItemBinding ItemBind { get; set; }
 		[DataMember]
 		[XmlArray("bonusStats", IsNullable = true)]
 		public List<ItemBonusStat> BonusStats { get; set; }
-		// item spells
+		[DataMember]
+		[XmlArray("itemSpells", IsNullable = true)]
+		public List<ItemSpell> ItemSpells { get; set; }
 		[DataMember]
 		[XmlElement("buyPrice")]
 		public int BuyPrice { get; set; }
@@ -87,7 +91,9 @@ namespace WowArmory.Core.BattleNet.Models
 		[XmlElement("requiredSkillRank")]
 		public int RequiredSkillRank { get; set; }
 		// socket info
-		// item source
+		[DataMember]
+		[XmlElement("itemSource", IsNullable = true)]
+		public ItemSource ItemSource { get; set; }
 		[DataMember]
 		[XmlElement("baseArmor")]
 		public int BaseArmor { get; set; }

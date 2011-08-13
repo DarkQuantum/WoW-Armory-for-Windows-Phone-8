@@ -30,7 +30,17 @@
 		<SolidColorBrush x:Key="ItemQualityLegendary" Color="#ffff8000" />
 		<SolidColorBrush x:Key="ItemQualityArtifact" Color="#ffe5cc80" />
 		<SolidColorBrush x:Key="ItemQualityHeirloom" Color="#ffe5cc80" />
-
+		<SolidColorBrush x:Key="ItemClassWarrior" Color="#ffc69b6d" />
+		<SolidColorBrush x:Key="ItemClassPaladin" Color="#fff48cba" />
+		<SolidColorBrush x:Key="ItemClassHunter" Color="#ffaad372" />
+		<SolidColorBrush x:Key="ItemClassRogue" Color="#fffff468" />
+		<SolidColorBrush x:Key="ItemClassPriest" Color="#fff0ebe0" />
+		<SolidColorBrush x:Key="ItemClassDeathKnight" Color="#ffc41e3b" />
+		<SolidColorBrush x:Key="ItemClassShaman" Color="#ff2359ff" />
+		<SolidColorBrush x:Key="ItemClassMage" Color="#ff68ccef" />
+		<SolidColorBrush x:Key="ItemClassWarlock" Color="#ff9382c9" />
+		<SolidColorBrush x:Key="ItemClassDruid" Color="#ffff7c0a" />
+		
 		<LinearGradientBrush x:Key="HealthBarStyle" StartPoint="0,0" EndPoint="0,1">
 			<GradientStop Color="#ff1c6400" Offset="0" />
 			<GradientStop Color="#ff2a9700" Offset="0.5" />
@@ -414,11 +424,12 @@
 										<!-- TODO Sockets -->
 										<!-- TODO Socket bonus -->
 										<TextBlock x:Name="tbItemToolTipDurability" Text="Durability" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<StackPanel x:Name="spAllowableClasses" Orientation="Horizontal" />
 										<TextBlock x:Name="tbItemToolTipRequiredLevel" Text="Required Level" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
-										<!-- TODO Required faction -->
+										<TextBlock x:Name="tbItemToolTipRequiredFaction" Text="Required Faction" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipItemLevel" Text="Item Level" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<StackPanel x:Name="spToolTipBonusStats" Orientation="Vertical" />
-										<!-- TODO Spells -->
+										<StackPanel x:Name="spToolTipSpells" Orientation="Vertical" />
 										<StackPanel x:Name="spToolTipSellPrice" Orientation="Horizontal" />
 										<TextBlock x:Name="tbItemToolTipSpacer" Text="---" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<!-- TODO Source -->

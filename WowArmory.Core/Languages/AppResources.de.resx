@@ -949,4 +949,31 @@
   <data name="UI_RealmList_ApplicationBar_Refresh" xml:space="preserve">
     <value>aktualisieren</value>
   </data>
+  <data name="Item_AllowableClasses" xml:space="preserve">
+    <value>Klassen:</value>
+  </data>
+  <data name="Item_ItemSourceType_CREATED_BY_SPELL" xml:space="preserve">
+    <value>Hergestellt</value>
+  </data>
+  <data name="Item_ItemSourceType_CREATURE_DROP" xml:space="preserve">
+    <value>Beute</value>
+  </data>
+  <data name="Item_ItemSourceType_FACTION_REWARD" xml:space="preserve">
+    <value>Rufbelohnung</value>
+  </data>
+  <data name="Item_ItemSourceType_REWARD_FOR_QUEST" xml:space="preserve">
+    <value>Questbelohnung</value>
+  </data>
+  <data name="Item_ItemSourceType_VENDOR" xml:space="preserve">
+    <value>Händler</value>
+  </data>
+  <data name="Item_RequiredFaction" xml:space="preserve">
+    <value>Erfordert {0} - {1}</value>
+  </data>
+  <data name="Item_Spell_Consumable" xml:space="preserve">
+    <value>Benutzen: {0}</value>
+  </data>
+  <data name="Item_Spell_NotConsumable" xml:space="preserve">
+    <value>Anlegen: {0}</value>
+  </data>
 </root>

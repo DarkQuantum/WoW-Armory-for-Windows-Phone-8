@@ -475,10 +475,48 @@ namespace WowArmory.Views
 			{
 				ShowToolTipText(tbItemToolTipDurability, String.Format(AppResources.Item_Durability, _itemForToolTip.MaxDurability));
 			}
+			// allowable classes
+			if (_itemForToolTip.AllowableClasses != null)
+			{
+				var labelText = new TextBlock();
+				labelText.Text = AppResources.Item_AllowableClasses;
+				labelText.Style = normalStyle;
+				spAllowableClasses.Children.Add(labelText);
+
+				foreach (var allowableClass in _itemForToolTip.AllowableClasses)
+				{
+					if (spAllowableClasses.Children.Count > 1)
+					{
+						var separatorText = new TextBlock();
+						separatorText.Text = ",";
+						separatorText.Style = normalStyle;
+						spAllowableClasses.Children.Add(separatorText);
+					}
+
+					var classText = new TextBlock();
+					classText.Text = AppResources.ResourceManager.GetString(String.Format("BattleNet_Classes_{0}", allowableClass));
+					classText.Style = normalStyle;
+					classText.Margin = new Thickness(6, 0, 0, 0);
+					classText.Foreground = (Brush)Resources[String.Format("ItemClass{0}", allowableClass)];
+					spAllowableClasses.Children.Add(classText);
+				}
+
+				spAllowableClasses.Visibility = Visibility.Visible;
+			}
 			// required level
 			if (_itemForToolTip.RequiredLevel > 0)
 			{
 				ShowToolTipText(tbItemToolTipRequiredLevel, String.Format(AppResources.Item_RequiredLevel, _itemForToolTip.RequiredLevel));
+			}
+			// required faction
+			if (_itemForToolTip.MinFactionId > 0)
+			{
+				var reputationFaction = ViewModel.Character.Reputation.Where(r => r.Id == _itemForToolTip.MinFactionId).FirstOrDefault();
+				if (reputationFaction != null)
+				{
+					var reputation = AppResources.ResourceManager.GetString(String.Format("BattleNet_Reputation_{0}", (ReputationStanding)_itemForToolTip.MinReputation));
+					ShowToolTipText(tbItemToolTipRequiredFaction, String.Format(AppResources.Item_RequiredFaction, reputationFaction.Name, reputation));
+				}
 			}
 			// item level
 			if (_itemForToolTip.ItemLevel > 0)
@@ -517,6 +555,25 @@ namespace WowArmory.Views
 						spToolTipBonusStats.Visibility = Visibility.Visible;
 					}
 				}
+			}
+			// spells
+			if (_itemForToolTip.ItemSpells != null)
+			{
+				foreach (var itemSpell in _itemForToolTip.ItemSpells)
+				{
+					if (String.IsNullOrEmpty(itemSpell.Spell.Description))
+					{
+						continue;
+					}
+
+					var formatText = AppResources.ResourceManager.GetString(String.Format("Item_Spell_{0}Consumable", itemSpell.Consumable ? String.Empty : "Not")) ?? "???: {0}";
+					var itemSpellText = new TextBlock();
+					itemSpellText.Text = String.Format(formatText, itemSpell.Spell.Description);
+					itemSpellText.Style = bonusStatStyle;
+					spToolTipSpells.Children.Add(itemSpellText);
+				}
+
+				spToolTipSpells.Visibility = Visibility.Visible;
 			}
 			// sell price
 			if (_itemForToolTip.SellPrice > 0)
@@ -604,10 +661,15 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipIntellect, String.Empty);
 			ShowToolTipText(tbItemToolTipSpirit, String.Empty);
 			ShowToolTipText(tbItemToolTipDurability, String.Empty);
+			spAllowableClasses.Children.Clear();
+			spAllowableClasses.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipRequiredLevel, String.Empty);
+			ShowToolTipText(tbItemToolTipRequiredFaction, String.Empty);
 			ShowToolTipText(tbItemToolTipItemLevel, String.Empty);
 			spToolTipBonusStats.Children.Clear();
 			spToolTipBonusStats.Visibility = Visibility.Collapsed;
+			spToolTipSpells.Children.Clear();
+			spToolTipSpells.Visibility = Visibility.Collapsed;
 			spToolTipSellPrice.Children.Clear();
 			spToolTipSellPrice.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipSpacer, String.Empty);
