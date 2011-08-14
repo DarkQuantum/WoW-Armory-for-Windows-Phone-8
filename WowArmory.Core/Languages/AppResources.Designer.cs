@@ -1933,6 +1933,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Facebook.
+        /// </summary>
+        public static string Pages_Main_Button_Facebook {
+            get {
+                return ResourceManager.GetString("Pages_Main_Button_Facebook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Help.
         /// </summary>
         public static string Pages_Main_Button_Help {
@@ -1965,6 +1974,15 @@ namespace WowArmory.Core.Languages {
         public static string Pages_Main_Button_Settings {
             get {
                 return ResourceManager.GetString("Pages_Main_Button_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Twitter.
+        /// </summary>
+        public static string Pages_Main_Button_Twitter {
+            get {
+                return ResourceManager.GetString("Pages_Main_Button_Twitter", resourceCulture);
             }
         }
         

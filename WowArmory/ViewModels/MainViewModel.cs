@@ -1,6 +1,8 @@
 ﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.Phone.Tasks;
 using WowArmory.Controllers;
+using WowArmory.Core.Languages;
 using WowArmory.Enumerations;
 
 namespace WowArmory.ViewModels
@@ -15,6 +17,8 @@ namespace WowArmory.ViewModels
 		public RelayCommand ShowNewsPageCommand { get; private set; }
 		public RelayCommand ShowRealmListPageCommand { get; private set; }
 		public RelayCommand ShowCharacterListPageCommand { get; private set; }
+		public RelayCommand ShowFacebookPageCommand { get; private set; }
+		public RelayCommand ShowTwitterPageCommand { get; private set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -48,6 +52,8 @@ namespace WowArmory.ViewModels
 			ShowNewsPageCommand = new RelayCommand(ShowNewsPage);
 			ShowRealmListPageCommand = new RelayCommand(ShowRealmListPage);
 			ShowCharacterListPageCommand = new RelayCommand(ShowCharacterListPage);
+			ShowFacebookPageCommand = new RelayCommand(ShowFacebookPage);
+			ShowTwitterPageCommand = new RelayCommand(ShowTwitterPage);
 		}
 
 		/// <summary>
@@ -88,6 +94,26 @@ namespace WowArmory.ViewModels
 		private void ShowCharacterListPage()
 		{
 			ApplicationController.Current.NavigateTo(Page.CharacterList);
+		}
+
+		/// <summary>
+		/// Shows the facebook page for this app.
+		/// </summary>
+		private void ShowFacebookPage()
+		{
+			var webBrowserTask = new WebBrowserTask();
+			webBrowserTask.URL = AppResources.About_FacebookURL;
+			webBrowserTask.Show();
+		}
+
+		/// <summary>
+		/// Shows the twitter page for this app.
+		/// </summary>
+		private void ShowTwitterPage()
+		{
+			var webBrowserTask = new WebBrowserTask();
+			webBrowserTask.URL = AppResources.About_TwitterURL;
+			webBrowserTask.Show();
 		}
 		//----------------------------------------------------------------------
 		#endregion

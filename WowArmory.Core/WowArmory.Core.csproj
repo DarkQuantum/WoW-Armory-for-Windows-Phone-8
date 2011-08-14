@@ -589,7 +589,14 @@
       <Link>Images\Durability.png</Link>
     </Resource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\MainPage\Facebook.png">
+      <Link>Images\Icons\MainPage\Facebook.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\MainPage\Twitter.png">
+      <Link>Images\Icons\MainPage\Twitter.png</Link>
+    </Resource>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkBloodElf.png">
       <Link>Images\CharacterDetails\Backgrounds\DarkBloodElf.png</Link>

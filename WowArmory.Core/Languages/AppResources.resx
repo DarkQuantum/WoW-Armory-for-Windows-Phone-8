@@ -1036,4 +1036,10 @@
   <data name="UI_Settings_General_ShowCharacterBackground" xml:space="preserve">
     <value>Show character background</value>
   </data>
+  <data name="Pages_Main_Button_Facebook" xml:space="preserve">
+    <value>Facebook</value>
+  </data>
+  <data name="Pages_Main_Button_Twitter" xml:space="preserve">
+    <value>Twitter</value>
+  </data>
 </root>

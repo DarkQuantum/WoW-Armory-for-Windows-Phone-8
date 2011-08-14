@@ -91,6 +91,24 @@
 						</i:Interaction.Triggers>
 					</ctrl:MainPageButton>
 				</StackPanel>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+					<ctrl:MainPageButton Label="{Binding LocalizedResources.Pages_Main_Button_Facebook, Source={StaticResource LocalizedResources}}"
+										 IconSource="/WowArmory.Core;Component/Images/Icons/MainPage/Facebook.png">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<cmd:EventToCommand Command="{Binding ShowFacebookPageCommand}" />
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</ctrl:MainPageButton>
+					<ctrl:MainPageButton Label="{Binding LocalizedResources.Pages_Main_Button_Twitter, Source={StaticResource LocalizedResources}}"
+										 IconSource="/WowArmory.Core;Component/Images/Icons/MainPage/Twitter.png">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<cmd:EventToCommand Command="{Binding ShowTwitterPageCommand}" />
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</ctrl:MainPageButton>
+				</StackPanel>
 			</StackPanel>
 		</Grid>
     </Grid>

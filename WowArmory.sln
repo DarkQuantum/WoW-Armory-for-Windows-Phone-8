@@ -111,10 +111,12 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainPage", "MainPage", "{22D83C24-EFA4-4D83-A082-EA8591A5EA85}"
 	ProjectSection(SolutionItems) = preProject
 		Media\Icons\MainPage\Characters.png = Media\Icons\MainPage\Characters.png
+		Media\Icons\MainPage\Facebook.png = Media\Icons\MainPage\Facebook.png
 		Media\Icons\MainPage\Help.png = Media\Icons\MainPage\Help.png
 		Media\Icons\MainPage\News.png = Media\Icons\MainPage\News.png
 		Media\Icons\MainPage\Realms.png = Media\Icons\MainPage\Realms.png
 		Media\Icons\MainPage\Settings.png = Media\Icons\MainPage\Settings.png
+		Media\Icons\MainPage\Twitter.png = Media\Icons\MainPage\Twitter.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApplicationBar", "ApplicationBar", "{D30C058C-315B-4D7F-8B27-BE2C0DF35184}"
