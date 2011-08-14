@@ -1690,6 +1690,132 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Blue Socket.
+        /// </summary>
+        public static string Item_Socket_BLUE {
+            get {
+                return ResourceManager.GetString("Item_Socket_BLUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meta Socket.
+        /// </summary>
+        public static string Item_Socket_META {
+            get {
+                return ResourceManager.GetString("Item_Socket_META", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prismatic Socket.
+        /// </summary>
+        public static string Item_Socket_PRISMATIC {
+            get {
+                return ResourceManager.GetString("Item_Socket_PRISMATIC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Red Socket.
+        /// </summary>
+        public static string Item_Socket_RED {
+            get {
+                return ResourceManager.GetString("Item_Socket_RED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yellow Socket.
+        /// </summary>
+        public static string Item_Socket_YELLOW {
+            get {
+                return ResourceManager.GetString("Item_Socket_YELLOW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Socket Bonus: {0}.
+        /// </summary>
+        public static string Item_SocketBonus {
+            get {
+                return ResourceManager.GetString("Item_SocketBonus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blue.
+        /// </summary>
+        public static string Item_SocketType_BLUE {
+            get {
+                return ResourceManager.GetString("Item_SocketType_BLUE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Green.
+        /// </summary>
+        public static string Item_SocketType_GREEN {
+            get {
+                return ResourceManager.GetString("Item_SocketType_GREEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meta.
+        /// </summary>
+        public static string Item_SocketType_META {
+            get {
+                return ResourceManager.GetString("Item_SocketType_META", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Orange.
+        /// </summary>
+        public static string Item_SocketType_ORANGE {
+            get {
+                return ResourceManager.GetString("Item_SocketType_ORANGE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prismatic.
+        /// </summary>
+        public static string Item_SocketType_PRISMATIC {
+            get {
+                return ResourceManager.GetString("Item_SocketType_PRISMATIC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Purple.
+        /// </summary>
+        public static string Item_SocketType_PURPLE {
+            get {
+                return ResourceManager.GetString("Item_SocketType_PURPLE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Red.
+        /// </summary>
+        public static string Item_SocketType_RED {
+            get {
+                return ResourceManager.GetString("Item_SocketType_RED", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yellow.
+        /// </summary>
+        public static string Item_SocketType_YELLOW {
+            get {
+                return ResourceManager.GetString("Item_SocketType_YELLOW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use: {0}.
         /// </summary>
         public static string Item_Spell_Consumable {
@@ -1830,6 +1956,24 @@ namespace WowArmory.Core.Languages {
         public static string Pages_Main_Button_Settings {
             get {
                 return ResourceManager.GetString("Pages_Main_Button_Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to average item level.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_AverageItemLevel {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_AverageItemLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ({0} equipped).
+        /// </summary>
+        public static string UI_CharacterDetails_Character_AverageItemLevelEquipped {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_AverageItemLevelEquipped", resourceCulture);
             }
         }
         
@@ -2185,7 +2329,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Runic power.
+        ///   Looks up a localized string similar to Power.
         /// </summary>
         public static string UI_CharacterDetails_Character_PowerType_Runicpower {
             get {

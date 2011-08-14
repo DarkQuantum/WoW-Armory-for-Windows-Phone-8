@@ -191,6 +191,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RealmList", "RealmList", "{
 		Media\ApplicationBar\RealmList\refresh.png = Media\ApplicationBar\RealmList\refresh.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item", "Item", "{32C2704E-4A1A-415B-9EE6-E637150B7813}"
+	ProjectSection(SolutionItems) = preProject
+		Media\Item\Socket.psd = Media\Item\Socket.psd
+		Media\Item\Socket_BLUE.png = Media\Item\Socket_BLUE.png
+		Media\Item\Socket_GREEN.png = Media\Item\Socket_GREEN.png
+		Media\Item\Socket_META.png = Media\Item\Socket_META.png
+		Media\Item\Socket_ORANGE.png = Media\Item\Socket_ORANGE.png
+		Media\Item\Socket_PRISMATIC.png = Media\Item\Socket_PRISMATIC.png
+		Media\Item\Socket_PURPLE.png = Media\Item\Socket_PURPLE.png
+		Media\Item\Socket_RED.png = Media\Item\Socket_RED.png
+		Media\Item\Socket_YELLOW.png = Media\Item\Socket_YELLOW.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -228,6 +241,7 @@ Global
 		{3A47F978-1BD8-4F24-92B9-5BF3D90B990A} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{980D282C-EADB-4971-A0B9-BBA5CE9F1137} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{D08DFF7A-5CEF-4C8C-BC6C-25B0346443E5} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
+		{32C2704E-4A1A-415B-9EE6-E637150B7813} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{22D83C24-EFA4-4D83-A082-EA8591A5EA85} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{B6517931-2F91-4538-A374-A055163BBDE4} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{3747578C-1B15-4E0B-9C04-608562DC793A} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}

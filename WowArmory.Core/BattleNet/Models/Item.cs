@@ -90,7 +90,9 @@ namespace WowArmory.Core.BattleNet.Models
 		[DataMember]
 		[XmlElement("requiredSkillRank")]
 		public int RequiredSkillRank { get; set; }
-		// socket info
+		[DataMember]
+		[XmlElement("socketInfo", IsNullable = true)]
+		public ItemSocketInfo SocketInfo { get; set; }
 		[DataMember]
 		[XmlElement("itemSource", IsNullable = true)]
 		public ItemSource ItemSource { get; set; }

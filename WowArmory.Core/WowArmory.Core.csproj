@@ -93,6 +93,8 @@
     <Compile Include="BattleNet\Models\ItemClass.cs" />
     <Compile Include="BattleNet\Models\ItemQuality.cs" />
     <Compile Include="BattleNet\Models\ItemSlot.cs" />
+    <Compile Include="BattleNet\Models\ItemSocket.cs" />
+    <Compile Include="BattleNet\Models\ItemSocketInfo.cs" />
     <Compile Include="BattleNet\Models\ItemSource.cs" />
     <Compile Include="BattleNet\Models\ItemSpell.cs" />
     <Compile Include="BattleNet\Models\ItemSpellDetails.cs" />
@@ -152,7 +154,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>BattleNetSettings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Languages\AppResources.de.resx" />
+    <EmbeddedResource Include="Languages\AppResources.de-DE.resx" />
     <EmbeddedResource Include="Languages\AppResources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
@@ -478,6 +480,32 @@
     </Resource>
     <Resource Include="..\Media\Coin_Silver.png">
       <Link>Images\Coin_Silver.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Item\Socket_BLUE.png">
+      <Link>Images\Item\Socket_BLUE.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Item\Socket_GREEN.png">
+      <Link>Images\Item\Socket_GREEN.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Item\Socket_META.png">
+      <Link>Images\Item\Socket_META.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Item\Socket_ORANGE.png">
+      <Link>Images\Item\Socket_ORANGE.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Item\Socket_PRISMATIC.png">
+      <Link>Images\Item\Socket_PRISMATIC.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Item\Socket_PURPLE.png">
+      <Link>Images\Item\Socket_PURPLE.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Item\Socket_RED.png">
+      <Link>Images\Item\Socket_RED.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Item\Socket_YELLOW.png">
+      <Link>Images\Item\Socket_YELLOW.png</Link>
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

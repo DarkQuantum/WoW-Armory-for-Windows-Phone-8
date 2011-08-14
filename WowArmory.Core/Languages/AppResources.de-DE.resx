@@ -436,7 +436,7 @@
     <value>Wut</value>
   </data>
   <data name="UI_CharacterDetails_Character_PowerType_Runicpower" xml:space="preserve">
-    <value>Runenmacht</value>
+    <value>Macht</value>
   </data>
   <data name="UI_CharacterDetails_Character_Description_Agility" xml:space="preserve">
     <value>Beweglichkeit</value>
@@ -970,10 +970,46 @@
   <data name="Item_RequiredFaction" xml:space="preserve">
     <value>Erfordert {0} - {1}</value>
   </data>
+  <data name="Item_SocketBonus" xml:space="preserve">
+    <value>Sockelbonus: {0}</value>
+  </data>
+  <data name="Item_SocketType_BLUE" xml:space="preserve">
+    <value>Blau</value>
+  </data>
+  <data name="Item_SocketType_PRISMATIC" xml:space="preserve">
+    <value>Prismatisch</value>
+  </data>
+  <data name="Item_SocketType_RED" xml:space="preserve">
+    <value>Rot</value>
+  </data>
+  <data name="Item_SocketType_YELLOW" xml:space="preserve">
+    <value>Gelb</value>
+  </data>
+  <data name="Item_Socket_BLUE" xml:space="preserve">
+    <value>Blauer Sockel</value>
+  </data>
+  <data name="Item_Socket_META" xml:space="preserve">
+    <value>Meta Sockel</value>
+  </data>
+  <data name="Item_Socket_PRISMATIC" xml:space="preserve">
+    <value>Prismatischer Sockel</value>
+  </data>
+  <data name="Item_Socket_RED" xml:space="preserve">
+    <value>Roter Sockel</value>
+  </data>
+  <data name="Item_Socket_YELLOW" xml:space="preserve">
+    <value>Gelber Sockel</value>
+  </data>
   <data name="Item_Spell_Consumable" xml:space="preserve">
     <value>Benutzen: {0}</value>
   </data>
   <data name="Item_Spell_NotConsumable" xml:space="preserve">
     <value>Anlegen: {0}</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_AverageItemLevel" xml:space="preserve">
+    <value>Durchschnittliche Gegenstandsstufe</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_AverageItemLevelEquipped" xml:space="preserve">
+    <value>({0} ausgerüstet)</value>
   </data>
 </root>

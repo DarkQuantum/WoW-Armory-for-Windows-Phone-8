@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using WowArmory.Core.BattleNet.Models;
 using WowArmory.Core.Converters;
+using WowArmory.Core.Languages;
 using WowArmory.Core.Managers;
 
 namespace WowArmory.ViewModels
@@ -80,6 +81,18 @@ namespace WowArmory.ViewModels
 			{
 				var isCharacterStored = IsolatedStorageManager.IsCharacterStored(Character.Region, Character.Realm, Character.Name);
 				return CacheManager.GetImageSourceFromCache(String.Format("/WowArmory.Core;Component/Images/CharacterDetails/Favorite_{0}.png", isCharacterStored ? 1 : 0));
+			}
+		}
+
+
+		/// <summary>
+		/// Gets the average equipped item level string.
+		/// </summary>
+		public string AverageItemLevelEquipped
+		{
+			get
+			{
+				return String.Format(AppResources.UI_CharacterDetails_Character_AverageItemLevelEquipped, Character.Items.AverageItemLevelEquipped);
 			}
 		}
 

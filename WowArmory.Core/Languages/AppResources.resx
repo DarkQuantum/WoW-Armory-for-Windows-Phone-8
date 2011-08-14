@@ -436,7 +436,7 @@
     <value>Rage</value>
   </data>
   <data name="UI_CharacterDetails_Character_PowerType_Runicpower" xml:space="preserve">
-    <value>Runic power</value>
+    <value>Power</value>
   </data>
   <data name="UI_CharacterDetails_Character_Description_Agility" xml:space="preserve">
     <value>Agility</value>
@@ -970,10 +970,58 @@
   <data name="Item_RequiredFaction" xml:space="preserve">
     <value>Requires {0} - {1}</value>
   </data>
+  <data name="Item_SocketBonus" xml:space="preserve">
+    <value>Socket Bonus: {0}</value>
+  </data>
+  <data name="Item_SocketType_BLUE" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="Item_SocketType_GREEN" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="Item_SocketType_META" xml:space="preserve">
+    <value>Meta</value>
+  </data>
+  <data name="Item_SocketType_ORANGE" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="Item_SocketType_PRISMATIC" xml:space="preserve">
+    <value>Prismatic</value>
+  </data>
+  <data name="Item_SocketType_PURPLE" xml:space="preserve">
+    <value>Purple</value>
+  </data>
+  <data name="Item_SocketType_RED" xml:space="preserve">
+    <value>Red</value>
+  </data>
+  <data name="Item_SocketType_YELLOW" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="Item_Socket_BLUE" xml:space="preserve">
+    <value>Blue Socket</value>
+  </data>
+  <data name="Item_Socket_META" xml:space="preserve">
+    <value>Meta Socket</value>
+  </data>
+  <data name="Item_Socket_PRISMATIC" xml:space="preserve">
+    <value>Prismatic Socket</value>
+  </data>
+  <data name="Item_Socket_RED" xml:space="preserve">
+    <value>Red Socket</value>
+  </data>
+  <data name="Item_Socket_YELLOW" xml:space="preserve">
+    <value>Yellow Socket</value>
+  </data>
   <data name="Item_Spell_Consumable" xml:space="preserve">
     <value>Use: {0}</value>
   </data>
   <data name="Item_Spell_NotConsumable" xml:space="preserve">
     <value>Equip: {0}</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_AverageItemLevel" xml:space="preserve">
+    <value>average item level</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_AverageItemLevelEquipped" xml:space="preserve">
+    <value>({0} equipped)</value>
   </data>
 </root>

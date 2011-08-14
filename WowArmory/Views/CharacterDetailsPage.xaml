@@ -22,6 +22,8 @@
 	
 	<phone:PhoneApplicationPage.Resources>
 		<SolidColorBrush x:Key="ItemToolTipHighlightBrush" Color="#ff04ff00" />
+		<SolidColorBrush x:Key="ItemToolTipDescriptionBrush" Color="#ffffd100" />
+		<SolidColorBrush x:Key="ItemToolTipSubtleBrush" Color="#ff808080" />
 		<SolidColorBrush x:Key="ItemQualityPoor" Color="#ff9d9d9d" />
 		<SolidColorBrush x:Key="ItemQualityCommon" Color="#ffffffff" />
 		<SolidColorBrush x:Key="ItemQualityUncommon" Color="#ff1eff00" />
@@ -40,27 +42,37 @@
 		<SolidColorBrush x:Key="ItemClassMage" Color="#ff68ccef" />
 		<SolidColorBrush x:Key="ItemClassWarlock" Color="#ff9382c9" />
 		<SolidColorBrush x:Key="ItemClassDruid" Color="#ffff7c0a" />
+		<SolidColorBrush x:Key="ItemSocketBackgroundBrushRED" Color="#ff301010" />
+		<SolidColorBrush x:Key="ItemSocketBackgroundBrushYELLOW" Color="#ff403010" />
+		<SolidColorBrush x:Key="ItemSocketBackgroundBrushBLUE" Color="#ff102040" />
+		<SolidColorBrush x:Key="ItemSocketBackgroundBrushPRISMATIC" Color="#ff29292a" />
+		<SolidColorBrush x:Key="ItemSocketBackgroundBrushMETA" Color="#ff29292a" />
 		
+		<SolidColorBrush x:Key="HealthTextBrush" Color="#ff2a9700" />
 		<LinearGradientBrush x:Key="HealthBarStyle" StartPoint="0,0" EndPoint="0,1">
 			<GradientStop Color="#ff1c6400" Offset="0" />
 			<GradientStop Color="#ff2a9700" Offset="0.5" />
 		</LinearGradientBrush>
 
+		<SolidColorBrush x:Key="ManaTextBrush" Color="#ff339dff" />
 		<LinearGradientBrush x:Key="ManaBarStyle" StartPoint="0,0" EndPoint="0,1">
 			<GradientStop Color="#ff0072ff" Offset="0" />
 			<GradientStop Color="#ff339dff" Offset="0.5" />
 		</LinearGradientBrush>
 
+		<SolidColorBrush x:Key="FocusTextBrush" Color="#ffa54a14" />
 		<LinearGradientBrush x:Key="FocusBarStyle" StartPoint="0,0" EndPoint="0,1">
 			<GradientStop Color="#ff833c14" Offset="0" />
 			<GradientStop Color="#ffa54a14" Offset="0.5" />
 		</LinearGradientBrush>
 
+		<SolidColorBrush x:Key="RageTextBrush" Color="#ffcf0000" />
 		<LinearGradientBrush x:Key="RageBarStyle" StartPoint="0,0" EndPoint="0,1">
 			<GradientStop Color="#ff7f0000" Offset="0" />
 			<GradientStop Color="#ffcf0000" Offset="0.5" />
 		</LinearGradientBrush>
 
+		<SolidColorBrush x:Key="RunicpowerTextBrush" Color="#ff00bee0" />
 		<LinearGradientBrush x:Key="RunicpowerBarStyle" StartPoint="0,0" EndPoint="0,1">
 			<GradientStop Color="#ff0095b0" Offset="0" />
 			<GradientStop Color="#ff00bee0" Offset="0.5" />
@@ -99,23 +111,32 @@
 		</Style>
 		
 		<Style x:Key="CharacterDetailsBarDescriptionTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
-			<Setter Property="Margin" Value="8,0,0,0" />
+			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
-			<Setter Property="Foreground" Value="#ffffffff" />
-			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}" />
-			<Setter Property="HorizontalAlignment" Value="Right" />
 			<Setter Property="VerticalAlignment" Value="Center" />
 		</Style>
 
 		<Style x:Key="CharacterDetailsBarValueTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
-			<Setter Property="Margin" Value="8,0,0,0" />
+			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
-			<Setter Property="Foreground" Value="#ffffffff" />
 			<Setter Property="FontWeight" Value="Bold" />
-			<Setter Property="HorizontalAlignment" Value="Left" />
 			<Setter Property="VerticalAlignment" Value="Center" />
 		</Style>
-		
+
+		<Style x:Key="CharacterDetailsAverageItemLevelTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeExtraLarge}" />
+		</Style>
+
+		<Style x:Key="CharacterDetailsItemLevelTextStyle" BasedOn="{StaticResource PhoneTextSubtleStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="6,0,0,0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+		</Style>
+
 		<Style x:Key="CharacterDetailsItemToolTipNormalTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
@@ -134,7 +155,15 @@
 		<Style x:Key="CharacterDetailsItemToolTipBonusStatTextStyle" BasedOn="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" TargetType="TextBlock">
 			<Setter Property="Foreground" Value="{StaticResource ItemToolTipHighlightBrush}" />
 		</Style>
-		
+
+		<Style x:Key="CharacterDetailsItemToolTipDescriptionTextStyle" BasedOn="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource ItemToolTipDescriptionBrush}" />
+		</Style>
+
+		<Style x:Key="CharacterDetailsItemToolTipSubtleTextStyle" BasedOn="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource ItemToolTipSubtleBrush}" />
+		</Style>
+
 		<Style x:Key="ProfessionHeaderTextStyle" BasedOn="{StaticResource PhoneTextTitle2Style}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
@@ -218,19 +247,44 @@
 									<Grid Margin="0,0,0,12">
 										<Grid.RowDefinitions>
 											<RowDefinition Height="Auto" />
-											<RowDefinition Height="6" />
-											<RowDefinition Height="Auto" />
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="6" />
+											<ColumnDefinition Width="*" />
+										</Grid.ColumnDefinitions>
+										<Grid Grid.Row="0" Grid.Column="0">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="Auto" />
+												<ColumnDefinition Width="*" />
+											</Grid.ColumnDefinitions>
+											<!--<Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource HealthBarStyle}" CornerRadius="8" Height="28" />-->
+											<TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding LocalizedResources.UI_CharacterDetails_Character_Description_Health, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsBarDescriptionTextStyle}" HorizontalAlignment="Left" />
+											<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Character.Stats.Health}" Style="{StaticResource CharacterDetailsBarValueTextStyle}" Foreground="{StaticResource HealthTextBrush}" HorizontalAlignment="Left" Margin="8,0,0,0" />
+										</Grid>
+										<Grid Grid.Row="0" Grid.Column="2">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="*" />
+												<ColumnDefinition Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<!--<Border x:Name="barPowerType" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="8" Height="28" />-->
+											<TextBlock x:Name="tbPowerType" Grid.Row="0" Grid.Column="0" Text="{Binding Character.Stats.Power}" Style="{StaticResource CharacterDetailsBarValueTextStyle}" HorizontalAlignment="Right" Margin="0,0,8,0" />
+											<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Character.Stats.PowerType, Converter={StaticResource FormatToLocalizedString}, ConverterParameter='UI_CharacterDetails_Character_PowerType_{0}'}" Style="{StaticResource CharacterDetailsBarDescriptionTextStyle}" HorizontalAlignment="Right" />
+										</Grid>
+									</Grid>
+									<!-- ==================================================================== -->
+									<Grid Margin="0,0,0,12">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="*" />
+											<RowDefinition Height="*" />
 										</Grid.RowDefinitions>
 										<Grid.ColumnDefinitions>
 											<ColumnDefinition Width="Auto" />
 											<ColumnDefinition Width="*" />
 										</Grid.ColumnDefinitions>
-										<Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource HealthBarStyle}" CornerRadius="8" Height="28" />
-										<TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding LocalizedResources.UI_CharacterDetails_Character_Description_Health, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsBarDescriptionTextStyle}" />
-										<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Character.Stats.Health}" Style="{StaticResource CharacterDetailsBarValueTextStyle}" />
-										<Border x:Name="barPowerType" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="8" Height="28" />
-										<TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Character.Stats.PowerType, Converter={StaticResource FormatToLocalizedString}, ConverterParameter='UI_CharacterDetails_Character_PowerType_{0}'}" Style="{StaticResource CharacterDetailsBarDescriptionTextStyle}" />
-										<TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Character.Stats.Power}" Style="{StaticResource CharacterDetailsBarValueTextStyle}" />
+										<TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Text="{Binding Character.Items.AverageItemLevel}" Style="{StaticResource CharacterDetailsAverageItemLevelTextStyle}" />
+										<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding LocalizedResources.UI_CharacterDetails_Character_AverageItemLevel, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemLevelTextStyle}" VerticalAlignment="Bottom" />
+										<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding AverageItemLevelEquipped}" Style="{StaticResource CharacterDetailsItemLevelTextStyle}" VerticalAlignment="Top" />
 									</Grid>
 									<!-- ==================================================================== -->
 									<TextBlock Text="{Binding LocalizedResources.UI_CharacterDetails_Character_Header_Base, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsHeaderTextStyle}" />
@@ -384,7 +438,7 @@
 							</ScrollViewer>
 							<Border x:Name="brdItemToolTip" Grid.Row="0" Margin="2,0,2,2"
 									BorderBrush="#ff677180" BorderThickness="1" CornerRadius="6"
-									VerticalAlignment="Top" Visibility="Visible">
+									VerticalAlignment="Top" Visibility="Collapsed">
 								<Border.Background>
 									<SolidColorBrush Color="#dd000000" />
 								</Border.Background>
@@ -413,16 +467,16 @@
 											<TextBlock x:Name="tbItemToolTipWeaponInfoSpeed" Grid.Column="1" Text="Speed" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										</Grid>
 										<TextBlock x:Name="tbItemToolTipWeaponInfoDps" Grid.Column="1" Text="Damage Per Second" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
-										<!-- NOTE Find out how to display correct reforge information -->
+										<!-- TODO Find out how to display correct reforge information -->
 										<TextBlock x:Name="tbItemToolTipArmor" Text="Armor" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipStrength" Text="Strength" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipAgility" Text="Agility" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipStamina" Text="Stamina" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipIntellect" Text="Intellect" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipSpirit" Text="Spirit" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
-										<!-- TODO Enchants -->
-										<!-- TODO Sockets -->
-										<!-- TODO Socket bonus -->
+										<!-- TODO Find out how to display correct enchant information -->
+										<StackPanel x:Name="spItemToolTipSockets" Orientation="Vertical" />
+										<!-- NOTE Socket bonus is not returned by Battle.Net Community API (yet) -->
 										<TextBlock x:Name="tbItemToolTipDurability" Text="Durability" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<StackPanel x:Name="spAllowableClasses" Orientation="Horizontal" />
 										<TextBlock x:Name="tbItemToolTipRequiredLevel" Text="Required Level" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
@@ -430,9 +484,10 @@
 										<TextBlock x:Name="tbItemToolTipItemLevel" Text="Item Level" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<StackPanel x:Name="spToolTipBonusStats" Orientation="Vertical" />
 										<StackPanel x:Name="spToolTipSpells" Orientation="Vertical" />
+										<TextBlock x:Name="tbItemToolTipDescription" Text="Description" Style="{StaticResource CharacterDetailsItemToolTipDescriptionTextStyle}" />
 										<StackPanel x:Name="spToolTipSellPrice" Orientation="Horizontal" />
 										<TextBlock x:Name="tbItemToolTipSpacer" Text="---" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
-										<!-- TODO Source -->
+										<!-- TODO Find out how to display correct source information -->
 									</StackPanel>
 								</ScrollViewer>
 							</Border>

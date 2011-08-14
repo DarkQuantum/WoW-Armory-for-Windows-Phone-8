@@ -77,8 +77,10 @@ namespace WowArmory.Views
 		private void LoadView()
 		{
 			var powerType = ViewModel.Character.Stats.PowerType;
-			var resourceName = String.Format("{0}BarStyle", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""));
-			barPowerType.Background = (Brush)Resources[resourceName];
+			//var resourceName = String.Format("{0}BarStyle", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""));
+			var resourceName = String.Format("{0}TextBrush", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""));
+			//barPowerType.Background = (Brush)Resources[resourceName];
+			tbPowerType.Foreground = (Brush)Resources[resourceName];
 
 			HideToolTip();
 		}
@@ -440,6 +442,7 @@ namespace WowArmory.Views
 
 			var normalStyle = (Style)Resources["CharacterDetailsItemToolTipNormalTextStyle"];
 			var bonusStatStyle = (Style)Resources["CharacterDetailsItemToolTipBonusStatTextStyle"];
+			var subtleStyle = (Style)Resources["CharacterDetailsItemToolTipSubtleTextStyle"];
 
 			// item name
 			ShowToolTipText(tbItemToolTipName, _itemForToolTip.Name, (Brush)Resources[String.Format("ItemQuality{0}", _itemForToolTip.Quality)]);
@@ -469,6 +472,53 @@ namespace WowArmory.Views
 				ShowToolTipText(tbItemToolTipWeaponInfoSpeed, String.Format(AppResources.Item_WeaponInfo_Speed, _itemForToolTip.WeaponInfo.WeaponSpeed));
 				// dps
 				ShowToolTipText(tbItemToolTipWeaponInfoDps, String.Format(AppResources.Item_WeaponInfo_Dps, _itemForToolTip.WeaponInfo.Dps));
+			}
+			// sockets
+			if (_itemForToolTip.SocketInfo != null)
+			{
+				var index = 0;
+				foreach (var socket in _itemForToolTip.SocketInfo.Sockets)
+				{
+					var socketTypeText = AppResources.ResourceManager.GetString(String.Format("Item_Socket_{0}", socket.Type));
+					var socketBackgroundColorResource = String.Format("ItemSocketBackgroundBrush{0}", socket.Type);
+					var socketBorderImageUri = String.Format("/WowArmory.Core;Component/Images/Item/Socket_{0}.png", socket.Type);
+
+					var socketGrid = new Grid();
+					socketGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+					socketGrid.ColumnDefinitions.Add(new ColumnDefinition());
+
+					var socketBackgroundColor = new Border();
+					socketBackgroundColor.Background = (Brush)Resources[socketBackgroundColorResource];
+					socketBackgroundColor.Margin = new Thickness(1, 1, 0, 0);
+					socketBackgroundColor.Width = 18;
+					socketBackgroundColor.Height = 18;
+					socketBackgroundColor.VerticalAlignment = VerticalAlignment.Top;
+					Grid.SetColumn(socketBackgroundColor, 0);
+					socketGrid.Children.Add(socketBackgroundColor);
+
+					var socketBorder = new Image();
+					socketBorder.Source = CacheManager.GetImageSourceFromCache(socketBorderImageUri);
+					socketBorder.Margin = new Thickness(0, 0, 0, 0);
+					socketBorder.Width = 20;
+					socketBorder.Height = 20;
+					socketBorder.VerticalAlignment = VerticalAlignment.Top;
+					Grid.SetColumn(socketBorder, 0);
+					socketGrid.Children.Add(socketBorder);
+
+					var socketText = new TextBlock();
+					socketText.Text = socketTypeText;
+					socketText.Style = subtleStyle;
+					socketText.Margin = new Thickness(6, 0, 0, 0);
+					socketText.VerticalAlignment = VerticalAlignment.Center;
+					Grid.SetColumn(socketText, 1);
+					socketGrid.Children.Add(socketText);
+
+					spItemToolTipSockets.Children.Add(socketGrid);
+
+					index++;
+				}
+
+				spItemToolTipSockets.Visibility = Visibility.Visible;
 			}
 			// durability
 			if (_itemForToolTip.MaxDurability > 0)
@@ -575,6 +625,11 @@ namespace WowArmory.Views
 
 				spToolTipSpells.Visibility = Visibility.Visible;
 			}
+			// description
+			if (!String.IsNullOrEmpty(_itemForToolTip.Description))
+			{
+				ShowToolTipText(tbItemToolTipDescription, String.Format("\"{0}\"", _itemForToolTip.Description));
+			}
 			// sell price
 			if (_itemForToolTip.SellPrice > 0)
 			{
@@ -660,6 +715,8 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipStamina, String.Empty);
 			ShowToolTipText(tbItemToolTipIntellect, String.Empty);
 			ShowToolTipText(tbItemToolTipSpirit, String.Empty);
+			spItemToolTipSockets.Children.Clear();
+			spItemToolTipSockets.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipDurability, String.Empty);
 			spAllowableClasses.Children.Clear();
 			spAllowableClasses.Visibility = Visibility.Collapsed;
@@ -670,6 +727,7 @@ namespace WowArmory.Views
 			spToolTipBonusStats.Visibility = Visibility.Collapsed;
 			spToolTipSpells.Children.Clear();
 			spToolTipSpells.Visibility = Visibility.Collapsed;
+			ShowToolTipText(tbItemToolTipDescription, String.Empty);
 			spToolTipSellPrice.Children.Clear();
 			spToolTipSellPrice.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipSpacer, String.Empty);
