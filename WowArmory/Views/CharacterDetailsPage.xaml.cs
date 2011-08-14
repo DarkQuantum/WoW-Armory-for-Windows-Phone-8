@@ -634,6 +634,7 @@ namespace WowArmory.Views
 			var bonusStatStyle = (Style)Resources["CharacterDetailsItemToolTipBonusStatTextStyle"];
 			var subtleStyle = (Style)Resources["CharacterDetailsItemToolTipSubtleTextStyle"];
 			var socketNameStyle = (Style)Resources["CharacterDetailsItemToolTipSocketGemNameTextStyle"];
+			var descriptionStyle = (Style)Resources["CharacterDetailsItemToolTipDescriptionTextStyle"];
 
 			// item name
 			ShowToolTipText(tbItemToolTipName, _itemForToolTip.Name, (Brush)Resources[String.Format("ItemQuality{0}", _itemForToolTip.Quality)]);
@@ -750,16 +751,16 @@ namespace WowArmory.Views
 				var labelText = new TextBlock();
 				labelText.Text = AppResources.Item_AllowableClasses;
 				labelText.Style = normalStyle;
-				spAllowableClasses.Children.Add(labelText);
+				spItemToolTipAllowableClasses.Children.Add(labelText);
 
 				foreach (var allowableClass in _itemForToolTip.AllowableClasses)
 				{
-					if (spAllowableClasses.Children.Count > 1)
+					if (spItemToolTipAllowableClasses.Children.Count > 1)
 					{
 						var separatorText = new TextBlock();
 						separatorText.Text = ",";
 						separatorText.Style = normalStyle;
-						spAllowableClasses.Children.Add(separatorText);
+						spItemToolTipAllowableClasses.Children.Add(separatorText);
 					}
 
 					var classText = new TextBlock();
@@ -767,10 +768,10 @@ namespace WowArmory.Views
 					classText.Style = normalStyle;
 					classText.Margin = new Thickness(6, 0, 0, 0);
 					classText.Foreground = (Brush)Resources[String.Format("ItemClass{0}", allowableClass)];
-					spAllowableClasses.Children.Add(classText);
+					spItemToolTipAllowableClasses.Children.Add(classText);
 				}
 
-				spAllowableClasses.Visibility = Visibility.Visible;
+				spItemToolTipAllowableClasses.Visibility = Visibility.Visible;
 			}
 			// required level
 			if (_itemForToolTip.RequiredLevel > 0)
@@ -810,7 +811,7 @@ namespace WowArmory.Views
 				foreach (var stat in _itemForToolTip.BonusStats.OrderBy(s => s.Stat))
 				{
 					var text = String.Format(AppResources.ResourceManager.GetString(String.Format("Item_BonusStat_{0}", stat.Stat)) ?? "??? {0} ???", stat.Amount);
-					var element = UIHelper.FindChild<TextBlock>(spToolTipContent, String.Format("tbItemToolTip{0}", stat.Stat));
+					var element = UIHelper.FindChild<TextBlock>(spItemToolTipContent, String.Format("tbItemToolTip{0}", stat.Stat));
 					if (element != null)
 					{
 						ShowToolTipText(element, text);
@@ -820,8 +821,8 @@ namespace WowArmory.Views
 						var textBlock = new TextBlock();
 						textBlock.Text = text;
 						textBlock.Style = bonusStatStyle;
-						spToolTipBonusStats.Children.Add(textBlock);
-						spToolTipBonusStats.Visibility = Visibility.Visible;
+						spItemToolTipBonusStats.Children.Add(textBlock);
+						spItemToolTipBonusStats.Visibility = Visibility.Visible;
 					}
 				}
 			}
@@ -846,10 +847,10 @@ namespace WowArmory.Views
 					var itemSpellText = new TextBlock();
 					itemSpellText.Text = String.Format(formatText, itemSpell.Spell.Description);
 					itemSpellText.Style = bonusStatStyle;
-					spToolTipSpells.Children.Add(itemSpellText);
+					spItemToolTipSpells.Children.Add(itemSpellText);
 				}
 
-				spToolTipSpells.Visibility = Visibility.Visible;
+				spItemToolTipSpells.Visibility = Visibility.Visible;
 			}
 			// description
 			if (!String.IsNullOrEmpty(_itemForToolTip.Description))
@@ -864,7 +865,7 @@ namespace WowArmory.Views
 				sellPriceText.Style = normalStyle;
 				sellPriceText.Margin = new Thickness(0, 0, 4, 0);
 				sellPriceText.VerticalAlignment = VerticalAlignment.Center;
-				spToolTipSellPrice.Children.Add(sellPriceText);
+				spItemToolTipSellPrice.Children.Add(sellPriceText);
 
 				if (_itemForToolTip.SellPriceObject.Gold > 0)
 				{
@@ -872,7 +873,7 @@ namespace WowArmory.Views
 					goldText.Text = _itemForToolTip.SellPriceObject.Gold.ToString();
 					goldText.Style = normalStyle;
 					goldText.VerticalAlignment = VerticalAlignment.Center;
-					spToolTipSellPrice.Children.Add(goldText);
+					spItemToolTipSellPrice.Children.Add(goldText);
 
 					var goldImage = new Image();
 					goldImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Gold.png");
@@ -880,7 +881,7 @@ namespace WowArmory.Views
 					goldImage.Height = 17;
 					goldImage.Margin = new Thickness(6, 0, 6, 0);
 					goldImage.VerticalAlignment = VerticalAlignment.Center;
-					spToolTipSellPrice.Children.Add(goldImage);
+					spItemToolTipSellPrice.Children.Add(goldImage);
 				}
 				if (_itemForToolTip.SellPriceObject.Silver > 0)
 				{
@@ -888,7 +889,7 @@ namespace WowArmory.Views
 					silverText.Text = _itemForToolTip.SellPriceObject.Silver.ToString();
 					silverText.Style = normalStyle;
 					silverText.VerticalAlignment = VerticalAlignment.Center;
-					spToolTipSellPrice.Children.Add(silverText);
+					spItemToolTipSellPrice.Children.Add(silverText);
 
 					var silverImage = new Image();
 					silverImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Silver.png");
@@ -896,7 +897,7 @@ namespace WowArmory.Views
 					silverImage.Height = 17;
 					silverImage.Margin = new Thickness(6, 0, 6, 0);
 					silverImage.VerticalAlignment = VerticalAlignment.Center;
-					spToolTipSellPrice.Children.Add(silverImage);
+					spItemToolTipSellPrice.Children.Add(silverImage);
 				}
 				if (_itemForToolTip.SellPriceObject.Copper > 0)
 				{
@@ -904,7 +905,7 @@ namespace WowArmory.Views
 					copperText.Text = _itemForToolTip.SellPriceObject.Copper.ToString();
 					copperText.Style = normalStyle;
 					copperText.VerticalAlignment = VerticalAlignment.Center;
-					spToolTipSellPrice.Children.Add(copperText);
+					spItemToolTipSellPrice.Children.Add(copperText);
 
 					var copperImage = new Image();
 					copperImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Copper.png");
@@ -912,10 +913,32 @@ namespace WowArmory.Views
 					copperImage.Height = 17;
 					copperImage.Margin = new Thickness(6, 0, 0, 0);
 					copperImage.VerticalAlignment = VerticalAlignment.Center;
-					spToolTipSellPrice.Children.Add(copperImage);
+					spItemToolTipSellPrice.Children.Add(copperImage);
 				}
 
-				spToolTipSellPrice.Visibility = Visibility.Visible;
+				spItemToolTipSellPrice.Visibility = Visibility.Visible;
+			}
+			// source
+			if (_itemForToolTip.ItemSource != null)
+			{
+				ShowToolTipText(tbItemToolTipSpacer, " ");
+
+				var stackPanel = new StackPanel();
+				stackPanel.Orientation = System.Windows.Controls.Orientation.Horizontal;
+				spItemToolTipSource.Children.Add(stackPanel);
+
+				var descriptionText = new TextBlock();
+				descriptionText.Text = AppResources.Item_Source;
+				descriptionText.Style = descriptionStyle;
+				stackPanel.Children.Add(descriptionText);
+
+				var valueText = new TextBlock();
+				valueText.Text = AppResources.ResourceManager.GetString(String.Format("Item_ItemSourceType_{0}", _itemForToolTip.ItemSource.SourceType));
+				valueText.Style = normalStyle;
+				valueText.Margin = new Thickness(6, 0, 0, 0);
+				stackPanel.Children.Add(valueText);
+
+				spItemToolTipSource.Visibility = Visibility.Visible;
 			}
 		}
 
@@ -1017,19 +1040,21 @@ namespace WowArmory.Views
 			spItemToolTipSockets.Children.Clear();
 			spItemToolTipSockets.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipDurability, String.Empty);
-			spAllowableClasses.Children.Clear();
-			spAllowableClasses.Visibility = Visibility.Collapsed;
+			spItemToolTipAllowableClasses.Children.Clear();
+			spItemToolTipAllowableClasses.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipRequiredLevel, String.Empty);
 			ShowToolTipText(tbItemToolTipRequiredFaction, String.Empty);
 			ShowToolTipText(tbItemToolTipItemLevel, String.Empty);
-			spToolTipBonusStats.Children.Clear();
-			spToolTipBonusStats.Visibility = Visibility.Collapsed;
-			spToolTipSpells.Children.Clear();
-			spToolTipSpells.Visibility = Visibility.Collapsed;
+			spItemToolTipBonusStats.Children.Clear();
+			spItemToolTipBonusStats.Visibility = Visibility.Collapsed;
+			spItemToolTipSpells.Children.Clear();
+			spItemToolTipSpells.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipDescription, String.Empty);
-			spToolTipSellPrice.Children.Clear();
-			spToolTipSellPrice.Visibility = Visibility.Collapsed;
+			spItemToolTipSellPrice.Children.Clear();
+			spItemToolTipSellPrice.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipSpacer, String.Empty);
+			spItemToolTipSource.Children.Clear();
+			spItemToolTipSource.Visibility = Visibility.Collapsed;
 		}
 
 		/// <summary>

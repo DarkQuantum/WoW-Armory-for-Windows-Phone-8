@@ -498,7 +498,7 @@
 									<SolidColorBrush Color="#dd000000" />
 								</Border.Background>
 								<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-									<StackPanel x:Name="spToolTipContent" Orientation="Vertical" Margin="12,8,12,12">
+									<StackPanel x:Name="spItemToolTipContent" Orientation="Vertical" Margin="12,8,12,12">
 										<ProgressBar x:Name="pbItemToolTip" IsIndeterminate="False" Style="{StaticResource PerformanceProgressBar}" />
 										<TextBlock x:Name="tbItemToolTipLoading" Text="Loading..." Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipName" Text="Name" Style="{StaticResource CharacterDetailsItemToolTipItemNameTextStyle}" />
@@ -533,16 +533,17 @@
 										<StackPanel x:Name="spItemToolTipSockets" Orientation="Vertical" />
 										<!-- NOTE Socket bonus is not returned by Battle.Net Community API (yet) -->
 										<TextBlock x:Name="tbItemToolTipDurability" Text="Durability" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
-										<StackPanel x:Name="spAllowableClasses" Orientation="Horizontal" />
+										<StackPanel x:Name="spItemToolTipAllowableClasses" Orientation="Horizontal" />
 										<TextBlock x:Name="tbItemToolTipRequiredLevel" Text="Required Level" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipRequiredFaction" Text="Required Faction" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipItemLevel" Text="Item Level" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
-										<StackPanel x:Name="spToolTipBonusStats" Orientation="Vertical" />
-										<StackPanel x:Name="spToolTipSpells" Orientation="Vertical" />
+										<StackPanel x:Name="spItemToolTipBonusStats" Orientation="Vertical" />
+										<StackPanel x:Name="spItemToolTipSpells" Orientation="Vertical" />
 										<TextBlock x:Name="tbItemToolTipDescription" Text="Description" Style="{StaticResource CharacterDetailsItemToolTipDescriptionTextStyle}" />
-										<StackPanel x:Name="spToolTipSellPrice" Orientation="Horizontal" />
-										<TextBlock x:Name="tbItemToolTipSpacer" Text="---" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<StackPanel x:Name="spItemToolTipSellPrice" Orientation="Horizontal" />
 										<!-- TODO Find out how to display correct source information -->
+										<TextBlock x:Name="tbItemToolTipSpacer" Text="---" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
+										<StackPanel x:Name="spItemToolTipSource" Orientation="Vertical" />
 									</StackPanel>
 								</ScrollViewer>
 							</Border>
