@@ -764,6 +764,32 @@ namespace WowArmory.Views
 				e.Cancel = true;
 			}
 		}
+
+		/// <summary>
+		/// Handles the MouseLeftButtonDown event of the FavoriteToggle control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
+		private void FavoriteToggle_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			if (IsolatedStorageManager.IsCharacterStored(ViewModel.Character.Region, ViewModel.Character.Realm, ViewModel.Character.Name))
+			{
+				IsolatedStorageManager.UnstoreCharacter(ViewModel.Character);
+				ViewModel.ToggleCharacterFavorite();
+			}
+			else
+			{
+				pbStoreCharacter.IsIndeterminate = true;
+				gdStoreCharacterOverlay.Visibility = Visibility.Visible;
+				Dispatcher.BeginInvoke(() =>
+				{
+					IsolatedStorageManager.StoreCharacter(ViewModel.Character);
+					gdStoreCharacterOverlay.Visibility = Visibility.Collapsed;
+					pbStoreCharacter.IsIndeterminate = false;
+					ViewModel.ToggleCharacterFavorite();
+				});
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------

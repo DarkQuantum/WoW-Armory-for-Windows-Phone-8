@@ -1012,4 +1012,7 @@
   <data name="UI_CharacterDetails_Character_AverageItemLevelEquipped" xml:space="preserve">
     <value>({0} ausgerüstet)</value>
   </data>
+  <data name="UI_CharacterDetails_Common_StoreCharacter" xml:space="preserve">
+    <value>Charakter wird gespeichert...</value>
+  </data>
 </root>

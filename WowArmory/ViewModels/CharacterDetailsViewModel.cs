@@ -354,17 +354,8 @@ namespace WowArmory.ViewModels
 		/// <summary>
 		/// Addes or removes the current character from the favorites.
 		/// </summary>
-		private void ToggleCharacterFavorite()
+		public void ToggleCharacterFavorite()
 		{
-			if (IsolatedStorageManager.IsCharacterStored(Character.Region, Character.Realm, Character.Name))
-			{
-				IsolatedStorageManager.UnstoreCharacter(Character);
-			}
-			else
-			{
-				IsolatedStorageManager.StoreCharacter(Character);
-			}
-
 			RaisePropertyChanged("FavoriteImage");
 		}
 		//----------------------------------------------------------------------

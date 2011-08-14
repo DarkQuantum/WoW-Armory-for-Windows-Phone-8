@@ -2338,6 +2338,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Storing character....
+        /// </summary>
+        public static string UI_CharacterDetails_Common_StoreCharacter {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Common_StoreCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to achievements.
         /// </summary>
         public static string UI_CharacterDetails_PivotItem_Achievements {

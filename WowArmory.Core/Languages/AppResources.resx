@@ -1024,4 +1024,7 @@
   <data name="UI_CharacterDetails_Character_AverageItemLevelEquipped" xml:space="preserve">
     <value>({0} equipped)</value>
   </data>
+  <data name="UI_CharacterDetails_Common_StoreCharacter" xml:space="preserve">
+    <value>Storing character...</value>
+  </data>
 </root>
