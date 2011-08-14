@@ -46,6 +46,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Media", "Media", "{E58D69AE
 		Media\Coin_Copper.png = Media\Coin_Copper.png
 		Media\Coin_Gold.png = Media\Coin_Gold.png
 		Media\Coin_Silver.png = Media\Coin_Silver.png
+		Media\Durability.png = Media\Durability.png
+		Media\Durability.psd = Media\Durability.psd
 		Media\MainPage_Button.psd = Media\MainPage_Button.psd
 		Media\MainPage_Button_Base.png = Media\MainPage_Button_Base.png
 		Media\MainPage_Button_Highlight.png = Media\MainPage_Button_Highlight.png
@@ -100,6 +102,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Icons", "Icons", "{E38956DD-0E34-4549-8EB0-F6C634AD6327}"
 	ProjectSection(SolutionItems) = preProject
 		Media\Icons\Achievementpoints_Large.png = Media\Icons\Achievementpoints_Large.png
+		Media\Icons\Icon.psd = Media\Icons\Icon.psd
+		Media\Icons\Icon_Background.png = Media\Icons\Icon_Background.png
+		Media\Icons\Icon_Border.png = Media\Icons\Icon_Border.png
+		Media\Icons\Icon_Mask.png = Media\Icons\Icon_Mask.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainPage", "MainPage", "{22D83C24-EFA4-4D83-A082-EA8591A5EA85}"

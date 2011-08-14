@@ -47,7 +47,7 @@
 		<SolidColorBrush x:Key="ItemSocketBackgroundBrushBLUE" Color="#ff102040" />
 		<SolidColorBrush x:Key="ItemSocketBackgroundBrushPRISMATIC" Color="#ff29292a" />
 		<SolidColorBrush x:Key="ItemSocketBackgroundBrushMETA" Color="#ff29292a" />
-		
+
 		<SolidColorBrush x:Key="HealthTextBrush" Color="#ff2a9700" />
 		<LinearGradientBrush x:Key="HealthBarStyle" StartPoint="0,0" EndPoint="0,1">
 			<GradientStop Color="#ff1c6400" Offset="0" />
@@ -89,6 +89,44 @@
 		<ImageBrush x:Key="ReputationBar_6" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_6.png" Stretch="None" />
 		<ImageBrush x:Key="ReputationBar_7" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_7.png" Stretch="None" />
 		
+		<Style x:Key="CharacterDetailsTalentsActiveTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="CharacterDetailsTalentsActivePointsTextStyle" BasedOn="{StaticResource PhoneTextAccentStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="CharacterDetailsTalentsActivePointsMaxTextStyle" BasedOn="{StaticResource CharacterDetailsTalentsActivePointsTextStyle}" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}" />
+		</Style>
+
+		<Style x:Key="CharacterDetailsTalentsInactiveTextStyle" BasedOn="{StaticResource PhoneTextSubtleStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="CharacterDetailsTalentsInactivePointsTextStyle" BasedOn="{StaticResource PhoneTextSubtleStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="16" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="CharacterDetailsTalentsInactivePointsMaxTextStyle" BasedOn="{StaticResource CharacterDetailsTalentsInactivePointsTextStyle}" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeMediumLarge}" />
+		</Style>
+
 		<Style x:Key="CharacterDetailsHeaderTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
@@ -249,7 +287,13 @@
 										<TextBlock Grid.Column="1" Text="{Binding Character.AchievementPoints}" Style="{StaticResource CharacterDetailsValueTextStyle}" />
 										<Image Grid.Column="2" Source="/WowArmory.Core;Component/Images/Icons/Achievementpoints_Large.png" Width="32" VerticalAlignment="Center" />
 									</Grid>
-									<!-- TODO talents -->
+									<!-- ==================================================================== -->
+									<Grid x:Name="gdCharacterTalents" Margin="0,0,0,12" Visibility="Collapsed">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="*" />
+										</Grid.ColumnDefinitions>
+									</Grid>
 									<!-- ==================================================================== -->
 									<Grid Margin="0,0,0,12">
 										<Grid.RowDefinitions>
@@ -265,7 +309,7 @@
 												<ColumnDefinition Width="Auto" />
 												<ColumnDefinition Width="*" />
 											</Grid.ColumnDefinitions>
-											<!--<Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource HealthBarStyle}" CornerRadius="8" Height="28" />-->
+											<!--<Border Grid.Row="0" Grid.Column="1" Background="{StaticResource HealthBarStyle}" CornerRadius="8" Height="28" />-->
 											<TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding LocalizedResources.UI_CharacterDetails_Character_Description_Health, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsBarDescriptionTextStyle}" HorizontalAlignment="Left" />
 											<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Character.Stats.Health}" Style="{StaticResource CharacterDetailsBarValueTextStyle}" Foreground="{StaticResource HealthTextBrush}" HorizontalAlignment="Left" Margin="8,0,0,0" />
 										</Grid>
@@ -274,7 +318,7 @@
 												<ColumnDefinition Width="*" />
 												<ColumnDefinition Width="Auto" />
 											</Grid.ColumnDefinitions>
-											<!--<Border x:Name="barPowerType" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" CornerRadius="8" Height="28" />-->
+											<!--<Border x:Name="barPowerType" Grid.Row="0" Grid.Column="0" CornerRadius="8" Height="28" />-->
 											<TextBlock x:Name="tbPowerType" Grid.Row="0" Grid.Column="0" Text="{Binding Character.Stats.Power}" Style="{StaticResource CharacterDetailsBarValueTextStyle}" HorizontalAlignment="Right" Margin="0,0,8,0" />
 											<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Character.Stats.PowerType, Converter={StaticResource FormatToLocalizedString}, ConverterParameter='UI_CharacterDetails_Character_PowerType_{0}'}" Style="{StaticResource CharacterDetailsBarDescriptionTextStyle}" HorizontalAlignment="Right" />
 										</Grid>
@@ -283,15 +327,18 @@
 									<Grid Margin="0,0,0,12">
 										<Grid.RowDefinitions>
 											<RowDefinition Height="*" />
-											<RowDefinition Height="*" />
 										</Grid.RowDefinitions>
 										<Grid.ColumnDefinitions>
 											<ColumnDefinition Width="Auto" />
+											<ColumnDefinition Width="Auto" />
 											<ColumnDefinition Width="*" />
 										</Grid.ColumnDefinitions>
-										<TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Text="{Binding Character.Items.AverageItemLevel}" Style="{StaticResource CharacterDetailsAverageItemLevelTextStyle}" />
-										<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding LocalizedResources.UI_CharacterDetails_Character_AverageItemLevel, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemLevelTextStyle}" VerticalAlignment="Bottom" />
-										<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding AverageItemLevelEquipped}" Style="{StaticResource CharacterDetailsItemLevelTextStyle}" VerticalAlignment="Top" />
+										<Image Grid.Row="0" Grid.Column="0" Source="/WowArmory.Core;Component/Images/Durability.png" Width="30" Height="48" Margin="0,0,6,0" />
+										<TextBlock Grid.Row="0" Grid.RowSpan="2" Grid.Column="1" Text="{Binding Character.Items.AverageItemLevel}" Style="{StaticResource CharacterDetailsAverageItemLevelTextStyle}" VerticalAlignment="Center" />
+										<StackPanel Grid.Row="0" Grid.Column="2" Orientation="Vertical" VerticalAlignment="Center">
+											<TextBlock Text="{Binding LocalizedResources.UI_CharacterDetails_Character_AverageItemLevel, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemLevelTextStyle}" VerticalAlignment="Bottom" />
+											<TextBlock Text="{Binding AverageItemLevelEquipped}" Style="{StaticResource CharacterDetailsItemLevelTextStyle}" VerticalAlignment="Top" />
+										</StackPanel>
 									</Grid>
 									<!-- ==================================================================== -->
 									<TextBlock Text="{Binding LocalizedResources.UI_CharacterDetails_Character_Header_Base, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsHeaderTextStyle}" />

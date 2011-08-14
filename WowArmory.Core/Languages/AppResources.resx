@@ -1027,6 +1027,9 @@
   <data name="UI_CharacterDetails_Common_StoreCharacter" xml:space="preserve">
     <value>Storing character...</value>
   </data>
+  <data name="Item_Source" xml:space="preserve">
+    <value>Source:</value>
+  </data>
   <data name="UI_CharacterDetails_Character_Description_Achievements" xml:space="preserve">
     <value>Achievements</value>
   </data>

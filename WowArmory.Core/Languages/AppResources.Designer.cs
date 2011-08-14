@@ -1816,6 +1816,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Source:.
+        /// </summary>
+        public static string Item_Source {
+            get {
+                return ResourceManager.GetString("Item_Source", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use: {0}.
         /// </summary>
         public static string Item_Spell_Consumable {

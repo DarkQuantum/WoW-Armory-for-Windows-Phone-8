@@ -52,6 +52,7 @@ namespace WowArmory.Views
 			InitializeComponent();
 
 			LoadView();
+			BuildTalents();
 			BuildReputation();
 			BuildProfessions();
 		}
@@ -78,12 +79,154 @@ namespace WowArmory.Views
 		private void LoadView()
 		{
 			var powerType = ViewModel.Character.Stats.PowerType;
-			//var resourceName = String.Format("{0}BarStyle", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""));
-			var resourceName = String.Format("{0}TextBrush", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""));
-			//barPowerType.Background = (Brush)Resources[resourceName];
-			tbPowerType.Foreground = (Brush)Resources[resourceName];
+			//barPowerType.Background = (Brush)Resources[String.Format("{0}BarStyle", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""))];
+			tbPowerType.Foreground = (Brush)Resources[String.Format("{0}TextBrush", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""))];
 
 			HideToolTip();
+		}
+
+		/// <summary>
+		/// Builds the user interface for the talents grid.
+		/// </summary>
+		private void BuildTalents()
+		{
+			if (ViewModel.Character != null &&
+				ViewModel.Character.Talents != null &&
+				ViewModel.Character.Talents.Count > 0)
+			{
+				if (ViewModel.Character.Talents[0] != null)
+				{
+					var talentOne = BuildTalentInformation(ViewModel.Character.Talents[0]);
+					Grid.SetColumn(talentOne, 0);
+					talentOne.HorizontalAlignment = HorizontalAlignment.Left;
+					talentOne.VerticalAlignment = VerticalAlignment.Top;
+					gdCharacterTalents.Children.Add(talentOne);
+				}
+				if (ViewModel.Character.Talents[1] != null)
+				{
+					var talentTwo = BuildTalentInformation(ViewModel.Character.Talents[1]);
+					Grid.SetColumn(talentTwo, 1);
+					talentTwo.HorizontalAlignment = HorizontalAlignment.Left;
+					talentTwo.VerticalAlignment = VerticalAlignment.Top;
+					gdCharacterTalents.Children.Add(talentTwo);
+				}
+
+				gdCharacterTalents.Visibility = Visibility.Visible;
+			}
+		}
+
+		/// <summary>
+		/// Builds the talent information.
+		/// </summary>
+		/// <param name="talent">The talent.</param>
+		/// <returns></returns>
+		private Grid BuildTalentInformation(CharacterTalents talent)
+		{
+			var activeText = (talent.Selected != null && (bool)talent.Selected) ? "Active" : "Inactive";
+
+			var grid = new Grid();
+			grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+			grid.RowDefinitions.Add(new RowDefinition { Height = GridLength.Auto });
+			grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+			grid.ColumnDefinitions.Add(new ColumnDefinition());
+
+			var talentImageGrid = new Grid();
+			talentImageGrid.Margin = new Thickness(0,0,4,0);
+			talentImageGrid.VerticalAlignment = VerticalAlignment.Top;
+			Grid.SetRow(talentImageGrid, 0);
+			Grid.SetRowSpan(talentImageGrid, 2);
+			Grid.SetColumn(talentImageGrid, 0);
+			grid.Children.Add(talentImageGrid);
+
+			var talentImageBackground = new Image();
+			talentImageBackground.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Icons/Icon_Background.png");
+			talentImageBackground.Width = 44;
+			talentImageBackground.Height = 44;
+			talentImageBackground.HorizontalAlignment = HorizontalAlignment.Center;
+			talentImageBackground.VerticalAlignment = VerticalAlignment.Center;
+			talentImageGrid.Children.Add(talentImageBackground);
+
+			var talentImage = new Image();
+			talentImage.Source = BattleNetClient.Current.GetIcon(talent.Icon);
+			talentImage.Width = 42;
+			talentImage.Height = 42;
+			talentImage.OpacityMask = new ImageBrush { ImageSource = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Icons/Icon_Mask.png") };
+			talentImage.HorizontalAlignment = HorizontalAlignment.Center;
+			talentImage.VerticalAlignment = VerticalAlignment.Center;
+			talentImageGrid.Children.Add(talentImage);
+
+			var talentImageBorder = new Image();
+			talentImageBorder.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Icons/Icon_Border.png");
+			talentImageBorder.Width = 44;
+			talentImageBorder.Height = 44;
+			talentImageBorder.HorizontalAlignment = HorizontalAlignment.Center;
+			talentImageBorder.VerticalAlignment = VerticalAlignment.Center;
+			talentImageGrid.Children.Add(talentImageBorder);
+
+			var buildName = new TextBlock();
+			buildName.Text = talent.Name;
+			buildName.Style = (Style)Resources[String.Format("CharacterDetailsTalents{0}TextStyle", activeText)];
+			Grid.SetRow(buildName, 0);
+			Grid.SetColumn(buildName, 1);
+			grid.Children.Add(buildName);
+
+			var stackPanel = new StackPanel();
+			stackPanel.Orientation = System.Windows.Controls.Orientation.Horizontal;
+			stackPanel.HorizontalAlignment = HorizontalAlignment.Left;
+			Grid.SetRow(stackPanel, 1);
+			Grid.SetColumn(stackPanel, 1);
+			grid.Children.Add(stackPanel);
+
+			var pointsOne = new TextBlock();
+			pointsOne.Text = talent.Trees[0].Total.ToString();
+			var maxText = "";
+			if (talent.Trees[0].Total > talent.Trees[1].Total && talent.Trees[0].Total > talent.Trees[2].Total)
+			{
+				maxText = "Max";
+			}
+			pointsOne.Style = (Style)Resources[String.Format("CharacterDetailsTalents{0}Points{1}TextStyle", activeText, maxText)];
+			stackPanel.Children.Add(pointsOne);
+
+			var separatorOne = new TextBlock();
+			separatorOne.Text = "/";
+			separatorOne.Margin = new Thickness(6, 0, 6, 0);
+			separatorOne.Style = (Style)Resources[String.Format("CharacterDetailsTalents{0}PointsTextStyle", activeText)];
+			stackPanel.Children.Add(separatorOne);
+
+			var pointsTwo = new TextBlock();
+			pointsTwo.Text = talent.Trees[1].Total.ToString();
+			maxText = "";
+			if (talent.Trees[1].Total > talent.Trees[0].Total && talent.Trees[1].Total > talent.Trees[2].Total)
+			{
+				maxText = "Max";
+			}
+			pointsTwo.Style = (Style)Resources[String.Format("CharacterDetailsTalents{0}Points{1}TextStyle", activeText, maxText)];
+			stackPanel.Children.Add(pointsTwo);
+
+			var separatorTwo = new TextBlock();
+			separatorTwo.Text = "/";
+			separatorTwo.Margin = new Thickness(6, 0, 6, 0);
+			separatorTwo.Style = (Style)Resources[String.Format("CharacterDetailsTalents{0}PointsTextStyle", activeText)];
+			stackPanel.Children.Add(separatorTwo);
+
+			var pointsThree = new TextBlock();
+			pointsThree.Text = talent.Trees[2].Total.ToString();
+			maxText = "";
+			if (talent.Trees[2].Total > talent.Trees[0].Total && talent.Trees[2].Total > talent.Trees[1].Total)
+			{
+				maxText = "Max";
+			}
+			pointsThree.Style = (Style)Resources[String.Format("CharacterDetailsTalents{0}Points{1}TextStyle", activeText, maxText)];
+			stackPanel.Children.Add(pointsThree);
+
+			
+			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeOnePoints" />
+			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeOneSeparator" Text=", " />
+			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeTwoPoints" />
+			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeTwoSeparator" Text=", " />
+			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeThreePoints" />
+
+			return grid;
 		}
 
 		/// <summary>

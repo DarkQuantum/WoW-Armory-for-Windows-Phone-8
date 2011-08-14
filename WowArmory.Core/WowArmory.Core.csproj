@@ -573,6 +573,22 @@
       <Link>Images\CharacterDetails\Profession_Mask.png</Link>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\Icon_Background.png">
+      <Link>Images\Icons\Icon_Background.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Icon_Border.png">
+      <Link>Images\Icons\Icon_Border.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Icon_Mask.png">
+      <Link>Images\Icons\Icon_Mask.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Durability.png">
+      <Link>Images\Durability.png</Link>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />
