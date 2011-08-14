@@ -541,7 +541,7 @@
 										<StackPanel x:Name="spItemToolTipSpells" Orientation="Vertical" />
 										<TextBlock x:Name="tbItemToolTipDescription" Text="Description" Style="{StaticResource CharacterDetailsItemToolTipDescriptionTextStyle}" />
 										<StackPanel x:Name="spItemToolTipSellPrice" Orientation="Horizontal" />
-										<!-- TODO Find out how to display correct source information -->
+										<!-- TODO Find out how to display more detailed source information -->
 										<TextBlock x:Name="tbItemToolTipSpacer" Text="---" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<StackPanel x:Name="spItemToolTipSource" Orientation="Vertical" />
 									</StackPanel>

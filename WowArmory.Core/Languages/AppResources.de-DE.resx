@@ -397,10 +397,10 @@
     <value>Suche einen Charakter im Arsenal</value>
   </data>
   <data name="UI_CharacterSearch_Name" xml:space="preserve">
-    <value>Charakter Name</value>
+    <value>Charakter</value>
   </data>
   <data name="UI_CharacterSearch_Realm" xml:space="preserve">
-    <value>Realm Name</value>
+    <value>Realm</value>
   </data>
   <data name="UI_CharacterSearch_SearchCharacter" xml:space="preserve">
     <value>Suchen</value>

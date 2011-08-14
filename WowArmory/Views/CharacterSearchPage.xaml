@@ -5,12 +5,13 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WP7" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.WP7" xmlns:tk="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="800" d:DesignWidth="480"
-    shell:SystemTray.IsVisible="False">
+    shell:SystemTray.IsVisible="False"
+	Loaded="PhoneApplicationPage_Loaded">
 
 	<phone:PhoneApplicationPage.DataContext>
 		<Binding Path="CharacterSearch" Source="{StaticResource ViewModelLocator}" />
@@ -32,10 +33,15 @@
 		<!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<StackPanel Orientation="Vertical">
-				<TextBlock Text="{Binding LocalizedResources.UI_CharacterSearch_Realm, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" />
-				<TextBox Text="{Binding Realm, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" />
-				<TextBlock Text="{Binding LocalizedResources.UI_CharacterSearch_Name, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" />
-				<TextBox Text="{Binding Name, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" />
+				<TextBlock Text="{Binding LocalizedResources.UI_CharacterSearch_Realm, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneBorderBrush}" />
+				<!--<TextBox x:Name="txtRealm" Text="{Binding Realm, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" KeyDown="txtRealm_KeyDown"  />-->
+				<tk:AutoCompleteBox ItemsSource="{Binding Realms}"
+									SelectedItem="{Binding Realm, Mode=TwoWay}"
+									MinimumPopulateDelay="200"
+									MinimumPrefixLength="1"
+									IsTextCompletionEnabled="True" />
+				<TextBlock Text="{Binding LocalizedResources.UI_CharacterSearch_Name, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneBorderBrush}" />
+				<TextBox x:Name="txtCharacter" Text="{Binding Name, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" KeyDown="txtCharacter_KeyDown" />
 				<Button Content="{Binding LocalizedResources.UI_CharacterSearch_SearchCharacter, Source={StaticResource LocalizedResources}}"
 						cmd:ButtonBaseExtensions.Command="{Binding SearchCharacterCommand}"
 						IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}"/>
@@ -43,6 +49,13 @@
 						 IsIndeterminate="{Binding IsProgressBarIndeterminate}"
 						 Visibility="{Binding IsProgressBarVisible, Converter={StaticResource BooleanToVisibility}}"/>
 			</StackPanel>
+			<Border x:Name="brdLoading" Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" Visibility="{Binding IsLoadingProgressBarVisible, Converter={StaticResource BooleanToVisibility}}">
+				<Grid>
+					<TextBlock Text="{Binding LocalizedResources.UI_Common_LoadingData, Source={StaticResource LocalizedResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+					<ProgressBar Style="{StaticResource PerformanceProgressBar}" Margin="0,36,0,0" VerticalAlignment="Center"
+							 IsIndeterminate="{Binding IsLoadingProgressBarIndeterminate}"/>
+				</Grid>
+			</Border>
 		</Grid>
 	</Grid>
 </phone:PhoneApplicationPage>

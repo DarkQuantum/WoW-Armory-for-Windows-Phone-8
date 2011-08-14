@@ -2590,7 +2590,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Character name.
+        ///   Looks up a localized string similar to Character.
         /// </summary>
         public static string UI_CharacterSearch_Name {
             get {
@@ -2599,7 +2599,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Realm name.
+        ///   Looks up a localized string similar to Realm.
         /// </summary>
         public static string UI_CharacterSearch_Realm {
             get {

@@ -89,7 +89,6 @@ namespace WowArmory.Views
 			if (AppSettingsManager.ShowCharacterBackground && ViewModel.Character != null)
 			{
 				var backgroundName = ((CharacterRace)ViewModel.Character.Race).ToString();
-				var opacity = 1.0;
 				if (((CharacterClass)ViewModel.Character.Class) == CharacterClass.DeathKnight)
 				{
 					backgroundName = "DeathKnight";

@@ -397,10 +397,10 @@
     <value>Search for a character on the armory</value>
   </data>
   <data name="UI_CharacterSearch_Name" xml:space="preserve">
-    <value>Character name</value>
+    <value>Character</value>
   </data>
   <data name="UI_CharacterSearch_Realm" xml:space="preserve">
-    <value>Realm name</value>
+    <value>Realm</value>
   </data>
   <data name="UI_CharacterSearch_SearchCharacter" xml:space="preserve">
     <value>Search</value>

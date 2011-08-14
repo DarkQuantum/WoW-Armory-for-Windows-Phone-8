@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using WowArmory.Controllers;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
+using WowArmory.Core.Extensions;
 using WowArmory.Core.Languages;
 using WowArmory.Core.Managers;
 using WowArmory.Enumerations;
+using WowArmory.Models;
 
 namespace WowArmory.ViewModels
 {
@@ -18,6 +22,9 @@ namespace WowArmory.ViewModels
 		//----------------------------------------------------------------------
 		private bool _isProgressBarVisible = false;
 		private bool _isProgressBarIndeterminate = false;
+		private bool _isLoadingProgressBarVisible = false;
+		private bool _isLoadingProgressBarIndeterminate = false;
+		private ObservableCollection<string> _realms;
 		private string _realm;
 		private string _name;
 		//----------------------------------------------------------------------
@@ -47,7 +54,7 @@ namespace WowArmory.ViewModels
 		}
 
 		/// <summary>
-		/// Gets or sets a value indicating whether ththe progress bar is indeterminate.
+		/// Gets or sets a value indicating whether the progress bar is indeterminate.
 		/// </summary>
 		/// <value>
 		/// 	<c>true</c> if the progress bar is indeterminate; otherwise, <c>false</c>.
@@ -61,6 +68,66 @@ namespace WowArmory.ViewModels
 
 				_isProgressBarIndeterminate = value;
 				RaisePropertyChanged("IsProgressBarIndeterminate");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the loading progress bar is visible.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the loading progress bar is visible; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsLoadingProgressBarVisible
+		{
+			get { return _isLoadingProgressBarVisible; }
+			set
+			{
+				if (_isLoadingProgressBarVisible == value) return;
+
+				_isLoadingProgressBarVisible = value;
+				RaisePropertyChanged("IsLoadingProgressBarVisible");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the loading progress bar is indeterminate.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the loading progress bar is indeterminate; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsLoadingProgressBarIndeterminate
+		{
+			get { return _isLoadingProgressBarIndeterminate; }
+			set
+			{
+				if (_isLoadingProgressBarIndeterminate == value) return;
+
+				_isLoadingProgressBarIndeterminate = value;
+				RaisePropertyChanged("IsLoadingProgressBarIndeterminate");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the realms.
+		/// </summary>
+		/// <value>
+		/// The realms.
+		/// </value>
+		public ObservableCollection<string> Realms
+		{
+			get
+			{
+				return _realms;
+			}
+			set
+			{
+				if (_realms == value)
+				{
+					return;
+				}
+
+				_realms = value;
+				RaisePropertyChanged("Realms");
 			}
 		}
 
@@ -155,9 +222,54 @@ namespace WowArmory.ViewModels
 		}
 
 		/// <summary>
+		/// Loads the realms.
+		/// </summary>
+		public void LoadRealms()
+		{
+			IsLoadingProgressBarVisible = true;
+			IsLoadingProgressBarIndeterminate = true;
+
+			var region = AppSettingsManager.Region;
+			BattleNetClient.Current.Region = region;
+
+			if (!CacheManager.CachedRealmLists.ContainsKey(region))
+			{
+				Realms = new ObservableCollection<string>();
+				BattleNetClient.Current.GetRealmListAsync(region, realmList =>
+				{
+					CacheManager.CachedRealmLists[region] = realmList;
+					ConstructBindableRealmList(CacheManager.CachedRealmLists[region]);
+				});
+			}
+			else
+			{
+				ConstructBindableRealmList(CacheManager.CachedRealmLists[region]);
+			}
+		}
+
+		/// <summary>
+		/// Constructs the bindable realm list.
+		/// </summary>
+		/// <param name="realmList">The realm list.</param>
+		private void ConstructBindableRealmList(RealmList realmList)
+		{
+			if (realmList == null)
+			{
+				MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK);
+				ApplicationController.Current.NavigateBack();
+				return;
+			}
+
+			Realms = realmList.Realms.Select(realm => realm.Name).ToObservableCollection();
+
+			IsLoadingProgressBarVisible = false;
+			IsLoadingProgressBarIndeterminate = false;
+		}
+
+		/// <summary>
 		/// Searches for the specified character.
 		/// </summary>
-		private void SearchCharacter()
+		public void SearchCharacter()
 		{
 			IsolatedStorageManager.SetValue("CharacterSearch_LastRealm", Realm);
 			IsolatedStorageManager.SetValue("CharacterSearch_LastName", Name);
