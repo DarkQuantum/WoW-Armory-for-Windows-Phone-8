@@ -48,6 +48,9 @@ namespace WowArmory.Core.BattleNet.Models
 		[XmlElement("containerSlots")]
 		public int ContainerSlots { get; set; }
 		[DataMember]
+		[XmlElement("gemInfo", IsNullable = true)]
+		public ItemGemInfo GemInfo { get; set; }
+		[DataMember]
 		[XmlElement("weaponInfo", IsNullable = true)]
 		public ItemWeaponInfo WeaponInfo { get; set; }
 		[DataMember]

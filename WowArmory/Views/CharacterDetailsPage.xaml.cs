@@ -26,6 +26,7 @@ namespace WowArmory.Views
 		private Dictionary<CharacterItemContainer, Item> _cachedItems = new Dictionary<CharacterItemContainer,Item>();
 		private CharacterItemContainer _itemContainerForToolTip;
 		private Item _itemForToolTip;
+		private Dictionary<int, Item> _cachedGems = new Dictionary<int, Item>();
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -443,6 +444,7 @@ namespace WowArmory.Views
 			var normalStyle = (Style)Resources["CharacterDetailsItemToolTipNormalTextStyle"];
 			var bonusStatStyle = (Style)Resources["CharacterDetailsItemToolTipBonusStatTextStyle"];
 			var subtleStyle = (Style)Resources["CharacterDetailsItemToolTipSubtleTextStyle"];
+			var socketNameStyle = (Style)Resources["CharacterDetailsItemToolTipSocketGemNameTextStyle"];
 
 			// item name
 			ShowToolTipText(tbItemToolTipName, _itemForToolTip.Name, (Brush)Resources[String.Format("ItemQuality{0}", _itemForToolTip.Quality)]);
@@ -484,19 +486,31 @@ namespace WowArmory.Views
 					var socketBorderImageUri = String.Format("/WowArmory.Core;Component/Images/Item/Socket_{0}.png", socket.Type);
 
 					var socketGrid = new Grid();
+					socketGrid.Name = String.Format("gdItemToolTipSocket{0}", index);
 					socketGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 					socketGrid.ColumnDefinitions.Add(new ColumnDefinition());
 
 					var socketBackgroundColor = new Border();
+					socketBackgroundColor.Name = String.Format("brdItemToolTipSocket{0}", index);
 					socketBackgroundColor.Background = (Brush)Resources[socketBackgroundColorResource];
-					socketBackgroundColor.Margin = new Thickness(1, 1, 0, 0);
+					socketBackgroundColor.Margin = new Thickness(1, 1, 1, 1);
 					socketBackgroundColor.Width = 18;
 					socketBackgroundColor.Height = 18;
 					socketBackgroundColor.VerticalAlignment = VerticalAlignment.Top;
 					Grid.SetColumn(socketBackgroundColor, 0);
 					socketGrid.Children.Add(socketBackgroundColor);
 
+					var socketImage = new Image();
+					socketImage.Name = String.Format("imgItemToolTipSocketImage{0}", index);
+					socketImage.Margin = new Thickness(1, 1, 1, 1);
+					socketImage.Width = 18;
+					socketImage.Height = 18;
+					socketImage.VerticalAlignment = VerticalAlignment.Top;
+					Grid.SetColumn(socketImage, 0);
+					socketGrid.Children.Add(socketImage);
+
 					var socketBorder = new Image();
+					socketBorder.Name = String.Format("imgItemToolTipSocket{0}", index);
 					socketBorder.Source = CacheManager.GetImageSourceFromCache(socketBorderImageUri);
 					socketBorder.Margin = new Thickness(0, 0, 0, 0);
 					socketBorder.Width = 20;
@@ -505,15 +519,31 @@ namespace WowArmory.Views
 					Grid.SetColumn(socketBorder, 0);
 					socketGrid.Children.Add(socketBorder);
 
+					var socketTextContainer = new StackPanel();
+					socketTextContainer.Orientation = System.Windows.Controls.Orientation.Vertical;
+					socketTextContainer.VerticalAlignment = VerticalAlignment.Center;
+					Grid.SetColumn(socketTextContainer, 1);
+
 					var socketText = new TextBlock();
+					socketText.Name = String.Format("tbItemToolTipSocket{0}", index);
 					socketText.Text = socketTypeText;
 					socketText.Style = subtleStyle;
 					socketText.Margin = new Thickness(6, 0, 0, 0);
-					socketText.VerticalAlignment = VerticalAlignment.Center;
-					Grid.SetColumn(socketText, 1);
-					socketGrid.Children.Add(socketText);
+					socketTextContainer.Children.Add(socketText);
+
+					var socketNameText = new TextBlock();
+					socketNameText.Name = String.Format("tbItemToolTipSocketName{0}", index);
+					socketNameText.Text = String.Empty;
+					socketNameText.Style = socketNameStyle;
+					socketNameText.Margin = new Thickness(6, 0, 0, 0);
+					socketNameText.Visibility = Visibility.Collapsed;
+					socketTextContainer.Children.Add(socketNameText);
+					socketGrid.Children.Add(socketTextContainer);
 
 					spItemToolTipSockets.Children.Add(socketGrid);
+
+					var dispatcherIndex = index;
+					Dispatcher.BeginInvoke(() => FetchSocketDetails(_itemContainerForToolTip, dispatcherIndex));
 
 					index++;
 				}
@@ -616,7 +646,14 @@ namespace WowArmory.Views
 						continue;
 					}
 
-					var formatText = AppResources.ResourceManager.GetString(String.Format("Item_Spell_{0}Consumable", itemSpell.Consumable ? String.Empty : "Not")) ?? "???: {0}";
+					var consumableString = "Consumable";
+					
+					if (!itemSpell.Consumable && String.IsNullOrEmpty(itemSpell.Spell.CastTime))
+					{
+						consumableString = String.Format("Not{0}", consumableString);
+					}
+
+					var formatText = AppResources.ResourceManager.GetString(String.Format("Item_Spell_{0}", consumableString)) ?? "???: {0}";
 					var itemSpellText = new TextBlock();
 					itemSpellText.Text = String.Format(formatText, itemSpell.Spell.Description);
 					itemSpellText.Style = bonusStatStyle;
@@ -690,6 +727,79 @@ namespace WowArmory.Views
 				}
 
 				spToolTipSellPrice.Visibility = Visibility.Visible;
+			}
+		}
+
+		/// <summary>
+		/// Fetches the socket details.
+		/// </summary>
+		/// <param name="itemContainer">The item container.</param>
+		/// <param name="item">The item.</param>
+		/// <param name="index">The index.</param>
+		private void FetchSocketDetails(CharacterItemContainer itemContainer, int index)
+		{
+			if (((CharacterItem)itemContainer.DataContext).TooltipParams == null)
+			{
+				return;
+			}
+
+			int itemId = 0;
+			switch (index)
+			{
+				case 0:
+					{
+						itemId = ((CharacterItem)itemContainer.DataContext).TooltipParams.Gem0;
+					} break;
+				case 1:
+					{
+						itemId = ((CharacterItem)itemContainer.DataContext).TooltipParams.Gem1;
+					} break;
+				case 2:
+					{
+						itemId = ((CharacterItem)itemContainer.DataContext).TooltipParams.Gem2;
+					} break;
+				case 3:
+					{
+						itemId = ((CharacterItem)itemContainer.DataContext).TooltipParams.Gem3;
+					} break;
+			}
+
+			if (itemId != 0)
+			{
+				if (!_cachedGems.ContainsKey(itemId))
+				{
+					BattleNetClient.Current.GetItemAsync(itemId, item => SocketDetailsRetrieved(item, index));	
+				}
+				else
+				{
+					SocketDetailsRetrieved(_cachedGems[itemId], index);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Called once the socket details have been retrieved.
+		/// </summary>
+		/// <param name="item">The item.</param>
+		/// <param name="index">The index.</param>
+		private void SocketDetailsRetrieved(Item item, int index)
+		{
+			if (!_cachedGems.ContainsKey(item.Id))
+			{
+				_cachedGems.Add(item.Id, item);
+			}
+
+			var imageElement = UIHelper.FindChild<Image>(spItemToolTipSockets, String.Format("imgItemToolTipSocketImage{0}", index));
+			var textElement = UIHelper.FindChild<TextBlock>(spItemToolTipSockets, String.Format("tbItemToolTipSocket{0}", index));
+			var nameElement = UIHelper.FindChild<TextBlock>(spItemToolTipSockets, String.Format("tbItemToolTipSocketName{0}", index));
+
+			imageElement.Source = BattleNetClient.Current.GetIcon(item.Icon, IconSize.Small);
+			ShowToolTipText(nameElement, item.Name);
+
+			if (item.GemInfo != null && item.GemInfo.Bonus != null)
+			{
+				textElement.Text = item.GemInfo.Bonus.Name;
+				textElement.Style = (Style)Resources["CharacterDetailsItemToolTipNormalTextStyle"];
 			}
 		}
 

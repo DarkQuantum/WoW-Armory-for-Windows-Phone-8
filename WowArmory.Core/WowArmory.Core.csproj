@@ -91,6 +91,9 @@
     <Compile Include="BattleNet\Models\ItemBonusStat.cs" />
     <Compile Include="BattleNet\Models\ItemBonusStatType.cs" />
     <Compile Include="BattleNet\Models\ItemClass.cs" />
+    <Compile Include="BattleNet\Models\ItemGemInfo.cs" />
+    <Compile Include="BattleNet\Models\ItemGemInfoBonus.cs" />
+    <Compile Include="BattleNet\Models\ItemGemInfoType.cs" />
     <Compile Include="BattleNet\Models\ItemQuality.cs" />
     <Compile Include="BattleNet\Models\ItemSlot.cs" />
     <Compile Include="BattleNet\Models\ItemSocket.cs" />

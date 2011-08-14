@@ -164,6 +164,10 @@
 			<Setter Property="Foreground" Value="{StaticResource ItemToolTipSubtleBrush}" />
 		</Style>
 
+		<Style x:Key="CharacterDetailsItemToolTipSocketGemNameTextStyle" BasedOn="{StaticResource CharacterDetailsItemToolTipSubtleTextStyle}" TargetType="TextBlock">
+			<Setter Property="FontStyle" Value="Italic" />
+		</Style>
+
 		<Style x:Key="ProfessionHeaderTextStyle" BasedOn="{StaticResource PhoneTextTitle2Style}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
