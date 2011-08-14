@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
+using Microsoft.Phone.Tasks;
 using WowArmory.Controls;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
@@ -939,6 +940,8 @@ namespace WowArmory.Views
 
 				spItemToolTipSource.Visibility = Visibility.Visible;
 			}
+			// external links
+			spItemToolTipExternalLinks.Visibility = Visibility.Visible;
 		}
 
 		/// <summary>
@@ -1054,6 +1057,7 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipSpacer, String.Empty);
 			spItemToolTipSource.Children.Clear();
 			spItemToolTipSource.Visibility = Visibility.Collapsed;
+			spItemToolTipExternalLinks.Visibility = Visibility.Collapsed;
 		}
 
 		/// <summary>
@@ -1112,6 +1116,18 @@ namespace WowArmory.Views
 					ViewModel.ToggleCharacterFavorite();
 				});
 			}
+		}
+
+		/// <summary>
+		/// Opens the wowhead website for the current item.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
+		private void OpenWowheadForItem(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			var webBrowserTask = new WebBrowserTask();
+			webBrowserTask.URL = String.Format(AppResources.Item_ExternalLink_Wowhead_Url, _itemForToolTip.Id);
+			webBrowserTask.Show();
 		}
 		//----------------------------------------------------------------------
 		#endregion

@@ -1042,4 +1042,13 @@
   <data name="Pages_Main_Button_Twitter" xml:space="preserve">
     <value>Twitter</value>
   </data>
+  <data name="Item_ExternalLink" xml:space="preserve">
+    <value>Learn more on:</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead" xml:space="preserve">
+    <value>Wowhead</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_Url" xml:space="preserve">
+    <value>http://www.wowhead.com/item={0}</value>
+  </data>
 </root>

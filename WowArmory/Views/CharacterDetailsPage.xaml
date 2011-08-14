@@ -544,6 +544,33 @@
 										<!-- TODO Find out how to display more detailed source information -->
 										<TextBlock x:Name="tbItemToolTipSpacer" Text="---" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<StackPanel x:Name="spItemToolTipSource" Orientation="Vertical" />
+										<StackPanel x:Name="spItemToolTipExternalLinks" Orientation="Vertical" Margin="0,12,0,0">
+											<TextBlock Text="{Binding LocalizedResources.Item_ExternalLink, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemToolTipDescriptionTextStyle}" />
+											<Border Margin="4" Padding="2" Background="#ff000000" CornerRadius="3">
+												<Border MouseLeftButtonDown="OpenWowheadForItem" Padding="4" BorderThickness="2" CornerRadius="3">
+													<Border.BorderBrush>
+														<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+															<GradientStop Offset="0" Color="#ffaa3904" />
+															<GradientStop Offset="1" Color="#ff611309" />
+														</LinearGradientBrush>
+													</Border.BorderBrush>
+													<Border.Background>
+														<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+															<GradientStop Offset="0" Color="#ff6a2303" />
+															<GradientStop Offset="1" Color="#ff3e0d07" />
+														</LinearGradientBrush>
+													</Border.Background>
+													<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+														<TextBlock Text="{Binding LocalizedResources.Item_ExternalLink_Wowhead, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemToolTipDescriptionTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,4,0" />
+														<Rectangle Fill="{StaticResource ItemToolTipDescriptionBrush}" Width="16" Height="16">
+															<Rectangle.OpacityMask>
+																<ImageBrush ImageSource="/WowArmory.Core;Component/Images/ExternalLink.png" Stretch="Fill" />
+															</Rectangle.OpacityMask>
+														</Rectangle>
+													</StackPanel>
+												</Border>
+											</Border>
+										</StackPanel>
 									</StackPanel>
 								</ScrollViewer>
 							</Border>

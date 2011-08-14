@@ -988,6 +988,33 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Learn more on:.
+        /// </summary>
+        public static string Item_ExternalLink {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wowhead.
+        /// </summary>
+        public static string Item_ExternalLink_Wowhead {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.wowhead.com/item={0}.
+        /// </summary>
+        public static string Item_ExternalLink_Wowhead_Url {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead_Url", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ammo.
         /// </summary>
         public static string Item_InventoryType_Ammo {

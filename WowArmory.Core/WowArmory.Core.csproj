@@ -677,6 +677,11 @@
       <Link>Images\CharacterDetails\Backgrounds\LightWorgen.png</Link>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\ExternalLink.png">
+      <Link>Images\ExternalLink.png</Link>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />

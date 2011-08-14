@@ -42,7 +42,7 @@
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12">
 			<StackPanel x:Name="TileContainer" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
 				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-					<ctrl:MainPageButton Label="{Binding LocalizedResources.Pages_Main_Button_Characters, Source={StaticResource LocalizedResources}}"
+					<ctrl:MainPageButton x:Name="mpbCharacters" Label="{Binding LocalizedResources.Pages_Main_Button_Characters, Source={StaticResource LocalizedResources}}"
 										 IconSource="/WowArmory.Core;Component/Images/Icons/MainPage/Characters.png"
 										 Click="MainPageButtonClicked">
 						<i:Interaction.Triggers>

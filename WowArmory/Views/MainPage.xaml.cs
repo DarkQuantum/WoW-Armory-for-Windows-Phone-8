@@ -42,6 +42,12 @@ namespace WowArmory.Views
 		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
 		private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
 		{
+			mpbCharacters.BadgeCounter = IsolatedStorageManager.StoredCharacters.Count.ToString();
+			if (IsolatedStorageManager.StoredCharacters.Count > 0)
+			{
+				mpbCharacters.BadgeVisibility = Visibility.Visible;
+			}
+
 			if (AppSettingsManager.IsFirstTimeUsage)
 			{
 				IsolatedStorageManager.SetValue("Temp_Setting_IsFirstTimeUsage", false);
