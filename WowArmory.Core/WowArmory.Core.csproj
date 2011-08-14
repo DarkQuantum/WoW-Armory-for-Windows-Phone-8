@@ -589,6 +589,87 @@
       <Link>Images\Durability.png</Link>
     </Resource>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkBloodElf.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkBloodElf.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkDeathKnight.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkDeathKnight.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkDraenei.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkDraenei.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkDwarf.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkDwarf.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkGnome.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkGnome.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkGoblin.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkGoblin.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkHuman.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkHuman.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkNightElf.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkNightElf.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkOrc.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkOrc.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkTauren.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkTauren.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkTroll.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkTroll.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkUndead.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkUndead.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\DarkWorgen.png">
+      <Link>Images\CharacterDetails\Backgrounds\DarkWorgen.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightBloodElf.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightBloodElf.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightDeathKnight.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightDeathKnight.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightDraenei.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightDraenei.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightDwarf.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightDwarf.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightGnome.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightGnome.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightGoblin.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightGoblin.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightHuman.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightHuman.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightNightElf.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightNightElf.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightOrc.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightOrc.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightTauren.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightTauren.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightTroll.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightTroll.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightUndead.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightUndead.png</Link>
+    </Resource>
+    <Resource Include="..\Media\CharacterDetails\Backgrounds\LightWorgen.png">
+      <Link>Images\CharacterDetails\Backgrounds\LightWorgen.png</Link>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />

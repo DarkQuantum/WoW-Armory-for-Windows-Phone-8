@@ -59,6 +59,14 @@ namespace WowArmory.ViewModels
 		/// 	<c>true</c> if the app is used for the first time; otherwise, <c>false</c>.
 		/// </value>
 		public bool IsFirstTimeUsage { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the character background should be shown.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the character background should be shown; otherwise, <c>false</c>.
+		/// </value>
+		public bool ShowCharacterBackground { get; set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -97,6 +105,7 @@ namespace WowArmory.ViewModels
 		{
 			SelectedRegion = Regions.Where(r => r.Key == AppSettingsManager.Region).FirstOrDefault();
 			IsFirstTimeUsage = IsolatedStorageManager.GetValue("Temp_Setting_IsFirstTimeUsage", false);
+			ShowCharacterBackground = AppSettingsManager.ShowCharacterBackground;
 		}
 		//----------------------------------------------------------------------
 		#endregion

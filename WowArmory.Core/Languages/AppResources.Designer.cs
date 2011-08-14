@@ -2743,6 +2743,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show character background.
+        /// </summary>
+        public static string UI_Settings_General_ShowCharacterBackground {
+            get {
+                return ResourceManager.GetString("UI_Settings_General_ShowCharacterBackground", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to general.
         /// </summary>
         public static string UI_Settings_PivotItem_General {

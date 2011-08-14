@@ -235,6 +235,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Professions", "Professions"
 		Media\Icons\Professions\tailoring.png = Media\Icons\Professions\tailoring.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backgrounds", "Backgrounds", "{962D07B1-80D7-4310-BDC0-2580C77FD57E}"
+	ProjectSection(SolutionItems) = preProject
+		Media\CharacterDetails\Backgrounds\Backgrounds.psd = Media\CharacterDetails\Backgrounds\Backgrounds.psd
+		Media\CharacterDetails\Backgrounds\DarkBloodElf.png = Media\CharacterDetails\Backgrounds\DarkBloodElf.png
+		Media\CharacterDetails\Backgrounds\DarkDeathKnight.png = Media\CharacterDetails\Backgrounds\DarkDeathKnight.png
+		Media\CharacterDetails\Backgrounds\DarkDraenei.png = Media\CharacterDetails\Backgrounds\DarkDraenei.png
+		Media\CharacterDetails\Backgrounds\DarkDwarf.png = Media\CharacterDetails\Backgrounds\DarkDwarf.png
+		Media\CharacterDetails\Backgrounds\DarkGnome.png = Media\CharacterDetails\Backgrounds\DarkGnome.png
+		Media\CharacterDetails\Backgrounds\DarkGoblin.png = Media\CharacterDetails\Backgrounds\DarkGoblin.png
+		Media\CharacterDetails\Backgrounds\DarkHuman.png = Media\CharacterDetails\Backgrounds\DarkHuman.png
+		Media\CharacterDetails\Backgrounds\DarkNightElf.png = Media\CharacterDetails\Backgrounds\DarkNightElf.png
+		Media\CharacterDetails\Backgrounds\DarkOrc.png = Media\CharacterDetails\Backgrounds\DarkOrc.png
+		Media\CharacterDetails\Backgrounds\DarkTauren.png = Media\CharacterDetails\Backgrounds\DarkTauren.png
+		Media\CharacterDetails\Backgrounds\DarkTroll.png = Media\CharacterDetails\Backgrounds\DarkTroll.png
+		Media\CharacterDetails\Backgrounds\DarkUndead.png = Media\CharacterDetails\Backgrounds\DarkUndead.png
+		Media\CharacterDetails\Backgrounds\DarkWorgen.png = Media\CharacterDetails\Backgrounds\DarkWorgen.png
+		Media\CharacterDetails\Backgrounds\LightBloodElf.png = Media\CharacterDetails\Backgrounds\LightBloodElf.png
+		Media\CharacterDetails\Backgrounds\LightDeathKnight.png = Media\CharacterDetails\Backgrounds\LightDeathKnight.png
+		Media\CharacterDetails\Backgrounds\LightDraenei.png = Media\CharacterDetails\Backgrounds\LightDraenei.png
+		Media\CharacterDetails\Backgrounds\LightDwarf.png = Media\CharacterDetails\Backgrounds\LightDwarf.png
+		Media\CharacterDetails\Backgrounds\LightGnome.png = Media\CharacterDetails\Backgrounds\LightGnome.png
+		Media\CharacterDetails\Backgrounds\LightGoblin.png = Media\CharacterDetails\Backgrounds\LightGoblin.png
+		Media\CharacterDetails\Backgrounds\LightHuman.png = Media\CharacterDetails\Backgrounds\LightHuman.png
+		Media\CharacterDetails\Backgrounds\LightNightElf.png = Media\CharacterDetails\Backgrounds\LightNightElf.png
+		Media\CharacterDetails\Backgrounds\LightOrc.png = Media\CharacterDetails\Backgrounds\LightOrc.png
+		Media\CharacterDetails\Backgrounds\LightTauren.png = Media\CharacterDetails\Backgrounds\LightTauren.png
+		Media\CharacterDetails\Backgrounds\LightTroll.png = Media\CharacterDetails\Backgrounds\LightTroll.png
+		Media\CharacterDetails\Backgrounds\LightUndead.png = Media\CharacterDetails\Backgrounds\LightUndead.png
+		Media\CharacterDetails\Backgrounds\LightWorgen.png = Media\CharacterDetails\Backgrounds\LightWorgen.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -273,6 +304,7 @@ Global
 		{980D282C-EADB-4971-A0B9-BBA5CE9F1137} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{D08DFF7A-5CEF-4C8C-BC6C-25B0346443E5} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{32C2704E-4A1A-415B-9EE6-E637150B7813} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
+		{962D07B1-80D7-4310-BDC0-2580C77FD57E} = {6ABB592A-EDA1-4333-99BD-ED0395E75D01}
 		{22D83C24-EFA4-4D83-A082-EA8591A5EA85} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{2761AE5B-DA97-446F-9987-1B566176AC60} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{B6517931-2F91-4538-A374-A055163BBDE4} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}

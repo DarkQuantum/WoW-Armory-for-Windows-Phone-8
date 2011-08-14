@@ -61,6 +61,24 @@ namespace WowArmory.Core.Managers
 				IsolatedStorageManager.SetValue("Setting_CharacterListOrderBy", value);
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets a value indicating if the character background should be shown.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the character background should be shown; otherwise, <c>false</c>.
+		/// </value>
+		public static bool ShowCharacterBackground
+		{
+			get
+			{
+				return IsolatedStorageManager.GetValue("Setting_ShowCharacterBackground", false);
+			}
+			set
+			{
+				IsolatedStorageManager.SetValue("Setting_ShowCharacterBackground", value);
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------

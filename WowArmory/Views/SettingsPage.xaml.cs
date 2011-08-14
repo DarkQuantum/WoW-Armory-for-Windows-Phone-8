@@ -79,6 +79,7 @@ namespace WowArmory.Views
 			// set settings which should be saved immediately
 			AppSettingsManager.Region = ViewModel.SelectedRegion.Key;
 			BattleNetClient.Current.Region = AppSettingsManager.Region;
+			AppSettingsManager.ShowCharacterBackground = ViewModel.ShowCharacterBackground;
 
 			// save settings
 			IsolatedStorageManager.Save();

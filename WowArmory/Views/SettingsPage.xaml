@@ -38,6 +38,9 @@
 									   Header="{Binding LocalizedResources.UI_Settings_General_Region, Source={StaticResource LocalizedResources}}"
 									   ItemsSource="{Binding Regions}" DisplayMemberPath="Value"
 									   SelectedItem="{Binding SelectedRegion, Mode=TwoWay}" />
+						<tk:ToggleSwitch x:Name="tsShowCharacterBackground"
+										 Header="{Binding LocalizedResources.UI_Settings_General_ShowCharacterBackground, Source={StaticResource LocalizedResources}}"
+										 IsChecked="{Binding ShowCharacterBackground, Mode=TwoWay}" />
 						<tk:ToggleSwitch x:Name="tsIsFirstTimeUsage"
 										 Header="{Binding LocalizedResources.UI_Settings_General_IsFirstTimeUsage, Source={StaticResource LocalizedResources}}"
 										 IsChecked="{Binding IsFirstTimeUsage, Mode=TwoWay}" />

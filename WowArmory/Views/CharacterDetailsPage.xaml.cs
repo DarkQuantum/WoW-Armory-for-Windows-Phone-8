@@ -50,11 +50,6 @@ namespace WowArmory.Views
 		public CharacterDetailsPage()
 		{
 			InitializeComponent();
-
-			LoadView();
-			BuildTalents();
-			BuildReputation();
-			BuildProfessions();
 		}
 		//----------------------------------------------------------------------
 		#endregion
@@ -64,6 +59,19 @@ namespace WowArmory.Views
 		//----------------------------------------------------------------------
 		#region --- Methods ---
 		//----------------------------------------------------------------------
+		/// <summary>
+		/// Handles the Loaded event of the PhoneApplicationPage control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
+		{
+			LoadView();
+			BuildTalents();
+			BuildReputation();
+			BuildProfessions();
+		}
+
 		/// <summary>
 		/// Handles the SelectionChanged event of the CharacterPivot control.
 		/// </summary>
@@ -78,6 +86,23 @@ namespace WowArmory.Views
 		/// </summary>
 		private void LoadView()
 		{
+			if (AppSettingsManager.ShowCharacterBackground && ViewModel.Character != null)
+			{
+				var backgroundName = ((CharacterRace)ViewModel.Character.Race).ToString();
+				var opacity = 1.0;
+				if (((CharacterClass)ViewModel.Character.Class) == CharacterClass.DeathKnight)
+				{
+					backgroundName = "DeathKnight";
+				}
+
+				backgroundName = String.Format("{0}{1}.png", ((SolidColorBrush)Resources["PhoneBackgroundBrush"]).Color == Colors.White ? "Light" : "Dark", backgroundName);
+				LayoutRoot.Background = new ImageBrush { ImageSource = CacheManager.GetImageSourceFromCache(String.Format("/WowArmory.Core;Component/Images/CharacterDetails/Backgrounds/{0}", backgroundName)) };
+			}
+			else
+			{
+				LayoutRoot.Background = new SolidColorBrush(Colors.Transparent);
+			}
+
 			var powerType = ViewModel.Character.Stats.PowerType;
 			//barPowerType.Background = (Brush)Resources[String.Format("{0}BarStyle", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""))];
 			tbPowerType.Foreground = (Brush)Resources[String.Format("{0}TextBrush", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""))];

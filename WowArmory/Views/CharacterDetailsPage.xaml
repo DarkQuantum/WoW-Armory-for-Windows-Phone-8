@@ -14,7 +14,8 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="false">
+    shell:SystemTray.IsVisible="false"
+	Loaded="PhoneApplicationPage_Loaded">
 
 	<phone:PhoneApplicationPage.DataContext>
 		<Binding Path="CharacterDetails" Source="{StaticResource ViewModelLocator}" />
@@ -217,7 +218,7 @@
 		</Style>
 	</phone:PhoneApplicationPage.Resources>
 	
-	<Grid x:Name="LayoutRoot" Background="Transparent">
+	<Grid x:Name="LayoutRoot">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />
 			<RowDefinition Height="*" />

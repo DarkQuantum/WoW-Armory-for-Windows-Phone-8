@@ -1033,4 +1033,7 @@
   <data name="UI_CharacterDetails_Character_Description_Achievements" xml:space="preserve">
     <value>Achievements</value>
   </data>
+  <data name="UI_Settings_General_ShowCharacterBackground" xml:space="preserve">
+    <value>Show character background</value>
+  </data>
 </root>
