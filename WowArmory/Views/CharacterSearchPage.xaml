@@ -35,13 +35,18 @@
 			<StackPanel Orientation="Vertical">
 				<TextBlock Text="{Binding LocalizedResources.UI_CharacterSearch_Realm, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneBorderBrush}" />
 				<!--<TextBox x:Name="txtRealm" Text="{Binding Realm, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" KeyDown="txtRealm_KeyDown"  />-->
-				<tk:AutoCompleteBox ItemsSource="{Binding Realms}"
+				<tk:AutoCompleteBox x:Name="acbRealms"
+									ItemsSource="{Binding Realms}"
 									SelectedItem="{Binding Realm, Mode=TwoWay}"
 									MinimumPopulateDelay="200"
 									MinimumPrefixLength="1"
-									IsTextCompletionEnabled="True" />
+									IsTextCompletionEnabled="True"
+									IsDropDownOpen="False"
+									KeyDown="Realms_KeyDown"
+									DropDownOpening="Realms_DropDownOpening"
+									GotFocus="Realms_GotFocus"/>
 				<TextBlock Text="{Binding LocalizedResources.UI_CharacterSearch_Name, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneBorderBrush}" />
-				<TextBox x:Name="txtCharacter" Text="{Binding Name, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" KeyDown="txtCharacter_KeyDown" />
+				<TextBox x:Name="txtCharacter" Text="{Binding Name, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" KeyDown="Character_KeyDown" />
 				<Button Content="{Binding LocalizedResources.UI_CharacterSearch_SearchCharacter, Source={StaticResource LocalizedResources}}"
 						cmd:ButtonBaseExtensions.Command="{Binding SearchCharacterCommand}"
 						IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}"/>
@@ -53,7 +58,7 @@
 				<Grid>
 					<TextBlock Text="{Binding LocalizedResources.UI_Common_LoadingData, Source={StaticResource LocalizedResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 					<ProgressBar Style="{StaticResource PerformanceProgressBar}" Margin="0,36,0,0" VerticalAlignment="Center"
-							 IsIndeterminate="{Binding IsLoadingProgressBarIndeterminate}"/>
+							 IsIndeterminate="{Binding IsLoadingProgressBarIndeterminate}" />
 				</Grid>
 			</Border>
 		</Grid>

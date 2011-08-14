@@ -1269,35 +1269,68 @@ namespace System.Windows.Controls
             }
         }
 
-        /// <summary>
-        /// Initializes a new instance of the
-        /// <see cref="T:Microsoft.Phone.Controls.AutoCompleteBox" /> class.
-        /// </summary>
-        public AutoCompleteBox()
-        {
-            DefaultStyleKey = typeof(AutoCompleteBox);
 
-            Loaded += (sender, e) => ApplyTemplate();
+		/// <summary>  
+		/// Initializes a new instance of the  
+		/// <see cref="T:Microsoft.Phone.Controls.AutoCompleteBox" /> class.  
+		/// </summary>  
+		public AutoCompleteBox()
+		{
+			DefaultStyleKey = typeof(AutoCompleteBox);
+
+			Loaded += WorkAroundApplyTemplate;
 #if WINDOWS_PHONE
-            Loaded += delegate
-            {
-                PhoneApplicationFrame frame;
-                if (PhoneHelper.TryGetPhoneApplicationFrame(out frame))
-                {
-                    frame.OrientationChanged += delegate
-                    {
-                        IsDropDownOpen = false;
-                    };
-                }
-            };
+			Loaded += WorkAroundHookupOrientationChanged;
 #endif
-            IsEnabledChanged += ControlIsEnabledChanged;
+			IsEnabledChanged += ControlIsEnabledChanged;
 
-            Interaction = new InteractionHelper(this);
+			Interaction = new InteractionHelper(this);
 
-            // Creating the view here ensures that View is always != null
-            ClearView();
-        }
+			// Creating the view here ensures that View is always != null  
+			ClearView();
+		}
+
+		private void WorkAroundApplyTemplate(object sender, RoutedEventArgs e)
+		{
+			ApplyTemplate();
+		}
+#if WINDOWS_PHONE
+		private void WorkAroundHookupOrientationChanged(object sender, RoutedEventArgs e)
+		{
+			if (System.ComponentModel.DesignerProperties.IsInDesignTool)
+			{
+				return;
+			}
+			PhoneApplicationFrame frame;
+			if (PhoneHelper.TryGetPhoneApplicationFrame(out frame))
+			{
+				frame.OrientationChanged += WorkAroundHandleOrientationChanged;
+			}
+
+			frame.Navigating += new System.Windows.Navigation.NavigatingCancelEventHandler(frame_Navigating);
+		}
+
+		void frame_Navigating(object sender, System.Windows.Navigation.NavigatingCancelEventArgs e)
+		{
+			if (e.NavigationMode == System.Windows.Navigation.NavigationMode.Back)
+			{
+				PhoneApplicationFrame frame;
+				if (PhoneHelper.TryGetPhoneApplicationFrame(out frame))
+				{
+					frame.OrientationChanged -= WorkAroundHandleOrientationChanged;
+					frame.Navigating -= frame_Navigating;
+				}
+				this.Loaded -= WorkAroundHookupOrientationChanged;
+				this.Loaded -= WorkAroundApplyTemplate;
+				System.Diagnostics.Debug.WriteLine(e.NavigationMode);
+			}
+		}
+
+		private void WorkAroundHandleOrientationChanged(object sender, EventArgs e)
+		{
+			IsDropDownOpen = false;
+		}
+#endif  
 
         /// <summary>
         /// Arranges and sizes the
@@ -2135,12 +2168,12 @@ namespace System.Windows.Controls
                 SelectionAdapter.ItemsSource = _view;
             }
 
-            bool isDropDownOpen = _userCalledPopulate && (_view.Count > 0);
-            if (isDropDownOpen != IsDropDownOpen)
-            {
-                _ignorePropertyChange = true;
-                IsDropDownOpen = isDropDownOpen;
-            }
+			bool isDropDownOpen = _userCalledPopulate && (_view.Count > 0);
+			if (isDropDownOpen != IsDropDownOpen)
+			{
+			    _ignorePropertyChange = true;
+			    IsDropDownOpen = isDropDownOpen;
+			}
             if (IsDropDownOpen)
             {
                 OpeningDropDown(false);

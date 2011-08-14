@@ -145,7 +145,7 @@ namespace WowArmory.ViewModels
 			}
 			set
 			{
-				if (_realm == value)
+				if (_realm == value || value == null)
 				{
 					return;
 				}
@@ -226,6 +226,11 @@ namespace WowArmory.ViewModels
 		/// </summary>
 		public void LoadRealms()
 		{
+			if (Realms != null && Realms.Count != 0)
+			{
+				return;
+			}
+
 			IsLoadingProgressBarVisible = true;
 			IsLoadingProgressBarIndeterminate = true;
 
@@ -236,10 +241,10 @@ namespace WowArmory.ViewModels
 			{
 				Realms = new ObservableCollection<string>();
 				BattleNetClient.Current.GetRealmListAsync(region, realmList =>
-				{
-					CacheManager.CachedRealmLists[region] = realmList;
-					ConstructBindableRealmList(CacheManager.CachedRealmLists[region]);
-				});
+				                                                  	{
+				                                                  		CacheManager.CachedRealmLists[region] = realmList;
+				                                                  		ConstructBindableRealmList(CacheManager.CachedRealmLists[region]);
+				                                                  	});
 			}
 			else
 			{
