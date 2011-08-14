@@ -84,6 +84,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterDetails", "Charact
 		Media\CharacterDetails\Item_Selected.png = Media\CharacterDetails\Item_Selected.png
 		Media\CharacterDetails\Profession_Bar.png = Media\CharacterDetails\Profession_Bar.png
 		Media\CharacterDetails\Profession_Bar.psd = Media\CharacterDetails\Profession_Bar.psd
+		Media\CharacterDetails\Profession_Border.png = Media\CharacterDetails\Profession_Border.png
+		Media\CharacterDetails\Profession_Mask.png = Media\CharacterDetails\Profession_Mask.png
 		Media\CharacterDetails\Reputation_Bar.psd = Media\CharacterDetails\Reputation_Bar.psd
 		Media\CharacterDetails\Reputation_Bar_0.png = Media\CharacterDetails\Reputation_Bar_0.png
 		Media\CharacterDetails\Reputation_Bar_1.png = Media\CharacterDetails\Reputation_Bar_1.png
@@ -96,6 +98,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterDetails", "Charact
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Icons", "Icons", "{E38956DD-0E34-4549-8EB0-F6C634AD6327}"
+	ProjectSection(SolutionItems) = preProject
+		Media\Icons\Achievementpoints_Large.png = Media\Icons\Achievementpoints_Large.png
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainPage", "MainPage", "{22D83C24-EFA4-4D83-A082-EA8591A5EA85}"
 	ProjectSection(SolutionItems) = preProject
@@ -204,6 +209,26 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item", "Item", "{32C2704E-4
 		Media\Item\Socket_YELLOW.png = Media\Item\Socket_YELLOW.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Professions", "Professions", "{2761AE5B-DA97-446F-9987-1B566176AC60}"
+	ProjectSection(SolutionItems) = preProject
+		Media\Icons\Professions\alchemy.png = Media\Icons\Professions\alchemy.png
+		Media\Icons\Professions\archaeology.png = Media\Icons\Professions\archaeology.png
+		Media\Icons\Professions\blacksmithing.png = Media\Icons\Professions\blacksmithing.png
+		Media\Icons\Professions\cooking.png = Media\Icons\Professions\cooking.png
+		Media\Icons\Professions\enchanting.png = Media\Icons\Professions\enchanting.png
+		Media\Icons\Professions\engineering.png = Media\Icons\Professions\engineering.png
+		Media\Icons\Professions\firstaid.png = Media\Icons\Professions\firstaid.png
+		Media\Icons\Professions\fishing.png = Media\Icons\Professions\fishing.png
+		Media\Icons\Professions\herbalism.png = Media\Icons\Professions\herbalism.png
+		Media\Icons\Professions\inscription.png = Media\Icons\Professions\inscription.png
+		Media\Icons\Professions\jewelcrafting.png = Media\Icons\Professions\jewelcrafting.png
+		Media\Icons\Professions\leatherworking.png = Media\Icons\Professions\leatherworking.png
+		Media\Icons\Professions\mining.png = Media\Icons\Professions\mining.png
+		Media\Icons\Professions\Professions.psd = Media\Icons\Professions\Professions.psd
+		Media\Icons\Professions\skinning.png = Media\Icons\Professions\skinning.png
+		Media\Icons\Professions\tailoring.png = Media\Icons\Professions\tailoring.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -243,6 +268,7 @@ Global
 		{D08DFF7A-5CEF-4C8C-BC6C-25B0346443E5} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{32C2704E-4A1A-415B-9EE6-E637150B7813} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{22D83C24-EFA4-4D83-A082-EA8591A5EA85} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
+		{2761AE5B-DA97-446F-9987-1B566176AC60} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{B6517931-2F91-4538-A374-A055163BBDE4} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{3747578C-1B15-4E0B-9C04-608562DC793A} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{F223F66E-D6DF-4D1C-AAB6-9220B8418D6D} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}

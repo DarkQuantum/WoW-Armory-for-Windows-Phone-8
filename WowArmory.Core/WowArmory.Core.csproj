@@ -511,6 +511,68 @@
       <Link>Images\Item\Socket_YELLOW.png</Link>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\Achievementpoints_Large.png">
+      <Link>Images\Icons\Achievementpoints_Large.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\Professions\alchemy.png">
+      <Link>Images\Icons\Professions\alchemy.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\archaeology.png">
+      <Link>Images\Icons\Professions\archaeology.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\blacksmithing.png">
+      <Link>Images\Icons\Professions\blacksmithing.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\cooking.png">
+      <Link>Images\Icons\Professions\cooking.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\enchanting.png">
+      <Link>Images\Icons\Professions\enchanting.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\engineering.png">
+      <Link>Images\Icons\Professions\engineering.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\firstaid.png">
+      <Link>Images\Icons\Professions\firstaid.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\fishing.png">
+      <Link>Images\Icons\Professions\fishing.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\herbalism.png">
+      <Link>Images\Icons\Professions\herbalism.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\inscription.png">
+      <Link>Images\Icons\Professions\inscription.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\jewelcrafting.png">
+      <Link>Images\Icons\Professions\jewelcrafting.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\leatherworking.png">
+      <Link>Images\Icons\Professions\leatherworking.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\mining.png">
+      <Link>Images\Icons\Professions\mining.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\skinning.png">
+      <Link>Images\Icons\Professions\skinning.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Professions\tailoring.png">
+      <Link>Images\Icons\Professions\tailoring.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\CharacterDetails\Profession_Border.png">
+      <Link>Images\CharacterDetails\Profession_Border.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\CharacterDetails\Profession_Mask.png">
+      <Link>Images\CharacterDetails\Profession_Mask.png</Link>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />

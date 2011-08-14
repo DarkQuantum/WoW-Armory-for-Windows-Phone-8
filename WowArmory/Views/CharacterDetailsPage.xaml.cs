@@ -270,15 +270,34 @@ namespace WowArmory.Views
 			rectangleHighlight.Height = Double.NaN;
 			rectangleHighlight.Fill = (Brush)Resources["ProfessionBar"];
 
-			var image = new Image();
-			Grid.SetRow(image, 0);
-			Grid.SetColumn(image, 0);
-			image.Source = BattleNetClient.Current.GetIcon(profession.Icon);
-			image.Width = 56;
-			image.Height = 56;
-			image.HorizontalAlignment = HorizontalAlignment.Left;
-			image.VerticalAlignment = VerticalAlignment.Center;
-			image.Margin = new Thickness(4);
+			var backgroundImage = new Image();
+			Grid.SetRow(backgroundImage, 0);
+			Grid.SetColumn(backgroundImage, 0);
+			backgroundImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/CharacterDetails/Profession_Mask.png");
+			backgroundImage.Width = 48;
+			backgroundImage.Height = 48;
+			backgroundImage.HorizontalAlignment = HorizontalAlignment.Center;
+			backgroundImage.VerticalAlignment = VerticalAlignment.Center;
+
+			var iconImage = new Image();
+			Grid.SetRow(iconImage, 0);
+			Grid.SetColumn(iconImage, 0);
+			iconImage.Source = BattleNetClient.Current.GetIcon(profession.Icon);
+			iconImage.Width = 44;
+			iconImage.Height = 44;
+			iconImage.HorizontalAlignment = HorizontalAlignment.Center;
+			iconImage.VerticalAlignment = VerticalAlignment.Center;
+			iconImage.OpacityMask = new ImageBrush { ImageSource = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/CharacterDetails/Profession_Mask.png") };
+
+			var borderImage = new Image();
+			Grid.SetRow(borderImage, 0);
+			Grid.SetColumn(borderImage, 0);
+			borderImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/CharacterDetails/Profession_Border.png");
+			borderImage.Width = 48;
+			borderImage.Height = 48;
+			borderImage.HorizontalAlignment = HorizontalAlignment.Center;
+			borderImage.VerticalAlignment = VerticalAlignment.Center;
+			borderImage.Margin = new Thickness(4);
 
 			var nameTextBlock = new TextBlock();
 			Grid.SetRow(nameTextBlock, 0);
@@ -300,7 +319,9 @@ namespace WowArmory.Views
 
 			grid.Children.Add(rectangle);
 			grid.Children.Add(rectangleHighlight);
-			grid.Children.Add(image);
+			grid.Children.Add(backgroundImage);
+			grid.Children.Add(iconImage);
+			grid.Children.Add(borderImage);
 			grid.Children.Add(nameTextBlock);
 			grid.Children.Add(valueTextBlock);
 

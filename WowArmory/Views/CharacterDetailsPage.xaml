@@ -239,7 +239,16 @@
 							</Grid.RowDefinitions>
 							<ScrollViewer x:Name="svCharacterStats" Grid.Row="0" Margin="12,0,12,12" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
 								<StackPanel Orientation="Vertical">
-									<!-- TODO achievement points -->
+									<Grid Margin="0,0,0,12">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="*" />
+											<ColumnDefinition Width="Auto" />
+											<ColumnDefinition Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<TextBlock Grid.Column="0" Text="{Binding LocalizedResources.UI_CharacterDetails_Character_Description_Achievements, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsValueTextStyle}" HorizontalAlignment="Left" />
+										<TextBlock Grid.Column="1" Text="{Binding Character.AchievementPoints}" Style="{StaticResource CharacterDetailsValueTextStyle}" />
+										<Image Grid.Column="2" Source="/WowArmory.Core;Component/Images/Icons/Achievementpoints_Large.png" Width="32" VerticalAlignment="Center" />
+									</Grid>
 									<!-- TODO talents -->
 									<!-- ==================================================================== -->
 									<Grid Margin="0,0,0,12">

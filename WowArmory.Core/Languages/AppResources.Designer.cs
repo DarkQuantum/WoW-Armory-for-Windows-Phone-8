@@ -1978,6 +1978,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Achievements.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Description_Achievements {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Description_Achievements", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Agility.
         /// </summary>
         public static string UI_CharacterDetails_Character_Description_Agility {

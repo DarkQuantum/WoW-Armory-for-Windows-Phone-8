@@ -1015,4 +1015,7 @@
   <data name="UI_CharacterDetails_Common_StoreCharacter" xml:space="preserve">
     <value>Charakter wird gespeichert...</value>
   </data>
+  <data name="UI_CharacterDetails_Character_Description_Achievements" xml:space="preserve">
+    <value>Erfolge</value>
+  </data>
 </root>
