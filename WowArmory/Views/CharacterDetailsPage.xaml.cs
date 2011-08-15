@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
 using WowArmory.Controls;
 using WowArmory.Core.BattleNet;
+using WowArmory.Core.BattleNet.Helpers;
 using WowArmory.Core.BattleNet.Models;
 using WowArmory.Core.Helper;
 using WowArmory.Core.Languages;
@@ -801,16 +802,47 @@ namespace WowArmory.Views
 			// stats
 			if (_itemForToolTip.BonusStats != null && _itemForToolTip.BonusStats.Count > 0)
 			{
-				var spirit = _itemForToolTip.BonusStats.Where(s => s.Stat == ItemBonusStatType.Spirit).FirstOrDefault();
+				var reforge = Reforge.None;
+				var reforgeFrom = ItemBonusStatType.None;
+				var reforgeTo = ItemBonusStatType.None;
+				var reforgedStatAdded = false;
 
-				if (spirit != null)
+				if (((CharacterItem)_itemContainerForToolTip.DataContext).TooltipParams != null && ((CharacterItem)_itemContainerForToolTip.DataContext).TooltipParams.Reforge != 0)
 				{
-					ShowToolTipText(tbItemToolTipSpirit, String.Format(String.Format("+{0} {1}", spirit.Amount, AppResources.UI_CharacterDetails_Character_Description_Spirit), spirit.Amount));
+					reforge = (Reforge)((CharacterItem)_itemContainerForToolTip.DataContext).TooltipParams.Reforge;
+					reforgeFrom = ReforgeHelper.ReforgeMapping[reforge].From;
+					reforgeTo = ReforgeHelper.ReforgeMapping[reforge].To;
 				}
 
 				foreach (var stat in _itemForToolTip.BonusStats.OrderBy(s => s.Stat))
 				{
-					var text = String.Format(AppResources.ResourceManager.GetString(String.Format("Item_BonusStat_{0}", stat.Stat)) ?? "??? {0} ???", stat.Amount);
+					var statAmount = stat.Amount;
+
+					if (reforge != Reforge.None)
+					{
+						if (reforgeFrom == stat.Stat)
+						{
+							var reforgeAmount = Convert.ToInt32(Math.Floor(statAmount * 0.4));
+							statAmount = statAmount - reforgeAmount;
+
+							tbItemToolTipReforgeFrom.Text = String.Format("({0} {1}", reforgeAmount, AppResources.ResourceManager.GetString(String.Format("Item_ReforgedStat_{0}", reforgeFrom)));
+							tbItemToolTipReforgeTo.Text = String.Format("{0} {1})", reforgeAmount, AppResources.ResourceManager.GetString(String.Format("Item_ReforgedStat_{0}", reforgeTo)));
+							spItemToolTipReforge.Visibility = Visibility.Visible;
+						}
+
+						if (reforgeTo == stat.Stat)
+						{
+							var reforgeFromStat = _itemForToolTip.BonusStats.Where(s => s.Stat == reforgeFrom).FirstOrDefault();
+							if (reforgeFromStat != null)
+							{
+								var reforgeFromAmount = reforgeFromStat.Amount;
+								statAmount = statAmount + Convert.ToInt32(Math.Floor(reforgeFromAmount * 0.4));
+								reforgedStatAdded = true;
+							}
+						}
+					}
+
+					var text = String.Format(AppResources.ResourceManager.GetString(String.Format("Item_BonusStat_{0}", stat.Stat)) ?? "??? {0} ???", statAmount);
 					var element = UIHelper.FindChild<TextBlock>(spItemToolTipContent, String.Format("tbItemToolTip{0}", stat.Stat));
 					if (element != null)
 					{
@@ -820,6 +852,19 @@ namespace WowArmory.Views
 					{
 						var textBlock = new TextBlock();
 						textBlock.Text = text;
+						textBlock.Style = bonusStatStyle;
+						spItemToolTipBonusStats.Children.Add(textBlock);
+						spItemToolTipBonusStats.Visibility = Visibility.Visible;
+					}
+				}
+
+				if (reforge != Reforge.None && !reforgedStatAdded)
+				{
+					var reforgeFromStat = _itemForToolTip.BonusStats.Where(s => s.Stat == reforgeFrom).FirstOrDefault();
+					if (reforgeFromStat != null)
+					{
+						var textBlock = new TextBlock();
+						textBlock.Text = String.Format(AppResources.ResourceManager.GetString(String.Format("Item_BonusStat_{0}", reforgeTo)) ?? "??? {0} ???", Convert.ToInt32(Math.Floor(reforgeFromStat.Amount * 0.4)));
 						textBlock.Style = bonusStatStyle;
 						spItemToolTipBonusStats.Children.Add(textBlock);
 						spItemToolTipBonusStats.Visibility = Visibility.Visible;
@@ -1033,6 +1078,7 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipWeaponInfoDamage, String.Empty);
 			ShowToolTipText(tbItemToolTipWeaponInfoSpeed, String.Empty);
 			ShowToolTipText(tbItemToolTipWeaponInfoDps, String.Empty);
+			spItemToolTipReforge.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipArmor, String.Empty);
 			ShowToolTipText(tbItemToolTipStrength, String.Empty);
 			ShowToolTipText(tbItemToolTipAgility, String.Empty);

@@ -1051,4 +1051,31 @@
   <data name="Item_ExternalLink_Wowhead_Url" xml:space="preserve">
     <value>http://www.wowhead.com/item={0}</value>
   </data>
+  <data name="Item_Reforged" xml:space="preserve">
+    <value>Reforged</value>
+  </data>
+  <data name="Item_ReforgedStat_CriticalStrikeRating" xml:space="preserve">
+    <value>Crit Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_DodgeRating" xml:space="preserve">
+    <value>Dodge Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_ExpertiseRating" xml:space="preserve">
+    <value>Expertise Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_HasteRating" xml:space="preserve">
+    <value>Haste Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_HitRating" xml:space="preserve">
+    <value>Hit Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_Mastery" xml:space="preserve">
+    <value>Mastery Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_ParryRating" xml:space="preserve">
+    <value>Parry Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_Spirit" xml:space="preserve">
+    <value>Spirit</value>
+  </data>
 </root>

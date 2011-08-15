@@ -68,6 +68,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="BattleNet\BattleNetClient.cs" />
+    <Compile Include="BattleNet\Helpers\ReforgeHelper.cs" />
     <Compile Include="BattleNet\Models\ApiResponse.cs" />
     <Compile Include="BattleNet\Models\ApiResponseReason.cs" />
     <Compile Include="BattleNet\Models\CharacterAchievements.cs" />
@@ -111,6 +112,8 @@
     <Compile Include="BattleNet\Models\RealmList.cs" />
     <Compile Include="BattleNet\Models\RealmPopulation.cs" />
     <Compile Include="BattleNet\Models\RealmType.cs" />
+    <Compile Include="BattleNet\Models\Reforge.cs" />
+    <Compile Include="BattleNet\Models\ReforgeStat.cs" />
     <Compile Include="BattleNet\Models\Reputation.cs" />
     <Compile Include="BattleNet\Models\ReputationStanding.cs" />
     <Compile Include="BattleNet\Models\TalentTree.cs" />
@@ -680,6 +683,11 @@
   <ItemGroup>
     <Resource Include="..\Media\ExternalLink.png">
       <Link>Images\ExternalLink.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Item\Reforge_Arrow.png">
+      <Link>Images\Item\Reforge_Arrow.png</Link>
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

@@ -1690,6 +1690,87 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Reforged.
+        /// </summary>
+        public static string Item_Reforged {
+            get {
+                return ResourceManager.GetString("Item_Reforged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Crit Rating.
+        /// </summary>
+        public static string Item_ReforgedStat_CriticalStrikeRating {
+            get {
+                return ResourceManager.GetString("Item_ReforgedStat_CriticalStrikeRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dodge Rating.
+        /// </summary>
+        public static string Item_ReforgedStat_DodgeRating {
+            get {
+                return ResourceManager.GetString("Item_ReforgedStat_DodgeRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expertise Rating.
+        /// </summary>
+        public static string Item_ReforgedStat_ExpertiseRating {
+            get {
+                return ResourceManager.GetString("Item_ReforgedStat_ExpertiseRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Haste Rating.
+        /// </summary>
+        public static string Item_ReforgedStat_HasteRating {
+            get {
+                return ResourceManager.GetString("Item_ReforgedStat_HasteRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hit Rating.
+        /// </summary>
+        public static string Item_ReforgedStat_HitRating {
+            get {
+                return ResourceManager.GetString("Item_ReforgedStat_HitRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mastery Rating.
+        /// </summary>
+        public static string Item_ReforgedStat_Mastery {
+            get {
+                return ResourceManager.GetString("Item_ReforgedStat_Mastery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parry Rating.
+        /// </summary>
+        public static string Item_ReforgedStat_ParryRating {
+            get {
+                return ResourceManager.GetString("Item_ReforgedStat_ParryRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spirit.
+        /// </summary>
+        public static string Item_ReforgedStat_Spirit {
+            get {
+                return ResourceManager.GetString("Item_ReforgedStat_Spirit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Requires {0} - {1}.
         /// </summary>
         public static string Item_RequiredFaction {

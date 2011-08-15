@@ -2,6 +2,7 @@
 {
 	public enum ItemBonusStatType
 	{
+		None = -1,
 		Health = 0,
 		Mana = 2,
 		Agility = 3,

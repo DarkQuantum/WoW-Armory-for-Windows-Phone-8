@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core"
 	xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
-	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7" xmlns:ctrl="clr-namespace:WowArmory.Controls" mc:Ignorable="d"
+	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:cmd="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7" xmlns:ctrl="clr-namespace:WowArmory.Controls" xmlns:tk="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" mc:Ignorable="d"
 	d:DesignWidth="480" d:DesignHeight="800"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -494,7 +494,7 @@
 							</ScrollViewer>
 							<Border x:Name="brdItemToolTip" Grid.Row="0" Margin="2,0,2,2"
 									BorderBrush="#ff677180" BorderThickness="1" CornerRadius="6"
-									VerticalAlignment="Top" Visibility="Collapsed">
+									VerticalAlignment="Top" Visibility="Visible">
 								<Border.Background>
 									<SolidColorBrush Color="#dd000000" />
 								</Border.Background>
@@ -523,7 +523,16 @@
 											<TextBlock x:Name="tbItemToolTipWeaponInfoSpeed" Grid.Column="1" Text="Speed" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										</Grid>
 										<TextBlock x:Name="tbItemToolTipWeaponInfoDps" Grid.Column="1" Text="Damage Per Second" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
-										<!-- TODO Find out how to display correct reforge information -->
+										<tk:WrapPanel x:Name="spItemToolTipReforge" Orientation="Horizontal" Margin="0">
+											<TextBlock Text="{Binding LocalizedResources.Item_Reforged, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemToolTipBonusStatTextStyle}" Margin="0,0,6,0" />
+											<TextBlock x:Name="tbItemToolTipReforgeFrom" Text="From" Style="{StaticResource CharacterDetailsItemToolTipBonusStatTextStyle}" />
+											<Rectangle Fill="{StaticResource ItemToolTipHighlightBrush}" Width="14" Height="14" Margin="6,0,6,0">
+												<Rectangle.OpacityMask>
+													<ImageBrush ImageSource="/WowArmory.Core;Component/Images/Item/Reforge_Arrow.png" Stretch="Fill" />
+												</Rectangle.OpacityMask>
+											</Rectangle>
+											<TextBlock x:Name="tbItemToolTipReforgeTo" Text="To" Style="{StaticResource CharacterDetailsItemToolTipBonusStatTextStyle}" Margin="0" />
+										</tk:WrapPanel>
 										<TextBlock x:Name="tbItemToolTipArmor" Text="Armor" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipStrength" Text="Strength" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<TextBlock x:Name="tbItemToolTipAgility" Text="Agility" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />

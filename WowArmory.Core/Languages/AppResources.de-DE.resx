@@ -1039,4 +1039,31 @@
   <data name="Item_ExternalLink_Wowhead_Url" xml:space="preserve">
     <value>http://www.wowhead.com/item={0}</value>
   </data>
+  <data name="Item_Reforged" xml:space="preserve">
+    <value>Umgeschmiedet</value>
+  </data>
+  <data name="Item_ReforgedStat_CriticalStrikeRating" xml:space="preserve">
+    <value>Kritische Trefferwertung</value>
+  </data>
+  <data name="Item_ReforgedStat_DodgeRating" xml:space="preserve">
+    <value>Ausweichwertung</value>
+  </data>
+  <data name="Item_ReforgedStat_ExpertiseRating" xml:space="preserve">
+    <value>Waffenkundewertung</value>
+  </data>
+  <data name="Item_ReforgedStat_HasteRating" xml:space="preserve">
+    <value>Tempowertung</value>
+  </data>
+  <data name="Item_ReforgedStat_HitRating" xml:space="preserve">
+    <value>Trefferwertung</value>
+  </data>
+  <data name="Item_ReforgedStat_Mastery" xml:space="preserve">
+    <value>Meisterschaftswertung</value>
+  </data>
+  <data name="Item_ReforgedStat_ParryRating" xml:space="preserve">
+    <value>Parierwertung</value>
+  </data>
+  <data name="Item_ReforgedStat_Spirit" xml:space="preserve">
+    <value>Willenskraft</value>
+  </data>
 </root>

@@ -208,6 +208,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RealmList", "RealmList", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item", "Item", "{32C2704E-4A1A-415B-9EE6-E637150B7813}"
 	ProjectSection(SolutionItems) = preProject
+		Media\Item\Reforge_Arrow.png = Media\Item\Reforge_Arrow.png
+		Media\Item\Reforge_Arrow.psd = Media\Item\Reforge_Arrow.psd
 		Media\Item\Socket.psd = Media\Item\Socket.psd
 		Media\Item\Socket_BLUE.png = Media\Item\Socket_BLUE.png
 		Media\Item\Socket_GREEN.png = Media\Item\Socket_GREEN.png
