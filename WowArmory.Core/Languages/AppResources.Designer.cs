@@ -88,7 +88,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Follow @wp7wowarmory on twitter or visit the facebook page:.
+        ///   Looks up a localized string similar to Latest app news:.
         /// </summary>
         public static string About_Links {
             get {
@@ -106,7 +106,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This application is open sourced and available at GitHub:.
+        ///   Looks up a localized string similar to Source code for this app is available at GitHub:.
         /// </summary>
         public static string About_SourceText {
             get {
@@ -2617,7 +2617,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please sepcify a character name.
+        ///   Looks up a localized string similar to Please specify a character name.
         /// </summary>
         public static string UI_CharacterSearch_MissingName_Text {
             get {
@@ -2707,7 +2707,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Before you continue you may want to check out the settings and set everything the way you like. The settings page will now open automatically if that&apos;s ok for you?.
+        ///   Looks up a localized string similar to Please be aware that not every data from the armory is available yet. This is something I have no control over so please be patient and I will update the app as soon as Blizzard makes more data available for third party developers. Also before you continue you may want to check out the settings and set everything the way you like or click cancel to just use the app with the default settings (you may change them any time you want by clicking the &quot;Settings&quot; button on the main screen)..
         /// </summary>
         public static string UI_Main_FirstTimeUsage_Text {
             get {

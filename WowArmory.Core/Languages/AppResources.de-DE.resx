@@ -331,7 +331,7 @@
     <value>Erstellt von Christian Krüger</value>
   </data>
   <data name="About_Links" xml:space="preserve">
-    <value>Folge @wp7wowarmory auf Twitter oder besuche die Facebook Seite:</value>
+    <value>Aktuellste Neuigkeiten:</value>
   </data>
   <data name="About_Trademarks" xml:space="preserve">
     <value>Alle in dieser Applikation genannten Markenzeichen sind Besitz der jeweiligen Besitzer.</value>
@@ -376,10 +376,10 @@
     <value>Es konnten keine Daten vom Battle.Net empfangen werden</value>
   </data>
   <data name="UI_Main_FirstTimeUsage_Caption" xml:space="preserve">
-    <value>Danke das du diese App verwendest</value>
+    <value>Vielen Dank, dass du diese App verwendest</value>
   </data>
   <data name="UI_Main_FirstTimeUsage_Text" xml:space="preserve">
-    <value>Bevor du fortfährst, solltest du dir Einstellungen ansehen und alles nach deinen Wünschen einstellen. Wenn es für dich ok ist, wird nun die Einstellungsseite angezeigt?</value>
+    <value>Bitte beachte, dass derzeit nicht alle Daten vom Arsenal verfügbar sind. Dies ist etwas worüber ich leider keine Kontrolle habe und deshalb bitte ich dich derzeit geduldig zu sein. Updates folgen sobald Blizzard mehr Daten zur Verfügung stellt. Bevor du fortfährst, solltest du die Einstellungen anpassen oder du wählst "Abbrechen" und verwendest die Standard Einstellungen (du kannst diese jederzeit ändern indem du "Einstellungen" im Hauptbildschirm wählst).</value>
   </data>
   <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
     <value>Willkommensnachricht erneut anzeigen</value>
@@ -544,7 +544,7 @@
     <value>twitter.com/wp7wowarmory</value>
   </data>
   <data name="About_SourceText" xml:space="preserve">
-    <value>Diese Applikation ist Open Source und verfügbar auf GitHub:</value>
+    <value>Der Quellcode diese App ist verfügbar auf Github:</value>
   </data>
   <data name="About_SourceButton" xml:space="preserve">
     <value>Besuche Projektseite</value>

@@ -331,7 +331,7 @@
     <value>Created by Christian Krueger</value>
   </data>
   <data name="About_Links" xml:space="preserve">
-    <value>Follow @wp7wowarmory on twitter or visit the facebook page:</value>
+    <value>Latest app news:</value>
   </data>
   <data name="About_Trademarks" xml:space="preserve">
     <value>All trademarks referenced in this application are the properties of their respective owners.</value>
@@ -379,7 +379,7 @@
     <value>Thanks for using this app</value>
   </data>
   <data name="UI_Main_FirstTimeUsage_Text" xml:space="preserve">
-    <value>Before you continue you may want to check out the settings and set everything the way you like. The settings page will now open automatically if that's ok for you?</value>
+    <value>Please be aware that not every data from the armory is available yet. This is something I have no control over so please be patient and I will update the app as soon as Blizzard makes more data available for third party developers. Also before you continue you may want to check out the settings and set everything the way you like or click cancel to just use the app with the default settings (you may change them any time you want by clicking the "Settings" button on the main screen).</value>
   </data>
   <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
     <value>Show welcome message again</value>
@@ -406,7 +406,7 @@
     <value>Search</value>
   </data>
   <data name="UI_CharacterSearch_MissingName_Text" xml:space="preserve">
-    <value>Please sepcify a character name</value>
+    <value>Please specify a character name</value>
   </data>
   <data name="UI_CharacterSearch_MissingRealm_Text" xml:space="preserve">
     <value>Please specify a realm name</value>
@@ -544,7 +544,7 @@
     <value>twitter.com/wp7wowarmory</value>
   </data>
   <data name="About_SourceText" xml:space="preserve">
-    <value>This application is open sourced and available at GitHub:</value>
+    <value>Source code for this app is available at GitHub:</value>
   </data>
   <data name="About_SourceButton" xml:space="preserve">
     <value>Visit project page</value>

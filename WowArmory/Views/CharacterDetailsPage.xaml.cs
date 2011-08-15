@@ -119,7 +119,7 @@ namespace WowArmory.Views
 				ViewModel.Character.Talents != null &&
 				ViewModel.Character.Talents.Count > 0)
 			{
-				if (ViewModel.Character.Talents[0] != null)
+				if (ViewModel.Character.Talents[0] != null && !String.IsNullOrEmpty(ViewModel.Character.Talents[0].Name))
 				{
 					var talentOne = BuildTalentInformation(ViewModel.Character.Talents[0]);
 					Grid.SetColumn(talentOne, 0);
@@ -127,7 +127,7 @@ namespace WowArmory.Views
 					talentOne.VerticalAlignment = VerticalAlignment.Top;
 					gdCharacterTalents.Children.Add(talentOne);
 				}
-				if (ViewModel.Character.Talents[1] != null)
+				if (ViewModel.Character.Talents[1] != null && !String.IsNullOrEmpty(ViewModel.Character.Talents[1].Name))
 				{
 					var talentTwo = BuildTalentInformation(ViewModel.Character.Talents[1]);
 					Grid.SetColumn(talentTwo, 1);
