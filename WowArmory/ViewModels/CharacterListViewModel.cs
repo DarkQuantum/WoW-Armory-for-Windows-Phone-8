@@ -201,6 +201,9 @@ namespace WowArmory.ViewModels
 		/// <param name="character">The character retrieved from the armory.</param>
 		private void OnCharacterRetrievedFromArmory(Character character)
 		{
+			// reset selected character so we can click it again in case the result wasn't valid
+			SelectedCharacter = null;
+
 			IsProgressBarVisible = false;
 			IsProgressBarIndeterminate = false;
 

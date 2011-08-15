@@ -1021,9 +1021,6 @@
   <data name="UI_CharacterDetails_Character_Description_Achievements" xml:space="preserve">
     <value>Erfolge</value>
   </data>
-  <data name="UI_Settings_General_ShowCharacterBackground" xml:space="preserve">
-    <value>Charakter Hintergrund anzeigen</value>
-  </data>
   <data name="Pages_Main_Button_Facebook" xml:space="preserve">
     <value>Facebook</value>
   </data>
@@ -1065,5 +1062,14 @@
   </data>
   <data name="Item_ReforgedStat_Spirit" xml:space="preserve">
     <value>Willenskraft</value>
+  </data>
+  <data name="UI_Settings_Character_ShowCharacterBackground" xml:space="preserve">
+    <value>Hintergrundbild anzeigen</value>
+  </data>
+  <data name="UI_Settings_Character_ShowGemName" xml:space="preserve">
+    <value>Edelsteinnamen anzeigen</value>
+  </data>
+  <data name="UI_Settings_PivotItem_Character" xml:space="preserve">
+    <value>charakter</value>
   </data>
 </root>

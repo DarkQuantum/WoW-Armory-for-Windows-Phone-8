@@ -2833,6 +2833,24 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Show background image.
+        /// </summary>
+        public static string UI_Settings_Character_ShowCharacterBackground {
+            get {
+                return ResourceManager.GetString("UI_Settings_Character_ShowCharacterBackground", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display gem name.
+        /// </summary>
+        public static string UI_Settings_Character_ShowGemName {
+            get {
+                return ResourceManager.GetString("UI_Settings_Character_ShowGemName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Level.
         /// </summary>
         public static string UI_Settings_General_CharacterList_OrderBy_Level {
@@ -2869,11 +2887,11 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show character background.
+        ///   Looks up a localized string similar to character.
         /// </summary>
-        public static string UI_Settings_General_ShowCharacterBackground {
+        public static string UI_Settings_PivotItem_Character {
             get {
-                return ResourceManager.GetString("UI_Settings_General_ShowCharacterBackground", resourceCulture);
+                return ResourceManager.GetString("UI_Settings_PivotItem_Character", resourceCulture);
             }
         }
         

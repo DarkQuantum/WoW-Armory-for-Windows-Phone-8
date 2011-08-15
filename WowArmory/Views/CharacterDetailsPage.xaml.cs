@@ -25,7 +25,7 @@ namespace WowArmory.Views
 		//----------------------------------------------------------------------
 		private bool _isToolTipLoading = false;
 		private int _toolTipCancel = 0;
-		private Dictionary<CharacterItemContainer, Item> _cachedItems = new Dictionary<CharacterItemContainer,Item>();
+		private Dictionary<CharacterItemContainer, Item> _cachedItems = new Dictionary<CharacterItemContainer, Item>();
 		private CharacterItemContainer _itemContainerForToolTip;
 		private Item _itemForToolTip;
 		private Dictionary<int, Item> _cachedGems = new Dictionary<int, Item>();
@@ -57,7 +57,7 @@ namespace WowArmory.Views
 		#endregion
 		//----------------------------------------------------------------------
 
-		
+
 		//----------------------------------------------------------------------
 		#region --- Methods ---
 		//----------------------------------------------------------------------
@@ -157,7 +157,7 @@ namespace WowArmory.Views
 			grid.ColumnDefinitions.Add(new ColumnDefinition());
 
 			var talentImageGrid = new Grid();
-			talentImageGrid.Margin = new Thickness(0,0,4,0);
+			talentImageGrid.Margin = new Thickness(0, 0, 4, 0);
 			talentImageGrid.VerticalAlignment = VerticalAlignment.Top;
 			Grid.SetRow(talentImageGrid, 0);
 			Grid.SetRowSpan(talentImageGrid, 2);
@@ -245,7 +245,7 @@ namespace WowArmory.Views
 			pointsThree.Style = (Style)Resources[String.Format("CharacterDetailsTalents{0}Points{1}TextStyle", activeText, maxText)];
 			stackPanel.Children.Add(pointsThree);
 
-			
+
 			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeOnePoints" />
 			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeOneSeparator" Text=", " />
 			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeTwoPoints" />
@@ -417,7 +417,7 @@ namespace WowArmory.Views
 			grid.ColumnDefinitions.Add(new ColumnDefinition());
 			grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 			grid.Margin = new Thickness(0, 0, 0, 4);
-			
+
 			// NOTE the Battle.Net community api currently returns 0 as the maximum value - in this case use a default of 525
 			var max = profession.Max > 0 ? Convert.ToDouble(profession.Max) : 525.0;
 			int rectangleWidth = Convert.ToInt32(Math.Round(456.0 * (Convert.ToDouble(profession.Rank) / max)));
@@ -480,7 +480,7 @@ namespace WowArmory.Views
 			var valueTextBlock = new TextBlock();
 			Grid.SetRow(valueTextBlock, 0);
 			Grid.SetColumn(valueTextBlock, 2);
-			valueTextBlock.Text = String.Format("{0} / {1}", profession.Rank, profession.Max);
+			valueTextBlock.Text = String.Format("{0} / {1}", profession.Rank, Convert.ToInt32(Math.Floor(max)));
 			valueTextBlock.Style = (Style)Resources["ProfessionTextStyle"];
 			valueTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
 			valueTextBlock.VerticalAlignment = VerticalAlignment.Center;
@@ -882,7 +882,7 @@ namespace WowArmory.Views
 					}
 
 					var consumableString = "Consumable";
-					
+
 					if (!itemSpell.Consumable && String.IsNullOrEmpty(itemSpell.Spell.CastTime))
 					{
 						consumableString = String.Format("Not{0}", consumableString);
@@ -1027,7 +1027,7 @@ namespace WowArmory.Views
 			{
 				if (!_cachedGems.ContainsKey(itemId))
 				{
-					BattleNetClient.Current.GetItemAsync(itemId, item => SocketDetailsRetrieved(item, index));	
+					BattleNetClient.Current.GetItemAsync(itemId, item => SocketDetailsRetrieved(item, index));
 				}
 				else
 				{
@@ -1053,7 +1053,10 @@ namespace WowArmory.Views
 			var nameElement = UIHelper.FindChild<TextBlock>(spItemToolTipSockets, String.Format("tbItemToolTipSocketName{0}", index));
 
 			imageElement.Source = BattleNetClient.Current.GetIcon(item.Icon, IconSize.Small);
-			ShowToolTipText(nameElement, item.Name);
+			if (AppSettingsManager.ShowGemName)
+			{
+				ShowToolTipText(nameElement, item.Name);
+			}
 
 			if (item.GemInfo != null && item.GemInfo.Bonus != null)
 			{

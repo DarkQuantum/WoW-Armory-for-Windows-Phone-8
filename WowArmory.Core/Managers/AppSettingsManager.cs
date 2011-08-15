@@ -79,6 +79,24 @@ namespace WowArmory.Core.Managers
 				IsolatedStorageManager.SetValue("Setting_ShowCharacterBackground", value);
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the gem name should be shown.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if the gem name should be shown; otherwise, <c>false</c>.
+		/// </value>
+		public static bool ShowGemName
+		{
+			get
+			{
+				return IsolatedStorageManager.GetValue("Setting_ShowGemName", true);
+			}
+			set
+			{
+				IsolatedStorageManager.SetValue("Setting_ShowGemName", value);
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------

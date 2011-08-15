@@ -80,6 +80,7 @@ namespace WowArmory.Views
 			AppSettingsManager.Region = ViewModel.SelectedRegion.Key;
 			BattleNetClient.Current.Region = AppSettingsManager.Region;
 			AppSettingsManager.ShowCharacterBackground = ViewModel.ShowCharacterBackground;
+			AppSettingsManager.ShowGemName = ViewModel.ShowGemName;
 
 			// save settings
 			IsolatedStorageManager.Save();
