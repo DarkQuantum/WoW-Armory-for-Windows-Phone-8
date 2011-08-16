@@ -326,7 +326,7 @@ namespace WowArmory.Core.BattleNet
 		/// </returns>
 		internal string BuildCharacterFieldsQueryString(CharacterFields fields)
 		{
-			var fieldQueryString = fields.GetValues().Cast<CharacterFields>().Where(value => (fields & value) == value).Aggregate(String.Empty, (current, value) => String.Format("{0}{1}{2}", current, !String.IsNullOrEmpty(current) ? "," : String.Empty, EnumHelper.GetApiUrlFieldName(value)));
+			var fieldQueryString = fields.GetValues().Cast<CharacterFields>().Where(value => value != CharacterFields.All && (fields & value) == value).Aggregate(String.Empty, (current, value) => String.Format("{0}{1}{2}", current, !String.IsNullOrEmpty(current) ? "," : String.Empty, EnumHelper.GetApiUrlFieldName(value)));
 			return !String.IsNullOrEmpty(fieldQueryString) ? String.Format("?fields={0}", fieldQueryString) : String.Empty;
 		}
 

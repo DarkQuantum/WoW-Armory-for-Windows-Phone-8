@@ -34,6 +34,10 @@ namespace WowArmory.Core.BattleNet.Models
 		Achievements = 4096,
 		[ApiUrlField(Name = "progression")]
 		Progression = 8192,
-		All = Basic | Guild | Stats | Talents | Items | Reputation | Titles | Professions | Appearance | Companions | Mounts | Pets | Achievements | Progression
+		[ApiUrlField(Name = "pvp")]
+		Pvp = 16384,
+		[ApiUrlField(Name = "quests")]
+		Quests = 32768,
+		All = Basic | Guild | Stats | Talents | Items | Reputation | Titles | Professions | Appearance | Companions | Mounts | Pets | Achievements | Progression | Pvp | Quests
 	}
 }
