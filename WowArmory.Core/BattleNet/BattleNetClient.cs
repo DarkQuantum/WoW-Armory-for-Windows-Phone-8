@@ -4,6 +4,9 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using Newtonsoft.Json;
@@ -341,6 +344,23 @@ namespace WowArmory.Core.BattleNet
 				request.Headers["user-agent"] = BattleNetSettings.WebRequest_Header_UserAgent;
 				request.AllowAutoRedirect = true;
 
+				//if (AuthenticationManager.UseAuthentication)
+				//{
+				//    var date = DateTime.Now.ToUniversalTime();
+				//    var dateString = date.ToString("r");
+				//    //var type = request.Headers.GetType();
+				//    //var bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic;
+				//    //var methodInfo = type.GetMethod("AddWithoutValidate", bindingFlags);
+				//    //methodInfo.Invoke(request.Headers, new[] { "Date", date.ToString("r") });
+
+				//    var stringToSign = String.Format("{0}\n{1}\n{2}\n", request.Method, dateString, UrlPathEncode(request.RequestUri.LocalPath));
+				//    var hmac = new HMACSHA1(Encoding.UTF8.GetBytes(AuthenticationManager.PrivateKey));
+				//    var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign));
+				//    var signature = Convert.ToBase64String(hash);
+				//    var authorization = String.Format("BNET {0}:{1}", AuthenticationManager.PublicKey, signature);
+				//    request.Headers["Authorization"] = authorization;
+				//}
+
 				request.BeginGetResponse(delegate(IAsyncResult result)
 				{
 					try
@@ -376,6 +396,30 @@ namespace WowArmory.Core.BattleNet
 				// TODO: need to implement error handling
 				throw ex;
 			}
+		}
+
+		/// <summary>
+		/// Encodes the specified url path the way the Battle.Net Community API needs it.
+		/// </summary>
+		/// <param name="urlPath">The URL path.</param>
+		/// <returns></returns>
+		private string UrlPathEncode(string urlPath)
+		{
+			var urlPathBytes = Encoding.UTF8.GetBytes(urlPath);
+			var encodedString = String.Empty;
+			foreach (var urlPathByte in urlPathBytes)
+			{
+				if (urlPathByte <= 0x20 || urlPathByte > 0x7f)
+				{
+					encodedString = String.Format("{0}%{1:X2}", encodedString, urlPathByte);
+				}
+				else
+				{
+					encodedString = String.Format("{0}{1}", encodedString, (char)urlPathByte);
+				}
+			}
+
+			return encodedString;
 		}
 
 		/// <summary>

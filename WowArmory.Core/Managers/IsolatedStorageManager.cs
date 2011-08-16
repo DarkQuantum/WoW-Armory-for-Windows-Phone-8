@@ -4,10 +4,14 @@ using System.Globalization;
 using System.IO;
 using System.IO.IsolatedStorage;
 using System.Linq;
+using System.Text;
+using System.Windows;
+using System.Xml;
 using System.Xml.Serialization;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
 using WowArmory.Core.Converters;
+using WowArmory.Core.Models;
 using WowArmory.Core.Storage;
 
 namespace WowArmory.Core.Managers
@@ -161,41 +165,42 @@ namespace WowArmory.Core.Managers
 				storageData.Faction = (CharacterFaction)(int)converter.Convert(character.Race, typeof(Int32), null, CultureInfo.CurrentCulture);
 				storageData.Race = (CharacterRace)character.Race;
 
-				using (var store = IsolatedStorageFile.GetUserStoreForApplication())
-				{
-					if (!store.DirectoryExists(CHARACTER_STORAGE_PATH))
-					{
-						store.CreateDirectory(CHARACTER_STORAGE_PATH);
-					}
+				// NOTE not sure why i stored the character as a xml file... ?
+				//using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+				//{
+				//    if (!store.DirectoryExists(CHARACTER_STORAGE_PATH))
+				//    {
+				//        store.CreateDirectory(CHARACTER_STORAGE_PATH);
+				//    }
 
-					var stream = new MemoryStream();
-					var serializer = new XmlSerializer(typeof(Character));
-					serializer.Serialize(stream, character);
-					stream.Seek(0, SeekOrigin.Begin);
-					using (stream)
-					{
-						var file = store.CreateFile(String.Format("{0}\\{1}.xml", CHARACTER_STORAGE_PATH, storageData.Guid));
-						const int readChunk = 1024 * 1024;
-						const int writeChunk = 1024 * 1024;
-						var buffer = new byte[readChunk];
-						while (true)
-						{
-							var read = stream.Read(buffer, 0, readChunk);
-							if (read <= 0)
-							{
-								break;
-							}
+				//    var stream = new MemoryStream();
+				//    var serializer = new XmlSerializer(typeof(Character));
+				//    serializer.Serialize(stream, character);
+				//    stream.Seek(0, SeekOrigin.Begin);
+				//    using (stream)
+				//    {
+				//        var file = store.CreateFile(String.Format("{0}\\{1}.xml", CHARACTER_STORAGE_PATH, storageData.Guid));
+				//        const int readChunk = 1024 * 1024;
+				//        const int writeChunk = 1024 * 1024;
+				//        var buffer = new byte[readChunk];
+				//        while (true)
+				//        {
+				//            var read = stream.Read(buffer, 0, readChunk);
+				//            if (read <= 0)
+				//            {
+				//                break;
+				//            }
 
-							var write = read;
-							while (write > 0)
-							{
-								file.Write(buffer, 0, Math.Min(write, writeChunk));
-								write -= Math.Min(write, writeChunk);
-							}
-						}
-						file.Close();
-					}
-				}
+				//            var write = read;
+				//            while (write > 0)
+				//            {
+				//                file.Write(buffer, 0, Math.Min(write, writeChunk));
+				//                write -= Math.Min(write, writeChunk);
+				//            }
+				//        }
+				//        file.Close();
+				//    }
+				//}
 
 				StoredCharacters.Add(storageData);
 			}
@@ -220,13 +225,14 @@ namespace WowArmory.Core.Managers
 					return;
 				}
 
-				using (var store = IsolatedStorageFile.GetUserStoreForApplication())
-				{
-					if (store.FileExists(String.Format("{0}\\{1}.xml", CHARACTER_STORAGE_PATH, storageData.Guid)))
-					{
-						store.DeleteFile(String.Format("{0}\\{1}.xml", CHARACTER_STORAGE_PATH, storageData.Guid));
-					}
-				}
+				// NOTE not sure why i stored the character as a xml file... ?
+				//using (var store = IsolatedStorageFile.GetUserStoreForApplication())
+				//{
+				//    if (store.FileExists(String.Format("{0}\\{1}.xml", CHARACTER_STORAGE_PATH, storageData.Guid)))
+				//    {
+				//        store.DeleteFile(String.Format("{0}\\{1}.xml", CHARACTER_STORAGE_PATH, storageData.Guid));
+				//    }
+				//}
 
 				StoredCharacters.Remove(storageData);
 			}
@@ -235,6 +241,63 @@ namespace WowArmory.Core.Managers
 				// TODO add some error message
 				return;
 			}
+		}
+
+		/// <summary>
+		/// Gets the encryption keys.
+		/// </summary>
+		/// <returns></returns>
+		public static bool GetEncryptionKeys(out EncryptionData encryptionData)
+		{
+			encryptionData = null;
+
+			try
+			{
+				var xmlSerializer = new XmlSerializer(typeof(EncryptionData));
+				var resource = Application.GetResourceStream(new Uri("/WowArmory.Core;Component/Encryption.key", UriKind.Relative));
+				using (var streamReader = new StreamReader(resource.Stream))
+				{
+					var text = streamReader.ReadToEnd();
+					var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(text));
+					encryptionData = (EncryptionData)xmlSerializer.Deserialize(memoryStream);
+				}
+				return true;
+			}
+			catch (Exception ex)
+			{
+				return false;
+			}
+
+			return true;
+		}
+
+		/// <summary>
+		/// Gets the authentication keys.
+		/// </summary>
+		/// <param name="authenticationData">The authentication data.</param>
+		/// <returns></returns>
+		public static bool GetAuthenticationKeys(out AuthenticationData authenticationData)
+		{
+			authenticationData = null;
+
+			try
+			{
+				var xmlSerializer = new XmlSerializer(typeof(AuthenticationData));
+				var resource = Application.GetResourceStream(new Uri("/WowArmory.Core;Component/Authentication.key", UriKind.Relative));
+				using (var streamReader = new StreamReader(resource.Stream))
+				{
+					var text = streamReader.ReadToEnd();
+					var memoryStream = new MemoryStream(Encoding.UTF8.GetBytes(text));
+					authenticationData = (AuthenticationData)xmlSerializer.Deserialize(memoryStream);
+				}
+				return true;
+			}
+			catch (Exception ex)
+			{
+				return false;
+			}
+
+			return true;
 		}
 		//----------------------------------------------------------------------
 		#endregion
