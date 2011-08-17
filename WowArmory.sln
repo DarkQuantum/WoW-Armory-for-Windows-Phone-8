@@ -136,7 +136,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{B6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterList", "CharacterList", "{3747578C-1B15-4E0B-9C04-608562DC793A}"
 	ProjectSection(SolutionItems) = preProject
+		Media\ApplicationBar\CharacterList\delete.png = Media\ApplicationBar\CharacterList\delete.png
 		Media\ApplicationBar\CharacterList\search.png = Media\ApplicationBar\CharacterList\search.png
+		Media\ApplicationBar\CharacterList\update.png = Media\ApplicationBar\CharacterList\update.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Badge", "Badge", "{3A47F978-1BD8-4F24-92B9-5BF3D90B990A}"
@@ -364,7 +366,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GuildDetails", "GuildDetail
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GuildList", "GuildList", "{805AEC53-B9BB-462B-92BA-58F25FA2957E}"
 	ProjectSection(SolutionItems) = preProject
+		Media\ApplicationBar\GuildList\delete.png = Media\ApplicationBar\GuildList\delete.png
 		Media\ApplicationBar\GuildList\search.png = Media\ApplicationBar\GuildList\search.png
+		Media\ApplicationBar\GuildList\update.png = Media\ApplicationBar\GuildList\update.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Factions", "Factions", "{38557035-4446-481F-87EF-53A86D8B8768}"

@@ -15,6 +15,7 @@ namespace WowArmory.Views
 		//----------------------------------------------------------------------
 		#region --- Fields ---
 		//----------------------------------------------------------------------
+		private ApplicationBarIconButton _deleteAllButton;
 		private ApplicationBarMenuItem _sortByNameMenuItem;
 		private ApplicationBarMenuItem _sortByLevelMenuItem;
 		private ApplicationBarMenuItem _sortByAchievementPointsMenuItem;
@@ -71,6 +72,10 @@ namespace WowArmory.Views
 			searchButton.Text = AppResources.UI_CharacterList_ApplicationBar_Search;
 			searchButton.Click += ShowCharacterSearchView;
 
+			_deleteAllButton = new ApplicationBarIconButton(new Uri("/Images/ApplicationBar/CharacterList/delete.png", UriKind.Relative));
+			_deleteAllButton.Text = AppResources.UI_CharacterList_ApplicationBar_DeleteAll;
+			_deleteAllButton.Click += DeleteAll;
+
 			_sortByNameMenuItem = new ApplicationBarMenuItem(AppResources.UI_CharacterList_ApplicationBar_SortByName);
 			_sortByNameMenuItem.Click += SortByName;
 
@@ -81,6 +86,7 @@ namespace WowArmory.Views
 			_sortByAchievementPointsMenuItem.Click += SortByAchievementPoints;
 
 			ApplicationBar.Buttons.Add(searchButton);
+			ApplicationBar.Buttons.Add(_deleteAllButton);
 			ApplicationBar.MenuItems.Add(_sortByNameMenuItem);
 			ApplicationBar.MenuItems.Add(_sortByLevelMenuItem);
 			ApplicationBar.MenuItems.Add(_sortByAchievementPointsMenuItem);
@@ -99,6 +105,7 @@ namespace WowArmory.Views
 				enabled = false;
 			}
 
+			_deleteAllButton.IsEnabled = enabled;
 			_sortByNameMenuItem.IsEnabled = enabled;
 			_sortByLevelMenuItem.IsEnabled = enabled;
 			_sortByAchievementPointsMenuItem.IsEnabled = enabled;
@@ -196,6 +203,7 @@ namespace WowArmory.Views
 		private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
 		{
 			ViewModel.RefreshView();
+			UpdateApplicationBarItems();
 		}
 
 		/// <summary>
@@ -211,6 +219,27 @@ namespace WowArmory.Views
 			}
 
 			ViewModel.ShowSelectedCharacter();
+		}
+
+		/// <summary>
+		/// Deletes all stored characters.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void DeleteAll(object sender, EventArgs e)
+		{
+			if (MessageBox.Show(AppResources.UI_CharacterList_DeleteAll_Text, AppResources.UI_CharacterList_DeleteAll_Caption, MessageBoxButton.OKCancel) == MessageBoxResult.Cancel)
+			{
+				return;
+			}
+
+			while (IsolatedStorageManager.StoredCharacters.Count > 0)
+			{
+				IsolatedStorageManager.StoredCharacters.Remove(IsolatedStorageManager.StoredCharacters[0]);
+			}
+
+			ViewModel.RefreshView();
+			UpdateApplicationBarItems();
 		}
 		//----------------------------------------------------------------------
 		#endregion

@@ -218,11 +218,23 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Media\ApplicationBar\CharacterList\delete.png">
+      <Link>Images\ApplicationBar\CharacterList\delete.png</Link>
+    </Content>
     <Content Include="..\Media\ApplicationBar\CharacterList\search.png">
       <Link>Images\ApplicationBar\CharacterList\search.png</Link>
     </Content>
+    <Content Include="..\Media\ApplicationBar\CharacterList\update.png">
+      <Link>Images\ApplicationBar\CharacterList\update.png</Link>
+    </Content>
+    <Content Include="..\Media\ApplicationBar\GuildList\delete.png">
+      <Link>Images\ApplicationBar\GuildList\delete.png</Link>
+    </Content>
     <Content Include="..\Media\ApplicationBar\GuildList\search.png">
       <Link>Images\ApplicationBar\GuildList\search.png</Link>
+    </Content>
+    <Content Include="..\Media\ApplicationBar\GuildList\update.png">
+      <Link>Images\ApplicationBar\GuildList\update.png</Link>
     </Content>
     <Content Include="..\Media\ApplicationBar\RealmList\refresh.png">
       <Link>Images\ApplicationBar\RealmList\refresh.png</Link>

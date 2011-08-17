@@ -2680,6 +2680,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to delete all.
+        /// </summary>
+        public static string UI_CharacterList_ApplicationBar_DeleteAll {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_ApplicationBar_DeleteAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to search.
         /// </summary>
         public static string UI_CharacterList_ApplicationBar_Search {
@@ -2712,6 +2721,24 @@ namespace WowArmory.Core.Languages {
         public static string UI_CharacterList_ApplicationBar_SortByName {
             get {
                 return ResourceManager.GetString("UI_CharacterList_ApplicationBar_SortByName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete all characters.
+        /// </summary>
+        public static string UI_CharacterList_DeleteAll_Caption {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_DeleteAll_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All characters will be deleted from your list.
+        /// </summary>
+        public static string UI_CharacterList_DeleteAll_Text {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_DeleteAll_Text", resourceCulture);
             }
         }
         

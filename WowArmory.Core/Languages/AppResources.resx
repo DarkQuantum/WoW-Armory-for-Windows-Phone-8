@@ -1120,4 +1120,13 @@
   <data name="UI_CharacterList_ApplicationBar_SortByName" xml:space="preserve">
     <value>sort by name</value>
   </data>
+  <data name="UI_CharacterList_ApplicationBar_DeleteAll" xml:space="preserve">
+    <value>delete all</value>
+  </data>
+  <data name="UI_CharacterList_DeleteAll_Caption" xml:space="preserve">
+    <value>Delete all characters</value>
+  </data>
+  <data name="UI_CharacterList_DeleteAll_Text" xml:space="preserve">
+    <value>All characters will be deleted from your list</value>
+  </data>
 </root>
