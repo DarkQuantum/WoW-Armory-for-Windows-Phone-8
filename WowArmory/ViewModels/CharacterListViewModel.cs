@@ -161,15 +161,40 @@ namespace WowArmory.ViewModels
 		{
 			var characters = IsolatedStorageManager.StoredCharacters;
 
-			switch (AppSettingsManager.CharacterListOrderBy)
+			switch (AppSettingsManager.CharacterListSortBy)
 			{
-				case CharacterListOrderBy.Level:
+				case CharacterListSortBy.Level:
 					{
-						FavoriteCharacters = characters.OrderBy(c => c.Level).Select(c => new CharacterListItem(c)).ToObservableCollection();
+						if (AppSettingsManager.CharacterListSortByType == SortBy.Ascending)
+						{
+							FavoriteCharacters = characters.OrderBy(c => c.Level).Select(c => new CharacterListItem(c)).ToObservableCollection();
+						}
+						else
+						{
+							FavoriteCharacters = characters.OrderByDescending(c => c.Level).Select(c => new CharacterListItem(c)).ToObservableCollection();
+						}
+					} break;
+				case CharacterListSortBy.AchievementPoints:
+					{
+						if (AppSettingsManager.CharacterListSortByType == SortBy.Ascending)
+						{
+							FavoriteCharacters = characters.OrderBy(c => c.AchievementPoints).Select(c => new CharacterListItem(c)).ToObservableCollection();
+						}
+						else
+						{
+							FavoriteCharacters = characters.OrderByDescending(c => c.AchievementPoints).Select(c => new CharacterListItem(c)).ToObservableCollection();
+						}
 					} break;
 				default:
 					{
-						FavoriteCharacters = characters.OrderBy(c => c.Character).Select(c => new CharacterListItem(c)).ToObservableCollection();
+						if (AppSettingsManager.CharacterListSortByType == SortBy.Ascending)
+						{
+							FavoriteCharacters = characters.OrderBy(c => c.Character).Select(c => new CharacterListItem(c)).ToObservableCollection();
+						}
+						else
+						{
+							FavoriteCharacters = characters.OrderByDescending(c => c.Character).Select(c => new CharacterListItem(c)).ToObservableCollection();
+						}
 					} break;
 			}
 

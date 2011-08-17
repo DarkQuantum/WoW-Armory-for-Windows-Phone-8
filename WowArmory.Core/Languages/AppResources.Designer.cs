@@ -2689,6 +2689,33 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to sort by achievement points.
+        /// </summary>
+        public static string UI_CharacterList_ApplicationBar_SortByAchievementPoints {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_ApplicationBar_SortByAchievementPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sort by level.
+        /// </summary>
+        public static string UI_CharacterList_ApplicationBar_SortByLevel {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_ApplicationBar_SortByLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sort by name.
+        /// </summary>
+        public static string UI_CharacterList_ApplicationBar_SortByName {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_ApplicationBar_SortByName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No data retrieved.
         /// </summary>
         public static string UI_Common_Error_NoData_Caption {

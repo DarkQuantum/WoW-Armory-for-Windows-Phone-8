@@ -3,13 +3,26 @@ using System.Windows;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WowArmory.Controllers;
+using WowArmory.Core.Enumerations;
 using WowArmory.Core.Languages;
+using WowArmory.Core.Managers;
 using WowArmory.ViewModels;
 
 namespace WowArmory.Views
 {
 	public partial class CharacterListPage : PhoneApplicationPage
 	{
+		//----------------------------------------------------------------------
+		#region --- Fields ---
+		//----------------------------------------------------------------------
+		private ApplicationBarMenuItem _sortByNameMenuItem;
+		private ApplicationBarMenuItem _sortByLevelMenuItem;
+		private ApplicationBarMenuItem _sortByAchievementPointsMenuItem;
+		//----------------------------------------------------------------------
+		#endregion
+		//----------------------------------------------------------------------
+
+
 		//----------------------------------------------------------------------
 		#region --- Properties ---
 		//----------------------------------------------------------------------
@@ -58,7 +71,111 @@ namespace WowArmory.Views
 			searchButton.Text = AppResources.UI_CharacterList_ApplicationBar_Search;
 			searchButton.Click += ShowCharacterSearchView;
 
+			_sortByNameMenuItem = new ApplicationBarMenuItem(AppResources.UI_CharacterList_ApplicationBar_SortByName);
+			_sortByNameMenuItem.Click += SortByName;
+
+			_sortByLevelMenuItem = new ApplicationBarMenuItem(AppResources.UI_CharacterList_ApplicationBar_SortByLevel);
+			_sortByLevelMenuItem.Click += SortByLevel;
+
+			_sortByAchievementPointsMenuItem = new ApplicationBarMenuItem(AppResources.UI_CharacterList_ApplicationBar_SortByAchievementPoints);
+			_sortByAchievementPointsMenuItem.Click += SortByAchievementPoints;
+
 			ApplicationBar.Buttons.Add(searchButton);
+			ApplicationBar.MenuItems.Add(_sortByNameMenuItem);
+			ApplicationBar.MenuItems.Add(_sortByLevelMenuItem);
+			ApplicationBar.MenuItems.Add(_sortByAchievementPointsMenuItem);
+
+			UpdateApplicationBarItems();
+		}
+
+		/// <summary>
+		/// Updates the application bar items.
+		/// </summary>
+		private void UpdateApplicationBarItems()
+		{
+			var enabled = true;
+			if (ViewModel.FavoriteCharacters.Count == 0)
+			{
+				enabled = false;
+			}
+
+			_sortByNameMenuItem.IsEnabled = enabled;
+			_sortByLevelMenuItem.IsEnabled = enabled;
+			_sortByAchievementPointsMenuItem.IsEnabled = enabled;
+		}
+
+		/// <summary>
+		/// Inverts the type the list is sorted by.
+		/// </summary>
+		private void InvertSortByType()
+		{
+			AppSettingsManager.CharacterListSortByType = AppSettingsManager.CharacterListSortByType == SortBy.Ascending ? SortBy.Descending : SortBy.Ascending;
+		}
+
+		/// <summary>
+		/// Sorts the character list by name.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void SortByName(object sender, EventArgs e)
+		{
+			if (AppSettingsManager.CharacterListSortBy == CharacterListSortBy.Name)
+			{
+				InvertSortByType();
+			}
+			else
+			{
+				AppSettingsManager.CharacterListSortByType = SortBy.Ascending;
+			}
+			AppSettingsManager.CharacterListSortBy = CharacterListSortBy.Name;
+			SortCharacterList();
+		}
+
+		/// <summary>
+		/// Sorts the character list by level.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void SortByLevel(object sender, EventArgs e)
+		{
+			if (AppSettingsManager.CharacterListSortBy == CharacterListSortBy.Level)
+			{
+				InvertSortByType();
+			}
+			else
+			{
+				AppSettingsManager.CharacterListSortByType = SortBy.Descending;
+			}
+			AppSettingsManager.CharacterListSortBy = CharacterListSortBy.Level;
+			SortCharacterList();
+		}
+
+		/// <summary>
+		/// Sorts the character list by achievement points.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void SortByAchievementPoints(object sender, EventArgs e)
+		{
+			if (AppSettingsManager.CharacterListSortBy == CharacterListSortBy.AchievementPoints)
+			{
+				InvertSortByType();
+			}
+			else
+			{
+				AppSettingsManager.CharacterListSortByType = SortBy.Descending;
+			}
+			AppSettingsManager.CharacterListSortBy = CharacterListSortBy.AchievementPoints;
+			SortCharacterList();
+		}
+
+		/// <summary>
+		/// Sorts the character list.
+		/// </summary>
+		private void SortCharacterList()
+		{
+			ViewModel.RefreshView();
+			UpdateApplicationBarItems();
 		}
 
 		/// <summary>

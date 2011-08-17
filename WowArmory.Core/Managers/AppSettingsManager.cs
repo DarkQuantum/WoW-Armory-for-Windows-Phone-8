@@ -45,20 +45,38 @@ namespace WowArmory.Core.Managers
 		}
 
 		/// <summary>
-		/// Gets or sets the key in which the character list is ordered by.
+		/// Gets or sets the key in which the character list is sorted by.
 		/// </summary>
 		/// <value>
-		/// The key in which the character list is ordered by.
+		/// The key in which the character list is sorted by.
 		/// </value>
-		public static CharacterListOrderBy CharacterListOrderBy
+		public static CharacterListSortBy CharacterListSortBy
 		{
 			get
 			{
-				return IsolatedStorageManager.GetValue("Setting_CharacterListOrderBy", CharacterListOrderBy.Name);
+				return IsolatedStorageManager.GetValue("Setting_CharacterListSortBy", CharacterListSortBy.Name);
 			}
 			set
 			{
-				IsolatedStorageManager.SetValue("Setting_CharacterListOrderBy", value);
+				IsolatedStorageManager.SetValue("Setting_CharacterListSortBy", value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the type the character list is sorted by.
+		/// </summary>
+		/// <value>
+		/// The type the character list is sorted by.
+		/// </value>
+		public static SortBy CharacterListSortByType
+		{
+			get
+			{
+				return IsolatedStorageManager.GetValue("Setting_CharacterListSortByType", SortBy.Ascending);
+			}
+			set
+			{
+				IsolatedStorageManager.SetValue("Setting_CharacterListSortByType", value);
 			}
 		}
 

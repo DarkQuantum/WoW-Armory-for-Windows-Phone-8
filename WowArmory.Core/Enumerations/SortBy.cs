@@ -1,8 +1,8 @@
 ﻿namespace WowArmory.Core.Enumerations
 {
-	public enum CharacterListOrderBy
+	public enum SortBy
 	{
-		Name,
-		Level
+		Ascending,
+		Descending
 	}
 }

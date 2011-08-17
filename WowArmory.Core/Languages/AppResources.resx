@@ -1111,4 +1111,13 @@
   <data name="UI_CharacterDetails_Faction_Horde" xml:space="preserve">
     <value>Horde</value>
   </data>
+  <data name="UI_CharacterList_ApplicationBar_SortByAchievementPoints" xml:space="preserve">
+    <value>sort by achievement points</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_SortByLevel" xml:space="preserve">
+    <value>sort by level</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_SortByName" xml:space="preserve">
+    <value>sort by name</value>
+  </data>
 </root>

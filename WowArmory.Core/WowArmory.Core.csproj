@@ -143,7 +143,8 @@
     <Compile Include="Converters\StringToUppercaseConverter.cs" />
     <Compile Include="Converters\ThumbnailImageUrlConverter.cs" />
     <Compile Include="Converters\AppImageUrlConverter.cs" />
-    <Compile Include="Enumerations\CharacterListOrderBy.cs" />
+    <Compile Include="Enumerations\CharacterListSortBy.cs" />
+    <Compile Include="Enumerations\SortBy.cs" />
     <Compile Include="Extensions\ApplicationExtensions.cs" />
     <Compile Include="Extensions\EnumExtentions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
