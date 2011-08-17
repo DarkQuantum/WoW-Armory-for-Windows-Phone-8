@@ -70,6 +70,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.WindowsPhon
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterDetails", "CharacterDetails", "{6ABB592A-EDA1-4333-99BD-ED0395E75D01}"
 	ProjectSection(SolutionItems) = preProject
+		Media\CharacterDetails\Character_Title.png = Media\CharacterDetails\Character_Title.png
+		Media\CharacterDetails\Character_Title.psd = Media\CharacterDetails\Character_Title.psd
 		Media\CharacterDetails\Faction_Header.psd = Media\CharacterDetails\Faction_Header.psd
 		Media\CharacterDetails\Faction_Header_0.png = Media\CharacterDetails\Faction_Header_0.png
 		Media\CharacterDetails\Faction_Header_1.png = Media\CharacterDetails\Faction_Header_1.png

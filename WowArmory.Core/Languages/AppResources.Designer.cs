@@ -2446,6 +2446,24 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Titles.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_Header_Titles {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_Header_Titles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This character has no titles yet.
+        /// </summary>
+        public static string UI_CharacterDetails_Character_NoTitles {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Character_NoTitles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Focus.
         /// </summary>
         public static string UI_CharacterDetails_Character_PowerType_Focus {
@@ -2568,15 +2586,6 @@ namespace WowArmory.Core.Languages {
         public static string UI_CharacterDetails_PivotItem_Reputation {
             get {
                 return ResourceManager.GetString("UI_CharacterDetails_PivotItem_Reputation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to titles.
-        /// </summary>
-        public static string UI_CharacterDetails_PivotItem_Titles {
-            get {
-                return ResourceManager.GetString("UI_CharacterDetails_PivotItem_Titles", resourceCulture);
             }
         }
         

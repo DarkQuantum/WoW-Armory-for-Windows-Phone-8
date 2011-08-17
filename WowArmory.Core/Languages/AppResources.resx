@@ -261,8 +261,8 @@
   <data name="UI_CharacterDetails_PivotItem_Reputation" xml:space="preserve">
     <value>reputation</value>
   </data>
-  <data name="UI_CharacterDetails_PivotItem_Titles" xml:space="preserve">
-    <value>titles</value>
+  <data name="UI_CharacterDetails_Character_Header_Titles" xml:space="preserve">
+    <value>Titles</value>
   </data>
   <data name="UI_CharacterDetails_Professions_None" xml:space="preserve">
     <value>This character has no professions</value>
@@ -1083,5 +1083,8 @@
   </data>
   <data name="UI_Settings_PivotItem_Character" xml:space="preserve">
     <value>character</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_NoTitles" xml:space="preserve">
+    <value>This character has no titles yet</value>
   </data>
 </root>

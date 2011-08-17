@@ -700,6 +700,11 @@
   <ItemGroup>
     <Resource Include="Encryption.key" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\CharacterDetails\Character_Title.png">
+      <Link>Images\CharacterDetails\Character_Title.png</Link>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />

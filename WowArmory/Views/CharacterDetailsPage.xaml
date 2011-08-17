@@ -208,6 +208,16 @@
 			<Setter Property="FontStyle" Value="Italic" />
 		</Style>
 
+		<Style x:Key="CharacterDetailsTitleTextStyle" BasedOn="{StaticResource CharacterDetailsDescriptionTextStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}" />
+		</Style>
+
+		<Style x:Key="CharacterDetailsNoTitlesTextStyle" BasedOn="{StaticResource CharacterDetailsTitleTextStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="8,0,8,0" />
+			<Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}" />
+		</Style>
+
 		<Style x:Key="ProfessionHeaderTextStyle" BasedOn="{StaticResource PhoneTextTitle2Style}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
@@ -490,6 +500,10 @@
 									</Grid>
 									<!-- ==================================================================== -->
 									<!-- NOTE Resistance is not returned by Battle.Net Community API -->
+									<TextBlock Text="{Binding LocalizedResources.UI_CharacterDetails_Character_Header_Titles, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsHeaderTextStyle}" />
+									<Grid Margin="0,0,0,0">
+										<StackPanel x:Name="spCharacterTitles" Orientation="Vertical" />
+									</Grid>
 								</StackPanel>
 							</ScrollViewer>
 							<Border x:Name="brdItemToolTip" Grid.Row="0" Margin="2,0,2,2"
@@ -613,10 +627,7 @@
 				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Professions, Source={StaticResource LocalizedResources}}">
 					<StackPanel x:Name="spProfessions" Orientation="Vertical" VerticalAlignment="Top" />
 				</controls:PivotItem>
-				<!--<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Titles, Source={StaticResource LocalizedResources}}">
-
-				</controls:PivotItem>
-				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Pets, Source={StaticResource LocalizedResources}}">
+				<!--<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Pets, Source={StaticResource LocalizedResources}}">
 
 				</controls:PivotItem>
 				<controls:PivotItem Header="{Binding LocalizedResources.UI_CharacterDetails_PivotItem_Mounts, Source={StaticResource LocalizedResources}}">

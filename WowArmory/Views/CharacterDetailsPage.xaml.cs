@@ -72,6 +72,7 @@ namespace WowArmory.Views
 			BuildTalents();
 			BuildReputation();
 			BuildProfessions();
+			BuildTitles();
 		}
 
 		/// <summary>
@@ -495,6 +496,53 @@ namespace WowArmory.Views
 			grid.Children.Add(valueTextBlock);
 
 			spProfessions.Children.Add(grid);
+		}
+
+		/// <summary>
+		/// Builds the user interface for the titles pivot.
+		/// </summary>
+		private void BuildTitles()
+		{
+			if (ViewModel.Character != null)
+			{
+				if (ViewModel.Character.Titles != null &&
+					ViewModel.Character.Titles.Count > 0)
+				{
+					foreach (var title in ViewModel.Character.Titles.OrderBy(t => t.Name))
+					{
+						var titleGrid = new Grid();
+						titleGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+						titleGrid.ColumnDefinitions.Add(new ColumnDefinition());
+						titleGrid.Margin = new Thickness(8, 0, 8, 0);
+						spCharacterTitles.Children.Add(titleGrid);
+
+						var titleIcon = new Rectangle();
+						titleIcon.Fill = (Brush)Resources["PhoneSubtleBrush"];
+						titleIcon.Width = 16;
+						titleIcon.Height = 16;
+						titleIcon.OpacityMask = new ImageBrush { ImageSource = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/CharacterDetails/Character_Title.png"), Stretch = Stretch.Fill };
+						titleIcon.Opacity = 0.5;
+						titleIcon.HorizontalAlignment = HorizontalAlignment.Left;
+						titleIcon.VerticalAlignment = VerticalAlignment.Center;
+						titleIcon.Margin = new Thickness(0, 0, 6, 0);
+						Grid.SetColumn(titleIcon, 0);
+						titleGrid.Children.Add(titleIcon);
+
+						var titleText = new TextBlock();
+						titleText.Text = title.Name.Replace("%s", ViewModel.Character.Name);
+						titleText.Style = (Style)Resources["CharacterDetailsTitleTextStyle"];
+						Grid.SetColumn(titleText, 1);
+						titleGrid.Children.Add(titleText);
+					}
+				}
+				else
+				{
+					var noTitlesText = new TextBlock();
+					noTitlesText.Text = AppResources.UI_CharacterDetails_Character_NoTitles;
+					noTitlesText.Style = (Style)Resources["CharacterDetailsNoTitlesTextStyle"];
+					spCharacterTitles.Children.Add(noTitlesText);
+				}
+			}
 		}
 
 		/// <summary>
