@@ -52,7 +52,11 @@ namespace WowArmory.Core.BattleNet.Models
 				if (IntValue >= 100)
 				{
 					var complete = IntValue.ToString();
-					var part = complete.Substring(complete.Length - 4, 2);
+					var part = complete.Substring(0, complete.Length - 2);
+					if (part.Length > 2)
+					{
+						part = complete.Substring(part.Length - 2, 2);
+					}
 					return Convert.ToInt32(part);
 				}
 
