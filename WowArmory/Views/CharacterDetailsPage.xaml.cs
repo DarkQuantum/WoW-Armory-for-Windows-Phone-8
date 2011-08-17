@@ -1198,7 +1198,7 @@ namespace WowArmory.Views
 		{
 			if (IsolatedStorageManager.IsCharacterStored(ViewModel.Character.Region, ViewModel.Character.Realm, ViewModel.Character.Name))
 			{
-				IsolatedStorageManager.UnstoreCharacter(ViewModel.Character);
+				IsolatedStorageManager.Unstore(ViewModel.Character);
 				ViewModel.ToggleCharacterFavorite();
 			}
 			else
@@ -1207,7 +1207,7 @@ namespace WowArmory.Views
 				gdStoreCharacterOverlay.Visibility = Visibility.Visible;
 				Dispatcher.BeginInvoke(() =>
 				{
-					IsolatedStorageManager.StoreCharacter(ViewModel.Character);
+					IsolatedStorageManager.Store(ViewModel.Character);
 					gdStoreCharacterOverlay.Visibility = Visibility.Collapsed;
 					pbStoreCharacter.IsIndeterminate = false;
 					ViewModel.ToggleCharacterFavorite();

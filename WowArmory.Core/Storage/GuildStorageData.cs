@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
@@ -8,6 +9,8 @@ namespace WowArmory.Core.Storage
 	[DataContract]
 	public class GuildStorageData
 	{
+		[DataMember]
+		public Guid Guid { get; set; }
 		[DataMember]
 		public string Name { get; set; }
 		[DataMember]

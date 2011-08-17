@@ -2536,6 +2536,24 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Alliance.
+        /// </summary>
+        public static string UI_CharacterDetails_Faction_Alliance {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Faction_Alliance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horde.
+        /// </summary>
+        public static string UI_CharacterDetails_Faction_Horde {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Faction_Horde", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to achievements.
         /// </summary>
         public static string UI_CharacterDetails_PivotItem_Achievements {

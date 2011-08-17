@@ -1093,4 +1093,10 @@
   <data name="UI_GuildList_ApplicationBar_Search" xml:space="preserve">
     <value>suchen</value>
   </data>
+  <data name="UI_CharacterDetails_Faction_Alliance" xml:space="preserve">
+    <value>Allianz</value>
+  </data>
+  <data name="UI_CharacterDetails_Faction_Horde" xml:space="preserve">
+    <value>Horde</value>
+  </data>
 </root>

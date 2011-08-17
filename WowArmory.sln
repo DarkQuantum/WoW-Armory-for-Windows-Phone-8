@@ -105,6 +105,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterDetails", "Charact
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Icons", "Icons", "{E38956DD-0E34-4549-8EB0-F6C634AD6327}"
 	ProjectSection(SolutionItems) = preProject
+		Media\Icons\Achievementpoints.png = Media\Icons\Achievementpoints.png
+		Media\Icons\Achievementpoints.psd = Media\Icons\Achievementpoints.psd
 		Media\Icons\Achievementpoints_Large.png = Media\Icons\Achievementpoints_Large.png
 		Media\Icons\Icon.psd = Media\Icons\Icon.psd
 		Media\Icons\Icon_Background.png = Media\Icons\Icon_Background.png
@@ -365,6 +367,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GuildList", "GuildList", "{
 		Media\ApplicationBar\GuildList\search.png = Media\ApplicationBar\GuildList\search.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Factions", "Factions", "{38557035-4446-481F-87EF-53A86D8B8768}"
+	ProjectSection(SolutionItems) = preProject
+		Media\Icons\Factions\0.png = Media\Icons\Factions\0.png
+		Media\Icons\Factions\1.png = Media\Icons\Factions\1.png
+		Media\Icons\Factions\WithBorder.psd = Media\Icons\Factions\WithBorder.psd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -409,6 +418,7 @@ Global
 		{2761AE5B-DA97-446F-9987-1B566176AC60} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{D4F786E2-9BB4-4907-995F-4BF86533F122} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{A7D15A19-10A3-4B34-8C33-A52BDCBEFAD1} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
+		{38557035-4446-481F-87EF-53A86D8B8768} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{B6517931-2F91-4538-A374-A055163BBDE4} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{3747578C-1B15-4E0B-9C04-608562DC793A} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{F223F66E-D6DF-4D1C-AAB6-9220B8418D6D} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}

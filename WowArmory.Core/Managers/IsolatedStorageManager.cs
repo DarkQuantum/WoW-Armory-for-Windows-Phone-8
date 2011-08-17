@@ -183,7 +183,7 @@ namespace WowArmory.Core.Managers
 		/// Stores the specified character.
 		/// </summary>
 		/// <param name="character">The character to store.</param>
-		public static void StoreCharacter(Character character)
+		public static void Store(Character character)
 		{
 			try
 			{
@@ -194,6 +194,10 @@ namespace WowArmory.Core.Managers
 				{
 					storageData = new CharacterStorageData();
 					storageData.Guid = Guid.NewGuid();
+				}
+				else
+				{
+					StoredCharacters.Remove(storageData);
 				}
 				storageData.Region = character.Region;
 				storageData.Realm = character.Realm;
@@ -208,45 +212,44 @@ namespace WowArmory.Core.Managers
 				storageData.Class = (CharacterClass)character.Class;
 				storageData.Faction = (CharacterFaction)(int)converter.Convert(character.Race, typeof(Int32), null, CultureInfo.CurrentCulture);
 				storageData.Race = (CharacterRace)character.Race;
-
-				// NOTE not sure why i stored the character as a xml file... ?
-				//using (var store = IsolatedStorageFile.GetUserStoreForApplication())
-				//{
-				//    if (!store.DirectoryExists(CHARACTER_STORAGE_PATH))
-				//    {
-				//        store.CreateDirectory(CHARACTER_STORAGE_PATH);
-				//    }
-
-				//    var stream = new MemoryStream();
-				//    var serializer = new XmlSerializer(typeof(Character));
-				//    serializer.Serialize(stream, character);
-				//    stream.Seek(0, SeekOrigin.Begin);
-				//    using (stream)
-				//    {
-				//        var file = store.CreateFile(String.Format("{0}\\{1}.xml", CHARACTER_STORAGE_PATH, storageData.Guid));
-				//        const int readChunk = 1024 * 1024;
-				//        const int writeChunk = 1024 * 1024;
-				//        var buffer = new byte[readChunk];
-				//        while (true)
-				//        {
-				//            var read = stream.Read(buffer, 0, readChunk);
-				//            if (read <= 0)
-				//            {
-				//                break;
-				//            }
-
-				//            var write = read;
-				//            while (write > 0)
-				//            {
-				//                file.Write(buffer, 0, Math.Min(write, writeChunk));
-				//                write -= Math.Min(write, writeChunk);
-				//            }
-				//        }
-				//        file.Close();
-				//    }
-				//}
+				storageData.AchievementPoints = character.AchievementPoints;
 
 				StoredCharacters.Add(storageData);
+			}
+			catch (Exception ex)
+			{
+				// TODO add some error message
+				return;
+			}
+		}
+
+		/// <summary>
+		/// Stores the specified guild.
+		/// </summary>
+		/// <param name="guild">The guild to store.</param>
+		public static void Store(Guild guild)
+		{
+			try
+			{
+				var storageData = GetStoredGuild(guild.Region, guild.Realm, guild.Name);
+				if (storageData == null)
+				{
+					storageData = new GuildStorageData();
+					storageData.Guid = Guid.NewGuid();
+				}
+				else
+				{
+					StoredGuilds.Remove(storageData);
+				}
+				storageData.Region = guild.Region;
+				storageData.Realm = guild.Realm;
+				storageData.Name = guild.Name;
+				storageData.Level = guild.Level;
+				storageData.Side = guild.Side;
+				storageData.AchievementPoints = guild.AchievementPoints;
+				storageData.Members = guild.Members;
+
+				StoredGuilds.Add(storageData);
 			}
 			catch (Exception ex)
 			{
@@ -259,7 +262,7 @@ namespace WowArmory.Core.Managers
 		/// Unstores the specified character from the phone.
 		/// </summary>
 		/// <param name="character">The character to unstore.</param>
-		public static void UnstoreCharacter(Character character)
+		public static void Unstore(Character character)
 		{
 			try
 			{
@@ -269,16 +272,30 @@ namespace WowArmory.Core.Managers
 					return;
 				}
 
-				// NOTE not sure why i stored the character as a xml file... ?
-				//using (var store = IsolatedStorageFile.GetUserStoreForApplication())
-				//{
-				//    if (store.FileExists(String.Format("{0}\\{1}.xml", CHARACTER_STORAGE_PATH, storageData.Guid)))
-				//    {
-				//        store.DeleteFile(String.Format("{0}\\{1}.xml", CHARACTER_STORAGE_PATH, storageData.Guid));
-				//    }
-				//}
-
 				StoredCharacters.Remove(storageData);
+			}
+			catch (Exception ex)
+			{
+				// TODO add some error message
+				return;
+			}
+		}
+
+		/// <summary>
+		/// Unstores the specified guild from the phone.
+		/// </summary>
+		/// <param name="guild">The guild to unstore.</param>
+		public static void Unstore(Guild guild)
+		{
+			try
+			{
+				var storageData = GetStoredGuild(guild.Region, guild.Realm, guild.Name);
+				if (storageData == null)
+				{
+					return;
+				}
+
+				StoredGuilds.Remove(storageData);
 			}
 			catch (Exception ex)
 			{

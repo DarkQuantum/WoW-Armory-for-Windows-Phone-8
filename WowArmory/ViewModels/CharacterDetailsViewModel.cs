@@ -50,6 +50,7 @@ namespace WowArmory.ViewModels
 				_character = value;
 				RaisePropertyChanged("Character");
 				RaisePropertyChanged("CharacterFaction");
+				UpdateStorageData();
 
 				if (OnCharacterLoaded != null)
 				{
@@ -357,6 +358,17 @@ namespace WowArmory.ViewModels
 		public void ToggleCharacterFavorite()
 		{
 			RaisePropertyChanged("FavoriteImage");
+		}
+
+		/// <summary>
+		/// Updates the storage data.
+		/// </summary>
+		public void UpdateStorageData()
+		{
+			if (IsolatedStorageManager.IsCharacterStored(Character.Region, Character.Realm, Character.Name))
+			{
+				IsolatedStorageManager.Store(Character);
+			}
 		}
 		//----------------------------------------------------------------------
 		#endregion

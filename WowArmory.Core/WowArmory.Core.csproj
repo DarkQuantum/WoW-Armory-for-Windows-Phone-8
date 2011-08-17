@@ -931,6 +931,20 @@
       <Link>Images\GuildDetails\Favorite_1.png</Link>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\Achievementpoints.png">
+      <Link>Images\Icons\Achievementpoints.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\Factions\0.png">
+      <Link>Images\Icons\Factions\0.png</Link>
+    </Resource>
+    <Resource Include="..\Media\Icons\Factions\1.png">
+      <Link>Images\Icons\Factions\1.png</Link>
+    </Resource>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
   <ProjectExtensions />
