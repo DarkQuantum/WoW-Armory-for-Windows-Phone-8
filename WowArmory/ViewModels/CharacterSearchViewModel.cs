@@ -225,11 +225,6 @@ namespace WowArmory.ViewModels
 		/// </summary>
 		public void LoadRealms()
 		{
-			if (Realms != null && Realms.Count != 0)
-			{
-				return;
-			}
-
 			IsLoadingProgressBarVisible = true;
 			IsLoadingProgressBarIndeterminate = true;
 

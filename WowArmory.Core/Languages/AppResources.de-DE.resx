@@ -364,7 +364,7 @@
     <value>Bitte beachte, dass derzeit nicht alle Daten vom Arsenal verfügbar sind. Dies ist etwas worüber ich leider keine Kontrolle habe und deshalb bitte ich dich derzeit geduldig zu sein. Updates folgen sobald Blizzard mehr Daten zur Verfügung stellt. Bevor du fortfährst, solltest du die Einstellungen anpassen oder du wählst "Abbrechen" und verwendest die Standard Einstellungen (du kannst diese jederzeit ändern indem du "Einstellungen" im Hauptbildschirm wählst).</value>
   </data>
   <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
-    <value>Willkommensnachricht erneut anzeigen</value>
+    <value>Willkommensnachricht anzeigen</value>
   </data>
   <data name="UI_Settings_General_CharacterList_OrderBy_Level" xml:space="preserve">
     <value>Level</value>
