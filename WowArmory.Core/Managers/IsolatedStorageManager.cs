@@ -47,6 +47,24 @@ namespace WowArmory.Core.Managers
 				SetValue("Storage_Characters", value);
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets the stored guilds.
+		/// </summary>
+		/// <value>
+		/// The stored guilds.
+		/// </value>
+		public static ObservableCollection<GuildStorageData> StoredGuilds
+		{
+			get
+			{
+				return GetValue("Storage_Guilds", new ObservableCollection<GuildStorageData>());
+			}
+			set
+			{
+				SetValue("Storage_Guilds", value);
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -124,6 +142,20 @@ namespace WowArmory.Core.Managers
 		}
 
 		/// <summary>
+		/// Determines whether the specified guild is already stored.
+		/// </summary>
+		/// <param name="region">The region.</param>
+		/// <param name="realm">The realm.</param>
+		/// <param name="name">The name of the guild.</param>
+		/// <returns>
+		///   <c>true</c> if the specified guild is already stored; otherwise, <c>false</c>.
+		/// </returns>
+		public static bool IsGuildStored(Region region, string realm, string name)
+		{
+			return GetStoredGuild(region, realm, name) != null;
+		}
+
+		/// <summary>
 		/// Try to get the specified character from the storage.
 		/// </summary>
 		/// <param name="region">The region.</param>
@@ -133,6 +165,18 @@ namespace WowArmory.Core.Managers
 		public static CharacterStorageData GetStoredCharacter(Region region, string realm, string name)
 		{
 			return StoredCharacters.Where(c => c.Region == region && c.Realm.Equals(realm, StringComparison.CurrentCultureIgnoreCase) && c.Character.Equals(name, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+		}
+
+		/// <summary>
+		/// Try to get the specified guild from the storage.
+		/// </summary>
+		/// <param name="region">The region.</param>
+		/// <param name="realm">The realm.</param>
+		/// <param name="name">The name.</param>
+		/// <returns></returns>
+		public static GuildStorageData GetStoredGuild(Region region, string realm, string name)
+		{
+			return StoredGuilds.Where(g => g.Region == region && g.Realm.Equals(realm, StringComparison.CurrentCultureIgnoreCase) && g.Name.Equals(name, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
 		}
 
 		/// <summary>

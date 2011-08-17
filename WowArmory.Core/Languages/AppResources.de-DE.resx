@@ -357,24 +357,6 @@
   <data name="UI_Settings_ApplicationBar_Save" xml:space="preserve">
     <value>speichern</value>
   </data>
-  <data name="UI_CharacterSearch_Error_CharacterNotFound_Caption" xml:space="preserve">
-    <value>Charakter nicht gefunden</value>
-  </data>
-  <data name="UI_CharacterSearch_Error_CharacterNotFound_Text" xml:space="preserve">
-    <value>Der angegebene Charakter konnte nicht gefunden werden</value>
-  </data>
-  <data name="UI_CharacterSearch_Error_RealmNotFound_Caption" xml:space="preserve">
-    <value>Realm nicht gefunden</value>
-  </data>
-  <data name="UI_CharacterSearch_Error_RealmNotFound_Text" xml:space="preserve">
-    <value>Der angegebene Realm konnte nicht gefunden werden</value>
-  </data>
-  <data name="UI_CharacterSearch_Error_Unknown_Caption" xml:space="preserve">
-    <value>Keine Daten empfangen</value>
-  </data>
-  <data name="UI_CharacterSearch_Error_Unknown_Text" xml:space="preserve">
-    <value>Es konnten keine Daten vom Battle.Net empfangen werden</value>
-  </data>
   <data name="UI_Main_FirstTimeUsage_Caption" xml:space="preserve">
     <value>Vielen Dank, dass du diese App verwendest</value>
   </data>
@@ -395,24 +377,6 @@
   </data>
   <data name="Page_CharacterSearch_Title" xml:space="preserve">
     <value>Suche einen Charakter im Arsenal</value>
-  </data>
-  <data name="UI_CharacterSearch_Name" xml:space="preserve">
-    <value>Charakter</value>
-  </data>
-  <data name="UI_CharacterSearch_Realm" xml:space="preserve">
-    <value>Realm</value>
-  </data>
-  <data name="UI_CharacterSearch_SearchCharacter" xml:space="preserve">
-    <value>Suchen</value>
-  </data>
-  <data name="UI_CharacterSearch_MissingName_Text" xml:space="preserve">
-    <value>Bitte einen Charakter Namen angeben</value>
-  </data>
-  <data name="UI_CharacterSearch_MissingRealm_Text" xml:space="preserve">
-    <value>Bitte einen Realm Namen angeben</value>
-  </data>
-  <data name="UI_CharacterSearch_Missing_Caption" xml:space="preserve">
-    <value>Fehlende Eingabe</value>
   </data>
   <data name="UI_Common_Error_NoData_Caption" xml:space="preserve">
     <value>Keine Daten empfangen</value>
@@ -1074,5 +1038,59 @@
   </data>
   <data name="UI_CharacterDetails_Character_NoTitles" xml:space="preserve">
     <value>Dieser Charakter hat noch keine Titel</value>
+  </data>
+  <data name="Pages_Main_Button_Guilds" xml:space="preserve">
+    <value>Gilden</value>
+  </data>
+  <data name="Page_GuildList_Title" xml:space="preserve">
+    <value>Suche Gilden und verwalte deine Favoriten</value>
+  </data>
+  <data name="UI_Search_Error_CharacterNotFound_Caption" xml:space="preserve">
+    <value>Charakter nicht gefunden</value>
+  </data>
+  <data name="UI_Search_Error_CharacterNotFound_Text" xml:space="preserve">
+    <value>Der angegebene Charakter konnte nicht gefunden werden</value>
+  </data>
+  <data name="UI_Search_Error_GuildNotFound_Caption" xml:space="preserve">
+    <value>Gilde nicht gefunden</value>
+  </data>
+  <data name="UI_Search_Error_GuildNotFound_Text" xml:space="preserve">
+    <value>Die angegebene Gilde konnte nicht gefunden werden</value>
+  </data>
+  <data name="UI_Search_Error_RealmNotFound_Caption" xml:space="preserve">
+    <value>Realm nicht gefunden</value>
+  </data>
+  <data name="UI_Search_Error_RealmNotFound_Text" xml:space="preserve">
+    <value>Der angegebene Realm konnte nicht gefunden werden</value>
+  </data>
+  <data name="UI_Search_MissingCharacterName_Text" xml:space="preserve">
+    <value>Bitte den Namen des Charakters angeben</value>
+  </data>
+  <data name="UI_Search_MissingRealm_Text" xml:space="preserve">
+    <value>Bitte den Namen des Realm angeben</value>
+  </data>
+  <data name="UI_Search_Missing_Caption" xml:space="preserve">
+    <value>Fehlende Eingabe</value>
+  </data>
+  <data name="UI_Search_Text_CharacterName" xml:space="preserve">
+    <value>Charakter</value>
+  </data>
+  <data name="UI_Search_Text_Guild" xml:space="preserve">
+    <value>Guild</value>
+  </data>
+  <data name="UI_Search_Text_Realm" xml:space="preserve">
+    <value>Realm</value>
+  </data>
+  <data name="UI_Search_Text_Search" xml:space="preserve">
+    <value>Suchen</value>
+  </data>
+  <data name="UI_Search_MissingGuildName_Text" xml:space="preserve">
+    <value>Bitte den Namen der Gilde angeben</value>
+  </data>
+  <data name="Page_GuildSearch_Title" xml:space="preserve">
+    <value>Suche eine Gilde im Arsenal</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_Search" xml:space="preserve">
+    <value>suchen</value>
   </data>
 </root>

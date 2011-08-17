@@ -6,7 +6,7 @@ using WowArmory.ViewModels;
 
 namespace WowArmory.Views
 {
-	public partial class CharacterSearchPage : PhoneApplicationPage
+	public partial class GuildSearchPage : PhoneApplicationPage
 	{
 		//----------------------------------------------------------------------
 		#region --- Fields ---
@@ -23,11 +23,11 @@ namespace WowArmory.Views
 		/// <summary>
 		/// Gets the view model associated to this page.
 		/// </summary>
-		public CharacterSearchViewModel ViewModel
+		public GuildSearchViewModel ViewModel
 		{
 			get
 			{
-				return (CharacterSearchViewModel)DataContext;
+				return (GuildSearchViewModel)DataContext;
 			}
 		}
 		//----------------------------------------------------------------------
@@ -38,10 +38,7 @@ namespace WowArmory.Views
 		//----------------------------------------------------------------------
 		#region --- Constructor ---
 		//----------------------------------------------------------------------
-		/// <summary>
-		/// Initializes a new instance of the <see cref="CharacterSearchPage"/> class.
-		/// </summary>
-		public CharacterSearchPage()
+		public GuildSearchPage()
 		{
 			InitializeComponent();
 		}
@@ -49,7 +46,7 @@ namespace WowArmory.Views
 		#endregion
 		//----------------------------------------------------------------------
 
-		
+
 		//----------------------------------------------------------------------
 		#region --- Methods ---
 		//----------------------------------------------------------------------
@@ -65,16 +62,16 @@ namespace WowArmory.Views
 		}
 
 		/// <summary>
-		/// Handles the KeyDown event of the Character control.
+		/// Handles the KeyDown event of the Guild control.
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.Windows.Input.KeyEventArgs"/> instance containing the event data.</param>
-		private void Character_KeyDown(object sender, KeyEventArgs e)
+		private void Guild_KeyDown(object sender, KeyEventArgs e)
 		{
 			if (e.Key == Key.Enter)
 			{
-				ViewModel.Name = txtCharacter.Text;
-				ViewModel.SearchCharacter();
+				ViewModel.Name = txtGuild.Text;
+				ViewModel.SearchGuild();
 			}
 		}
 
@@ -90,7 +87,7 @@ namespace WowArmory.Views
 			if (e.Key == Key.Enter)
 			{
 				ViewModel.Realm = acbRealms.Text;
-				ViewModel.SearchCharacter();
+				ViewModel.SearchGuild();
 			}
 		}
 
@@ -126,19 +123,19 @@ namespace WowArmory.Views
 		private void SearchButton_Click(object sender, RoutedEventArgs e)
 		{
 			ViewModel.Realm = acbRealms.Text;
-			ViewModel.SearchCharacter();
+			ViewModel.SearchGuild();
 		}
 
 		/// <summary>
-		/// Handles the GotFocus event of the Character control.
+		/// Handles the GotFocus event of the Guild control.
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
-		private void Character_GotFocus(object sender, RoutedEventArgs e)
+		private void Guild_GotFocus(object sender, RoutedEventArgs e)
 		{
-			if (!String.IsNullOrEmpty(txtCharacter.Text))
+			if (!String.IsNullOrEmpty(txtGuild.Text))
 			{
-				txtCharacter.SelectAll();
+				txtGuild.SelectAll();
 			}
 		}
 		//----------------------------------------------------------------------

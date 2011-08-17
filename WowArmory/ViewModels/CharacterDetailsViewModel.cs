@@ -333,7 +333,7 @@ namespace WowArmory.ViewModels
 		{
 			InitializeCommands();
 
-			Character = IsolatedStorageManager.GetValue<Character>("MainPage_Character", null);
+			Character = null;
 		}
 		//----------------------------------------------------------------------
 		#endregion

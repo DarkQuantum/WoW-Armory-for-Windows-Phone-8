@@ -89,6 +89,18 @@ namespace WowArmory
 				{
 					ViewModelLocator.CharacterDetailsStatic.Character = (Character)state["CharacterDetails_Character"];
 				}
+				if (state.ContainsKey("GuildSearch_Realm"))
+				{
+					ViewModelLocator.GuildSearchStatic.Realm = (string)state["GuildSearch_Realm"];
+				}
+				if (state.ContainsKey("GuildSearch_Name"))
+				{
+					ViewModelLocator.GuildSearchStatic.Name = (string)state["GuildSearch_Name"];
+				}
+				if (state.ContainsKey("GuildDetails_Guild"))
+				{
+					ViewModelLocator.GuildDetailsStatic.Guild = (Guild)state["GuildDetails_Guild"];
+				}
 				if (state.ContainsKey("RealmList_Cache"))
 				{
 					CacheManager.CachedRealmLists = (Dictionary<Region, RealmList>)state["RealmList_Cache"];
@@ -106,6 +118,9 @@ namespace WowArmory
 			this.SaveToPhoneState("CharacterSearch_Realm", ViewModelLocator.CharacterSearchStatic.Realm);
 			this.SaveToPhoneState("CharacterSearch_Name", ViewModelLocator.CharacterSearchStatic.Name);
 			this.SaveToPhoneState("CharacterDetails_Character", ViewModelLocator.CharacterDetailsStatic.Character);
+			this.SaveToPhoneState("GuildSearch_Realm", ViewModelLocator.GuildSearchStatic.Realm);
+			this.SaveToPhoneState("GuildSearch_Name", ViewModelLocator.GuildSearchStatic.Name);
+			this.SaveToPhoneState("GuildDetails_Guild", ViewModelLocator.GuildDetailsStatic.Guild);
 			this.SaveToPhoneState("RealmList_Cache", CacheManager.CachedRealmLists);
 		}
 
@@ -169,6 +184,9 @@ namespace WowArmory
 			ApplicationController.Current.Register(Page.CharacterList, new Uri("/Views/CharacterListPage.xaml", UriKind.Relative));
 			ApplicationController.Current.Register(Page.CharacterSearch, new Uri("/Views/CharacterSearchPage.xaml", UriKind.Relative));
 			ApplicationController.Current.Register(Page.CharacterDetails, new Uri("/Views/CharacterDetailsPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.GuildList, new Uri("/Views/GuildListPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.GuildSearch, new Uri("/Views/GuildSearchPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.GuildDetails, new Uri("/Views/GuildDetailsPage.xaml", UriKind.Relative));
 		}
 
 		// Do not add any additional code to this method

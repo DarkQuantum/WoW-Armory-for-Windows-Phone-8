@@ -1996,6 +1996,24 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search guilds and manage your favorites.
+        /// </summary>
+        public static string Page_GuildList_Title {
+            get {
+                return ResourceManager.GetString("Page_GuildList_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search for a guild on the armory.
+        /// </summary>
+        public static string Page_GuildSearch_Title {
+            get {
+                return ResourceManager.GetString("Page_GuildSearch_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Read more about this app.
         /// </summary>
         public static string Page_Help_Title {
@@ -2046,6 +2064,15 @@ namespace WowArmory.Core.Languages {
         public static string Pages_Main_Button_Facebook {
             get {
                 return ResourceManager.GetString("Pages_Main_Button_Facebook", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guilds.
+        /// </summary>
+        public static string Pages_Main_Button_Guilds {
+            get {
+                return ResourceManager.GetString("Pages_Main_Button_Guilds", resourceCulture);
             }
         }
         
@@ -2644,114 +2671,6 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Character not found.
-        /// </summary>
-        public static string UI_CharacterSearch_Error_CharacterNotFound_Caption {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_Error_CharacterNotFound_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified character could not be found.
-        /// </summary>
-        public static string UI_CharacterSearch_Error_CharacterNotFound_Text {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_Error_CharacterNotFound_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Realm not found.
-        /// </summary>
-        public static string UI_CharacterSearch_Error_RealmNotFound_Caption {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_Error_RealmNotFound_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified realm could not be found.
-        /// </summary>
-        public static string UI_CharacterSearch_Error_RealmNotFound_Text {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_Error_RealmNotFound_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to No data retrieved.
-        /// </summary>
-        public static string UI_CharacterSearch_Error_Unknown_Caption {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_Error_Unknown_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Could not retrieve data from Battle.Net.
-        /// </summary>
-        public static string UI_CharacterSearch_Error_Unknown_Text {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_Error_Unknown_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Input missing.
-        /// </summary>
-        public static string UI_CharacterSearch_Missing_Caption {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_Missing_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please specify a character name.
-        /// </summary>
-        public static string UI_CharacterSearch_MissingName_Text {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_MissingName_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Please specify a realm name.
-        /// </summary>
-        public static string UI_CharacterSearch_MissingRealm_Text {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_MissingRealm_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Character.
-        /// </summary>
-        public static string UI_CharacterSearch_Name {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Realm.
-        /// </summary>
-        public static string UI_CharacterSearch_Realm {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_Realm", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Search.
-        /// </summary>
-        public static string UI_CharacterSearch_SearchCharacter {
-            get {
-                return ResourceManager.GetString("UI_CharacterSearch_SearchCharacter", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to No data retrieved.
         /// </summary>
         public static string UI_Common_Error_NoData_Caption {
@@ -2775,6 +2694,15 @@ namespace WowArmory.Core.Languages {
         public static string UI_Common_LoadingData {
             get {
                 return ResourceManager.GetString("UI_Common_LoadingData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to search.
+        /// </summary>
+        public static string UI_GuildList_ApplicationBar_Search {
+            get {
+                return ResourceManager.GetString("UI_GuildList_ApplicationBar_Search", resourceCulture);
             }
         }
         
@@ -2820,6 +2748,132 @@ namespace WowArmory.Core.Languages {
         public static string UI_RealmList_Queue {
             get {
                 return ResourceManager.GetString("UI_RealmList_Queue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Character not found.
+        /// </summary>
+        public static string UI_Search_Error_CharacterNotFound_Caption {
+            get {
+                return ResourceManager.GetString("UI_Search_Error_CharacterNotFound_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified character could not be found.
+        /// </summary>
+        public static string UI_Search_Error_CharacterNotFound_Text {
+            get {
+                return ResourceManager.GetString("UI_Search_Error_CharacterNotFound_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guild not found.
+        /// </summary>
+        public static string UI_Search_Error_GuildNotFound_Caption {
+            get {
+                return ResourceManager.GetString("UI_Search_Error_GuildNotFound_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified guild could not be found.
+        /// </summary>
+        public static string UI_Search_Error_GuildNotFound_Text {
+            get {
+                return ResourceManager.GetString("UI_Search_Error_GuildNotFound_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realm not found.
+        /// </summary>
+        public static string UI_Search_Error_RealmNotFound_Caption {
+            get {
+                return ResourceManager.GetString("UI_Search_Error_RealmNotFound_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified realm could not be found.
+        /// </summary>
+        public static string UI_Search_Error_RealmNotFound_Text {
+            get {
+                return ResourceManager.GetString("UI_Search_Error_RealmNotFound_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Input missing.
+        /// </summary>
+        public static string UI_Search_Missing_Caption {
+            get {
+                return ResourceManager.GetString("UI_Search_Missing_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please specify a character name.
+        /// </summary>
+        public static string UI_Search_MissingCharacterName_Text {
+            get {
+                return ResourceManager.GetString("UI_Search_MissingCharacterName_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please specify a guild name.
+        /// </summary>
+        public static string UI_Search_MissingGuildName_Text {
+            get {
+                return ResourceManager.GetString("UI_Search_MissingGuildName_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please specify a realm name.
+        /// </summary>
+        public static string UI_Search_MissingRealm_Text {
+            get {
+                return ResourceManager.GetString("UI_Search_MissingRealm_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Character.
+        /// </summary>
+        public static string UI_Search_Text_CharacterName {
+            get {
+                return ResourceManager.GetString("UI_Search_Text_CharacterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guild.
+        /// </summary>
+        public static string UI_Search_Text_Guild {
+            get {
+                return ResourceManager.GetString("UI_Search_Text_Guild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realm.
+        /// </summary>
+        public static string UI_Search_Text_Realm {
+            get {
+                return ResourceManager.GetString("UI_Search_Text_Realm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search.
+        /// </summary>
+        public static string UI_Search_Text_Search {
+            get {
+                return ResourceManager.GetString("UI_Search_Text_Search", resourceCulture);
             }
         }
         

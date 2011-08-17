@@ -30,5 +30,7 @@ namespace WowArmory.Core.Storage
 		public CharacterFaction Faction { get; set; }
 		[DataMember]
 		public CharacterRace Race { get; set; }
+		[DataMember]
+		public int AchievementPoints { get; set; }
 	}
 }

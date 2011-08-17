@@ -204,6 +204,53 @@ namespace WowArmory.Core.BattleNet
 		}
 
 		/// <summary>
+		/// Gets the basic guild information for the specified realm and guild name.
+		/// </summary>
+		/// <param name="realmName">The name of the realm.</param>
+		/// <param name="guildName">The name of the guild.</param>
+		/// <param name="action">The action to execute once the response was received.</param>
+		public void GetGuildAsync(string realmName, string guildName, Action<Guild> action)
+		{
+			GetGuildAsync(realmName, guildName, GuildFields.Basic, action);
+		}
+
+		/// <summary>
+		/// Gets the guild information for the specified realm and guild name.
+		/// </summary>
+		/// <param name="realmName">The name of the realm.</param>
+		/// <param name="guildName">The name of the guild.</param>
+		/// <param name="fields">Specifies the information to retrieve for this guild.</param>
+		/// <param name="action">The action to execute once the response was received.</param>
+		public void GetGuildAsync(string realmName, string guildName, GuildFields fields, Action<Guild> action)
+		{
+			try
+			{
+				var fieldsQueryString = BuildGuildFieldsQueryString(fields);
+				var apiMethod = new Uri(BattleNetBaseUri, String.Format(BattleNetSettings.BattleNet_Api_Guild, realmName, guildName, fieldsQueryString)).ToString();
+				CallApiMethodAsync(apiMethod, jsonResult =>
+				{
+					try
+					{
+						var guild = JsonConvert.DeserializeObject<Guild>(jsonResult);
+						if (guild != null)
+						{
+							guild.Region = Region;
+						}
+						action(guild);
+					}
+					catch (Exception ex)
+					{
+						action(null);
+					}
+				});
+			}
+			catch (Exception ex)
+			{
+				action(null);
+			}
+		}
+
+		/// <summary>
 		/// Gets the realm list for the specified region.
 		/// </summary>
 		/// <param name="region">The region to receive the realm list for.</param>
@@ -318,15 +365,28 @@ namespace WowArmory.Core.BattleNet
 		}
 
 		/// <summary>
-		/// Builds the fields query string from the specified fields object.
+		/// Builds the character fields query string from the specified fields object.
 		/// </summary>
-		/// <param name="e">The fields object to build the query string from.</param>
+		/// <param name="fields">The character fields object to build the query string from.</param>
 		/// <returns>
-		/// The fields query string from the specified fields object.
+		/// The character fields query string from the specified fields object.
 		/// </returns>
 		internal string BuildCharacterFieldsQueryString(CharacterFields fields)
 		{
 			var fieldQueryString = fields.GetValues().Cast<CharacterFields>().Where(value => value != CharacterFields.All && (fields & value) == value).Aggregate(String.Empty, (current, value) => String.Format("{0}{1}{2}", current, !String.IsNullOrEmpty(current) ? "," : String.Empty, EnumHelper.GetApiUrlFieldName(value)));
+			return !String.IsNullOrEmpty(fieldQueryString) ? String.Format("?fields={0}", fieldQueryString) : String.Empty;
+		}
+
+		/// <summary>
+		/// Builds the guild fields query string from the specified fields object.
+		/// </summary>
+		/// <param name="fields">The guild fields object to build the query string from.</param>
+		/// <returns>
+		/// The guild fields query string from the specified fields object.
+		/// </returns>
+		internal string BuildGuildFieldsQueryString(GuildFields fields)
+		{
+			var fieldQueryString = fields.GetValues().Cast<GuildFields>().Where(value => value != GuildFields.All && (fields & value) == value).Aggregate(String.Empty, (current, value) => String.Format("{0}{1}{2}", current, !String.IsNullOrEmpty(current) ? "," : String.Empty, EnumHelper.GetApiUrlFieldName(value)));
 			return !String.IsNullOrEmpty(fieldQueryString) ? String.Format("?fields={0}", fieldQueryString) : String.Empty;
 		}
 
@@ -393,8 +453,7 @@ namespace WowArmory.Core.BattleNet
 			}
 			catch(Exception ex)
 			{
-				// TODO: need to implement error handling
-				throw ex;
+				action(null);
 			}
 		}
 

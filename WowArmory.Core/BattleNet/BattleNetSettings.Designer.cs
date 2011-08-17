@@ -70,6 +70,15 @@ namespace WowArmory.Core.BattleNet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to guild/{0}/{1}{2}.
+        /// </summary>
+        internal static string BattleNet_Api_Guild {
+            get {
+                return ResourceManager.GetString("BattleNet_Api_Guild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to item/{0}.
         /// </summary>
         internal static string BattleNet_Api_Item {

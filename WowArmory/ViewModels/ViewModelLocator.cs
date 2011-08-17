@@ -13,6 +13,9 @@
 		private static CharacterListViewModel _characterList;
 		private static CharacterSearchViewModel _characterSearch;
 		private static CharacterDetailsViewModel _characterDetails;
+		private static GuildListViewModel _guildList;
+		private static GuildSearchViewModel _guildSearch;
+		private static GuildDetailsViewModel _guildDetails;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -147,6 +150,54 @@
 		public static CharacterDetailsViewModel CharacterDetailsStatic
 		{
 			get { return _characterDetails ?? (_characterDetails = new CharacterDetailsViewModel()); }
+		}
+
+		/// <summary>
+		/// Gets the guild list view model.
+		/// </summary>
+		public GuildListViewModel GuildList
+		{
+			get { return GuildListStatic; }
+		}
+
+		/// <summary>
+		/// Gets the static guild list view model.
+		/// </summary>
+		public static GuildListViewModel GuildListStatic
+		{
+			get { return _guildList ?? (_guildList = new GuildListViewModel()); }
+		}
+
+		/// <summary>
+		/// Gets the guild search view model.
+		/// </summary>
+		public GuildSearchViewModel GuildSearch
+		{
+			get { return GuildSearchStatic; }
+		}
+
+		/// <summary>
+		/// Gets the static guild search view model.
+		/// </summary>
+		public static GuildSearchViewModel GuildSearchStatic
+		{
+			get { return _guildSearch ?? (_guildSearch = new GuildSearchViewModel()); }
+		}
+
+		/// <summary>
+		/// Gets the guild details view model.
+		/// </summary>
+		public GuildDetailsViewModel GuildDetails
+		{
+			get { return GuildDetailsStatic; }
+		}
+
+		/// <summary>
+		/// Gets the static guild details view model.
+		/// </summary>
+		public static GuildDetailsViewModel GuildDetailsStatic
+		{
+			get { return _guildDetails ?? (_guildDetails = new GuildDetailsViewModel()); }
 		}
 		//----------------------------------------------------------------------
 		#endregion

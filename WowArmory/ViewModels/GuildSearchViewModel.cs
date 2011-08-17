@@ -14,7 +14,7 @@ using WowArmory.Enumerations;
 
 namespace WowArmory.ViewModels
 {
-	public class CharacterSearchViewModel : ViewModelBase
+	public class GuildSearchViewModel : ViewModelBase
 	{
 		//----------------------------------------------------------------------
 		#region --- Fields ---
@@ -185,7 +185,7 @@ namespace WowArmory.ViewModels
 		//----------------------------------------------------------------------
 		#region --- Commands ---
 		//----------------------------------------------------------------------
-		public RelayCommand SearchCharacterCommand { get; private set; }
+		public RelayCommand SearchGuildCommand { get; private set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -195,14 +195,14 @@ namespace WowArmory.ViewModels
 		#region --- Constructor ---
 		//----------------------------------------------------------------------
 		/// <summary>
-		/// Initializes a new instance of the <see cref="CharacterSearchViewModel"/> class.
+		/// Initializes a new instance of the <see cref="GuildSearchViewModel"/> class.
 		/// </summary>
-		public CharacterSearchViewModel()
+		public GuildSearchViewModel()
 		{
 			InitializeCommands();
 
-			Realm = IsolatedStorageManager.GetValue("CharacterSearch_LastRealm", String.Empty);
-			Name = IsolatedStorageManager.GetValue("CharacterSearch_LastName", String.Empty);
+			Realm = IsolatedStorageManager.GetValue("GuildSearch_LastRealm", String.Empty);
+			Name = IsolatedStorageManager.GetValue("GuildSearch_LastName", String.Empty);
 		}
 		//----------------------------------------------------------------------
 		#endregion
@@ -217,7 +217,7 @@ namespace WowArmory.ViewModels
 		/// </summary>
 		private void InitializeCommands()
 		{
-			SearchCharacterCommand = new RelayCommand(SearchCharacter);
+			SearchGuildCommand = new RelayCommand(SearchGuild);
 		}
 
 		/// <summary>
@@ -271,12 +271,12 @@ namespace WowArmory.ViewModels
 		}
 
 		/// <summary>
-		/// Searches for the specified character.
+		/// Searches for the specified guild.
 		/// </summary>
-		public void SearchCharacter()
+		public void SearchGuild()
 		{
-			IsolatedStorageManager.SetValue("CharacterSearch_LastRealm", Realm);
-			IsolatedStorageManager.SetValue("CharacterSearch_LastName", Name);
+			IsolatedStorageManager.SetValue("GuildSearch_LastRealm", Realm);
+			IsolatedStorageManager.SetValue("GuildSearch_LastName", Name);
 
 			BattleNetClient.Current.Region = AppSettingsManager.Region;
 
@@ -288,41 +288,41 @@ namespace WowArmory.ViewModels
 
 			if (String.IsNullOrEmpty(Name))
 			{
-				MessageBox.Show(AppResources.UI_Search_MissingCharacterName_Text, AppResources.UI_Search_Missing_Caption, MessageBoxButton.OK);
+				MessageBox.Show(AppResources.UI_Search_MissingGuildName_Text, AppResources.UI_Search_Missing_Caption, MessageBoxButton.OK);
 				return;
 			}
 
 			IsProgressBarIndeterminate = true;
 			IsProgressBarVisible = true;
 
-			BattleNetClient.Current.GetCharacterAsync(Realm, Name, CharacterFields.All, OnCharacterRetrievedFromArmory);
+			BattleNetClient.Current.GetGuildAsync(Realm, Name, GuildFields.All, OnGuildRetrievedFromArmory);
 		}
 
 		/// <summary>
-		/// Called when the character was retrieved from the armory.
+		/// Called when the guild was retrieved from the armory.
 		/// </summary>
-		/// <param name="character">The character retrieved from the armory.</param>
-		private void OnCharacterRetrievedFromArmory(Character character)
+		/// <param name="guild">The guild retrieved from the armory.</param>
+		private void OnGuildRetrievedFromArmory(Guild guild)
 		{
 			IsProgressBarVisible = false;
 			IsProgressBarIndeterminate = false;
 
-			if (character == null)
+			if (guild == null)
 			{
 				MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK);
 				return;
 			}
 
-			if (!character.IsValid)
+			if (!guild.IsValid)
 			{
-				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Caption;
-				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Text", character.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Text;
+				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Caption", guild.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Caption;
+				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Text", guild.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Text;
 				MessageBox.Show(reasonText, reasonCaption, MessageBoxButton.OK);
 				return;
 			}
 
-			ViewModelLocator.CharacterDetailsStatic.Character = character;
-			ApplicationController.Current.NavigateTo(Page.CharacterDetails);
+			ViewModelLocator.GuildDetailsStatic.Guild = guild;
+			ApplicationController.Current.NavigateTo(Page.GuildDetails);
 		}
 		//----------------------------------------------------------------------
 		#endregion

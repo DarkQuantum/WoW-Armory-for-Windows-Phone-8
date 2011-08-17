@@ -215,8 +215,8 @@ namespace WowArmory.ViewModels
 
 			if (!character.IsValid)
 			{
-				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_CharacterSearch_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_CharacterSearch_Error_Unknown_Caption;
-				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_CharacterSearch_Error_{0}_Text", character.ReasonType)) ?? AppResources.UI_CharacterSearch_Error_Unknown_Text;
+				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Caption;
+				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Text", character.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Text;
 				MessageBox.Show(reasonText, reasonCaption, MessageBoxButton.OK);
 				return;
 			}
