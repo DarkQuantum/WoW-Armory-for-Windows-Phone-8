@@ -1162,4 +1162,7 @@
   <data name="Item_Source_QuestRequiredLevel" xml:space="preserve">
     <value>Required Level:</value>
   </data>
+  <data name="Item_Source_VendorCost" xml:space="preserve">
+    <value>Cost:</value>
+  </data>
 </root>

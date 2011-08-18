@@ -1150,4 +1150,7 @@
   <data name="Item_Source_QuestRequiredLevel" xml:space="preserve">
     <value>Benötigte Stufe:</value>
   </data>
+  <data name="Item_Source_VendorCost" xml:space="preserve">
+    <value>Kosten:</value>
+  </data>
 </root>
