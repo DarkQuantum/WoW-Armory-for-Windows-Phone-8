@@ -1090,7 +1090,10 @@ namespace WowArmory.Views
 							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestCategory, quest.Category);
 							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestLevel, quest.Level.ToString());
 							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestRequiredLevel, quest.ReqLevel.ToString());
+
 						});
+
+						sbWowheadQuestLink.Visibility = Visibility.Visible;
 					}
 					else if (ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("VENDOR", StringComparison.CurrentCultureIgnoreCase) ||
 						ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("FACTION_REWARD", StringComparison.CurrentCultureIgnoreCase))
@@ -1151,6 +1154,12 @@ namespace WowArmory.Views
 
 							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_VendorCost, stackPanelCost);
 						}
+
+						sbWowheadVendorLink.Visibility = Visibility.Visible;
+					}
+					else if (ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("CREATED_BY_SPELL", StringComparison.CurrentCultureIgnoreCase))
+					{
+						sbWowheadSpellLink.Visibility = Visibility.Visible;
 					}
 
 					spItemToolTipSource.Visibility = Visibility.Visible;
@@ -1177,7 +1186,7 @@ namespace WowArmory.Views
 						imgItemViewerSpriteStrip.Source = _writeableBitmap;
 						Canvas.SetLeft(imgItemViewerSpriteStrip, 0);
 						Canvas.SetTop(imgItemViewerSpriteStrip, 0);
-						brdItemViewer.Visibility = Visibility.Visible;
+						sbItemViewer.Visibility = Visibility.Visible;
 					}
 					catch (Exception ex)
 					{
@@ -1358,8 +1367,11 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipSpacer, String.Empty);
 			spItemToolTipSource.Children.Clear();
 			spItemToolTipSource.Visibility = Visibility.Collapsed;
-			brdItemViewer.Visibility = Visibility.Collapsed;
+			sbItemViewer.Visibility = Visibility.Collapsed;
 			spItemToolTipExternalLinks.Visibility = Visibility.Collapsed;
+			sbWowheadQuestLink.Visibility = Visibility.Collapsed;
+			sbWowheadVendorLink.Visibility = Visibility.Collapsed;
+			sbWowheadSpellLink.Visibility = Visibility.Collapsed;
 		}
 
 		/// <summary>
@@ -1429,28 +1441,6 @@ namespace WowArmory.Views
 		}
 
 		/// <summary>
-		/// Opens the wowhead website for the current item.
-		/// </summary>
-		/// <param name="sender">The sender.</param>
-		/// <param name="e">The <see cref="System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
-		private void OpenWowheadForItem(object sender, System.Windows.Input.MouseButtonEventArgs e)
-		{
-			var webBrowserTask = new WebBrowserTask();
-			webBrowserTask.URL = String.Format(AppResources.Item_ExternalLink_Wowhead_Url, ViewModel.ItemForToolTip.Id);
-			webBrowserTask.Show();
-		}
-
-		/// <summary>
-		/// Opens the item viewer.
-		/// </summary>
-		/// <param name="sender">The sender.</param>
-		/// <param name="e">The <see cref="System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
-		private void OpenItemViewer(object sender, System.Windows.Input.MouseButtonEventArgs e)
-		{
-			gdItemViewer.Visibility = Visibility.Visible;
-		}
-
-		/// <summary>
 		/// Handles the ManipulationDelta event of the gdItemViewer control.
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
@@ -1478,6 +1468,64 @@ namespace WowArmory.Views
 			}
 
 			Canvas.SetLeft(imgItemViewerSpriteStrip, (Math.Floor(_currentFrame) * _frameWidth) * -1);
+		}
+
+		/// <summary>
+		/// Opens the item viewer.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void OpenItemViewer(object sender, RoutedEventArgs e)
+		{
+			gdItemViewer.Visibility = Visibility.Visible;
+		}
+
+		/// <summary>
+		/// Opens the wowhead website for the item.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void OpenWowheadForItem(object sender, RoutedEventArgs e)
+		{
+			var webBrowserTask = new WebBrowserTask();
+			webBrowserTask.URL = String.Format(AppResources.Item_ExternalLink_Wowhead_ItemUrl, ViewModel.ItemForToolTip.Id);
+			webBrowserTask.Show();
+		}
+
+		/// <summary>
+		/// Opens the wowhead website for the quest.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void OpenWowheadForQuest(object sender, RoutedEventArgs e)
+		{
+			var webBrowserTask = new WebBrowserTask();
+			webBrowserTask.URL = String.Format(AppResources.Item_ExternalLink_Wowhead_QuestUrl, ViewModel.ItemForToolTip.ItemSource.SourceId);
+			webBrowserTask.Show();
+		}
+
+		/// <summary>
+		/// Opens the wowhead website for the vendor.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void OpenWowheadForVendor(object sender, RoutedEventArgs e)
+		{
+			var webBrowserTask = new WebBrowserTask();
+			webBrowserTask.URL = String.Format(AppResources.Item_ExternalLink_Wowhead_VendorUrl, ViewModel.ItemForToolTip.ItemSource.SourceId);
+			webBrowserTask.Show();
+		}
+
+		/// <summary>
+		/// Opens the wowhead website for the spell.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void OpenWowheadForSpell(object sender, RoutedEventArgs e)
+		{
+			var webBrowserTask = new WebBrowserTask();
+			webBrowserTask.URL = String.Format(AppResources.Item_ExternalLink_Wowhead_SpellUrl, ViewModel.ItemForToolTip.ItemSource.SourceId);
+			webBrowserTask.Show();
 		}
 		//----------------------------------------------------------------------
 		#endregion

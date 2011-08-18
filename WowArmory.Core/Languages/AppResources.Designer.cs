@@ -529,6 +529,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Additional information:.
+        /// </summary>
+        public static string Item_AdditionalInformation {
+            get {
+                return ResourceManager.GetString("Item_AdditionalInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Classes:.
         /// </summary>
         public static string Item_AllowableClasses {
@@ -988,29 +997,74 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Learn more on:.
-        /// </summary>
-        public static string Item_ExternalLink {
-            get {
-                return ResourceManager.GetString("Item_ExternalLink", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Wowhead.
-        /// </summary>
-        public static string Item_ExternalLink_Wowhead {
-            get {
-                return ResourceManager.GetString("Item_ExternalLink_Wowhead", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to http://www.wowhead.com/item={0}.
         /// </summary>
-        public static string Item_ExternalLink_Wowhead_Url {
+        public static string Item_ExternalLink_Wowhead_ItemUrl {
             get {
-                return ResourceManager.GetString("Item_ExternalLink_Wowhead_Url", resourceCulture);
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead_ItemUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.wowhead.com/quest={0}.
+        /// </summary>
+        public static string Item_ExternalLink_Wowhead_QuestUrl {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead_QuestUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.wowhead.com/spell={0}.
+        /// </summary>
+        public static string Item_ExternalLink_Wowhead_SpellUrl {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead_SpellUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://www.wowhead.com/npc={0}.
+        /// </summary>
+        public static string Item_ExternalLink_Wowhead_VendorUrl {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead_VendorUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View item on Wowhead.
+        /// </summary>
+        public static string Item_ExternalLink_Wowhead_ViewItem {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead_ViewItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View quest on Wowhead.
+        /// </summary>
+        public static string Item_ExternalLink_Wowhead_ViewQuest {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead_ViewQuest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View recipe on Wowhead.
+        /// </summary>
+        public static string Item_ExternalLink_Wowhead_ViewSpell {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead_ViewSpell", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View vendor on Wowhead.
+        /// </summary>
+        public static string Item_ExternalLink_Wowhead_ViewVendor {
+            get {
+                return ResourceManager.GetString("Item_ExternalLink_Wowhead_ViewVendor", resourceCulture);
             }
         }
         
