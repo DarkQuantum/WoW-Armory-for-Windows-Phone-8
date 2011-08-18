@@ -1083,65 +1083,10 @@ namespace WowArmory.Views
 							return;
 						}
 
-						var stackPanelQuestName = new StackPanel();
-						stackPanelQuestName.Orientation = System.Windows.Controls.Orientation.Horizontal;
-						spItemToolTipSource.Children.Add(stackPanelQuestName);
-
-						var questNameDescriptionText = new TextBlock();
-						questNameDescriptionText.Text = AppResources.Item_Source_QuestName;
-						questNameDescriptionText.Style = descriptionStyle;
-						stackPanelQuestName.Children.Add(questNameDescriptionText);
-
-						var questNameValueText = new TextBlock();
-						questNameValueText.Text = quest.Title;
-						questNameValueText.Style = normalStyle;
-						questNameValueText.Margin = new Thickness(6, 0, 0, 0);
-						stackPanelQuestName.Children.Add(questNameValueText);
-
-						var stackPanelQuestCategory = new StackPanel();
-						stackPanelQuestCategory.Orientation = System.Windows.Controls.Orientation.Horizontal;
-						spItemToolTipSource.Children.Add(stackPanelQuestCategory);
-
-						var questCategoryDescriptionText = new TextBlock();
-						questCategoryDescriptionText.Text = AppResources.Item_Source_QuestCategory;
-						questCategoryDescriptionText.Style = descriptionStyle;
-						stackPanelQuestCategory.Children.Add(questCategoryDescriptionText);
-
-						var questCategoryValueText = new TextBlock();
-						questCategoryValueText.Text = quest.Category;
-						questCategoryValueText.Style = normalStyle;
-						questCategoryValueText.Margin = new Thickness(6, 0, 0, 0);
-						stackPanelQuestCategory.Children.Add(questCategoryValueText);
-
-						var stackPanelQuestLevel = new StackPanel();
-						stackPanelQuestLevel.Orientation = System.Windows.Controls.Orientation.Horizontal;
-						spItemToolTipSource.Children.Add(stackPanelQuestLevel);
-
-						var questLevelDescriptionText = new TextBlock();
-						questLevelDescriptionText.Text = AppResources.Item_Source_QuestLevel;
-						questLevelDescriptionText.Style = descriptionStyle;
-						stackPanelQuestLevel.Children.Add(questLevelDescriptionText);
-
-						var questLevelValueText = new TextBlock();
-						questLevelValueText.Text = quest.Level.ToString();
-						questLevelValueText.Style = normalStyle;
-						questLevelValueText.Margin = new Thickness(6, 0, 0, 0);
-						stackPanelQuestLevel.Children.Add(questLevelValueText);
-
-						var stackPanelQuestRequiredLevel = new StackPanel();
-						stackPanelQuestRequiredLevel.Orientation = System.Windows.Controls.Orientation.Horizontal;
-						spItemToolTipSource.Children.Add(stackPanelQuestRequiredLevel);
-
-						var questRequiredLevelDescriptionText = new TextBlock();
-						questRequiredLevelDescriptionText.Text = AppResources.Item_Source_QuestRequiredLevel;
-						questRequiredLevelDescriptionText.Style = descriptionStyle;
-						stackPanelQuestRequiredLevel.Children.Add(questRequiredLevelDescriptionText);
-
-						var questRequiredLevelCategoryValueText = new TextBlock();
-						questRequiredLevelCategoryValueText.Text = quest.ReqLevel.ToString();
-						questRequiredLevelCategoryValueText.Style = normalStyle;
-						questRequiredLevelCategoryValueText.Margin = new Thickness(6, 0, 0, 0);
-						stackPanelQuestRequiredLevel.Children.Add(questRequiredLevelCategoryValueText);
+						AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestName, quest.Title);
+						AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestCategory, quest.Category);
+						AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestLevel, quest.Level.ToString());
+						AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestRequiredLevel, quest.ReqLevel.ToString());
 					});
 				}
 
@@ -1179,6 +1124,33 @@ namespace WowArmory.Views
 			}
 			// external links
 			spItemToolTipExternalLinks.Visibility = Visibility.Visible;
+		}
+
+		/// <summary>
+		/// Adds the source information.
+		/// </summary>
+		/// <param name="parent">The parent.</param>
+		/// <param name="description">The description.</param>
+		/// <param name="value">The value.</param>
+		private void AddSourceInformation(StackPanel parent, string description, string value)
+		{
+			var grid = new Grid();
+			grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+			grid.ColumnDefinitions.Add(new ColumnDefinition());
+			parent.Children.Add(grid);
+
+			var descriptionText = new TextBlock();
+			descriptionText.Text = description;
+			descriptionText.Style = (Style)Resources["CharacterDetailsItemToolTipDescriptionTextStyle"];
+			Grid.SetColumn(descriptionText, 0);
+			grid.Children.Add(descriptionText);
+
+			var valueText = new TextBlock();
+			valueText.Text = value;
+			valueText.Style = (Style)Resources["CharacterDetailsItemToolTipNormalTextStyle"];
+			valueText.Margin = new Thickness(6, 0, 0, 0);
+			Grid.SetColumn(valueText, 1);
+			grid.Children.Add(valueText);
 		}
 
 		/// <summary>
