@@ -328,6 +328,35 @@ namespace WowArmory.Core.BattleNet
 		}
 
 		/// <summary>
+		/// Gets the quest for the specified id.
+		/// </summary>
+		/// <param name="questId">The quest id.</param>
+		/// <param name="action">The action.</param>
+		public void GetQuestAsync(int questId, Action<Quest> action)
+		{
+			try
+			{
+				var apiMethod = new Uri(BattleNetBaseUri, String.Format(BattleNetSettings.BattleNet_Api_Quest, questId)).ToString();
+				CallApiMethodAsync(apiMethod, jsonResult =>
+				{
+					try
+					{
+						var quest = JsonConvert.DeserializeObject<Quest>(jsonResult);
+						action(quest);
+					}
+					catch (Exception ex)
+					{
+						action(null);
+					}
+				});
+			}
+			catch (Exception ex)
+			{
+				action(null);
+			}
+		}
+
+		/// <summary>
 		/// Gets the thumbnail url for the specified path.
 		/// </summary>
 		/// <param name="thumbnailPath">The path to the thumbnail.</param>

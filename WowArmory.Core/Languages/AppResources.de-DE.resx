@@ -1135,4 +1135,19 @@
   <data name="UI_ItemViewer_Error" xml:space="preserve">
     <value>Die Information zur Darstellung des Gegenstandes, konnten nicht geladen werden</value>
   </data>
+  <data name="UI_Settings_Character_Is3DItemViewerEnabled" xml:space="preserve">
+    <value>3D Gegenstand Ansicht</value>
+  </data>
+  <data name="Item_Source_QuestCategory" xml:space="preserve">
+    <value>Kategorie:</value>
+  </data>
+  <data name="Item_Source_QuestLevel" xml:space="preserve">
+    <value>Quest Stufe:</value>
+  </data>
+  <data name="Item_Source_QuestName" xml:space="preserve">
+    <value>Quest:</value>
+  </data>
+  <data name="Item_Source_QuestRequiredLevel" xml:space="preserve">
+    <value>Benötigte Stufe:</value>
+  </data>
 </root>

@@ -101,9 +101,10 @@ namespace WowArmory.Views
 			ViewModel.IsItemToolTipOpen = false;
 			ViewModel.ItemContainerForToolTip = null;
 			ViewModel.ItemForToolTip = null;
+			ViewModel.ItemContainerControl = String.Empty;
 
 			ApplicationExtensions.SaveToPhoneState("CharacterDetails_ItemToolTip_IsOpen", ViewModel.IsItemToolTipOpen);
-			ApplicationExtensions.SaveToPhoneState("CharacterDetails_ItemToolTip_ItemContainerControl", String.Empty);
+			ApplicationExtensions.SaveToPhoneState("CharacterDetails_ItemToolTip_ItemContainerControl", ViewModel.ItemContainerControl);
 		}
 
 		/// <summary>
@@ -1073,34 +1074,109 @@ namespace WowArmory.Views
 				valueText.Margin = new Thickness(6, 0, 0, 0);
 				stackPanel.Children.Add(valueText);
 
+				if (ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("REWARD_FOR_QUEST", StringComparison.CurrentCultureIgnoreCase))
+				{
+					BattleNetClient.Current.GetQuestAsync(ViewModel.ItemForToolTip.ItemSource.SourceId, quest =>
+					{
+						if (quest == null)
+						{
+							return;
+						}
+
+						var stackPanelQuestName = new StackPanel();
+						stackPanelQuestName.Orientation = System.Windows.Controls.Orientation.Horizontal;
+						spItemToolTipSource.Children.Add(stackPanelQuestName);
+
+						var questNameDescriptionText = new TextBlock();
+						questNameDescriptionText.Text = AppResources.Item_Source_QuestName;
+						questNameDescriptionText.Style = descriptionStyle;
+						stackPanelQuestName.Children.Add(questNameDescriptionText);
+
+						var questNameValueText = new TextBlock();
+						questNameValueText.Text = quest.Title;
+						questNameValueText.Style = normalStyle;
+						questNameValueText.Margin = new Thickness(6, 0, 0, 0);
+						stackPanelQuestName.Children.Add(questNameValueText);
+
+						var stackPanelQuestCategory = new StackPanel();
+						stackPanelQuestCategory.Orientation = System.Windows.Controls.Orientation.Horizontal;
+						spItemToolTipSource.Children.Add(stackPanelQuestCategory);
+
+						var questCategoryDescriptionText = new TextBlock();
+						questCategoryDescriptionText.Text = AppResources.Item_Source_QuestCategory;
+						questCategoryDescriptionText.Style = descriptionStyle;
+						stackPanelQuestCategory.Children.Add(questCategoryDescriptionText);
+
+						var questCategoryValueText = new TextBlock();
+						questCategoryValueText.Text = quest.Category;
+						questCategoryValueText.Style = normalStyle;
+						questCategoryValueText.Margin = new Thickness(6, 0, 0, 0);
+						stackPanelQuestCategory.Children.Add(questCategoryValueText);
+
+						var stackPanelQuestLevel = new StackPanel();
+						stackPanelQuestLevel.Orientation = System.Windows.Controls.Orientation.Horizontal;
+						spItemToolTipSource.Children.Add(stackPanelQuestLevel);
+
+						var questLevelDescriptionText = new TextBlock();
+						questLevelDescriptionText.Text = AppResources.Item_Source_QuestLevel;
+						questLevelDescriptionText.Style = descriptionStyle;
+						stackPanelQuestLevel.Children.Add(questLevelDescriptionText);
+
+						var questLevelValueText = new TextBlock();
+						questLevelValueText.Text = quest.Level.ToString();
+						questLevelValueText.Style = normalStyle;
+						questLevelValueText.Margin = new Thickness(6, 0, 0, 0);
+						stackPanelQuestLevel.Children.Add(questLevelValueText);
+
+						var stackPanelQuestRequiredLevel = new StackPanel();
+						stackPanelQuestRequiredLevel.Orientation = System.Windows.Controls.Orientation.Horizontal;
+						spItemToolTipSource.Children.Add(stackPanelQuestRequiredLevel);
+
+						var questRequiredLevelDescriptionText = new TextBlock();
+						questRequiredLevelDescriptionText.Text = AppResources.Item_Source_QuestRequiredLevel;
+						questRequiredLevelDescriptionText.Style = descriptionStyle;
+						stackPanelQuestRequiredLevel.Children.Add(questRequiredLevelDescriptionText);
+
+						var questRequiredLevelCategoryValueText = new TextBlock();
+						questRequiredLevelCategoryValueText.Text = quest.ReqLevel.ToString();
+						questRequiredLevelCategoryValueText.Style = normalStyle;
+						questRequiredLevelCategoryValueText.Margin = new Thickness(6, 0, 0, 0);
+						stackPanelQuestRequiredLevel.Children.Add(questRequiredLevelCategoryValueText);
+					});
+				}
+
 				spItemToolTipSource.Visibility = Visibility.Visible;
 			}
 			// 3d item viewer
-			var webClient = new WebClient();
-			webClient.OpenReadCompleted += delegate(object senderInternal, OpenReadCompletedEventArgs openReadCompletedEventArgs)
+			if (AppSettingsManager.Is3DItemViewerEnabled)
 			{
-				try
+				var webClient = new WebClient();
+				webClient.OpenReadCompleted += delegate(object senderInternal, OpenReadCompletedEventArgs openReadCompletedEventArgs)
 				{
-					_imageWidth = 6720;
-					_frameWidth = 280;
-					_maxFrames = _imageWidth / _frameWidth;
-					_writeableBitmap = new WriteableBitmap(_imageWidth, _frameWidth);
-					_writeableBitmap.LoadJpeg(openReadCompletedEventArgs.Result);
-					cvItemViewerSpriteStrip.Width = _frameWidth;
-					cvItemViewerSpriteStrip.Height = _frameWidth;
-					rgItemViewerSpriteStrip.Rect = new Rect(0, 0, _frameWidth, _frameWidth);
-					imgItemViewerSpriteStrip.Width = _imageWidth;
-					imgItemViewerSpriteStrip.Height = _frameWidth;
-					imgItemViewerSpriteStrip.Source = _writeableBitmap;
-					Canvas.SetLeft(imgItemViewerSpriteStrip, 0);
-					Canvas.SetTop(imgItemViewerSpriteStrip, 0);
-					brdItemViewer.Visibility = Visibility.Visible;
-				}
-				catch (Exception ex)
-				{
-				}
-			};
-			webClient.OpenReadAsync(new Uri(BattleNetClient.Current.GetItemRenderUrl(ViewModel.ItemForToolTip.Id)));
+					try
+					{
+						_imageWidth = 6720;
+						_frameWidth = 280;
+						_maxFrames = _imageWidth / _frameWidth;
+						_writeableBitmap = new WriteableBitmap(_imageWidth, _frameWidth);
+						_writeableBitmap.LoadJpeg(openReadCompletedEventArgs.Result);
+						cvItemViewerSpriteStrip.Width = _frameWidth;
+						cvItemViewerSpriteStrip.Height = _frameWidth;
+						rgItemViewerSpriteStrip.Rect = new Rect(0, 0, _frameWidth, _frameWidth);
+						imgItemViewerSpriteStrip.Width = _imageWidth;
+						imgItemViewerSpriteStrip.Height = _frameWidth;
+						imgItemViewerSpriteStrip.Source = _writeableBitmap;
+						Canvas.SetLeft(imgItemViewerSpriteStrip, 0);
+						Canvas.SetTop(imgItemViewerSpriteStrip, 0);
+						brdItemViewer.Visibility = Visibility.Visible;
+					}
+					catch (Exception ex)
+					{
+						// do nothing
+					}
+				};
+				webClient.OpenReadAsync(new Uri(BattleNetClient.Current.GetItemRenderUrl(ViewModel.ItemForToolTip.Id)));
+			}
 			// external links
 			spItemToolTipExternalLinks.Visibility = Visibility.Visible;
 		}

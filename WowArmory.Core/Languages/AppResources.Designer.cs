@@ -1933,6 +1933,42 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category:.
+        /// </summary>
+        public static string Item_Source_QuestCategory {
+            get {
+                return ResourceManager.GetString("Item_Source_QuestCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quest Level:.
+        /// </summary>
+        public static string Item_Source_QuestLevel {
+            get {
+                return ResourceManager.GetString("Item_Source_QuestLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quest:.
+        /// </summary>
+        public static string Item_Source_QuestName {
+            get {
+                return ResourceManager.GetString("Item_Source_QuestName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required Level:.
+        /// </summary>
+        public static string Item_Source_QuestRequiredLevel {
+            get {
+                return ResourceManager.GetString("Item_Source_QuestRequiredLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use: {0}.
         /// </summary>
         public static string Item_Spell_Consumable {
@@ -3018,6 +3054,15 @@ namespace WowArmory.Core.Languages {
         public static string UI_Settings_ApplicationBar_Save {
             get {
                 return ResourceManager.GetString("UI_Settings_ApplicationBar_Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3D item viewer.
+        /// </summary>
+        public static string UI_Settings_Character_Is3DItemViewerEnabled {
+            get {
+                return ResourceManager.GetString("UI_Settings_Character_Is3DItemViewerEnabled", resourceCulture);
             }
         }
         

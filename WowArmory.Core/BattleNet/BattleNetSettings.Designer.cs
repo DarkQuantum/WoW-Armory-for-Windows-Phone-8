@@ -88,6 +88,15 @@ namespace WowArmory.Core.BattleNet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to quest/{0}.
+        /// </summary>
+        internal static string BattleNet_Api_Quest {
+            get {
+                return ResourceManager.GetString("BattleNet_Api_Quest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to realm/status.
         /// </summary>
         internal static string BattleNet_Api_RealmStatus {

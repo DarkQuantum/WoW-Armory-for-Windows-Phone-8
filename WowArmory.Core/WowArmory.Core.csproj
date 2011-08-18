@@ -112,6 +112,7 @@
     <Compile Include="BattleNet\Models\ItemWeaponInfoDamage.cs" />
     <Compile Include="BattleNet\Models\Price.cs" />
     <Compile Include="BattleNet\Models\Profession.cs" />
+    <Compile Include="BattleNet\Models\Quest.cs" />
     <Compile Include="BattleNet\Models\RaidBoss.cs" />
     <Compile Include="BattleNet\Models\RaidProgression.cs" />
     <Compile Include="BattleNet\Models\Realm.cs" />

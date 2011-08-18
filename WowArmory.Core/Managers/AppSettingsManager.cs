@@ -115,6 +115,24 @@ namespace WowArmory.Core.Managers
 				IsolatedStorageManager.SetValue("Setting_ShowGemName", value);
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the 3D item viewer is enabled.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the 3D item viewer is enabled; otherwise, <c>false</c>.
+		/// </value>
+		public static bool Is3DItemViewerEnabled
+		{
+			get
+			{
+				return IsolatedStorageManager.GetValue("Setting_Is3DItemViewerEnabled", true);
+			}
+			set
+			{
+				IsolatedStorageManager.SetValue("Setting_Is3DItemViewerEnabled", value);
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------

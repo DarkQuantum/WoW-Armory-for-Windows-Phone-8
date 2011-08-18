@@ -1147,4 +1147,19 @@
   <data name="UI_ItemViewer_Error" xml:space="preserve">
     <value>Could not retrieve the information needed to display the item</value>
   </data>
+  <data name="UI_Settings_Character_Is3DItemViewerEnabled" xml:space="preserve">
+    <value>3D item viewer</value>
+  </data>
+  <data name="Item_Source_QuestCategory" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="Item_Source_QuestLevel" xml:space="preserve">
+    <value>Quest Level:</value>
+  </data>
+  <data name="Item_Source_QuestName" xml:space="preserve">
+    <value>Quest:</value>
+  </data>
+  <data name="Item_Source_QuestRequiredLevel" xml:space="preserve">
+    <value>Required Level:</value>
+  </data>
 </root>

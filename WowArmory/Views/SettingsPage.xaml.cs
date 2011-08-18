@@ -81,6 +81,7 @@ namespace WowArmory.Views
 			BattleNetClient.Current.Region = AppSettingsManager.Region;
 			AppSettingsManager.ShowCharacterBackground = ViewModel.ShowCharacterBackground;
 			AppSettingsManager.ShowGemName = ViewModel.ShowGemName;
+			AppSettingsManager.Is3DItemViewerEnabled = ViewModel.Is3DItemViewerEnabled;
 
 			// save settings
 			IsolatedStorageManager.Save();

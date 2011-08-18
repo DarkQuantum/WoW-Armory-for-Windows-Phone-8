@@ -126,6 +126,9 @@
   <data name="BattleNet_Api_Item" xml:space="preserve">
     <value>item/{0}</value>
   </data>
+  <data name="BattleNet_Api_Quest" xml:space="preserve">
+    <value>quest/{0}</value>
+  </data>
   <data name="BattleNet_Api_RealmStatus" xml:space="preserve">
     <value>realm/status</value>
   </data>
