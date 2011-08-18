@@ -1009,13 +1009,13 @@
   <data name="Pages_Main_Button_Twitter" xml:space="preserve">
     <value>Twitter</value>
   </data>
-  <data name="Item_ExternalLink" xml:space="preserve">
-    <value>Learn more on:</value>
+  <data name="Item_AdditionalInformation" xml:space="preserve">
+    <value>Additional information:</value>
   </data>
-  <data name="Item_ExternalLink_Wowhead" xml:space="preserve">
-    <value>Wowhead</value>
+  <data name="Item_ExternalLink_Wowhead_ViewItem" xml:space="preserve">
+    <value>View item on Wowhead</value>
   </data>
-  <data name="Item_ExternalLink_Wowhead_Url" xml:space="preserve">
+  <data name="Item_ExternalLink_Wowhead_ItemUrl" xml:space="preserve">
     <value>http://www.wowhead.com/item={0}</value>
   </data>
   <data name="Item_Reforged" xml:space="preserve">
@@ -1164,5 +1164,23 @@
   </data>
   <data name="Item_Source_VendorCost" xml:space="preserve">
     <value>Cost:</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_QuestUrl" xml:space="preserve">
+    <value>http://www.wowhead.com/quest={0}</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_ViewQuest" xml:space="preserve">
+    <value>View quest on Wowhead</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_VendorUrl" xml:space="preserve">
+    <value>http://www.wowhead.com/npc={0}</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_ViewVendor" xml:space="preserve">
+    <value>View vendor on Wowhead</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_SpellUrl" xml:space="preserve">
+    <value>http://www.wowhead.com/spell={0}</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_ViewSpell" xml:space="preserve">
+    <value>View recipe on Wowhead</value>
   </data>
 </root>

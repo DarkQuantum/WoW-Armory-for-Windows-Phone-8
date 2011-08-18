@@ -1,0 +1,92 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:ctrl="clr-namespace:WowArmory.Controls">
+
+	<LinearGradientBrush x:Key="StyledButtonNormalBorderBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#ffaa3904" Offset="0" />
+		<GradientStop Color="#ff611309" Offset="1" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="StyledButtonPressedBorderBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#ffaa3904" Offset="0" />
+		<GradientStop Color="#ff611309" Offset="1" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="StyledButtonNormalBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#ff6a2303" Offset="0" />
+		<GradientStop Color="#ff3e0d07" Offset="1" />
+	</LinearGradientBrush>
+
+	<LinearGradientBrush x:Key="StyledButtonPressedBackgroundBrush" StartPoint="0,0" EndPoint="0,1">
+		<GradientStop Color="#ff3e0d07" Offset="0" />
+		<GradientStop Color="#ff6a2303" Offset="1" />
+	</LinearGradientBrush>
+
+	<Style x:Key="StyledButtonNormalTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="FontSize" Value="16" />
+		<Setter Property="FontFamily" Value="{StaticResource PhoneFontFamilySemiLight}" />
+		<Setter Property="Foreground" Value="#ffffd100" />
+		<Setter Property="HorizontalAlignment" Value="Left" />
+		<Setter Property="TextWrapping" Value="Wrap" />
+	</Style>
+
+	<Style x:Key="StyledButtonPressedTextStyle" BasedOn="{StaticResource StyledButtonNormalTextStyle}" TargetType="TextBlock">
+	</Style>
+
+	<SolidColorBrush x:Key="StyledButtonNormalExternalIconColorBrush" Color="#ffffd100" />
+
+	<SolidColorBrush x:Key="StyledButtonPressedExternalIconColorBrush" Color="#ffffd100" />
+
+	<Style TargetType="ctrl:StyledButton">
+		<Setter Property="Margin" Value="0" />
+		<Setter Property="Padding" Value="0" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ctrl:StyledButton">
+					<Grid Background="Transparent">
+						<VisualStateManager.VisualStateGroups>
+							<VisualStateGroup x:Name="CommonStates">
+								<VisualState x:Name="Normal" />
+								<VisualState x:Name="MouseOver" />
+								<VisualState x:Name="Pressed">
+									<Storyboard>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="BorderBrush">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource StyledButtonPressedBorderBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource StyledButtonPressedBackgroundBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Text" Storyboard.TargetProperty="Style">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource StyledButtonPressedTextStyle}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="ExternalLinkIcon" Storyboard.TargetProperty="Fill">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource StyledButtonPressedExternalIconColorBrush}" />
+										</ObjectAnimationUsingKeyFrames>
+										<ObjectAnimationUsingKeyFrames Storyboard.TargetName="Content" Storyboard.TargetProperty="Margin">
+											<DiscreteObjectKeyFrame KeyTime="0" Value="0,2,0,-2" />
+										</ObjectAnimationUsingKeyFrames>
+									</Storyboard>
+								</VisualState>
+							</VisualStateGroup>
+						</VisualStateManager.VisualStateGroups>
+						<Border Padding="2" Background="#ff000000" CornerRadius="5">
+							<Border x:Name="Border" Padding="4" BorderThickness="2" CornerRadius="3"
+									BorderBrush="{StaticResource StyledButtonNormalBorderBrush}" Background="{StaticResource StyledButtonNormalBackgroundBrush}">
+								<StackPanel x:Name="Content" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+									<TextBlock x:Name="Text" Text="{TemplateBinding Text}" Style="{StaticResource StyledButtonNormalTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+									<Rectangle x:Name="ExternalLinkIcon" Fill="{StaticResource StyledButtonNormalExternalIconColorBrush}" Width="16" Height="16" Visibility="{TemplateBinding ExternalLinkIconVisibility}">
+										<Rectangle.OpacityMask>
+											<ImageBrush ImageSource="/WowArmory.Core;Component/Images/ExternalLink.png" Stretch="Fill" />
+										</Rectangle.OpacityMask>
+									</Rectangle>
+								</StackPanel>
+							</Border>
+						</Border>
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+</ResourceDictionary>

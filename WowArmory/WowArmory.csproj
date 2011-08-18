@@ -88,6 +88,7 @@
     <Compile Include="Controls\CharacterItemContainer.cs" />
     <Compile Include="Controls\MainPageButton.cs" />
     <Compile Include="Controls\RelativeAnimatingContentControl.cs" />
+    <Compile Include="Controls\StyledButton.cs" />
     <Compile Include="Enumerations\Page.cs" />
     <Compile Include="Models\CharacterListItem.cs" />
     <Compile Include="Models\RealmItem.cs" />
@@ -164,6 +165,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Resource>
+    <Page Include="Themes\StyledButton.Theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CharacterListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

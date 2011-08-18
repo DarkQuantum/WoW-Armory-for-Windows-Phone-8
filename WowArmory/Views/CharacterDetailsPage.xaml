@@ -569,50 +569,24 @@
 										<!-- TODO Find out how to display more detailed source information -->
 										<TextBlock x:Name="tbItemToolTipSpacer" Text="---" Style="{StaticResource CharacterDetailsItemToolTipNormalTextStyle}" />
 										<StackPanel x:Name="spItemToolTipSource" Orientation="Vertical" />
-										<Border x:Name="brdItemViewer" Margin="0,12,0,0" Padding="2" Background="#ff000000" CornerRadius="5">
-											<Border MouseLeftButtonUp="OpenItemViewer" Padding="4" BorderThickness="2" CornerRadius="3">
-												<Border.BorderBrush>
-													<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-														<GradientStop Offset="0" Color="#ffaa3904" />
-														<GradientStop Offset="1" Color="#ff611309" />
-													</LinearGradientBrush>
-												</Border.BorderBrush>
-												<Border.Background>
-													<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-														<GradientStop Offset="0" Color="#ff6a2303" />
-														<GradientStop Offset="1" Color="#ff3e0d07" />
-													</LinearGradientBrush>
-												</Border.Background>
-												<TextBlock Text="{Binding LocalizedResources.UI_CharacterDetails_Item_ItemViewer, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemToolTipDescriptionTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-											</Border>
-										</Border>
 										<StackPanel x:Name="spItemToolTipExternalLinks" Orientation="Vertical" Margin="0,12,0,0">
-											<TextBlock Text="{Binding LocalizedResources.Item_ExternalLink, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemToolTipDescriptionTextStyle}" />
-											<Border Margin="4" Padding="2" Background="#ff000000" CornerRadius="5">
-												<Border MouseLeftButtonUp="OpenWowheadForItem" Padding="4" BorderThickness="2" CornerRadius="3">
-													<Border.BorderBrush>
-														<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-															<GradientStop Offset="0" Color="#ffaa3904" />
-															<GradientStop Offset="1" Color="#ff611309" />
-														</LinearGradientBrush>
-													</Border.BorderBrush>
-													<Border.Background>
-														<LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-															<GradientStop Offset="0" Color="#ff6a2303" />
-															<GradientStop Offset="1" Color="#ff3e0d07" />
-														</LinearGradientBrush>
-													</Border.Background>
-													<StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-														<TextBlock Text="{Binding LocalizedResources.Item_ExternalLink_Wowhead, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemToolTipDescriptionTextStyle}" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,4,0" />
-														<Rectangle Fill="{StaticResource ItemToolTipDescriptionBrush}" Width="16" Height="16">
-															<Rectangle.OpacityMask>
-																<ImageBrush ImageSource="/WowArmory.Core;Component/Images/ExternalLink.png" Stretch="Fill" />
-															</Rectangle.OpacityMask>
-														</Rectangle>
-													</StackPanel>
-												</Border>
-											</Border>
+											<TextBlock Text="{Binding LocalizedResources.Item_AdditionalInformation, Source={StaticResource LocalizedResources}}" Style="{StaticResource CharacterDetailsItemToolTipDescriptionTextStyle}" />
+											<ctrl:StyledButton x:Name="sbWowheadItemLink" Margin="0,4,0,0" Click="OpenWowheadForItem"
+														   Text="{Binding LocalizedResources.Item_ExternalLink_Wowhead_ViewItem, Source={StaticResource LocalizedResources}}"
+														   ExternalLinkIconVisibility="Visible" />
+											<ctrl:StyledButton x:Name="sbWowheadQuestLink" Margin="0,4,0,0" Click="OpenWowheadForQuest"
+														   Text="{Binding LocalizedResources.Item_ExternalLink_Wowhead_ViewQuest, Source={StaticResource LocalizedResources}}"
+														   ExternalLinkIconVisibility="Visible" />
+											<ctrl:StyledButton x:Name="sbWowheadVendorLink" Margin="0,4,0,0" Click="OpenWowheadForVendor"
+														   Text="{Binding LocalizedResources.Item_ExternalLink_Wowhead_ViewVendor, Source={StaticResource LocalizedResources}}"
+														   ExternalLinkIconVisibility="Visible" />
+											<ctrl:StyledButton x:Name="sbWowheadSpellLink" Margin="0,4,0,0" Click="OpenWowheadForSpell"
+														   Text="{Binding LocalizedResources.Item_ExternalLink_Wowhead_ViewSpell, Source={StaticResource LocalizedResources}}"
+														   ExternalLinkIconVisibility="Visible" />
 										</StackPanel>
+										<ctrl:StyledButton x:Name="sbItemViewer" Margin="0,4,0,0" Click="OpenItemViewer"
+														   Text="{Binding LocalizedResources.UI_CharacterDetails_Item_ItemViewer, Source={StaticResource LocalizedResources}}"
+														   ExternalLinkIconVisibility="Collapsed" />
 									</StackPanel>
 								</ScrollViewer>
 							</Border>

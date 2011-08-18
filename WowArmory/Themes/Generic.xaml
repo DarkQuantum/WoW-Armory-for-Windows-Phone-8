@@ -4,6 +4,7 @@
 	<ResourceDictionary.MergedDictionaries>
 		<ResourceDictionary Source="/WowArmory;Component/Themes/MainPageButton.Theme.xaml" />
 		<ResourceDictionary Source="/WowArmory;Component/Themes/CharacterItemContainer.Theme.xaml" />
+		<ResourceDictionary Source="/WowArmory;Component/Themes/StyledButton.Theme.xaml" />
 	</ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

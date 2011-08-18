@@ -991,15 +991,6 @@
   <data name="Pages_Main_Button_Twitter" xml:space="preserve">
     <value>Twitter</value>
   </data>
-  <data name="Item_ExternalLink" xml:space="preserve">
-    <value>Erfahre mehr auf:</value>
-  </data>
-  <data name="Item_ExternalLink_Wowhead" xml:space="preserve">
-    <value>Wowhead</value>
-  </data>
-  <data name="Item_ExternalLink_Wowhead_Url" xml:space="preserve">
-    <value>http://www.wowhead.com/item={0}</value>
-  </data>
   <data name="Item_Reforged" xml:space="preserve">
     <value>Umgeschmiedet</value>
   </data>
@@ -1152,5 +1143,32 @@
   </data>
   <data name="Item_Source_VendorCost" xml:space="preserve">
     <value>Kosten:</value>
+  </data>
+  <data name="Item_AdditionalInformation" xml:space="preserve">
+    <value>Zusätzliche Informationen:</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_ItemUrl" xml:space="preserve">
+    <value>http://de.wowhead.com/item={0}</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_QuestUrl" xml:space="preserve">
+    <value>http://de.wowhead.com/quest={0}</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_ViewItem" xml:space="preserve">
+    <value>Gegenstand auf Wowhead anzeigen</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_ViewQuest" xml:space="preserve">
+    <value>Quest auf Wowhead anzeigen</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_VendorUrl" xml:space="preserve">
+    <value>http://de.wowhead.com/npc={0}</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_ViewVendor" xml:space="preserve">
+    <value>Händer auf Wowhead anzeigen</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_SpellUrl" xml:space="preserve">
+    <value>http://de.wowhead.com/spell={0}</value>
+  </data>
+  <data name="Item_ExternalLink_Wowhead_ViewSpell" xml:space="preserve">
+    <value>Rezept auf Wowhead anzeigen</value>
   </data>
 </root>
