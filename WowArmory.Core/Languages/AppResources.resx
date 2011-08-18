@@ -261,8 +261,8 @@
   <data name="UI_CharacterDetails_PivotItem_Reputation" xml:space="preserve">
     <value>reputation</value>
   </data>
-  <data name="UI_CharacterDetails_PivotItem_Titles" xml:space="preserve">
-    <value>titles</value>
+  <data name="UI_CharacterDetails_Character_Header_Titles" xml:space="preserve">
+    <value>Titles</value>
   </data>
   <data name="UI_CharacterDetails_Professions_None" xml:space="preserve">
     <value>This character has no professions</value>
@@ -357,23 +357,11 @@
   <data name="UI_Settings_ApplicationBar_Save" xml:space="preserve">
     <value>save</value>
   </data>
-  <data name="UI_CharacterSearch_Error_CharacterNotFound_Caption" xml:space="preserve">
+  <data name="UI_Search_Error_CharacterNotFound_Caption" xml:space="preserve">
     <value>Character not found</value>
   </data>
-  <data name="UI_CharacterSearch_Error_CharacterNotFound_Text" xml:space="preserve">
+  <data name="UI_Search_Error_CharacterNotFound_Text" xml:space="preserve">
     <value>The specified character could not be found</value>
-  </data>
-  <data name="UI_CharacterSearch_Error_RealmNotFound_Caption" xml:space="preserve">
-    <value>Realm not found</value>
-  </data>
-  <data name="UI_CharacterSearch_Error_RealmNotFound_Text" xml:space="preserve">
-    <value>The specified realm could not be found</value>
-  </data>
-  <data name="UI_CharacterSearch_Error_Unknown_Caption" xml:space="preserve">
-    <value>No data retrieved</value>
-  </data>
-  <data name="UI_CharacterSearch_Error_Unknown_Text" xml:space="preserve">
-    <value>Could not retrieve data from Battle.Net</value>
   </data>
   <data name="UI_Main_FirstTimeUsage_Caption" xml:space="preserve">
     <value>Thanks for using this app</value>
@@ -395,24 +383,6 @@
   </data>
   <data name="Page_CharacterSearch_Title" xml:space="preserve">
     <value>Search for a character on the armory</value>
-  </data>
-  <data name="UI_CharacterSearch_Name" xml:space="preserve">
-    <value>Character</value>
-  </data>
-  <data name="UI_CharacterSearch_Realm" xml:space="preserve">
-    <value>Realm</value>
-  </data>
-  <data name="UI_CharacterSearch_SearchCharacter" xml:space="preserve">
-    <value>Search</value>
-  </data>
-  <data name="UI_CharacterSearch_MissingName_Text" xml:space="preserve">
-    <value>Please specify a character name</value>
-  </data>
-  <data name="UI_CharacterSearch_MissingRealm_Text" xml:space="preserve">
-    <value>Please specify a realm name</value>
-  </data>
-  <data name="UI_CharacterSearch_Missing_Caption" xml:space="preserve">
-    <value>Input missing</value>
   </data>
   <data name="UI_Common_Error_NoData_Caption" xml:space="preserve">
     <value>No data retrieved</value>
@@ -1033,9 +1003,6 @@
   <data name="UI_CharacterDetails_Character_Description_Achievements" xml:space="preserve">
     <value>Achievements</value>
   </data>
-  <data name="UI_Settings_General_ShowCharacterBackground" xml:space="preserve">
-    <value>Show character background</value>
-  </data>
   <data name="Pages_Main_Button_Facebook" xml:space="preserve">
     <value>Facebook</value>
   </data>
@@ -1050,5 +1017,152 @@
   </data>
   <data name="Item_ExternalLink_Wowhead_Url" xml:space="preserve">
     <value>http://www.wowhead.com/item={0}</value>
+  </data>
+  <data name="Item_Reforged" xml:space="preserve">
+    <value>Reforged</value>
+  </data>
+  <data name="Item_ReforgedStat_CriticalStrikeRating" xml:space="preserve">
+    <value>Crit Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_DodgeRating" xml:space="preserve">
+    <value>Dodge Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_ExpertiseRating" xml:space="preserve">
+    <value>Expertise Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_HasteRating" xml:space="preserve">
+    <value>Haste Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_HitRating" xml:space="preserve">
+    <value>Hit Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_Mastery" xml:space="preserve">
+    <value>Mastery Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_ParryRating" xml:space="preserve">
+    <value>Parry Rating</value>
+  </data>
+  <data name="Item_ReforgedStat_Spirit" xml:space="preserve">
+    <value>Spirit</value>
+  </data>
+  <data name="UI_Settings_Character_ShowCharacterBackground" xml:space="preserve">
+    <value>Show background image</value>
+  </data>
+  <data name="UI_Settings_Character_ShowGemName" xml:space="preserve">
+    <value>Display gem name</value>
+  </data>
+  <data name="UI_Settings_PivotItem_Character" xml:space="preserve">
+    <value>character</value>
+  </data>
+  <data name="UI_CharacterDetails_Character_NoTitles" xml:space="preserve">
+    <value>This character has no titles yet</value>
+  </data>
+  <data name="Pages_Main_Button_Guilds" xml:space="preserve">
+    <value>Guilds</value>
+  </data>
+  <data name="Page_GuildList_Title" xml:space="preserve">
+    <value>Search guilds and manage your favorites</value>
+  </data>
+  <data name="UI_Search_Error_GuildNotFound_Caption" xml:space="preserve">
+    <value>Guild not found</value>
+  </data>
+  <data name="UI_Search_Error_GuildNotFound_Text" xml:space="preserve">
+    <value>The specified guild could not be found</value>
+  </data>
+  <data name="UI_Search_Error_RealmNotFound_Caption" xml:space="preserve">
+    <value>Realm not found</value>
+  </data>
+  <data name="UI_Search_Error_RealmNotFound_Text" xml:space="preserve">
+    <value>The specified realm could not be found</value>
+  </data>
+  <data name="UI_Search_MissingCharacterName_Text" xml:space="preserve">
+    <value>Please specify a character name</value>
+  </data>
+  <data name="UI_Search_MissingRealm_Text" xml:space="preserve">
+    <value>Please specify a realm name</value>
+  </data>
+  <data name="UI_Search_Missing_Caption" xml:space="preserve">
+    <value>Input missing</value>
+  </data>
+  <data name="UI_Search_Text_CharacterName" xml:space="preserve">
+    <value>Character</value>
+  </data>
+  <data name="UI_Search_Text_Guild" xml:space="preserve">
+    <value>Guild</value>
+  </data>
+  <data name="UI_Search_Text_Realm" xml:space="preserve">
+    <value>Realm</value>
+  </data>
+  <data name="UI_Search_Text_Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="UI_Search_MissingGuildName_Text" xml:space="preserve">
+    <value>Please specify a guild name</value>
+  </data>
+  <data name="Page_GuildSearch_Title" xml:space="preserve">
+    <value>Search for a guild on the armory</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_Search" xml:space="preserve">
+    <value>search</value>
+  </data>
+  <data name="UI_CharacterDetails_Faction_Alliance" xml:space="preserve">
+    <value>Alliance</value>
+  </data>
+  <data name="UI_CharacterDetails_Faction_Horde" xml:space="preserve">
+    <value>Horde</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_SortByAchievementPoints" xml:space="preserve">
+    <value>sort by achievement points</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_SortByLevel" xml:space="preserve">
+    <value>sort by level</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_SortByName" xml:space="preserve">
+    <value>sort by name</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_DeleteAll" xml:space="preserve">
+    <value>remove all</value>
+  </data>
+  <data name="UI_CharacterList_DeleteAll_Caption" xml:space="preserve">
+    <value>Remove all characters</value>
+  </data>
+  <data name="UI_CharacterList_DeleteAll_Text" xml:space="preserve">
+    <value>All characters will be removed from your list</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_Remove" xml:space="preserve">
+    <value>remove</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_Update" xml:space="preserve">
+    <value>update</value>
+  </data>
+  <data name="UI_CharacterList_Delete_Caption" xml:space="preserve">
+    <value>Remove character</value>
+  </data>
+  <data name="UI_CharacterList_Delete_Text" xml:space="preserve">
+    <value>This character will be removed from the list</value>
+  </data>
+  <data name="UI_CharacterDetails_Item_ItemViewer" xml:space="preserve">
+    <value>View item in 3D</value>
+  </data>
+  <data name="UI_ItemViewer_Error" xml:space="preserve">
+    <value>Could not retrieve the information needed to display the item</value>
+  </data>
+  <data name="UI_Settings_Character_Is3DItemViewerEnabled" xml:space="preserve">
+    <value>3D item viewer</value>
+  </data>
+  <data name="Item_Source_QuestCategory" xml:space="preserve">
+    <value>Category:</value>
+  </data>
+  <data name="Item_Source_QuestLevel" xml:space="preserve">
+    <value>Quest Level:</value>
+  </data>
+  <data name="Item_Source_QuestName" xml:space="preserve">
+    <value>Quest:</value>
+  </data>
+  <data name="Item_Source_QuestRequiredLevel" xml:space="preserve">
+    <value>Required Level:</value>
+  </data>
+  <data name="Item_Source_VendorCost" xml:space="preserve">
+    <value>Cost:</value>
   </data>
 </root>

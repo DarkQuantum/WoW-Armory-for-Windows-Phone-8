@@ -3,13 +3,28 @@ using System.Windows;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WowArmory.Controllers;
+using WowArmory.Core.Enumerations;
 using WowArmory.Core.Languages;
+using WowArmory.Core.Managers;
+using WowArmory.Models;
 using WowArmory.ViewModels;
 
 namespace WowArmory.Views
 {
 	public partial class CharacterListPage : PhoneApplicationPage
 	{
+		//----------------------------------------------------------------------
+		#region --- Fields ---
+		//----------------------------------------------------------------------
+		private ApplicationBarIconButton _deleteAllButton;
+		private ApplicationBarMenuItem _sortByNameMenuItem;
+		private ApplicationBarMenuItem _sortByLevelMenuItem;
+		private ApplicationBarMenuItem _sortByAchievementPointsMenuItem;
+		//----------------------------------------------------------------------
+		#endregion
+		//----------------------------------------------------------------------
+
+
 		//----------------------------------------------------------------------
 		#region --- Properties ---
 		//----------------------------------------------------------------------
@@ -58,7 +73,117 @@ namespace WowArmory.Views
 			searchButton.Text = AppResources.UI_CharacterList_ApplicationBar_Search;
 			searchButton.Click += ShowCharacterSearchView;
 
+			_deleteAllButton = new ApplicationBarIconButton(new Uri("/Images/ApplicationBar/CharacterList/delete.png", UriKind.Relative));
+			_deleteAllButton.Text = AppResources.UI_CharacterList_ApplicationBar_DeleteAll;
+			_deleteAllButton.Click += DeleteAll;
+
+			_sortByNameMenuItem = new ApplicationBarMenuItem(AppResources.UI_CharacterList_ApplicationBar_SortByName);
+			_sortByNameMenuItem.Click += SortByName;
+
+			_sortByLevelMenuItem = new ApplicationBarMenuItem(AppResources.UI_CharacterList_ApplicationBar_SortByLevel);
+			_sortByLevelMenuItem.Click += SortByLevel;
+
+			_sortByAchievementPointsMenuItem = new ApplicationBarMenuItem(AppResources.UI_CharacterList_ApplicationBar_SortByAchievementPoints);
+			_sortByAchievementPointsMenuItem.Click += SortByAchievementPoints;
+
 			ApplicationBar.Buttons.Add(searchButton);
+			ApplicationBar.Buttons.Add(_deleteAllButton);
+			ApplicationBar.MenuItems.Add(_sortByNameMenuItem);
+			ApplicationBar.MenuItems.Add(_sortByLevelMenuItem);
+			ApplicationBar.MenuItems.Add(_sortByAchievementPointsMenuItem);
+
+			UpdateApplicationBarItems();
+		}
+
+		/// <summary>
+		/// Updates the application bar items.
+		/// </summary>
+		private void UpdateApplicationBarItems()
+		{
+			var enabled = true;
+			if (ViewModel.FavoriteCharacters.Count == 0)
+			{
+				enabled = false;
+			}
+
+			_deleteAllButton.IsEnabled = enabled;
+			_sortByNameMenuItem.IsEnabled = enabled;
+			_sortByLevelMenuItem.IsEnabled = enabled;
+			_sortByAchievementPointsMenuItem.IsEnabled = enabled;
+		}
+
+		/// <summary>
+		/// Inverts the type the list is sorted by.
+		/// </summary>
+		private void InvertSortByType()
+		{
+			AppSettingsManager.CharacterListSortByType = AppSettingsManager.CharacterListSortByType == SortBy.Ascending ? SortBy.Descending : SortBy.Ascending;
+		}
+
+		/// <summary>
+		/// Sorts the character list by name.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void SortByName(object sender, EventArgs e)
+		{
+			if (AppSettingsManager.CharacterListSortBy == CharacterListSortBy.Name)
+			{
+				InvertSortByType();
+			}
+			else
+			{
+				AppSettingsManager.CharacterListSortByType = SortBy.Ascending;
+			}
+			AppSettingsManager.CharacterListSortBy = CharacterListSortBy.Name;
+			SortCharacterList();
+		}
+
+		/// <summary>
+		/// Sorts the character list by level.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void SortByLevel(object sender, EventArgs e)
+		{
+			if (AppSettingsManager.CharacterListSortBy == CharacterListSortBy.Level)
+			{
+				InvertSortByType();
+			}
+			else
+			{
+				AppSettingsManager.CharacterListSortByType = SortBy.Descending;
+			}
+			AppSettingsManager.CharacterListSortBy = CharacterListSortBy.Level;
+			SortCharacterList();
+		}
+
+		/// <summary>
+		/// Sorts the character list by achievement points.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void SortByAchievementPoints(object sender, EventArgs e)
+		{
+			if (AppSettingsManager.CharacterListSortBy == CharacterListSortBy.AchievementPoints)
+			{
+				InvertSortByType();
+			}
+			else
+			{
+				AppSettingsManager.CharacterListSortByType = SortBy.Descending;
+			}
+			AppSettingsManager.CharacterListSortBy = CharacterListSortBy.AchievementPoints;
+			SortCharacterList();
+		}
+
+		/// <summary>
+		/// Sorts the character list.
+		/// </summary>
+		private void SortCharacterList()
+		{
+			ViewModel.RefreshView();
+			UpdateApplicationBarItems();
 		}
 
 		/// <summary>
@@ -79,6 +204,7 @@ namespace WowArmory.Views
 		private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
 		{
 			ViewModel.RefreshView();
+			UpdateApplicationBarItems();
 		}
 
 		/// <summary>
@@ -94,6 +220,59 @@ namespace WowArmory.Views
 			}
 
 			ViewModel.ShowSelectedCharacter();
+		}
+
+		/// <summary>
+		/// Deletes all stored characters.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void DeleteAll(object sender, EventArgs e)
+		{
+			if (MessageBox.Show(AppResources.UI_CharacterList_DeleteAll_Text, AppResources.UI_CharacterList_DeleteAll_Caption, MessageBoxButton.OKCancel) == MessageBoxResult.Cancel)
+			{
+				return;
+			}
+
+			while (IsolatedStorageManager.StoredCharacters.Count > 0)
+			{
+				IsolatedStorageManager.StoredCharacters.Remove(IsolatedStorageManager.StoredCharacters[0]);
+			}
+
+			ViewModel.RefreshView();
+			UpdateApplicationBarItems();
+		}
+
+		/// <summary>
+		/// Handles the Click event of the CharacterContextMenuItemUpdate control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void CharacterContextMenuItemUpdate_Click(object sender, RoutedEventArgs e)
+		{
+			ViewModel.PreventNextNavigation = true;
+			var character = (CharacterListItem)((MenuItem)sender).DataContext;
+			ViewModel.UpdateCharacter(character.Region, character.Realm, character.Character);
+		}
+
+		/// <summary>
+		/// Handles the Click event of the CharacterContextMenuItemRemove control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void CharacterContextMenuItemRemove_Click(object sender, RoutedEventArgs e)
+		{
+			if (MessageBox.Show(AppResources.UI_CharacterList_Delete_Text, AppResources.UI_CharacterList_Delete_Caption, MessageBoxButton.OKCancel) == MessageBoxResult.Cancel)
+			{
+				return;
+			}
+
+			var character = (CharacterListItem)((MenuItem)sender).DataContext;
+			var storageData = IsolatedStorageManager.GetStoredCharacter(character.Region, character.Realm, character.Character);
+			IsolatedStorageManager.StoredCharacters.Remove(storageData);
+
+			ViewModel.RefreshView();
+			UpdateApplicationBarItems();
 		}
 		//----------------------------------------------------------------------
 		#endregion

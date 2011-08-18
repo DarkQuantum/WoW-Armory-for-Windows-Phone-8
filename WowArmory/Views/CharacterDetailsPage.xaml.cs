@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
+using WowArmory.Controllers;
 using WowArmory.Controls;
 using WowArmory.Core.BattleNet;
+using WowArmory.Core.BattleNet.Helpers;
 using WowArmory.Core.BattleNet.Models;
+using WowArmory.Core.Extensions;
 using WowArmory.Core.Helper;
 using WowArmory.Core.Languages;
 using WowArmory.Core.Managers;
@@ -24,10 +29,11 @@ namespace WowArmory.Views
 		//----------------------------------------------------------------------
 		private bool _isToolTipLoading = false;
 		private int _toolTipCancel = 0;
-		private Dictionary<CharacterItemContainer, Item> _cachedItems = new Dictionary<CharacterItemContainer,Item>();
-		private CharacterItemContainer _itemContainerForToolTip;
-		private Item _itemForToolTip;
-		private Dictionary<int, Item> _cachedGems = new Dictionary<int, Item>();
+		private WriteableBitmap _writeableBitmap = null;
+		private double _currentFrame = 0;
+		private int _maxFrames = 0;
+		private int _frameWidth = 0;
+		private int _imageWidth = 0;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -56,7 +62,7 @@ namespace WowArmory.Views
 		#endregion
 		//----------------------------------------------------------------------
 
-		
+
 		//----------------------------------------------------------------------
 		#region --- Methods ---
 		//----------------------------------------------------------------------
@@ -67,10 +73,38 @@ namespace WowArmory.Views
 		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
 		private void PhoneApplicationPage_Loaded(object sender, RoutedEventArgs e)
 		{
+			if (ViewModel.CachedGems == null)
+			{
+				ViewModel.CachedGems = new Dictionary<int, Item>();
+			}
+			if (ViewModel.CachedItems == null)
+			{
+				ViewModel.CachedItems = new Dictionary<int, Item>();
+			}
+
 			LoadView();
 			BuildTalents();
 			BuildReputation();
 			BuildProfessions();
+			BuildTitles();
+		}
+
+		/// <summary>
+		/// Handles the Unloaded event of the PhoneApplicationPage control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void PhoneApplicationPage_Unloaded(object sender, RoutedEventArgs e)
+		{
+			ViewModel.CachedItems = null;
+			ViewModel.CachedGems = null;
+			ViewModel.IsItemToolTipOpen = false;
+			ViewModel.ItemContainerForToolTip = null;
+			ViewModel.ItemForToolTip = null;
+			ViewModel.ItemContainerControl = String.Empty;
+
+			ApplicationExtensions.SaveToPhoneState("CharacterDetails_ItemToolTip_IsOpen", ViewModel.IsItemToolTipOpen);
+			ApplicationExtensions.SaveToPhoneState("CharacterDetails_ItemToolTip_ItemContainerControl", ViewModel.ItemContainerControl);
 		}
 
 		/// <summary>
@@ -104,10 +138,24 @@ namespace WowArmory.Views
 			}
 
 			var powerType = ViewModel.Character.Stats.PowerType;
-			//barPowerType.Background = (Brush)Resources[String.Format("{0}BarStyle", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""))];
 			tbPowerType.Foreground = (Brush)Resources[String.Format("{0}TextBrush", (powerType.Substring(0, 1).ToUpper() + powerType.Substring(1)).Replace("-", ""))];
 
+			var showToolTip = ViewModel.IsItemToolTipOpen;
+			HideAllItemContainerSelections();
 			HideToolTip();
+			if (!String.IsNullOrEmpty(ViewModel.ItemContainerControl))
+			{
+				var control = UIHelper.FindChild<CharacterItemContainer>(CharacterPivotItem, ViewModel.ItemContainerControl);
+				if (control != null)
+				{
+					control.SelectionVisibility = Visibility.Visible;
+					ViewModel.ItemContainerForToolTip = control;
+				}
+			}
+			if (showToolTip)
+			{
+				ShowToolTip(ViewModel.ItemContainerForToolTip);
+			}
 		}
 
 		/// <summary>
@@ -156,7 +204,7 @@ namespace WowArmory.Views
 			grid.ColumnDefinitions.Add(new ColumnDefinition());
 
 			var talentImageGrid = new Grid();
-			talentImageGrid.Margin = new Thickness(0,0,4,0);
+			talentImageGrid.Margin = new Thickness(0, 0, 4, 0);
 			talentImageGrid.VerticalAlignment = VerticalAlignment.Top;
 			Grid.SetRow(talentImageGrid, 0);
 			Grid.SetRowSpan(talentImageGrid, 2);
@@ -243,13 +291,6 @@ namespace WowArmory.Views
 			}
 			pointsThree.Style = (Style)Resources[String.Format("CharacterDetailsTalents{0}Points{1}TextStyle", activeText, maxText)];
 			stackPanel.Children.Add(pointsThree);
-
-			
-			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeOnePoints" />
-			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeOneSeparator" Text=", " />
-			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeTwoPoints" />
-			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeTwoSeparator" Text=", " />
-			//        <TextBlock x:Name="tbCharacterTalentsPrimaryTreeThreePoints" />
 
 			return grid;
 		}
@@ -416,7 +457,7 @@ namespace WowArmory.Views
 			grid.ColumnDefinitions.Add(new ColumnDefinition());
 			grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
 			grid.Margin = new Thickness(0, 0, 0, 4);
-			
+
 			// NOTE the Battle.Net community api currently returns 0 as the maximum value - in this case use a default of 525
 			var max = profession.Max > 0 ? Convert.ToDouble(profession.Max) : 525.0;
 			int rectangleWidth = Convert.ToInt32(Math.Round(456.0 * (Convert.ToDouble(profession.Rank) / max)));
@@ -479,7 +520,7 @@ namespace WowArmory.Views
 			var valueTextBlock = new TextBlock();
 			Grid.SetRow(valueTextBlock, 0);
 			Grid.SetColumn(valueTextBlock, 2);
-			valueTextBlock.Text = String.Format("{0} / {1}", profession.Rank, profession.Max);
+			valueTextBlock.Text = String.Format("{0} / {1}", profession.Rank, Convert.ToInt32(Math.Floor(max)));
 			valueTextBlock.Style = (Style)Resources["ProfessionTextStyle"];
 			valueTextBlock.HorizontalAlignment = HorizontalAlignment.Right;
 			valueTextBlock.VerticalAlignment = VerticalAlignment.Center;
@@ -494,6 +535,53 @@ namespace WowArmory.Views
 			grid.Children.Add(valueTextBlock);
 
 			spProfessions.Children.Add(grid);
+		}
+
+		/// <summary>
+		/// Builds the user interface for the titles pivot.
+		/// </summary>
+		private void BuildTitles()
+		{
+			if (ViewModel.Character != null)
+			{
+				if (ViewModel.Character.Titles != null &&
+					ViewModel.Character.Titles.Count > 0)
+				{
+					foreach (var title in ViewModel.Character.Titles.OrderBy(t => t.Name))
+					{
+						var titleGrid = new Grid();
+						titleGrid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+						titleGrid.ColumnDefinitions.Add(new ColumnDefinition());
+						titleGrid.Margin = new Thickness(8, 0, 8, 0);
+						spCharacterTitles.Children.Add(titleGrid);
+
+						var titleIcon = new Rectangle();
+						titleIcon.Fill = (Brush)Resources["PhoneSubtleBrush"];
+						titleIcon.Width = 16;
+						titleIcon.Height = 16;
+						titleIcon.OpacityMask = new ImageBrush { ImageSource = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/CharacterDetails/Character_Title.png"), Stretch = Stretch.Fill };
+						titleIcon.Opacity = 0.5;
+						titleIcon.HorizontalAlignment = HorizontalAlignment.Left;
+						titleIcon.VerticalAlignment = VerticalAlignment.Center;
+						titleIcon.Margin = new Thickness(0, 0, 6, 0);
+						Grid.SetColumn(titleIcon, 0);
+						titleGrid.Children.Add(titleIcon);
+
+						var titleText = new TextBlock();
+						titleText.Text = title.Name.Replace("%s", ViewModel.Character.Name);
+						titleText.Style = (Style)Resources["CharacterDetailsTitleTextStyle"];
+						Grid.SetColumn(titleText, 1);
+						titleGrid.Children.Add(titleText);
+					}
+				}
+				else
+				{
+					var noTitlesText = new TextBlock();
+					noTitlesText.Text = AppResources.UI_CharacterDetails_Character_NoTitles;
+					noTitlesText.Style = (Style)Resources["CharacterDetailsNoTitlesTextStyle"];
+					spCharacterTitles.Children.Add(noTitlesText);
+				}
+			}
 		}
 
 		/// <summary>
@@ -513,10 +601,12 @@ namespace WowArmory.Views
 				}
 
 				var isSelected = false;
+				ViewModel.ItemContainerControl = itemContainer.Name;
 
 				if (itemContainer.SelectionVisibility == Visibility.Visible)
 				{
 					isSelected = true;
+					ViewModel.ItemContainerControl = String.Empty;
 				}
 
 				HideAllItemContainerSelections();
@@ -563,6 +653,7 @@ namespace WowArmory.Views
 		private void HideToolTip()
 		{
 			brdItemToolTip.Visibility = Visibility.Collapsed;
+			ViewModel.IsItemToolTipOpen = false;
 			ClearToolTip();
 			svCharacterStats.IsEnabled = true;
 			svCharacterStats.Opacity = 1;
@@ -581,7 +672,7 @@ namespace WowArmory.Views
 		private void ShowToolTip(CharacterItemContainer itemContainer)
 		{
 			_isToolTipLoading = true;
-			_itemContainerForToolTip = itemContainer;
+			ViewModel.ItemContainerForToolTip = itemContainer;
 			itemContainer.SelectionVisibility = Visibility.Visible;
 			svCharacterStats.IsEnabled = false;
 			svCharacterStats.Opacity = 0.25;
@@ -589,10 +680,11 @@ namespace WowArmory.Views
 			pbItemToolTip.Visibility = Visibility.Visible;
 			ShowToolTipText(tbItemToolTipLoading, AppResources.UI_Common_LoadingData);
 			brdItemToolTip.Visibility = Visibility.Visible;
+			ViewModel.IsItemToolTipOpen = true;
 
-			if (_cachedItems.ContainsKey(itemContainer))
+			if (ViewModel.CachedItems.ContainsKey(((CharacterItem)itemContainer.DataContext).Id))
 			{
-				OnItemReceived(_cachedItems[itemContainer]);
+				OnItemReceived(ViewModel.CachedItems[((CharacterItem)itemContainer.DataContext).Id]);
 			}
 			else
 			{
@@ -606,7 +698,7 @@ namespace WowArmory.Views
 		/// <param name="item">The item.</param>
 		private void OnItemReceived(Item item)
 		{
-			_itemForToolTip = item;
+			ViewModel.ItemForToolTip = item;
 
 			if (item == null)
 			{
@@ -615,9 +707,9 @@ namespace WowArmory.Views
 				return;
 			}
 
-			if (!_cachedItems.ContainsKey(_itemContainerForToolTip))
+			if (!ViewModel.CachedItems.ContainsKey(((CharacterItem)ViewModel.ItemContainerForToolTip.DataContext).Id))
 			{
-				_cachedItems.Add(_itemContainerForToolTip, _itemForToolTip);
+				ViewModel.CachedItems.Add(((CharacterItem)ViewModel.ItemContainerForToolTip.DataContext).Id, ViewModel.ItemForToolTip);
 			}
 
 			BuildItemToolTip();
@@ -637,39 +729,39 @@ namespace WowArmory.Views
 			var descriptionStyle = (Style)Resources["CharacterDetailsItemToolTipDescriptionTextStyle"];
 
 			// item name
-			ShowToolTipText(tbItemToolTipName, _itemForToolTip.Name, (Brush)Resources[String.Format("ItemQuality{0}", _itemForToolTip.Quality)]);
+			ShowToolTipText(tbItemToolTipName, ViewModel.ItemForToolTip.Name, (Brush)Resources[String.Format("ItemQuality{0}", ViewModel.ItemForToolTip.Quality)]);
 			// binding
-			ShowToolTipText(tbItemToolTipBinding, AppResources.ResourceManager.GetString(String.Format("Item_Binding_{0}", _itemForToolTip.ItemBind)));
+			ShowToolTipText(tbItemToolTipBinding, AppResources.ResourceManager.GetString(String.Format("Item_Binding_{0}", ViewModel.ItemForToolTip.ItemBind)));
 			// unique equippable
-			if (_itemForToolTip.MaxCount == 1)
+			if (ViewModel.ItemForToolTip.MaxCount == 1)
 			{
 				ShowToolTipText(tbItemToolTipMaxCount, AppResources.Item_MaxCount_UniqueEquipped);
 			}
 			// inventory type
-			ShowToolTipText(tbItemToolTipInventoryType, AppResources.ResourceManager.GetString(String.Format("Item_InventoryType_{0}", (InventoryType)_itemForToolTip.InventoryType)));
+			ShowToolTipText(tbItemToolTipInventoryType, AppResources.ResourceManager.GetString(String.Format("Item_InventoryType_{0}", (InventoryType)ViewModel.ItemForToolTip.InventoryType)));
 			// sub class
-			ShowToolTipText(tbItemToolTipSubClass, AppResources.ResourceManager.GetString(String.Format("Item_ItemSubClass_{0}_{1}", _itemForToolTip.ItemClass, _itemForToolTip.ItemSubClass)));
+			ShowToolTipText(tbItemToolTipSubClass, AppResources.ResourceManager.GetString(String.Format("Item_ItemSubClass_{0}_{1}", ViewModel.ItemForToolTip.ItemClass, ViewModel.ItemForToolTip.ItemSubClass)));
 			// weapon information
-			if (_itemForToolTip.WeaponInfo != null)
+			if (ViewModel.ItemForToolTip.WeaponInfo != null)
 			{
 				// damage
-				if (_itemForToolTip.WeaponInfo.Damage != null && _itemForToolTip.WeaponInfo.Damage.Count > 0)
+				if (ViewModel.ItemForToolTip.WeaponInfo.Damage != null && ViewModel.ItemForToolTip.WeaponInfo.Damage.Count > 0)
 				{
-					if (_itemForToolTip.WeaponInfo.Damage[0].MinDamage > 0 && _itemForToolTip.WeaponInfo.Damage[0].MaxDamage > 0)
+					if (ViewModel.ItemForToolTip.WeaponInfo.Damage[0].MinDamage > 0 && ViewModel.ItemForToolTip.WeaponInfo.Damage[0].MaxDamage > 0)
 					{
-						ShowToolTipText(tbItemToolTipWeaponInfoDamage, String.Format(AppResources.Item_WeaponInfo_Damage, _itemForToolTip.WeaponInfo.Damage[0].MinDamage, _itemForToolTip.WeaponInfo.Damage[0].MaxDamage));
+						ShowToolTipText(tbItemToolTipWeaponInfoDamage, String.Format(AppResources.Item_WeaponInfo_Damage, ViewModel.ItemForToolTip.WeaponInfo.Damage[0].MinDamage, ViewModel.ItemForToolTip.WeaponInfo.Damage[0].MaxDamage));
 					}
 				}
 				// speed
-				ShowToolTipText(tbItemToolTipWeaponInfoSpeed, String.Format(AppResources.Item_WeaponInfo_Speed, _itemForToolTip.WeaponInfo.WeaponSpeed));
+				ShowToolTipText(tbItemToolTipWeaponInfoSpeed, String.Format(AppResources.Item_WeaponInfo_Speed, ViewModel.ItemForToolTip.WeaponInfo.WeaponSpeed));
 				// dps
-				ShowToolTipText(tbItemToolTipWeaponInfoDps, String.Format(AppResources.Item_WeaponInfo_Dps, _itemForToolTip.WeaponInfo.Dps));
+				ShowToolTipText(tbItemToolTipWeaponInfoDps, String.Format(AppResources.Item_WeaponInfo_Dps, ViewModel.ItemForToolTip.WeaponInfo.Dps));
 			}
 			// sockets
-			if (_itemForToolTip.SocketInfo != null)
+			if (ViewModel.ItemForToolTip.SocketInfo != null)
 			{
 				var index = 0;
-				foreach (var socket in _itemForToolTip.SocketInfo.Sockets)
+				foreach (var socket in ViewModel.ItemForToolTip.SocketInfo.Sockets)
 				{
 					var socketTypeText = AppResources.ResourceManager.GetString(String.Format("Item_Socket_{0}", socket.Type));
 					var socketBackgroundColorResource = String.Format("ItemSocketBackgroundBrush{0}", socket.Type);
@@ -733,7 +825,7 @@ namespace WowArmory.Views
 					spItemToolTipSockets.Children.Add(socketGrid);
 
 					var dispatcherIndex = index;
-					Dispatcher.BeginInvoke(() => FetchSocketDetails(_itemContainerForToolTip, dispatcherIndex));
+					Dispatcher.BeginInvoke(() => FetchSocketDetails(ViewModel.ItemContainerForToolTip, dispatcherIndex));
 
 					index++;
 				}
@@ -741,19 +833,19 @@ namespace WowArmory.Views
 				spItemToolTipSockets.Visibility = Visibility.Visible;
 			}
 			// durability
-			if (_itemForToolTip.MaxDurability > 0)
+			if (ViewModel.ItemForToolTip.MaxDurability > 0)
 			{
-				ShowToolTipText(tbItemToolTipDurability, String.Format(AppResources.Item_Durability, _itemForToolTip.MaxDurability));
+				ShowToolTipText(tbItemToolTipDurability, String.Format(AppResources.Item_Durability, ViewModel.ItemForToolTip.MaxDurability));
 			}
 			// allowable classes
-			if (_itemForToolTip.AllowableClasses != null)
+			if (ViewModel.ItemForToolTip.AllowableClasses != null)
 			{
 				var labelText = new TextBlock();
 				labelText.Text = AppResources.Item_AllowableClasses;
 				labelText.Style = normalStyle;
 				spItemToolTipAllowableClasses.Children.Add(labelText);
 
-				foreach (var allowableClass in _itemForToolTip.AllowableClasses)
+				foreach (var allowableClass in ViewModel.ItemForToolTip.AllowableClasses)
 				{
 					if (spItemToolTipAllowableClasses.Children.Count > 1)
 					{
@@ -774,43 +866,74 @@ namespace WowArmory.Views
 				spItemToolTipAllowableClasses.Visibility = Visibility.Visible;
 			}
 			// required level
-			if (_itemForToolTip.RequiredLevel > 0)
+			if (ViewModel.ItemForToolTip.RequiredLevel > 0)
 			{
-				ShowToolTipText(tbItemToolTipRequiredLevel, String.Format(AppResources.Item_RequiredLevel, _itemForToolTip.RequiredLevel));
+				ShowToolTipText(tbItemToolTipRequiredLevel, String.Format(AppResources.Item_RequiredLevel, ViewModel.ItemForToolTip.RequiredLevel));
 			}
 			// required faction
-			if (_itemForToolTip.MinFactionId > 0)
+			if (ViewModel.ItemForToolTip.MinFactionId > 0)
 			{
-				var reputationFaction = ViewModel.Character.Reputation.Where(r => r.Id == _itemForToolTip.MinFactionId).FirstOrDefault();
+				var reputationFaction = ViewModel.Character.Reputation.Where(r => r.Id == ViewModel.ItemForToolTip.MinFactionId).FirstOrDefault();
 				if (reputationFaction != null)
 				{
-					var reputation = AppResources.ResourceManager.GetString(String.Format("BattleNet_Reputation_{0}", (ReputationStanding)_itemForToolTip.MinReputation));
+					var reputation = AppResources.ResourceManager.GetString(String.Format("BattleNet_Reputation_{0}", (ReputationStanding)ViewModel.ItemForToolTip.MinReputation));
 					ShowToolTipText(tbItemToolTipRequiredFaction, String.Format(AppResources.Item_RequiredFaction, reputationFaction.Name, reputation));
 				}
 			}
 			// item level
-			if (_itemForToolTip.ItemLevel > 0)
+			if (ViewModel.ItemForToolTip.ItemLevel > 0)
 			{
-				ShowToolTipText(tbItemToolTipItemLevel, String.Format(AppResources.Item_ItemLevel, _itemForToolTip.ItemLevel));
+				ShowToolTipText(tbItemToolTipItemLevel, String.Format(AppResources.Item_ItemLevel, ViewModel.ItemForToolTip.ItemLevel));
 			}
 			// armor
-			if (_itemForToolTip.BaseArmor > 0)
+			if (ViewModel.ItemForToolTip.BaseArmor > 0)
 			{
-				ShowToolTipText(tbItemToolTipArmor, String.Format("{0} {1}", _itemForToolTip.BaseArmor, AppResources.UI_CharacterDetails_Character_Description_Armor));
+				ShowToolTipText(tbItemToolTipArmor, String.Format("{0} {1}", ViewModel.ItemForToolTip.BaseArmor, AppResources.UI_CharacterDetails_Character_Description_Armor));
 			}
 			// stats
-			if (_itemForToolTip.BonusStats != null && _itemForToolTip.BonusStats.Count > 0)
+			if (ViewModel.ItemForToolTip.BonusStats != null && ViewModel.ItemForToolTip.BonusStats.Count > 0)
 			{
-				var spirit = _itemForToolTip.BonusStats.Where(s => s.Stat == ItemBonusStatType.Spirit).FirstOrDefault();
+				var reforge = Reforge.None;
+				var reforgeFrom = ItemBonusStatType.None;
+				var reforgeTo = ItemBonusStatType.None;
+				var reforgedStatAdded = false;
 
-				if (spirit != null)
+				if (((CharacterItem)ViewModel.ItemContainerForToolTip.DataContext).TooltipParams != null && ((CharacterItem)ViewModel.ItemContainerForToolTip.DataContext).TooltipParams.Reforge != 0)
 				{
-					ShowToolTipText(tbItemToolTipSpirit, String.Format(String.Format("+{0} {1}", spirit.Amount, AppResources.UI_CharacterDetails_Character_Description_Spirit), spirit.Amount));
+					reforge = (Reforge)((CharacterItem)ViewModel.ItemContainerForToolTip.DataContext).TooltipParams.Reforge;
+					reforgeFrom = ReforgeHelper.ReforgeMapping[reforge].From;
+					reforgeTo = ReforgeHelper.ReforgeMapping[reforge].To;
 				}
 
-				foreach (var stat in _itemForToolTip.BonusStats.OrderBy(s => s.Stat))
+				foreach (var stat in ViewModel.ItemForToolTip.BonusStats.OrderBy(s => s.Stat))
 				{
-					var text = String.Format(AppResources.ResourceManager.GetString(String.Format("Item_BonusStat_{0}", stat.Stat)) ?? "??? {0} ???", stat.Amount);
+					var statAmount = stat.Amount;
+
+					if (reforge != Reforge.None)
+					{
+						if (reforgeFrom == stat.Stat)
+						{
+							var reforgeAmount = Convert.ToInt32(Math.Floor(statAmount * 0.4));
+							statAmount = statAmount - reforgeAmount;
+
+							tbItemToolTipReforgeFrom.Text = String.Format("({0} {1}", reforgeAmount, AppResources.ResourceManager.GetString(String.Format("Item_ReforgedStat_{0}", reforgeFrom)));
+							tbItemToolTipReforgeTo.Text = String.Format("{0} {1})", reforgeAmount, AppResources.ResourceManager.GetString(String.Format("Item_ReforgedStat_{0}", reforgeTo)));
+							spItemToolTipReforge.Visibility = Visibility.Visible;
+						}
+
+						if (reforgeTo == stat.Stat)
+						{
+							var reforgeFromStat = ViewModel.ItemForToolTip.BonusStats.Where(s => s.Stat == reforgeFrom).FirstOrDefault();
+							if (reforgeFromStat != null)
+							{
+								var reforgeFromAmount = reforgeFromStat.Amount;
+								statAmount = statAmount + Convert.ToInt32(Math.Floor(reforgeFromAmount * 0.4));
+								reforgedStatAdded = true;
+							}
+						}
+					}
+
+					var text = String.Format(AppResources.ResourceManager.GetString(String.Format("Item_BonusStat_{0}", stat.Stat)) ?? "??? {0} ???", statAmount);
 					var element = UIHelper.FindChild<TextBlock>(spItemToolTipContent, String.Format("tbItemToolTip{0}", stat.Stat));
 					if (element != null)
 					{
@@ -825,11 +948,24 @@ namespace WowArmory.Views
 						spItemToolTipBonusStats.Visibility = Visibility.Visible;
 					}
 				}
+
+				if (reforge != Reforge.None && !reforgedStatAdded)
+				{
+					var reforgeFromStat = ViewModel.ItemForToolTip.BonusStats.Where(s => s.Stat == reforgeFrom).FirstOrDefault();
+					if (reforgeFromStat != null)
+					{
+						var textBlock = new TextBlock();
+						textBlock.Text = String.Format(AppResources.ResourceManager.GetString(String.Format("Item_BonusStat_{0}", reforgeTo)) ?? "??? {0} ???", Convert.ToInt32(Math.Floor(reforgeFromStat.Amount * 0.4)));
+						textBlock.Style = bonusStatStyle;
+						spItemToolTipBonusStats.Children.Add(textBlock);
+						spItemToolTipBonusStats.Visibility = Visibility.Visible;
+					}
+				}
 			}
 			// spells
-			if (_itemForToolTip.ItemSpells != null)
+			if (ViewModel.ItemForToolTip.ItemSpells != null)
 			{
-				foreach (var itemSpell in _itemForToolTip.ItemSpells)
+				foreach (var itemSpell in ViewModel.ItemForToolTip.ItemSpells)
 				{
 					if (String.IsNullOrEmpty(itemSpell.Spell.Description))
 					{
@@ -837,7 +973,7 @@ namespace WowArmory.Views
 					}
 
 					var consumableString = "Consumable";
-					
+
 					if (!itemSpell.Consumable && String.IsNullOrEmpty(itemSpell.Spell.CastTime))
 					{
 						consumableString = String.Format("Not{0}", consumableString);
@@ -853,12 +989,12 @@ namespace WowArmory.Views
 				spItemToolTipSpells.Visibility = Visibility.Visible;
 			}
 			// description
-			if (!String.IsNullOrEmpty(_itemForToolTip.Description))
+			if (!String.IsNullOrEmpty(ViewModel.ItemForToolTip.Description))
 			{
-				ShowToolTipText(tbItemToolTipDescription, String.Format("\"{0}\"", _itemForToolTip.Description));
+				ShowToolTipText(tbItemToolTipDescription, String.Format("\"{0}\"", ViewModel.ItemForToolTip.Description));
 			}
 			// sell price
-			if (_itemForToolTip.SellPrice > 0)
+			if (ViewModel.ItemForToolTip.SellPrice > 0)
 			{
 				var sellPriceText = new TextBlock();
 				sellPriceText.Text = AppResources.Item_SellPrice;
@@ -867,10 +1003,10 @@ namespace WowArmory.Views
 				sellPriceText.VerticalAlignment = VerticalAlignment.Center;
 				spItemToolTipSellPrice.Children.Add(sellPriceText);
 
-				if (_itemForToolTip.SellPriceObject.Gold > 0)
+				if (ViewModel.ItemForToolTip.SellPriceObject.Gold > 0)
 				{
 					var goldText = new TextBlock();
-					goldText.Text = _itemForToolTip.SellPriceObject.Gold.ToString();
+					goldText.Text = ViewModel.ItemForToolTip.SellPriceObject.Gold.ToString();
 					goldText.Style = normalStyle;
 					goldText.VerticalAlignment = VerticalAlignment.Center;
 					spItemToolTipSellPrice.Children.Add(goldText);
@@ -883,10 +1019,10 @@ namespace WowArmory.Views
 					goldImage.VerticalAlignment = VerticalAlignment.Center;
 					spItemToolTipSellPrice.Children.Add(goldImage);
 				}
-				if (_itemForToolTip.SellPriceObject.Silver > 0)
+				if (ViewModel.ItemForToolTip.SellPriceObject.Silver > 0)
 				{
 					var silverText = new TextBlock();
-					silverText.Text = _itemForToolTip.SellPriceObject.Silver.ToString();
+					silverText.Text = ViewModel.ItemForToolTip.SellPriceObject.Silver.ToString();
 					silverText.Style = normalStyle;
 					silverText.VerticalAlignment = VerticalAlignment.Center;
 					spItemToolTipSellPrice.Children.Add(silverText);
@@ -899,10 +1035,10 @@ namespace WowArmory.Views
 					silverImage.VerticalAlignment = VerticalAlignment.Center;
 					spItemToolTipSellPrice.Children.Add(silverImage);
 				}
-				if (_itemForToolTip.SellPriceObject.Copper > 0)
+				if (ViewModel.ItemForToolTip.SellPriceObject.Copper > 0)
 				{
 					var copperText = new TextBlock();
-					copperText.Text = _itemForToolTip.SellPriceObject.Copper.ToString();
+					copperText.Text = ViewModel.ItemForToolTip.SellPriceObject.Copper.ToString();
 					copperText.Style = normalStyle;
 					copperText.VerticalAlignment = VerticalAlignment.Center;
 					spItemToolTipSellPrice.Children.Add(copperText);
@@ -919,29 +1055,190 @@ namespace WowArmory.Views
 				spItemToolTipSellPrice.Visibility = Visibility.Visible;
 			}
 			// source
-			if (_itemForToolTip.ItemSource != null)
+			if (ViewModel.ItemForToolTip.ItemSource != null)
 			{
-				ShowToolTipText(tbItemToolTipSpacer, " ");
+				var sourceText = AppResources.ResourceManager.GetString(String.Format("Item_ItemSourceType_{0}", ViewModel.ItemForToolTip.ItemSource.SourceType));
+				if (!String.IsNullOrEmpty(sourceText))
+				{
+					ShowToolTipText(tbItemToolTipSpacer, " ");
 
-				var stackPanel = new StackPanel();
-				stackPanel.Orientation = System.Windows.Controls.Orientation.Horizontal;
-				spItemToolTipSource.Children.Add(stackPanel);
+					var stackPanel = new StackPanel();
+					stackPanel.Orientation = System.Windows.Controls.Orientation.Horizontal;
+					spItemToolTipSource.Children.Add(stackPanel);
 
-				var descriptionText = new TextBlock();
-				descriptionText.Text = AppResources.Item_Source;
-				descriptionText.Style = descriptionStyle;
-				stackPanel.Children.Add(descriptionText);
+					var descriptionText = new TextBlock();
+					descriptionText.Text = AppResources.Item_Source;
+					descriptionText.Style = descriptionStyle;
+					stackPanel.Children.Add(descriptionText);
 
-				var valueText = new TextBlock();
-				valueText.Text = AppResources.ResourceManager.GetString(String.Format("Item_ItemSourceType_{0}", _itemForToolTip.ItemSource.SourceType));
-				valueText.Style = normalStyle;
-				valueText.Margin = new Thickness(6, 0, 0, 0);
-				stackPanel.Children.Add(valueText);
+					var valueText = new TextBlock();
+					valueText.Text = sourceText;
+					valueText.Style = normalStyle;
+					valueText.Margin = new Thickness(6, 0, 0, 0);
+					stackPanel.Children.Add(valueText);
 
-				spItemToolTipSource.Visibility = Visibility.Visible;
+					if (ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("REWARD_FOR_QUEST", StringComparison.CurrentCultureIgnoreCase))
+					{
+						BattleNetClient.Current.GetQuestAsync(ViewModel.ItemForToolTip.ItemSource.SourceId, quest =>
+						{
+							if (quest == null)
+							{
+								return;
+							}
+
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestName, quest.Title);
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestCategory, quest.Category);
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestLevel, quest.Level.ToString());
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestRequiredLevel, quest.ReqLevel.ToString());
+						});
+					}
+					else if (ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("VENDOR", StringComparison.CurrentCultureIgnoreCase) ||
+						ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("FACTION_REWARD", StringComparison.CurrentCultureIgnoreCase))
+					{
+						if (ViewModel.ItemForToolTip.BuyPrice > 0)
+						{
+							var stackPanelCost = new StackPanel();
+							stackPanelCost.Orientation = System.Windows.Controls.Orientation.Horizontal;
+
+							if (ViewModel.ItemForToolTip.BuyPriceObject.Gold > 0)
+							{
+								var goldText = new TextBlock();
+								goldText.Text = ViewModel.ItemForToolTip.BuyPriceObject.Gold.ToString();
+								goldText.Style = normalStyle;
+								goldText.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(goldText);
+
+								var goldImage = new Image();
+								goldImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Gold.png");
+								goldImage.Width = 24;
+								goldImage.Height = 17;
+								goldImage.Margin = new Thickness(6, 0, 6, 0);
+								goldImage.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(goldImage);
+							}
+							if (ViewModel.ItemForToolTip.BuyPriceObject.Silver > 0)
+							{
+								var silverText = new TextBlock();
+								silverText.Text = ViewModel.ItemForToolTip.BuyPriceObject.Silver.ToString();
+								silverText.Style = normalStyle;
+								silverText.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(silverText);
+
+								var silverImage = new Image();
+								silverImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Silver.png");
+								silverImage.Width = 24;
+								silverImage.Height = 17;
+								silverImage.Margin = new Thickness(6, 0, 6, 0);
+								silverImage.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(silverImage);
+							}
+							if (ViewModel.ItemForToolTip.BuyPriceObject.Copper > 0)
+							{
+								var copperText = new TextBlock();
+								copperText.Text = ViewModel.ItemForToolTip.BuyPriceObject.Copper.ToString();
+								copperText.Style = normalStyle;
+								copperText.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(copperText);
+
+								var copperImage = new Image();
+								copperImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Copper.png");
+								copperImage.Width = 24;
+								copperImage.Height = 17;
+								copperImage.Margin = new Thickness(6, 0, 0, 0);
+								copperImage.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(copperImage);
+							}
+
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_VendorCost, stackPanelCost);
+						}
+					}
+
+					spItemToolTipSource.Visibility = Visibility.Visible;
+				}
+			}
+			// 3d item viewer
+			if (AppSettingsManager.Is3DItemViewerEnabled)
+			{
+				var webClient = new WebClient();
+				webClient.OpenReadCompleted += delegate(object senderInternal, OpenReadCompletedEventArgs openReadCompletedEventArgs)
+				{
+					try
+					{
+						_imageWidth = 6720;
+						_frameWidth = 280;
+						_maxFrames = _imageWidth / _frameWidth;
+						_writeableBitmap = new WriteableBitmap(_imageWidth, _frameWidth);
+						_writeableBitmap.LoadJpeg(openReadCompletedEventArgs.Result);
+						cvItemViewerSpriteStrip.Width = _frameWidth;
+						cvItemViewerSpriteStrip.Height = _frameWidth;
+						rgItemViewerSpriteStrip.Rect = new Rect(0, 0, _frameWidth, _frameWidth);
+						imgItemViewerSpriteStrip.Width = _imageWidth;
+						imgItemViewerSpriteStrip.Height = _frameWidth;
+						imgItemViewerSpriteStrip.Source = _writeableBitmap;
+						Canvas.SetLeft(imgItemViewerSpriteStrip, 0);
+						Canvas.SetTop(imgItemViewerSpriteStrip, 0);
+						brdItemViewer.Visibility = Visibility.Visible;
+					}
+					catch (Exception ex)
+					{
+						// do nothing
+					}
+				};
+				webClient.OpenReadAsync(new Uri(BattleNetClient.Current.GetItemRenderUrl(ViewModel.ItemForToolTip.Id)));
 			}
 			// external links
 			spItemToolTipExternalLinks.Visibility = Visibility.Visible;
+		}
+
+		/// <summary>
+		/// Adds the source information.
+		/// </summary>
+		/// <param name="parent">The parent.</param>
+		/// <param name="description">The description.</param>
+		/// <param name="value">The value.</param>
+		private void AddSourceInformation(StackPanel parent, string description, string value)
+		{
+			var grid = new Grid();
+			grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+			grid.ColumnDefinitions.Add(new ColumnDefinition());
+			parent.Children.Add(grid);
+
+			var descriptionText = new TextBlock();
+			descriptionText.Text = description;
+			descriptionText.Style = (Style)Resources["CharacterDetailsItemToolTipDescriptionTextStyle"];
+			Grid.SetColumn(descriptionText, 0);
+			grid.Children.Add(descriptionText);
+
+			var valueText = new TextBlock();
+			valueText.Text = value;
+			valueText.Style = (Style)Resources["CharacterDetailsItemToolTipNormalTextStyle"];
+			valueText.Margin = new Thickness(6, 0, 0, 0);
+			Grid.SetColumn(valueText, 1);
+			grid.Children.Add(valueText);
+		}
+
+		/// <summary>
+		/// Adds the source information.
+		/// </summary>
+		/// <param name="parent">The parent.</param>
+		/// <param name="description">The description.</param>
+		/// <param name="value">The value.</param>
+		private void AddSourceInformation(StackPanel parent, string description, FrameworkElement value)
+		{
+			var grid = new Grid();
+			grid.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
+			grid.ColumnDefinitions.Add(new ColumnDefinition());
+			parent.Children.Add(grid);
+
+			var descriptionText = new TextBlock();
+			descriptionText.Text = description;
+			descriptionText.Style = (Style)Resources["CharacterDetailsItemToolTipDescriptionTextStyle"];
+			Grid.SetColumn(descriptionText, 0);
+			grid.Children.Add(descriptionText);
+
+			value.Margin = new Thickness(6, 0, 0, 0);
+			Grid.SetColumn(value, 1);
+			grid.Children.Add(value);
 		}
 
 		/// <summary>
@@ -980,13 +1277,13 @@ namespace WowArmory.Views
 
 			if (itemId != 0)
 			{
-				if (!_cachedGems.ContainsKey(itemId))
+				if (!ViewModel.CachedGems.ContainsKey(itemId))
 				{
-					BattleNetClient.Current.GetItemAsync(itemId, item => SocketDetailsRetrieved(item, index));	
+					BattleNetClient.Current.GetItemAsync(itemId, item => SocketDetailsRetrieved(item, index));
 				}
 				else
 				{
-					SocketDetailsRetrieved(_cachedGems[itemId], index);
+					SocketDetailsRetrieved(ViewModel.CachedGems[itemId], index);
 				}
 			}
 		}
@@ -998,9 +1295,9 @@ namespace WowArmory.Views
 		/// <param name="index">The index.</param>
 		private void SocketDetailsRetrieved(Item item, int index)
 		{
-			if (!_cachedGems.ContainsKey(item.Id))
+			if (!ViewModel.CachedGems.ContainsKey(item.Id))
 			{
-				_cachedGems.Add(item.Id, item);
+				ViewModel.CachedGems.Add(item.Id, item);
 			}
 
 			var imageElement = UIHelper.FindChild<Image>(spItemToolTipSockets, String.Format("imgItemToolTipSocketImage{0}", index));
@@ -1008,7 +1305,10 @@ namespace WowArmory.Views
 			var nameElement = UIHelper.FindChild<TextBlock>(spItemToolTipSockets, String.Format("tbItemToolTipSocketName{0}", index));
 
 			imageElement.Source = BattleNetClient.Current.GetIcon(item.Icon, IconSize.Small);
-			ShowToolTipText(nameElement, item.Name);
+			if (AppSettingsManager.ShowGemName)
+			{
+				ShowToolTipText(nameElement, item.Name);
+			}
 
 			if (item.GemInfo != null && item.GemInfo.Bonus != null)
 			{
@@ -1033,6 +1333,7 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipWeaponInfoDamage, String.Empty);
 			ShowToolTipText(tbItemToolTipWeaponInfoSpeed, String.Empty);
 			ShowToolTipText(tbItemToolTipWeaponInfoDps, String.Empty);
+			spItemToolTipReforge.Visibility = Visibility.Collapsed;
 			ShowToolTipText(tbItemToolTipArmor, String.Empty);
 			ShowToolTipText(tbItemToolTipStrength, String.Empty);
 			ShowToolTipText(tbItemToolTipAgility, String.Empty);
@@ -1057,6 +1358,7 @@ namespace WowArmory.Views
 			ShowToolTipText(tbItemToolTipSpacer, String.Empty);
 			spItemToolTipSource.Children.Clear();
 			spItemToolTipSource.Visibility = Visibility.Collapsed;
+			brdItemViewer.Visibility = Visibility.Collapsed;
 			spItemToolTipExternalLinks.Visibility = Visibility.Collapsed;
 		}
 
@@ -1084,11 +1386,19 @@ namespace WowArmory.Views
 		{
 			base.OnBackKeyPress(e);
 
+			if (gdItemViewer.Visibility == Visibility.Visible)
+			{
+				gdItemViewer.Visibility = Visibility.Collapsed;
+				e.Cancel = true;
+				return;
+			}
+
 			if (brdItemToolTip.Visibility == Visibility.Visible)
 			{
 				HideAllItemContainerSelections();
 				HideToolTip();
 				e.Cancel = true;
+				return;
 			}
 		}
 
@@ -1101,7 +1411,7 @@ namespace WowArmory.Views
 		{
 			if (IsolatedStorageManager.IsCharacterStored(ViewModel.Character.Region, ViewModel.Character.Realm, ViewModel.Character.Name))
 			{
-				IsolatedStorageManager.UnstoreCharacter(ViewModel.Character);
+				IsolatedStorageManager.Unstore(ViewModel.Character);
 				ViewModel.ToggleCharacterFavorite();
 			}
 			else
@@ -1110,7 +1420,7 @@ namespace WowArmory.Views
 				gdStoreCharacterOverlay.Visibility = Visibility.Visible;
 				Dispatcher.BeginInvoke(() =>
 				{
-					IsolatedStorageManager.StoreCharacter(ViewModel.Character);
+					IsolatedStorageManager.Store(ViewModel.Character);
 					gdStoreCharacterOverlay.Visibility = Visibility.Collapsed;
 					pbStoreCharacter.IsIndeterminate = false;
 					ViewModel.ToggleCharacterFavorite();
@@ -1126,8 +1436,48 @@ namespace WowArmory.Views
 		private void OpenWowheadForItem(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
 			var webBrowserTask = new WebBrowserTask();
-			webBrowserTask.URL = String.Format(AppResources.Item_ExternalLink_Wowhead_Url, _itemForToolTip.Id);
+			webBrowserTask.URL = String.Format(AppResources.Item_ExternalLink_Wowhead_Url, ViewModel.ItemForToolTip.Id);
 			webBrowserTask.Show();
+		}
+
+		/// <summary>
+		/// Opens the item viewer.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
+		private void OpenItemViewer(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			gdItemViewer.Visibility = Visibility.Visible;
+		}
+
+		/// <summary>
+		/// Handles the ManipulationDelta event of the gdItemViewer control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.ManipulationDeltaEventArgs"/> instance containing the event data.</param>
+		private void gdItemViewer_ManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e)
+		{
+			var amount = Math.Abs(e.DeltaManipulation.Translation.X) / 10.0;
+
+			if (e.DeltaManipulation.Translation.X >= 1)
+			{
+				_currentFrame = _currentFrame - amount;
+			}
+			else if (e.DeltaManipulation.Translation.X <= -1)
+			{
+				_currentFrame = _currentFrame + amount;
+			}
+
+			if (_currentFrame < 0)
+			{
+				_currentFrame = _maxFrames - 1;
+			}
+			else if (_currentFrame >= _maxFrames)
+			{
+				_currentFrame = 1;
+			}
+
+			Canvas.SetLeft(imgItemViewerSpriteStrip, (Math.Floor(_currentFrame) * _frameWidth) * -1);
 		}
 		//----------------------------------------------------------------------
 		#endregion

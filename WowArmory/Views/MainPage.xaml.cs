@@ -48,6 +48,12 @@ namespace WowArmory.Views
 				mpbCharacters.BadgeVisibility = Visibility.Visible;
 			}
 
+			mpbGuilds.BadgeCounter = IsolatedStorageManager.StoredGuilds.Count.ToString();
+			if (IsolatedStorageManager.StoredGuilds.Count > 0)
+			{
+				mpbGuilds.BadgeVisibility = Visibility.Visible;
+			}
+
 			if (AppSettingsManager.IsFirstTimeUsage)
 			{
 				IsolatedStorageManager.SetValue("Temp_Setting_IsFirstTimeUsage", false);

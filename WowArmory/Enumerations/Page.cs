@@ -9,6 +9,9 @@
 		RealmList,
 		CharacterList,
 		CharacterSearch,
-		CharacterDetails
+		CharacterDetails,
+		GuildList,
+		GuildSearch,
+		GuildDetails
 	}
 }

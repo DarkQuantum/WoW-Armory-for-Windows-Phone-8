@@ -23,6 +23,6 @@ namespace WowArmory.Core.BattleNet.Models
 		public int AchievementPoints { get; set; }
 		[DataMember]
 		[XmlElement("emblem")]
-		public CharacterGuildEmblem Emblem { get; set; }
+		public GuildEmblem Emblem { get; set; }
 	}
 }

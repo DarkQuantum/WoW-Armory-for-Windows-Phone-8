@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 using Microsoft.Phone.Controls;
 using WowArmory.ViewModels;
@@ -126,6 +127,19 @@ namespace WowArmory.Views
 		{
 			ViewModel.Realm = acbRealms.Text;
 			ViewModel.SearchCharacter();
+		}
+
+		/// <summary>
+		/// Handles the GotFocus event of the Character control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void Character_GotFocus(object sender, RoutedEventArgs e)
+		{
+			if (!String.IsNullOrEmpty(txtCharacter.Text))
+			{
+				txtCharacter.SelectAll();
+			}
 		}
 		//----------------------------------------------------------------------
 		#endregion

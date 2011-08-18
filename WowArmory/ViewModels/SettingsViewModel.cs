@@ -67,6 +67,22 @@ namespace WowArmory.ViewModels
 		/// 	<c>true</c> if the character background should be shown; otherwise, <c>false</c>.
 		/// </value>
 		public bool ShowCharacterBackground { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the gem name should be shown.
+		/// </summary>
+		/// <value>
+		///   <c>true</c> if the gem name should be shown; otherwise, <c>false</c>.
+		/// </value>
+		public bool ShowGemName { get; set; }
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the 3D item viewer is enabled.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the 3D item viewer is enabled; otherwise, <c>false</c>.
+		/// </value>
+		public bool Is3DItemViewerEnabled { get; set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -106,6 +122,8 @@ namespace WowArmory.ViewModels
 			SelectedRegion = Regions.Where(r => r.Key == AppSettingsManager.Region).FirstOrDefault();
 			IsFirstTimeUsage = IsolatedStorageManager.GetValue("Temp_Setting_IsFirstTimeUsage", false);
 			ShowCharacterBackground = AppSettingsManager.ShowCharacterBackground;
+			ShowGemName = AppSettingsManager.ShowGemName;
+			Is3DItemViewerEnabled = AppSettingsManager.Is3DItemViewerEnabled;
 		}
 		//----------------------------------------------------------------------
 		#endregion

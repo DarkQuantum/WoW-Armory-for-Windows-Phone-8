@@ -33,7 +33,7 @@
 		<!--ContentPanel - place additional content here-->
 		<Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
 			<StackPanel Orientation="Vertical">
-				<TextBlock Text="{Binding LocalizedResources.UI_CharacterSearch_Realm, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneBorderBrush}" />
+				<TextBlock Text="{Binding LocalizedResources.UI_Search_Text_Realm, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneBorderBrush}" />
 				<!--<TextBox x:Name="txtRealm" Text="{Binding Realm, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" KeyDown="txtRealm_KeyDown"  />-->
 				<tk:AutoCompleteBox x:Name="acbRealms"
 									ItemsSource="{Binding Realms}"
@@ -45,10 +45,10 @@
 									KeyDown="Realms_KeyDown"
 									DropDownOpening="Realms_DropDownOpening"
 									GotFocus="Realms_GotFocus"/>
-				<TextBlock Text="{Binding LocalizedResources.UI_CharacterSearch_Name, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneBorderBrush}" />
-				<TextBox x:Name="txtCharacter" Text="{Binding Name, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" KeyDown="Character_KeyDown" />
-				<Button Content="{Binding LocalizedResources.UI_CharacterSearch_SearchCharacter, Source={StaticResource LocalizedResources}}"
-						cmd:ButtonBaseExtensions.Command="{Binding SearchCharacterCommand}"
+				<TextBlock Text="{Binding LocalizedResources.UI_Search_Text_CharacterName, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneBorderBrush}" />
+				<TextBox x:Name="txtCharacter" Text="{Binding Name, Mode=TwoWay}" IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}" KeyDown="Character_KeyDown" GotFocus="Character_GotFocus" InputScope="Text" />
+				<Button Content="{Binding LocalizedResources.UI_Search_Text_Search, Source={StaticResource LocalizedResources}}"
+						Click="SearchButton_Click"
 						IsEnabled="{Binding IsProgressBarVisible, Converter={StaticResource InverseBoolean}}"/>
 				<ProgressBar Style="{StaticResource PerformanceProgressBar}"
 						 IsIndeterminate="{Binding IsProgressBarIndeterminate}"

@@ -51,6 +51,15 @@
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
 					</ctrl:MainPageButton>
+					<ctrl:MainPageButton x:Name="mpbGuilds" Label="{Binding LocalizedResources.Pages_Main_Button_Guilds, Source={StaticResource LocalizedResources}}"
+										 IconSource="/WowArmory.Core;Component/Images/Icons/MainPage/Guilds.png"
+										 Click="MainPageButtonClicked">
+						<i:Interaction.Triggers>
+							<i:EventTrigger EventName="Click">
+								<cmd:EventToCommand Command="{Binding ShowGuildListPageCommand}" />
+							</i:EventTrigger>
+						</i:Interaction.Triggers>
+					</ctrl:MainPageButton>
 					<ctrl:MainPageButton Label="{Binding LocalizedResources.Pages_Main_Button_Realms, Source={StaticResource LocalizedResources}}"
 										 IconSource="/WowArmory.Core;Component/Images/Icons/MainPage/Realms.png"
 										 Click="MainPageButtonClicked">
@@ -60,6 +69,8 @@
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
 					</ctrl:MainPageButton>
+				</StackPanel>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 					<!--<ctrl:MainPageButton Label="{Binding LocalizedResources.Pages_Main_Button_News, Source={StaticResource LocalizedResources}}"
 										 IconSource="/WowArmory.Core;Component/Images/Icons/MainPage/News.png"
 										 BadgeCounter="27" BadgeVisibility="Visible"
@@ -70,8 +81,6 @@
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
 					</ctrl:MainPageButton>-->
-				</StackPanel>
-				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
 					<ctrl:MainPageButton Label="{Binding LocalizedResources.Pages_Main_Button_Settings, Source={StaticResource LocalizedResources}}"
 										 IconSource="/WowArmory.Core;Component/Images/Icons/MainPage/Settings.png"
 										 Click="MainPageButtonClicked">

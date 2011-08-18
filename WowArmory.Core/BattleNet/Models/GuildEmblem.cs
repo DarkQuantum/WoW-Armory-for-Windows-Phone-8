@@ -4,7 +4,7 @@ using System.Xml.Serialization;
 namespace WowArmory.Core.BattleNet.Models
 {
 	[DataContract]
-	public class CharacterGuildEmblem
+	public class GuildEmblem
 	{
 		[DataMember]
 		[XmlElement("icon")]		

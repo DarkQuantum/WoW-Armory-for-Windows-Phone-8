@@ -17,6 +17,7 @@ namespace WowArmory.ViewModels
 		public RelayCommand ShowNewsPageCommand { get; private set; }
 		public RelayCommand ShowRealmListPageCommand { get; private set; }
 		public RelayCommand ShowCharacterListPageCommand { get; private set; }
+		public RelayCommand ShowGuildListPageCommand { get; private set; }
 		public RelayCommand ShowFacebookPageCommand { get; private set; }
 		public RelayCommand ShowTwitterPageCommand { get; private set; }
 		//----------------------------------------------------------------------
@@ -52,6 +53,7 @@ namespace WowArmory.ViewModels
 			ShowNewsPageCommand = new RelayCommand(ShowNewsPage);
 			ShowRealmListPageCommand = new RelayCommand(ShowRealmListPage);
 			ShowCharacterListPageCommand = new RelayCommand(ShowCharacterListPage);
+			ShowGuildListPageCommand = new RelayCommand(ShowGuildListPage);
 			ShowFacebookPageCommand = new RelayCommand(ShowFacebookPage);
 			ShowTwitterPageCommand = new RelayCommand(ShowTwitterPage);
 		}
@@ -94,6 +96,14 @@ namespace WowArmory.ViewModels
 		private void ShowCharacterListPage()
 		{
 			ApplicationController.Current.NavigateTo(Page.CharacterList);
+		}
+
+		/// <summary>
+		/// Shows the guild list page.
+		/// </summary>
+		private void ShowGuildListPage()
+		{
+			ApplicationController.Current.NavigateTo(Page.GuildList);
 		}
 
 		/// <summary>

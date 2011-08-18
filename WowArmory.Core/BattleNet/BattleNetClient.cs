@@ -4,6 +4,9 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Reflection;
+using System.Security.Cryptography;
+using System.Text;
 using System.Windows;
 using System.Windows.Media;
 using Newtonsoft.Json;
@@ -108,6 +111,18 @@ namespace WowArmory.Core.BattleNet
 				return !String.IsNullOrEmpty(baseUriTemplate) ? new Uri(String.Format(baseUriTemplate, BattleNetRegionCode)) : new Uri(String.Format("http://{0}.battle.net/static-render/{0}/", BattleNetRegionCode));
 			}
 		}
+
+		/// <summary>
+		/// Gets the Battle.Net item render URI.
+		/// </summary>
+		public Uri BattleNetItemRenderUri
+		{
+			get
+			{
+				var baseUriTemplate = BattleNetSettings.ResourceManager.GetString("BattleNet_ItemRenderUri");
+				return !String.IsNullOrEmpty(baseUriTemplate) ? new Uri(String.Format(baseUriTemplate, BattleNetRegionCode)) : new Uri(String.Format("http://{0}.media.blizzard.com/wow/renders/items/", BattleNetRegionCode));
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -201,6 +216,53 @@ namespace WowArmory.Core.BattleNet
 		}
 
 		/// <summary>
+		/// Gets the basic guild information for the specified realm and guild name.
+		/// </summary>
+		/// <param name="realmName">The name of the realm.</param>
+		/// <param name="guildName">The name of the guild.</param>
+		/// <param name="action">The action to execute once the response was received.</param>
+		public void GetGuildAsync(string realmName, string guildName, Action<Guild> action)
+		{
+			GetGuildAsync(realmName, guildName, GuildFields.Basic, action);
+		}
+
+		/// <summary>
+		/// Gets the guild information for the specified realm and guild name.
+		/// </summary>
+		/// <param name="realmName">The name of the realm.</param>
+		/// <param name="guildName">The name of the guild.</param>
+		/// <param name="fields">Specifies the information to retrieve for this guild.</param>
+		/// <param name="action">The action to execute once the response was received.</param>
+		public void GetGuildAsync(string realmName, string guildName, GuildFields fields, Action<Guild> action)
+		{
+			try
+			{
+				var fieldsQueryString = BuildGuildFieldsQueryString(fields);
+				var apiMethod = new Uri(BattleNetBaseUri, String.Format(BattleNetSettings.BattleNet_Api_Guild, realmName, guildName, fieldsQueryString)).ToString();
+				CallApiMethodAsync(apiMethod, jsonResult =>
+				{
+					try
+					{
+						var guild = JsonConvert.DeserializeObject<Guild>(jsonResult);
+						if (guild != null)
+						{
+							guild.Region = Region;
+						}
+						action(guild);
+					}
+					catch (Exception ex)
+					{
+						action(null);
+					}
+				});
+			}
+			catch (Exception ex)
+			{
+				action(null);
+			}
+		}
+
+		/// <summary>
 		/// Gets the realm list for the specified region.
 		/// </summary>
 		/// <param name="region">The region to receive the realm list for.</param>
@@ -266,6 +328,35 @@ namespace WowArmory.Core.BattleNet
 		}
 
 		/// <summary>
+		/// Gets the quest for the specified id.
+		/// </summary>
+		/// <param name="questId">The quest id.</param>
+		/// <param name="action">The action.</param>
+		public void GetQuestAsync(int questId, Action<Quest> action)
+		{
+			try
+			{
+				var apiMethod = new Uri(BattleNetBaseUri, String.Format(BattleNetSettings.BattleNet_Api_Quest, questId)).ToString();
+				CallApiMethodAsync(apiMethod, jsonResult =>
+				{
+					try
+					{
+						var quest = JsonConvert.DeserializeObject<Quest>(jsonResult);
+						action(quest);
+					}
+					catch (Exception ex)
+					{
+						action(null);
+					}
+				});
+			}
+			catch (Exception ex)
+			{
+				action(null);
+			}
+		}
+
+		/// <summary>
 		/// Gets the thumbnail url for the specified path.
 		/// </summary>
 		/// <param name="thumbnailPath">The path to the thumbnail.</param>
@@ -315,15 +406,38 @@ namespace WowArmory.Core.BattleNet
 		}
 
 		/// <summary>
-		/// Builds the fields query string from the specified fields object.
+		/// Gets the item render url for the specified item.
 		/// </summary>
-		/// <param name="e">The fields object to build the query string from.</param>
+		/// <param name="itemId">The item id.</param>
+		/// <returns></returns>
+		public string GetItemRenderUrl(int itemId)
+		{
+			return String.Format("{0}item{1}.jpg", BattleNetItemRenderUri, itemId);
+		}
+
+		/// <summary>
+		/// Builds the character fields query string from the specified fields object.
+		/// </summary>
+		/// <param name="fields">The character fields object to build the query string from.</param>
 		/// <returns>
-		/// The fields query string from the specified fields object.
+		/// The character fields query string from the specified fields object.
 		/// </returns>
 		internal string BuildCharacterFieldsQueryString(CharacterFields fields)
 		{
-			var fieldQueryString = fields.GetValues().Cast<CharacterFields>().Where(value => (fields & value) == value).Aggregate(String.Empty, (current, value) => String.Format("{0}{1}{2}", current, !String.IsNullOrEmpty(current) ? "," : String.Empty, EnumHelper.GetApiUrlFieldName(value)));
+			var fieldQueryString = fields.GetValues().Cast<CharacterFields>().Where(value => value != CharacterFields.All && (fields & value) == value).Aggregate(String.Empty, (current, value) => String.Format("{0}{1}{2}", current, !String.IsNullOrEmpty(current) ? "," : String.Empty, EnumHelper.GetApiUrlFieldName(value)));
+			return !String.IsNullOrEmpty(fieldQueryString) ? String.Format("?fields={0}", fieldQueryString) : String.Empty;
+		}
+
+		/// <summary>
+		/// Builds the guild fields query string from the specified fields object.
+		/// </summary>
+		/// <param name="fields">The guild fields object to build the query string from.</param>
+		/// <returns>
+		/// The guild fields query string from the specified fields object.
+		/// </returns>
+		internal string BuildGuildFieldsQueryString(GuildFields fields)
+		{
+			var fieldQueryString = fields.GetValues().Cast<GuildFields>().Where(value => value != GuildFields.All && (fields & value) == value).Aggregate(String.Empty, (current, value) => String.Format("{0}{1}{2}", current, !String.IsNullOrEmpty(current) ? "," : String.Empty, EnumHelper.GetApiUrlFieldName(value)));
 			return !String.IsNullOrEmpty(fieldQueryString) ? String.Format("?fields={0}", fieldQueryString) : String.Empty;
 		}
 
@@ -340,6 +454,23 @@ namespace WowArmory.Core.BattleNet
 				var request = (HttpWebRequest)WebRequest.Create(apiMethodLocalized);
 				request.Headers["user-agent"] = BattleNetSettings.WebRequest_Header_UserAgent;
 				request.AllowAutoRedirect = true;
+
+				//if (AuthenticationManager.UseAuthentication)
+				//{
+				//    var date = DateTime.Now.ToUniversalTime();
+				//    var dateString = date.ToString("r");
+				//    //var type = request.Headers.GetType();
+				//    //var bindingFlags = BindingFlags.Instance | BindingFlags.NonPublic;
+				//    //var methodInfo = type.GetMethod("AddWithoutValidate", bindingFlags);
+				//    //methodInfo.Invoke(request.Headers, new[] { "Date", date.ToString("r") });
+
+				//    var stringToSign = String.Format("{0}\n{1}\n{2}\n", request.Method, dateString, UrlPathEncode(request.RequestUri.LocalPath));
+				//    var hmac = new HMACSHA1(Encoding.UTF8.GetBytes(AuthenticationManager.PrivateKey));
+				//    var hash = hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign));
+				//    var signature = Convert.ToBase64String(hash);
+				//    var authorization = String.Format("BNET {0}:{1}", AuthenticationManager.PublicKey, signature);
+				//    request.Headers["Authorization"] = authorization;
+				//}
 
 				request.BeginGetResponse(delegate(IAsyncResult result)
 				{
@@ -373,9 +504,32 @@ namespace WowArmory.Core.BattleNet
 			}
 			catch(Exception ex)
 			{
-				// TODO: need to implement error handling
-				throw ex;
+				action(null);
 			}
+		}
+
+		/// <summary>
+		/// Encodes the specified url path the way the Battle.Net Community API needs it.
+		/// </summary>
+		/// <param name="urlPath">The URL path.</param>
+		/// <returns></returns>
+		private string UrlPathEncode(string urlPath)
+		{
+			var urlPathBytes = Encoding.UTF8.GetBytes(urlPath);
+			var encodedString = String.Empty;
+			foreach (var urlPathByte in urlPathBytes)
+			{
+				if (urlPathByte <= 0x20 || urlPathByte > 0x7f)
+				{
+					encodedString = String.Format("{0}%{1:X2}", encodedString, urlPathByte);
+				}
+				else
+				{
+					encodedString = String.Format("{0}{1}", encodedString, (char)urlPathByte);
+				}
+			}
+
+			return encodedString;
 		}
 
 		/// <summary>

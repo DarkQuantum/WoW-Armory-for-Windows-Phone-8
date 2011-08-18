@@ -66,6 +66,7 @@ namespace WowArmory
 		// This code will not execute when the application is reactivated
 		private void Application_Launching( object sender, LaunchingEventArgs e )
 		{
+			AuthenticationManager.LoadKeys();
 		}
 
 		// Code to execute when the application is activated (brought to foreground)
@@ -88,9 +89,37 @@ namespace WowArmory
 				{
 					ViewModelLocator.CharacterDetailsStatic.Character = (Character)state["CharacterDetails_Character"];
 				}
+				if (state.ContainsKey("GuildSearch_Realm"))
+				{
+					ViewModelLocator.GuildSearchStatic.Realm = (string)state["GuildSearch_Realm"];
+				}
+				if (state.ContainsKey("GuildSearch_Name"))
+				{
+					ViewModelLocator.GuildSearchStatic.Name = (string)state["GuildSearch_Name"];
+				}
+				if (state.ContainsKey("GuildDetails_Guild"))
+				{
+					ViewModelLocator.GuildDetailsStatic.Guild = (Guild)state["GuildDetails_Guild"];
+				}
 				if (state.ContainsKey("RealmList_Cache"))
 				{
 					CacheManager.CachedRealmLists = (Dictionary<Region, RealmList>)state["RealmList_Cache"];
+				}
+				if (state.ContainsKey("CharacterDetails_CachedItems"))
+				{
+					ViewModelLocator.CharacterDetailsStatic.CachedItems = (Dictionary<int, Item>)state["CharacterDetails_CachedItems"];
+				}
+				if (state.ContainsKey("CharacterDetails_CachedGems"))
+				{
+					ViewModelLocator.CharacterDetailsStatic.CachedGems = (Dictionary<int, Item>)state["CharacterDetails_CachedGems"];
+				}
+				if (state.ContainsKey("CharacterDetails_ItemToolTip_IsOpen"))
+				{
+					ViewModelLocator.CharacterDetailsStatic.IsItemToolTipOpen = (bool)state["CharacterDetails_ItemToolTip_IsOpen"];
+				}
+				if (state.ContainsKey("CharacterDetails_ItemToolTip_ItemContainerControl"))
+				{
+					ViewModelLocator.CharacterDetailsStatic.ItemContainerControl = (string)state["CharacterDetails_ItemToolTip_ItemContainerControl"];
 				}
 			}
 		}
@@ -105,7 +134,15 @@ namespace WowArmory
 			this.SaveToPhoneState("CharacterSearch_Realm", ViewModelLocator.CharacterSearchStatic.Realm);
 			this.SaveToPhoneState("CharacterSearch_Name", ViewModelLocator.CharacterSearchStatic.Name);
 			this.SaveToPhoneState("CharacterDetails_Character", ViewModelLocator.CharacterDetailsStatic.Character);
+			this.SaveToPhoneState("GuildSearch_Realm", ViewModelLocator.GuildSearchStatic.Realm);
+			this.SaveToPhoneState("GuildSearch_Name", ViewModelLocator.GuildSearchStatic.Name);
+			this.SaveToPhoneState("GuildDetails_Guild", ViewModelLocator.GuildDetailsStatic.Guild);
 			this.SaveToPhoneState("RealmList_Cache", CacheManager.CachedRealmLists);
+
+			this.SaveToPhoneState("CharacterDetails_CachedItems", ViewModelLocator.CharacterDetailsStatic.CachedItems);
+			this.SaveToPhoneState("CharacterDetails_CachedGems", ViewModelLocator.CharacterDetailsStatic.CachedGems);
+			this.SaveToPhoneState("CharacterDetails_ItemToolTip_IsOpen", ViewModelLocator.CharacterDetailsStatic.IsItemToolTipOpen);
+			this.SaveToPhoneState("CharacterDetails_ItemToolTip_ItemContainerControl", ViewModelLocator.CharacterDetailsStatic.ItemContainerControl);
 		}
 
 		// Code to execute when the application is closing (eg, user hit Back)
@@ -168,6 +205,9 @@ namespace WowArmory
 			ApplicationController.Current.Register(Page.CharacterList, new Uri("/Views/CharacterListPage.xaml", UriKind.Relative));
 			ApplicationController.Current.Register(Page.CharacterSearch, new Uri("/Views/CharacterSearchPage.xaml", UriKind.Relative));
 			ApplicationController.Current.Register(Page.CharacterDetails, new Uri("/Views/CharacterDetailsPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.GuildList, new Uri("/Views/GuildListPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.GuildSearch, new Uri("/Views/GuildSearchPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.GuildDetails, new Uri("/Views/GuildDetailsPage.xaml", UriKind.Relative));
 		}
 
 		// Do not add any additional code to this method

@@ -70,6 +70,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.WindowsPhon
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterDetails", "CharacterDetails", "{6ABB592A-EDA1-4333-99BD-ED0395E75D01}"
 	ProjectSection(SolutionItems) = preProject
+		Media\CharacterDetails\Character_Title.png = Media\CharacterDetails\Character_Title.png
+		Media\CharacterDetails\Character_Title.psd = Media\CharacterDetails\Character_Title.psd
 		Media\CharacterDetails\Faction_Header.psd = Media\CharacterDetails\Faction_Header.psd
 		Media\CharacterDetails\Faction_Header_0.png = Media\CharacterDetails\Faction_Header_0.png
 		Media\CharacterDetails\Faction_Header_1.png = Media\CharacterDetails\Faction_Header_1.png
@@ -103,6 +105,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterDetails", "Charact
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Icons", "Icons", "{E38956DD-0E34-4549-8EB0-F6C634AD6327}"
 	ProjectSection(SolutionItems) = preProject
+		Media\Icons\Achievementpoints.png = Media\Icons\Achievementpoints.png
+		Media\Icons\Achievementpoints.psd = Media\Icons\Achievementpoints.psd
 		Media\Icons\Achievementpoints_Large.png = Media\Icons\Achievementpoints_Large.png
 		Media\Icons\Icon.psd = Media\Icons\Icon.psd
 		Media\Icons\Icon_Background.png = Media\Icons\Icon_Background.png
@@ -114,6 +118,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainPage", "MainPage", "{22
 	ProjectSection(SolutionItems) = preProject
 		Media\Icons\MainPage\Characters.png = Media\Icons\MainPage\Characters.png
 		Media\Icons\MainPage\Facebook.png = Media\Icons\MainPage\Facebook.png
+		Media\Icons\MainPage\Guilds.png = Media\Icons\MainPage\Guilds.png
 		Media\Icons\MainPage\Help.png = Media\Icons\MainPage\Help.png
 		Media\Icons\MainPage\News.png = Media\Icons\MainPage\News.png
 		Media\Icons\MainPage\Realms.png = Media\Icons\MainPage\Realms.png
@@ -131,7 +136,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{B6
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterList", "CharacterList", "{3747578C-1B15-4E0B-9C04-608562DC793A}"
 	ProjectSection(SolutionItems) = preProject
+		Media\ApplicationBar\CharacterList\delete.png = Media\ApplicationBar\CharacterList\delete.png
 		Media\ApplicationBar\CharacterList\search.png = Media\ApplicationBar\CharacterList\search.png
+		Media\ApplicationBar\CharacterList\update.png = Media\ApplicationBar\CharacterList\update.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Badge", "Badge", "{3A47F978-1BD8-4F24-92B9-5BF3D90B990A}"
@@ -208,6 +215,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RealmList", "RealmList", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Item", "Item", "{32C2704E-4A1A-415B-9EE6-E637150B7813}"
 	ProjectSection(SolutionItems) = preProject
+		Media\Item\Reforge_Arrow.png = Media\Item\Reforge_Arrow.png
+		Media\Item\Reforge_Arrow.psd = Media\Item\Reforge_Arrow.psd
 		Media\Item\Socket.psd = Media\Item\Socket.psd
 		Media\Item\Socket_BLUE.png = Media\Item\Socket_BLUE.png
 		Media\Item\Socket_GREEN.png = Media\Item\Socket_GREEN.png
@@ -270,6 +279,105 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backgrounds", "Backgrounds"
 		Media\CharacterDetails\Backgrounds\LightWorgen.png = Media\CharacterDetails\Backgrounds\LightWorgen.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Classes", "Classes", "{D4F786E2-9BB4-4907-995F-4BF86533F122}"
+	ProjectSection(SolutionItems) = preProject
+		Media\Icons\Classes\1.png = Media\Icons\Classes\1.png
+		Media\Icons\Classes\11.png = Media\Icons\Classes\11.png
+		Media\Icons\Classes\11_Border.png = Media\Icons\Classes\11_Border.png
+		Media\Icons\Classes\1_Border.png = Media\Icons\Classes\1_Border.png
+		Media\Icons\Classes\2.png = Media\Icons\Classes\2.png
+		Media\Icons\Classes\2_Border.png = Media\Icons\Classes\2_Border.png
+		Media\Icons\Classes\3.png = Media\Icons\Classes\3.png
+		Media\Icons\Classes\3_Border.png = Media\Icons\Classes\3_Border.png
+		Media\Icons\Classes\4.png = Media\Icons\Classes\4.png
+		Media\Icons\Classes\4_Border.png = Media\Icons\Classes\4_Border.png
+		Media\Icons\Classes\5.png = Media\Icons\Classes\5.png
+		Media\Icons\Classes\5_Border.png = Media\Icons\Classes\5_Border.png
+		Media\Icons\Classes\6.png = Media\Icons\Classes\6.png
+		Media\Icons\Classes\6_Border.png = Media\Icons\Classes\6_Border.png
+		Media\Icons\Classes\7.png = Media\Icons\Classes\7.png
+		Media\Icons\Classes\7_Border.png = Media\Icons\Classes\7_Border.png
+		Media\Icons\Classes\8.png = Media\Icons\Classes\8.png
+		Media\Icons\Classes\8_Border.png = Media\Icons\Classes\8_Border.png
+		Media\Icons\Classes\9.png = Media\Icons\Classes\9.png
+		Media\Icons\Classes\9_Border.png = Media\Icons\Classes\9_Border.png
+		Media\Icons\Classes\WithBorder.psd = Media\Icons\Classes\WithBorder.psd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Races", "Races", "{A7D15A19-10A3-4B34-8C33-A52BDCBEFAD1}"
+	ProjectSection(SolutionItems) = preProject
+		Media\Icons\Races\10_0.png = Media\Icons\Races\10_0.png
+		Media\Icons\Races\10_0_Border.png = Media\Icons\Races\10_0_Border.png
+		Media\Icons\Races\10_1.png = Media\Icons\Races\10_1.png
+		Media\Icons\Races\10_1_Border.png = Media\Icons\Races\10_1_Border.png
+		Media\Icons\Races\11_0.png = Media\Icons\Races\11_0.png
+		Media\Icons\Races\11_0_Border.png = Media\Icons\Races\11_0_Border.png
+		Media\Icons\Races\11_1.png = Media\Icons\Races\11_1.png
+		Media\Icons\Races\11_1_Border.png = Media\Icons\Races\11_1_Border.png
+		Media\Icons\Races\1_0.png = Media\Icons\Races\1_0.png
+		Media\Icons\Races\1_0_Border.png = Media\Icons\Races\1_0_Border.png
+		Media\Icons\Races\1_1.png = Media\Icons\Races\1_1.png
+		Media\Icons\Races\1_1_Border.png = Media\Icons\Races\1_1_Border.png
+		Media\Icons\Races\22_0.png = Media\Icons\Races\22_0.png
+		Media\Icons\Races\22_0_Border.png = Media\Icons\Races\22_0_Border.png
+		Media\Icons\Races\22_1.png = Media\Icons\Races\22_1.png
+		Media\Icons\Races\22_1_Border.png = Media\Icons\Races\22_1_Border.png
+		Media\Icons\Races\2_0.png = Media\Icons\Races\2_0.png
+		Media\Icons\Races\2_0_Border.png = Media\Icons\Races\2_0_Border.png
+		Media\Icons\Races\2_1.png = Media\Icons\Races\2_1.png
+		Media\Icons\Races\2_1_Border.png = Media\Icons\Races\2_1_Border.png
+		Media\Icons\Races\3_0.png = Media\Icons\Races\3_0.png
+		Media\Icons\Races\3_0_Border.png = Media\Icons\Races\3_0_Border.png
+		Media\Icons\Races\3_1.png = Media\Icons\Races\3_1.png
+		Media\Icons\Races\3_1_Border.png = Media\Icons\Races\3_1_Border.png
+		Media\Icons\Races\4_0.png = Media\Icons\Races\4_0.png
+		Media\Icons\Races\4_0_Border.png = Media\Icons\Races\4_0_Border.png
+		Media\Icons\Races\4_1.png = Media\Icons\Races\4_1.png
+		Media\Icons\Races\4_1_Border.png = Media\Icons\Races\4_1_Border.png
+		Media\Icons\Races\5_0.png = Media\Icons\Races\5_0.png
+		Media\Icons\Races\5_0_Border.png = Media\Icons\Races\5_0_Border.png
+		Media\Icons\Races\5_1.png = Media\Icons\Races\5_1.png
+		Media\Icons\Races\5_1_Border.png = Media\Icons\Races\5_1_Border.png
+		Media\Icons\Races\6_0.png = Media\Icons\Races\6_0.png
+		Media\Icons\Races\6_0_Border.png = Media\Icons\Races\6_0_Border.png
+		Media\Icons\Races\6_1.png = Media\Icons\Races\6_1.png
+		Media\Icons\Races\6_1_Border.png = Media\Icons\Races\6_1_Border.png
+		Media\Icons\Races\7_0.png = Media\Icons\Races\7_0.png
+		Media\Icons\Races\7_0_Border.png = Media\Icons\Races\7_0_Border.png
+		Media\Icons\Races\7_1.png = Media\Icons\Races\7_1.png
+		Media\Icons\Races\7_1_Border.png = Media\Icons\Races\7_1_Border.png
+		Media\Icons\Races\8_0.png = Media\Icons\Races\8_0.png
+		Media\Icons\Races\8_0_Border.png = Media\Icons\Races\8_0_Border.png
+		Media\Icons\Races\8_1.png = Media\Icons\Races\8_1.png
+		Media\Icons\Races\8_1_Border.png = Media\Icons\Races\8_1_Border.png
+		Media\Icons\Races\9_0.png = Media\Icons\Races\9_0.png
+		Media\Icons\Races\9_0_Border.png = Media\Icons\Races\9_0_Border.png
+		Media\Icons\Races\9_1.png = Media\Icons\Races\9_1.png
+		Media\Icons\Races\9_1_Border.png = Media\Icons\Races\9_1_Border.png
+		Media\Icons\Races\WithBorder.psd = Media\Icons\Races\WithBorder.psd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GuildDetails", "GuildDetails", "{09636BAC-CD2C-47A7-B728-D903B2C0DFA7}"
+	ProjectSection(SolutionItems) = preProject
+		Media\GuildDetails\Favorite.psd = Media\GuildDetails\Favorite.psd
+		Media\GuildDetails\Favorite_0.png = Media\GuildDetails\Favorite_0.png
+		Media\GuildDetails\Favorite_1.png = Media\GuildDetails\Favorite_1.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GuildList", "GuildList", "{805AEC53-B9BB-462B-92BA-58F25FA2957E}"
+	ProjectSection(SolutionItems) = preProject
+		Media\ApplicationBar\GuildList\delete.png = Media\ApplicationBar\GuildList\delete.png
+		Media\ApplicationBar\GuildList\search.png = Media\ApplicationBar\GuildList\search.png
+		Media\ApplicationBar\GuildList\update.png = Media\ApplicationBar\GuildList\update.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Factions", "Factions", "{38557035-4446-481F-87EF-53A86D8B8768}"
+	ProjectSection(SolutionItems) = preProject
+		Media\Icons\Factions\0.png = Media\Icons\Factions\0.png
+		Media\Icons\Factions\1.png = Media\Icons\Factions\1.png
+		Media\Icons\Factions\WithBorder.psd = Media\Icons\Factions\WithBorder.psd
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -308,11 +416,16 @@ Global
 		{980D282C-EADB-4971-A0B9-BBA5CE9F1137} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{D08DFF7A-5CEF-4C8C-BC6C-25B0346443E5} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{32C2704E-4A1A-415B-9EE6-E637150B7813} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
+		{09636BAC-CD2C-47A7-B728-D903B2C0DFA7} = {E58D69AE-8433-4FA0-B650-4A188AA862DF}
 		{962D07B1-80D7-4310-BDC0-2580C77FD57E} = {6ABB592A-EDA1-4333-99BD-ED0395E75D01}
 		{22D83C24-EFA4-4D83-A082-EA8591A5EA85} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{2761AE5B-DA97-446F-9987-1B566176AC60} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
+		{D4F786E2-9BB4-4907-995F-4BF86533F122} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
+		{A7D15A19-10A3-4B34-8C33-A52BDCBEFAD1} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
+		{38557035-4446-481F-87EF-53A86D8B8768} = {E38956DD-0E34-4549-8EB0-F6C634AD6327}
 		{B6517931-2F91-4538-A374-A055163BBDE4} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{3747578C-1B15-4E0B-9C04-608562DC793A} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{F223F66E-D6DF-4D1C-AAB6-9220B8418D6D} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
+		{805AEC53-B9BB-462B-92BA-58F25FA2957E} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 	EndGlobalSection
 EndGlobal

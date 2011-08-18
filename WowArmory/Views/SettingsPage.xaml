@@ -38,12 +38,22 @@
 									   Header="{Binding LocalizedResources.UI_Settings_General_Region, Source={StaticResource LocalizedResources}}"
 									   ItemsSource="{Binding Regions}" DisplayMemberPath="Value"
 									   SelectedItem="{Binding SelectedRegion, Mode=TwoWay}" />
-						<tk:ToggleSwitch x:Name="tsShowCharacterBackground"
-										 Header="{Binding LocalizedResources.UI_Settings_General_ShowCharacterBackground, Source={StaticResource LocalizedResources}}"
-										 IsChecked="{Binding ShowCharacterBackground, Mode=TwoWay}" />
 						<tk:ToggleSwitch x:Name="tsIsFirstTimeUsage"
 										 Header="{Binding LocalizedResources.UI_Settings_General_IsFirstTimeUsage, Source={StaticResource LocalizedResources}}"
 										 IsChecked="{Binding IsFirstTimeUsage, Mode=TwoWay}" />
+					</StackPanel>
+				</controls:PivotItem>
+				<controls:PivotItem Header="{Binding LocalizedResources.UI_Settings_PivotItem_Character, Source={StaticResource LocalizedResources}}">
+					<StackPanel Orientation="Vertical">
+						<tk:ToggleSwitch x:Name="tsShowCharacterBackground"
+										 Header="{Binding LocalizedResources.UI_Settings_Character_ShowCharacterBackground, Source={StaticResource LocalizedResources}}"
+										 IsChecked="{Binding ShowCharacterBackground, Mode=TwoWay}" />
+						<tk:ToggleSwitch x:Name="tsShowGemName"
+										 Header="{Binding LocalizedResources.UI_Settings_Character_ShowGemName, Source={StaticResource LocalizedResources}}"
+										 IsChecked="{Binding ShowGemName, Mode=TwoWay}" />
+						<tk:ToggleSwitch x:Name="tsIs3DItemViewerEnabled"
+										 Header="{Binding LocalizedResources.UI_Settings_Character_Is3DItemViewerEnabled, Source={StaticResource LocalizedResources}}"
+										 IsChecked="{Binding Is3DItemViewerEnabled, Mode=TwoWay}" />
 					</StackPanel>
 				</controls:PivotItem>
 			</controls:Pivot>

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Media;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+using WowArmory.Controls;
 using WowArmory.Core.BattleNet.Models;
 using WowArmory.Core.Converters;
 using WowArmory.Core.Languages;
@@ -16,6 +18,12 @@ namespace WowArmory.ViewModels
 		#region --- Fields ---
 		//----------------------------------------------------------------------
 		private Character _character;
+		private Dictionary<int, Item> _cachedItems = new Dictionary<int, Item>();
+		private Dictionary<int, Item> _cachedGems = new Dictionary<int, Item>();
+		private bool _isItemToolTipOpen = false;
+		private CharacterItemContainer _itemContainerForToolTip;
+		private Item _itemForToolTip;
+		private string _itemContainerControl;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -50,6 +58,7 @@ namespace WowArmory.ViewModels
 				_character = value;
 				RaisePropertyChanged("Character");
 				RaisePropertyChanged("CharacterFaction");
+				UpdateStorageData();
 
 				if (OnCharacterLoaded != null)
 				{
@@ -309,6 +318,150 @@ namespace WowArmory.ViewModels
 				return Character.Stats.Mana5Combat <= 0 ? "--" : String.Format("{0}", Character.Stats.Mana5Combat);
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets the cached items.
+		/// </summary>
+		/// <value>
+		/// The cached items.
+		/// </value>
+		public Dictionary<int, Item> CachedItems
+		{
+			get
+			{
+				return _cachedItems;
+			}
+			set
+			{
+				if (_cachedItems == value)
+				{
+					return;
+				}
+
+				_cachedItems = value;
+				RaisePropertyChanged("CachedItems");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the cached gems.
+		/// </summary>
+		/// <value>
+		/// The cached gems.
+		/// </value>
+		public Dictionary<int, Item> CachedGems
+		{
+			get
+			{
+				return _cachedGems;
+			}
+			set
+			{
+				if (_cachedGems == value)
+				{
+					return;
+				}
+
+				_cachedGems = value;
+				RaisePropertyChanged("CachedGems");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the item tool tip is open.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the item tool tip is open; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsItemToolTipOpen
+		{
+			get
+			{
+				return _isItemToolTipOpen;
+			}
+			set
+			{
+				if (_isItemToolTipOpen == value)
+				{
+					return;
+				}
+
+				_isItemToolTipOpen = value;
+				RaisePropertyChanged("IsItemToolTipOpen");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the item container for tool tip.
+		/// </summary>
+		/// <value>
+		/// The item container for tool tip.
+		/// </value>
+		public CharacterItemContainer ItemContainerForToolTip
+		{
+			get
+			{
+				return _itemContainerForToolTip;
+			}
+			set
+			{
+				if (_itemContainerForToolTip == value)
+				{
+					return;
+				}
+
+				_itemContainerForToolTip = value;
+				RaisePropertyChanged("ItemContainerForToolTip");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the item for tool tip.
+		/// </summary>
+		/// <value>
+		/// The item for tool tip.
+		/// </value>
+		public Item ItemForToolTip
+		{
+			get
+			{
+				return _itemForToolTip;
+			}
+			set
+			{
+				if (_itemForToolTip == value)
+				{
+					return;
+				}
+
+				_itemForToolTip = value;
+				RaisePropertyChanged("ItemForToolTip");
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the item container control.
+		/// </summary>
+		/// <value>
+		/// The item container control.
+		/// </value>
+		public string ItemContainerControl
+		{
+			get
+			{
+				return _itemContainerControl;
+			}
+			set
+			{
+				if (_itemContainerControl == value)
+				{
+					return;
+				}
+
+				_itemContainerControl = value;
+				RaisePropertyChanged("ItemContainerControl");
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -333,7 +486,7 @@ namespace WowArmory.ViewModels
 		{
 			InitializeCommands();
 
-			Character = IsolatedStorageManager.GetValue<Character>("MainPage_Character", null);
+			Character = null;
 		}
 		//----------------------------------------------------------------------
 		#endregion
@@ -357,6 +510,17 @@ namespace WowArmory.ViewModels
 		public void ToggleCharacterFavorite()
 		{
 			RaisePropertyChanged("FavoriteImage");
+		}
+
+		/// <summary>
+		/// Updates the storage data.
+		/// </summary>
+		public void UpdateStorageData()
+		{
+			if (IsolatedStorageManager.IsCharacterStored(Character.Region, Character.Realm, Character.Name))
+			{
+				IsolatedStorageManager.Store(Character);
+			}
 		}
 		//----------------------------------------------------------------------
 		#endregion

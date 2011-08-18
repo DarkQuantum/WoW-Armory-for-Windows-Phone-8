@@ -70,11 +70,29 @@ namespace WowArmory.Core.BattleNet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to guild/{0}/{1}{2}.
+        /// </summary>
+        internal static string BattleNet_Api_Guild {
+            get {
+                return ResourceManager.GetString("BattleNet_Api_Guild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to item/{0}.
         /// </summary>
         internal static string BattleNet_Api_Item {
             get {
                 return ResourceManager.GetString("BattleNet_Api_Item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to quest/{0}.
+        /// </summary>
+        internal static string BattleNet_Api_Quest {
+            get {
+                return ResourceManager.GetString("BattleNet_Api_Quest", resourceCulture);
             }
         }
         
@@ -129,6 +147,15 @@ namespace WowArmory.Core.BattleNet {
         internal static string BattleNet_IconUri {
             get {
                 return ResourceManager.GetString("BattleNet_IconUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://{0}.media.blizzard.com/wow/renders/items/.
+        /// </summary>
+        internal static string BattleNet_ItemRenderUri {
+            get {
+                return ResourceManager.GetString("BattleNet_ItemRenderUri", resourceCulture);
             }
         }
         

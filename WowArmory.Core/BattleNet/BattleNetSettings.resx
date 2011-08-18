@@ -120,8 +120,14 @@
   <data name="BattleNet_Api_Character" xml:space="preserve">
     <value>character/{0}/{1}{2}</value>
   </data>
+  <data name="BattleNet_Api_Guild" xml:space="preserve">
+    <value>guild/{0}/{1}{2}</value>
+  </data>
   <data name="BattleNet_Api_Item" xml:space="preserve">
     <value>item/{0}</value>
+  </data>
+  <data name="BattleNet_Api_Quest" xml:space="preserve">
+    <value>quest/{0}</value>
   </data>
   <data name="BattleNet_Api_RealmStatus" xml:space="preserve">
     <value>realm/status</value>
@@ -140,6 +146,9 @@
   </data>
   <data name="BattleNet_IconUri" xml:space="preserve">
     <value>http://{0}.media.blizzard.com/wow/icons/</value>
+  </data>
+  <data name="BattleNet_ItemRenderUri" xml:space="preserve">
+    <value>http://{0}.media.blizzard.com/wow/renders/items/</value>
   </data>
   <data name="BattleNet_Region_Europe" xml:space="preserve">
     <value>eu</value>

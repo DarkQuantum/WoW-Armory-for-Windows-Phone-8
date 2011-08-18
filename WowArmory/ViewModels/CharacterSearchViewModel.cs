@@ -11,7 +11,6 @@ using WowArmory.Core.Extensions;
 using WowArmory.Core.Languages;
 using WowArmory.Core.Managers;
 using WowArmory.Enumerations;
-using WowArmory.Models;
 
 namespace WowArmory.ViewModels
 {
@@ -150,7 +149,7 @@ namespace WowArmory.ViewModels
 					return;
 				}
 
-				_realm = value;
+				_realm = value.Trim();
 				RaisePropertyChanged("Realm");
 			}
 		}
@@ -174,7 +173,7 @@ namespace WowArmory.ViewModels
 					return;
 				}
 
-				_name = value;
+				_name = value.Trim();
 				RaisePropertyChanged("Name");
 			}
 		}
@@ -226,11 +225,6 @@ namespace WowArmory.ViewModels
 		/// </summary>
 		public void LoadRealms()
 		{
-			if (Realms != null && Realms.Count != 0)
-			{
-				return;
-			}
-
 			IsLoadingProgressBarVisible = true;
 			IsLoadingProgressBarIndeterminate = true;
 
@@ -283,13 +277,13 @@ namespace WowArmory.ViewModels
 
 			if (String.IsNullOrEmpty(Realm))
 			{
-				MessageBox.Show(AppResources.UI_CharacterSearch_MissingRealm_Text, AppResources.UI_CharacterSearch_Missing_Caption, MessageBoxButton.OK);
+				MessageBox.Show(AppResources.UI_Search_MissingRealm_Text, AppResources.UI_Search_Missing_Caption, MessageBoxButton.OK);
 				return;
 			}
 
 			if (String.IsNullOrEmpty(Name))
 			{
-				MessageBox.Show(AppResources.UI_CharacterSearch_MissingName_Text, AppResources.UI_CharacterSearch_Missing_Caption, MessageBoxButton.OK);
+				MessageBox.Show(AppResources.UI_Search_MissingCharacterName_Text, AppResources.UI_Search_Missing_Caption, MessageBoxButton.OK);
 				return;
 			}
 
@@ -316,8 +310,8 @@ namespace WowArmory.ViewModels
 
 			if (!character.IsValid)
 			{
-				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_CharacterSearch_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_CharacterSearch_Error_Unknown_Caption;
-				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_CharacterSearch_Error_{0}_Text", character.ReasonType)) ?? AppResources.UI_CharacterSearch_Error_Unknown_Text;
+				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Caption;
+				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Text", character.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Text;
 				MessageBox.Show(reasonText, reasonCaption, MessageBoxButton.OK);
 				return;
 			}
