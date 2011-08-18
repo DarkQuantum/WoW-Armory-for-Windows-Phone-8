@@ -1057,97 +1057,104 @@ namespace WowArmory.Views
 			// source
 			if (ViewModel.ItemForToolTip.ItemSource != null)
 			{
-				ShowToolTipText(tbItemToolTipSpacer, " ");
-
-				var stackPanel = new StackPanel();
-				stackPanel.Orientation = System.Windows.Controls.Orientation.Horizontal;
-				spItemToolTipSource.Children.Add(stackPanel);
-
-				var descriptionText = new TextBlock();
-				descriptionText.Text = AppResources.Item_Source;
-				descriptionText.Style = descriptionStyle;
-				stackPanel.Children.Add(descriptionText);
-
-				var valueText = new TextBlock();
-				valueText.Text = AppResources.ResourceManager.GetString(String.Format("Item_ItemSourceType_{0}", ViewModel.ItemForToolTip.ItemSource.SourceType));
-				valueText.Style = normalStyle;
-				valueText.Margin = new Thickness(6, 0, 0, 0);
-				stackPanel.Children.Add(valueText);
-
-				if (ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("REWARD_FOR_QUEST", StringComparison.CurrentCultureIgnoreCase))
+				var sourceText = AppResources.ResourceManager.GetString(String.Format("Item_ItemSourceType_{0}", ViewModel.ItemForToolTip.ItemSource.SourceType));
+				if (!String.IsNullOrEmpty(sourceText))
 				{
-					BattleNetClient.Current.GetQuestAsync(ViewModel.ItemForToolTip.ItemSource.SourceId, quest =>
+					ShowToolTipText(tbItemToolTipSpacer, " ");
+
+					var stackPanel = new StackPanel();
+					stackPanel.Orientation = System.Windows.Controls.Orientation.Horizontal;
+					spItemToolTipSource.Children.Add(stackPanel);
+
+					var descriptionText = new TextBlock();
+					descriptionText.Text = AppResources.Item_Source;
+					descriptionText.Style = descriptionStyle;
+					stackPanel.Children.Add(descriptionText);
+
+					var valueText = new TextBlock();
+					valueText.Text = sourceText;
+					valueText.Style = normalStyle;
+					valueText.Margin = new Thickness(6, 0, 0, 0);
+					stackPanel.Children.Add(valueText);
+
+					if (ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("REWARD_FOR_QUEST", StringComparison.CurrentCultureIgnoreCase))
 					{
-						if (quest == null)
+						BattleNetClient.Current.GetQuestAsync(ViewModel.ItemForToolTip.ItemSource.SourceId, quest =>
 						{
-							return;
+							if (quest == null)
+							{
+								return;
+							}
+
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestName, quest.Title);
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestCategory, quest.Category);
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestLevel, quest.Level.ToString());
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestRequiredLevel, quest.ReqLevel.ToString());
+						});
+					}
+					else if (ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("VENDOR", StringComparison.CurrentCultureIgnoreCase) ||
+						ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("FACTION_REWARD", StringComparison.CurrentCultureIgnoreCase))
+					{
+						if (ViewModel.ItemForToolTip.BuyPrice > 0)
+						{
+							var stackPanelCost = new StackPanel();
+							stackPanelCost.Orientation = System.Windows.Controls.Orientation.Horizontal;
+
+							if (ViewModel.ItemForToolTip.BuyPriceObject.Gold > 0)
+							{
+								var goldText = new TextBlock();
+								goldText.Text = ViewModel.ItemForToolTip.BuyPriceObject.Gold.ToString();
+								goldText.Style = normalStyle;
+								goldText.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(goldText);
+
+								var goldImage = new Image();
+								goldImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Gold.png");
+								goldImage.Width = 24;
+								goldImage.Height = 17;
+								goldImage.Margin = new Thickness(6, 0, 6, 0);
+								goldImage.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(goldImage);
+							}
+							if (ViewModel.ItemForToolTip.BuyPriceObject.Silver > 0)
+							{
+								var silverText = new TextBlock();
+								silverText.Text = ViewModel.ItemForToolTip.BuyPriceObject.Silver.ToString();
+								silverText.Style = normalStyle;
+								silverText.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(silverText);
+
+								var silverImage = new Image();
+								silverImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Silver.png");
+								silverImage.Width = 24;
+								silverImage.Height = 17;
+								silverImage.Margin = new Thickness(6, 0, 6, 0);
+								silverImage.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(silverImage);
+							}
+							if (ViewModel.ItemForToolTip.BuyPriceObject.Copper > 0)
+							{
+								var copperText = new TextBlock();
+								copperText.Text = ViewModel.ItemForToolTip.BuyPriceObject.Copper.ToString();
+								copperText.Style = normalStyle;
+								copperText.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(copperText);
+
+								var copperImage = new Image();
+								copperImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Copper.png");
+								copperImage.Width = 24;
+								copperImage.Height = 17;
+								copperImage.Margin = new Thickness(6, 0, 0, 0);
+								copperImage.VerticalAlignment = VerticalAlignment.Center;
+								stackPanelCost.Children.Add(copperImage);
+							}
+
+							AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_VendorCost, stackPanelCost);
 						}
+					}
 
-						AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestName, quest.Title);
-						AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestCategory, quest.Category);
-						AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestLevel, quest.Level.ToString());
-						AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_QuestRequiredLevel, quest.ReqLevel.ToString());
-					});
+					spItemToolTipSource.Visibility = Visibility.Visible;
 				}
-				else if (ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("VENDOR", StringComparison.CurrentCultureIgnoreCase) ||
-					ViewModel.ItemForToolTip.ItemSource.SourceType.Equals("FACTION_REWARD", StringComparison.CurrentCultureIgnoreCase))
-				{
-					var stackPanelCost = new StackPanel();
-					stackPanelCost.Orientation = System.Windows.Controls.Orientation.Horizontal;
-
-					if (ViewModel.ItemForToolTip.BuyPriceObject.Gold > 0)
-					{
-						var goldText = new TextBlock();
-						goldText.Text = ViewModel.ItemForToolTip.BuyPriceObject.Gold.ToString();
-						goldText.Style = normalStyle;
-						goldText.VerticalAlignment = VerticalAlignment.Center;
-						stackPanelCost.Children.Add(goldText);
-
-						var goldImage = new Image();
-						goldImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Gold.png");
-						goldImage.Width = 24;
-						goldImage.Height = 17;
-						goldImage.Margin = new Thickness(6, 0, 6, 0);
-						goldImage.VerticalAlignment = VerticalAlignment.Center;
-						stackPanelCost.Children.Add(goldImage);
-					}
-					if (ViewModel.ItemForToolTip.BuyPriceObject.Silver > 0)
-					{
-						var silverText = new TextBlock();
-						silverText.Text = ViewModel.ItemForToolTip.BuyPriceObject.Silver.ToString();
-						silverText.Style = normalStyle;
-						silverText.VerticalAlignment = VerticalAlignment.Center;
-						stackPanelCost.Children.Add(silverText);
-
-						var silverImage = new Image();
-						silverImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Silver.png");
-						silverImage.Width = 24;
-						silverImage.Height = 17;
-						silverImage.Margin = new Thickness(6, 0, 6, 0);
-						silverImage.VerticalAlignment = VerticalAlignment.Center;
-						stackPanelCost.Children.Add(silverImage);
-					}
-					if (ViewModel.ItemForToolTip.BuyPriceObject.Copper > 0)
-					{
-						var copperText = new TextBlock();
-						copperText.Text = ViewModel.ItemForToolTip.BuyPriceObject.Copper.ToString();
-						copperText.Style = normalStyle;
-						copperText.VerticalAlignment = VerticalAlignment.Center;
-						stackPanelCost.Children.Add(copperText);
-
-						var copperImage = new Image();
-						copperImage.Source = CacheManager.GetImageSourceFromCache("/WowArmory.Core;Component/Images/Coin_Copper.png");
-						copperImage.Width = 24;
-						copperImage.Height = 17;
-						copperImage.Margin = new Thickness(6, 0, 0, 0);
-						copperImage.VerticalAlignment = VerticalAlignment.Center;
-						stackPanelCost.Children.Add(copperImage);
-					}
-
-					AddSourceInformation(spItemToolTipSource, AppResources.Item_Source_VendorCost, stackPanelCost);
-				}
-
-				spItemToolTipSource.Visibility = Visibility.Visible;
 			}
 			// 3d item viewer
 			if (AppSettingsManager.Is3DItemViewerEnabled)
