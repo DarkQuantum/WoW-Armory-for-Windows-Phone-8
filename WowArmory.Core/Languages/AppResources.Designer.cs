@@ -142,7 +142,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Version 2.0.
+        ///   Looks up a localized string similar to Version 2.2.
         /// </summary>
         public static string About_Version {
             get {
