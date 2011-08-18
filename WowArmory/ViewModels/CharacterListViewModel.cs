@@ -115,6 +115,14 @@ namespace WowArmory.ViewModels
 				RaisePropertyChanged("SelectedCharacter");
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the next application controller navigation should be prevented.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the next application controller navigation should be prevented; otherwise, <c>false</c>.
+		/// </value>
+		public bool PreventNextNavigation { get; set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -138,6 +146,7 @@ namespace WowArmory.ViewModels
 		{
 			InitializeCommands();
 			RefreshView();
+			PreventNextNavigation = false;
 		}
 		//----------------------------------------------------------------------
 		#endregion
@@ -201,10 +210,31 @@ namespace WowArmory.ViewModels
 			SelectedCharacter = null;
 		}
 
+		/// <summary>
+		/// Shows the selected character.
+		/// </summary>
 		public void ShowSelectedCharacter()
 		{
 			BattleNetClient.Current.Region = SelectedCharacter.Region;
 			RetrieveCharacterFromArmory(SelectedCharacter.Realm, SelectedCharacter.Character);
+		}
+
+		/// <summary>
+		/// Updates the character.
+		/// </summary>
+		/// <param name="region">The region.</param>
+		/// <param name="realmName">Name of the realm.</param>
+		/// <param name="characterName">Name of the character.</param>
+		public void UpdateCharacter(Region region, string realmName, string characterName)
+		{
+			if (!IsolatedStorageManager.IsCharacterStored(region, realmName, characterName))
+			{
+				return;
+			}
+
+			PreventNextNavigation = true;
+			BattleNetClient.Current.Region = region;
+			RetrieveCharacterFromArmory(realmName, characterName);
 		}
 
 		/// <summary>
@@ -243,6 +273,12 @@ namespace WowArmory.ViewModels
 				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Caption", character.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Caption;
 				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Text", character.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Text;
 				MessageBox.Show(reasonText, reasonCaption, MessageBoxButton.OK);
+				return;
+			}
+
+			if (PreventNextNavigation)
+			{
+				PreventNextNavigation = false;
 				return;
 			}
 

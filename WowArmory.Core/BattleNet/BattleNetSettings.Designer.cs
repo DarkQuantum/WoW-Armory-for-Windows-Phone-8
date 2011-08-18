@@ -142,6 +142,15 @@ namespace WowArmory.Core.BattleNet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://{0}.media.blizzard.com/wow/renders/items/.
+        /// </summary>
+        internal static string BattleNet_ItemRenderUri {
+            get {
+                return ResourceManager.GetString("BattleNet_ItemRenderUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to eu.
         /// </summary>
         internal static string BattleNet_Region_Europe {

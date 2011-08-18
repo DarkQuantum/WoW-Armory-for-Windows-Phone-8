@@ -105,6 +105,22 @@ namespace WowArmory
 				{
 					CacheManager.CachedRealmLists = (Dictionary<Region, RealmList>)state["RealmList_Cache"];
 				}
+				if (state.ContainsKey("CharacterDetails_CachedItems"))
+				{
+					ViewModelLocator.CharacterDetailsStatic.CachedItems = (Dictionary<int, Item>)state["CharacterDetails_CachedItems"];
+				}
+				if (state.ContainsKey("CharacterDetails_CachedGems"))
+				{
+					ViewModelLocator.CharacterDetailsStatic.CachedGems = (Dictionary<int, Item>)state["CharacterDetails_CachedGems"];
+				}
+				if (state.ContainsKey("CharacterDetails_ItemToolTip_IsOpen"))
+				{
+					ViewModelLocator.CharacterDetailsStatic.IsItemToolTipOpen = (bool)state["CharacterDetails_ItemToolTip_IsOpen"];
+				}
+				if (state.ContainsKey("CharacterDetails_ItemToolTip_ItemContainerControl"))
+				{
+					ViewModelLocator.CharacterDetailsStatic.ItemContainerControl = (string)state["CharacterDetails_ItemToolTip_ItemContainerControl"];
+				}
 			}
 		}
 
@@ -122,6 +138,11 @@ namespace WowArmory
 			this.SaveToPhoneState("GuildSearch_Name", ViewModelLocator.GuildSearchStatic.Name);
 			this.SaveToPhoneState("GuildDetails_Guild", ViewModelLocator.GuildDetailsStatic.Guild);
 			this.SaveToPhoneState("RealmList_Cache", CacheManager.CachedRealmLists);
+
+			this.SaveToPhoneState("CharacterDetails_CachedItems", ViewModelLocator.CharacterDetailsStatic.CachedItems);
+			this.SaveToPhoneState("CharacterDetails_CachedGems", ViewModelLocator.CharacterDetailsStatic.CachedGems);
+			this.SaveToPhoneState("CharacterDetails_ItemToolTip_IsOpen", ViewModelLocator.CharacterDetailsStatic.IsItemToolTipOpen);
+			this.SaveToPhoneState("CharacterDetails_ItemToolTip_ItemContainerControl", ViewModelLocator.CharacterDetailsStatic.ItemContainerControl);
 		}
 
 		// Code to execute when the application is closing (eg, user hit Back)

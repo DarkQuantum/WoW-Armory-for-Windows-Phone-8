@@ -111,6 +111,18 @@ namespace WowArmory.Core.BattleNet
 				return !String.IsNullOrEmpty(baseUriTemplate) ? new Uri(String.Format(baseUriTemplate, BattleNetRegionCode)) : new Uri(String.Format("http://{0}.battle.net/static-render/{0}/", BattleNetRegionCode));
 			}
 		}
+
+		/// <summary>
+		/// Gets the Battle.Net item render URI.
+		/// </summary>
+		public Uri BattleNetItemRenderUri
+		{
+			get
+			{
+				var baseUriTemplate = BattleNetSettings.ResourceManager.GetString("BattleNet_ItemRenderUri");
+				return !String.IsNullOrEmpty(baseUriTemplate) ? new Uri(String.Format(baseUriTemplate, BattleNetRegionCode)) : new Uri(String.Format("http://{0}.media.blizzard.com/wow/renders/items/", BattleNetRegionCode));
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -362,6 +374,16 @@ namespace WowArmory.Core.BattleNet
 		{
 			var iconUrl = GetIconUrl(iconPath, iconSize);
 			return CacheManager.GetImageSourceFromCache(iconUrl);
+		}
+
+		/// <summary>
+		/// Gets the item render url for the specified item.
+		/// </summary>
+		/// <param name="itemId">The item id.</param>
+		/// <returns></returns>
+		public string GetItemRenderUrl(int itemId)
+		{
+			return String.Format("{0}item{1}.jpg", BattleNetItemRenderUri, itemId);
 		}
 
 		/// <summary>

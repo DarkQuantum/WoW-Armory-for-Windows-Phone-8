@@ -2554,6 +2554,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View item in 3D.
+        /// </summary>
+        public static string UI_CharacterDetails_Item_ItemViewer {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_Item_ItemViewer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to achievements.
         /// </summary>
         public static string UI_CharacterDetails_PivotItem_Achievements {
@@ -2680,7 +2689,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to delete all.
+        ///   Looks up a localized string similar to remove all.
         /// </summary>
         public static string UI_CharacterList_ApplicationBar_DeleteAll {
             get {
@@ -2725,7 +2734,43 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete all characters.
+        ///   Looks up a localized string similar to remove.
+        /// </summary>
+        public static string UI_CharacterList_ContextMenuItem_Remove {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_ContextMenuItem_Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to update.
+        /// </summary>
+        public static string UI_CharacterList_ContextMenuItem_Update {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_ContextMenuItem_Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove character.
+        /// </summary>
+        public static string UI_CharacterList_Delete_Caption {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_Delete_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This character will be removed from the list.
+        /// </summary>
+        public static string UI_CharacterList_Delete_Text {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_Delete_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove all characters.
         /// </summary>
         public static string UI_CharacterList_DeleteAll_Caption {
             get {
@@ -2734,7 +2779,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All characters will be deleted from your list.
+        ///   Looks up a localized string similar to All characters will be removed from your list.
         /// </summary>
         public static string UI_CharacterList_DeleteAll_Text {
             get {
@@ -2784,6 +2829,15 @@ namespace WowArmory.Core.Languages {
         public static string UI_Help_PivotItem_About {
             get {
                 return ResourceManager.GetString("UI_Help_PivotItem_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not retrieve the information needed to display the item.
+        /// </summary>
+        public static string UI_ItemViewer_Error {
+            get {
+                return ResourceManager.GetString("UI_ItemViewer_Error", resourceCulture);
             }
         }
         

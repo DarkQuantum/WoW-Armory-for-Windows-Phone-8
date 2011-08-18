@@ -937,7 +937,6 @@
       <Link>Images\Icons\Achievementpoints.png</Link>
     </Resource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="..\Media\Icons\Factions\0.png">
       <Link>Images\Icons\Factions\0.png</Link>

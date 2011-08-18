@@ -6,6 +6,7 @@ using WowArmory.Controllers;
 using WowArmory.Core.Enumerations;
 using WowArmory.Core.Languages;
 using WowArmory.Core.Managers;
+using WowArmory.Models;
 using WowArmory.ViewModels;
 
 namespace WowArmory.Views
@@ -237,6 +238,38 @@ namespace WowArmory.Views
 			{
 				IsolatedStorageManager.StoredCharacters.Remove(IsolatedStorageManager.StoredCharacters[0]);
 			}
+
+			ViewModel.RefreshView();
+			UpdateApplicationBarItems();
+		}
+
+		/// <summary>
+		/// Handles the Click event of the CharacterContextMenuItemUpdate control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void CharacterContextMenuItemUpdate_Click(object sender, RoutedEventArgs e)
+		{
+			ViewModel.PreventNextNavigation = true;
+			var character = (CharacterListItem)((MenuItem)sender).DataContext;
+			ViewModel.UpdateCharacter(character.Region, character.Realm, character.Character);
+		}
+
+		/// <summary>
+		/// Handles the Click event of the CharacterContextMenuItemRemove control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void CharacterContextMenuItemRemove_Click(object sender, RoutedEventArgs e)
+		{
+			if (MessageBox.Show(AppResources.UI_CharacterList_Delete_Text, AppResources.UI_CharacterList_Delete_Caption, MessageBoxButton.OKCancel) == MessageBoxResult.Cancel)
+			{
+				return;
+			}
+
+			var character = (CharacterListItem)((MenuItem)sender).DataContext;
+			var storageData = IsolatedStorageManager.GetStoredCharacter(character.Region, character.Realm, character.Character);
+			IsolatedStorageManager.StoredCharacters.Remove(storageData);
 
 			ViewModel.RefreshView();
 			UpdateApplicationBarItems();

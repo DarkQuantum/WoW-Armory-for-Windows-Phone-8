@@ -18,6 +18,17 @@ namespace WowArmory.Core.Extensions
 		/// </returns>
 		public static Dictionary<string, object> RetrieveFromPhoneState(this Application app)
 		{
+			return RetrieveFromPhoneState();
+		}
+
+		/// <summary>
+		/// Retrieves the current application phone state.
+		/// </summary>
+		/// <returns>
+		/// The current application phone state.
+		/// </returns>
+		public static Dictionary<string, object> RetrieveFromPhoneState()
+		{
 			var state = new Dictionary<string, object>();
 
 			if (PhoneApplicationService.Current.State != null)
@@ -35,6 +46,16 @@ namespace WowArmory.Core.Extensions
 		/// <param name="key">The key to add to the current phone state.</param>
 		/// <param name="value">The value to add to the current phone state.</param>
 		public static void SaveToPhoneState(this Application app, string key, object value)
+		{
+			SaveToPhoneState(key, value);
+		}
+
+		/// <summary>
+		/// Saves the specified key and value to the current application phone state.
+		/// </summary>
+		/// <param name="key">The key to add to the current phone state.</param>
+		/// <param name="value">The value to add to the current phone state.</param>
+		public static void SaveToPhoneState(string key, object value)
 		{
 			if (PhoneApplicationService.Current.State == null) return;
 

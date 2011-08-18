@@ -6,7 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core" xmlns:tk="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
@@ -55,12 +55,11 @@
 					 SelectionChanged="ListBox_SelectionChanged">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
-						<Grid Width="456" Margin="0,0,0,12">
+						<Grid Width="456" Margin="0,0,0,12" Background="{StaticResource PhoneBackgroundBrush}">
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="Auto" />
 								<ColumnDefinition Width="*" />
 							</Grid.ColumnDefinitions>
-							<!--<Image Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding FactionAsInt, Converter={StaticResource AppImageUrl}, ConverterParameter='CharacterDetails/Faction_Header_{0}.png'}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stretch="Fill" />-->
 							<Image Grid.Column="0" Source="{Binding ., Converter={StaticResource CharacterToThumbnail}}" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" />
 							<Image Grid.Column="0" helper:AsyncImageLoader.ImageUrl="{Binding ThumbnailImageUrl}" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" />
 							<Grid Grid.Column="1" VerticalAlignment="Center" Margin="12,0,0,0">
@@ -95,7 +94,12 @@
 								</StackPanel>
 								<TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Guild}" Style="{StaticResource CharacterInformationNormalTextStyle}" HorizontalAlignment="Right" />
 							</Grid>
-							<!--<Image Grid.Column="2" Source="{Binding BadgeImage}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="64" Height="64" />-->
+							<tk:ContextMenuService.ContextMenu>
+								<tk:ContextMenu IsZoomEnabled="True">
+									<tk:MenuItem Header="{Binding LocalizedResources.UI_CharacterList_ContextMenuItem_Update, Source={StaticResource LocalizedResources}}" Click="CharacterContextMenuItemUpdate_Click" />
+									<tk:MenuItem Header="{Binding LocalizedResources.UI_CharacterList_ContextMenuItem_Remove, Source={StaticResource LocalizedResources}}" Click="CharacterContextMenuItemRemove_Click" />
+								</tk:ContextMenu>
+							</tk:ContextMenuService.ContextMenu>
 						</Grid>
 					</DataTemplate>
 				</ListBox.ItemTemplate>

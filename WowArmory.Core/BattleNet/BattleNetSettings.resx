@@ -144,6 +144,9 @@
   <data name="BattleNet_IconUri" xml:space="preserve">
     <value>http://{0}.media.blizzard.com/wow/icons/</value>
   </data>
+  <data name="BattleNet_ItemRenderUri" xml:space="preserve">
+    <value>http://{0}.media.blizzard.com/wow/renders/items/</value>
+  </data>
   <data name="BattleNet_Region_Europe" xml:space="preserve">
     <value>eu</value>
   </data>

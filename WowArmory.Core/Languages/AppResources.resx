@@ -1121,12 +1121,30 @@
     <value>sort by name</value>
   </data>
   <data name="UI_CharacterList_ApplicationBar_DeleteAll" xml:space="preserve">
-    <value>delete all</value>
+    <value>remove all</value>
   </data>
   <data name="UI_CharacterList_DeleteAll_Caption" xml:space="preserve">
-    <value>Delete all characters</value>
+    <value>Remove all characters</value>
   </data>
   <data name="UI_CharacterList_DeleteAll_Text" xml:space="preserve">
-    <value>All characters will be deleted from your list</value>
+    <value>All characters will be removed from your list</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_Remove" xml:space="preserve">
+    <value>remove</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_Update" xml:space="preserve">
+    <value>update</value>
+  </data>
+  <data name="UI_CharacterList_Delete_Caption" xml:space="preserve">
+    <value>Remove character</value>
+  </data>
+  <data name="UI_CharacterList_Delete_Text" xml:space="preserve">
+    <value>This character will be removed from the list</value>
+  </data>
+  <data name="UI_CharacterDetails_Item_ItemViewer" xml:space="preserve">
+    <value>View item in 3D</value>
+  </data>
+  <data name="UI_ItemViewer_Error" xml:space="preserve">
+    <value>Could not retrieve the information needed to display the item</value>
   </data>
 </root>

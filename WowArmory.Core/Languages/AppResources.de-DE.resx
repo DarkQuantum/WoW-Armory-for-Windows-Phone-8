@@ -1109,12 +1109,30 @@
     <value>nach name sortieren</value>
   </data>
   <data name="UI_CharacterList_ApplicationBar_DeleteAll" xml:space="preserve">
-    <value>alle löschen</value>
+    <value>alle entfernen</value>
   </data>
   <data name="UI_CharacterList_DeleteAll_Caption" xml:space="preserve">
-    <value>Charaktere löschen</value>
+    <value>Charaktere entfernen</value>
   </data>
   <data name="UI_CharacterList_DeleteAll_Text" xml:space="preserve">
-    <value>Alle Charaktere aus deiner Liste werden gelöscht</value>
+    <value>Alle Charaktere aus deiner Liste werden entfernt</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_Remove" xml:space="preserve">
+    <value>entfernen</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_Update" xml:space="preserve">
+    <value>aktualisieren</value>
+  </data>
+  <data name="UI_CharacterList_Delete_Caption" xml:space="preserve">
+    <value>Charakter entfernen</value>
+  </data>
+  <data name="UI_CharacterList_Delete_Text" xml:space="preserve">
+    <value>Dieser Charakter wird aus deiner Liste entfernt</value>
+  </data>
+  <data name="UI_CharacterDetails_Item_ItemViewer" xml:space="preserve">
+    <value>Gegenstand in 3D anzeigen</value>
+  </data>
+  <data name="UI_ItemViewer_Error" xml:space="preserve">
+    <value>Die Information zur Darstellung des Gegenstandes, konnten nicht geladen werden</value>
   </data>
 </root>

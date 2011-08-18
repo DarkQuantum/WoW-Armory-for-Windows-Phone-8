@@ -2,8 +2,8 @@
 					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
 	<ResourceDictionary.MergedDictionaries>
-		<ResourceDictionary Source="/WowArmory;Component/Themes/CharacterItemContainer.Theme.xaml" />
 		<ResourceDictionary Source="/WowArmory;Component/Themes/MainPageButton.Theme.xaml" />
+		<ResourceDictionary Source="/WowArmory;Component/Themes/CharacterItemContainer.Theme.xaml" />
 	</ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
