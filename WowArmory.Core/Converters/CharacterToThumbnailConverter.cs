@@ -39,6 +39,11 @@ namespace WowArmory.Core.Converters
 					race = (int)((CharacterStorageData)value).Race;
 					gender = ((CharacterStorageData)value).Gender;
 				}
+				else if (value is GuildMemberCharacter)
+				{
+					race = (int)((GuildMemberCharacter)value).Race;
+					gender = (int)((GuildMemberCharacter)value).Gender;
+				}
 
 				return CacheManager.GetImageSourceFromCache(String.Format("/WowArmory.Core;Component/Images/Thumbnails/{0}-{1}.jpg", race, gender));
 			}

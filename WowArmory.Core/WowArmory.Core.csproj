@@ -145,6 +145,7 @@
     <Compile Include="Converters\ThumbnailImageUrlConverter.cs" />
     <Compile Include="Converters\AppImageUrlConverter.cs" />
     <Compile Include="Enumerations\CharacterListSortBy.cs" />
+    <Compile Include="Enumerations\GuildListSortBy.cs" />
     <Compile Include="Enumerations\SortBy.cs" />
     <Compile Include="Extensions\ApplicationExtensions.cs" />
     <Compile Include="Extensions\EnumExtentions.cs" />
@@ -944,6 +945,69 @@
     </Resource>
     <Resource Include="..\Media\Icons\Factions\1.png">
       <Link>Images\Icons\Factions\1.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Faction_Header_0.png">
+      <Link>Images\GuildDetails\Faction_Header_0.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Faction_Header_1.png">
+      <Link>Images\GuildDetails\Faction_Header_1.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\Guildmaster.png">
+      <Link>Images\Icons\Guildmaster.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Emblem_Background_Alliance.png">
+      <Link>Images\GuildDetails\Emblem_Background_Alliance.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Background_Horde.png">
+      <Link>Images\GuildDetails\Emblem_Background_Horde.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Emblem_Background.png">
+      <Link>Images\GuildDetails\Emblem_Background.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Hooks.png">
+      <Link>Images\GuildDetails\Emblem_Hooks.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Shadow.png">
+      <Link>Images\GuildDetails\Emblem_Shadow.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Emblem_Default_Alliance.png">
+      <Link>Images\GuildDetails\Emblem_Default_Alliance.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Default_Horde.png">
+      <Link>Images\GuildDetails\Emblem_Default_Horde.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_0.png">
+      <Link>Images\GuildDetails\Emblem_Border_0.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_1.png">
+      <Link>Images\GuildDetails\Emblem_Border_1.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_2.png">
+      <Link>Images\GuildDetails\Emblem_Border_2.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_3.png">
+      <Link>Images\GuildDetails\Emblem_Border_3.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_4.png">
+      <Link>Images\GuildDetails\Emblem_Border_4.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_5.png">
+      <Link>Images\GuildDetails\Emblem_Border_5.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_6.png">
+      <Link>Images\GuildDetails\Emblem_Border_6.png</Link>
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

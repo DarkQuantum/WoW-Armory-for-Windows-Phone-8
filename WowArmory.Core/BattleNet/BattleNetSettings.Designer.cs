@@ -115,6 +115,15 @@ namespace WowArmory.Core.BattleNet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://{0}.battle.net/wow/static/images/guild/tabards/.
+        /// </summary>
+        internal static string BattleNet_GuildEmblemUri {
+            get {
+                return ResourceManager.GetString("BattleNet_GuildEmblemUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 56.
         /// </summary>
         internal static string BattleNet_IconSize_Large {

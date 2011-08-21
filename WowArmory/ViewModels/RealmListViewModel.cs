@@ -145,7 +145,7 @@ namespace WowArmory.ViewModels
 		{
 			if (realmList == null)
 			{
-				MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK);
+				//MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK);
 				ApplicationController.Current.NavigateBack();
 				return;
 			}

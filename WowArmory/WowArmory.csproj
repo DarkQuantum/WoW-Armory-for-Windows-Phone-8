@@ -91,6 +91,8 @@
     <Compile Include="Controls\StyledButton.cs" />
     <Compile Include="Enumerations\Page.cs" />
     <Compile Include="Models\CharacterListItem.cs" />
+    <Compile Include="Models\GuildListItem.cs" />
+    <Compile Include="Models\GuildMemberItem.cs" />
     <Compile Include="Models\RealmItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Selectors\RealmJumpListTemplateSelector.cs" />

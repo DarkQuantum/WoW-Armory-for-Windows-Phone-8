@@ -248,6 +248,7 @@ namespace WowArmory.Core.Managers
 				storageData.Side = guild.Side;
 				storageData.AchievementPoints = guild.AchievementPoints;
 				storageData.Members = guild.Members;
+				storageData.Emblem = guild.Emblem;
 
 				StoredGuilds.Add(storageData);
 			}

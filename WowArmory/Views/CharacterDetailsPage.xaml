@@ -90,7 +90,22 @@
 		<ImageBrush x:Key="ReputationBar_5" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_5.png" Stretch="None" />
 		<ImageBrush x:Key="ReputationBar_6" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_6.png" Stretch="None" />
 		<ImageBrush x:Key="ReputationBar_7" ImageSource="/WowArmory.Core;Component/Images/CharacterDetails/Reputation_Bar_7.png" Stretch="None" />
-		
+
+		<Style x:Key="CharacterInfoNameStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="CharacterInfoNormalStyle" BasedOn="{StaticResource PhoneTextSubtleStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeXSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
 		<Style x:Key="CharacterDetailsTalentsActiveTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
@@ -241,24 +256,40 @@
 				<ColumnDefinition Width="*" />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
-			<Image Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding CharacterFaction, Converter={StaticResource AppImageUrl}, ConverterParameter='CharacterDetails/Faction_Header_{0}.png'}" Width="480" Height="64" />
+			<!--<Image Grid.Column="0" Grid.ColumnSpan="3" Source="{Binding CharacterFaction, Converter={StaticResource AppImageUrl}, ConverterParameter='CharacterDetails/Faction_Header_{0}.png'}" Width="480" Height="64" />-->
+			<Image Grid.Column="0" Source="{Binding ., Converter={StaticResource CharacterToThumbnail}}" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" />
 			<Image Grid.Column="0" helper:AsyncImageLoader.ImageUrl="{Binding Character.Thumbnail, Converter={StaticResource ThumbnailImageUrl}}" Width="64" Height="64" />
-			<Grid Grid.Column="1" Margin="6,0,0,0">
+			<Grid Grid.Column="1" Margin="12,0,6,0">
 				<Grid.RowDefinitions>
-					<RowDefinition Height="*" />
-					<RowDefinition Height="*" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
 					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
 				</Grid.ColumnDefinitions>
-				<TextBlock Grid.Row="0" Grid.Column="0" Text="{Binding Character.Name}" FontWeight="Bold" Foreground="White" VerticalAlignment="Center" />
-				<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-					<TextBlock Text="{Binding Character.Level}" Foreground="White" VerticalAlignment="Center" />
-					<TextBlock Text="{Binding Character.Class, Converter={StaticResource ClassToLocalizedString}}" Foreground="White" VerticalAlignment="Center" Margin="4,0,0,0" />
+				<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Character.Name, Converter={StaticResource StringToUppercase}}" Style="{StaticResource CharacterInfoNameStyle}" />
+				<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+					<TextBlock Text="{Binding Character.AchievementPoints}" Style="{StaticResource CharacterInfoNormalStyle}" />
+					<Image Source="/WowArmory.Core;Component/Images/Icons/Achievementpoints.png" VerticalAlignment="Center" Margin="4,0,0,0" />
 				</StackPanel>
-				<TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Character.Realm, Converter={StaticResource StringToUppercase}}" FontSize="{StaticResource PhoneFontSizeXSmall}" Foreground="White" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0" />
-				<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding Character.Guild.Name, Converter={StaticResource StringToUppercase}}" FontSize="{StaticResource PhoneFontSizeXSmall}" Foreground="White" TextAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0" />
+				<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+					<Image Source="{Binding RaceImage}" Width="24" Height="24" Margin="0,0,4,0" VerticalAlignment="Center" />
+					<Image Source="{Binding ClassImage}" Width="24" Height="24" Margin="0,0,4,0" VerticalAlignment="Center" />
+					<TextBlock Text="{Binding Character.Level}" Style="{StaticResource CharacterInfoNormalStyle}" />
+					<TextBlock Text="{Binding Character.Class, Converter={StaticResource ClassToLocalizedString}}" Style="{StaticResource CharacterInfoNormalStyle}" Margin="4,0,0,0" />
+				</StackPanel>
+				<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+					<TextBlock Text="{Binding FactionName}" Style="{StaticResource CharacterInfoNormalStyle}" />
+					<Image Source="{Binding FactionImage}" Width="24" Height="24" VerticalAlignment="Center" Margin="4,0,0,0" />
+				</StackPanel>
+				<StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+					<TextBlock Text="{Binding RegionName}" Style="{StaticResource CharacterInfoNormalStyle}" />
+					<TextBlock Text="-" Style="{StaticResource CharacterInfoNormalStyle}" Margin="4,0,4,0" />
+					<TextBlock Text="{Binding Character.Realm}" Style="{StaticResource CharacterInfoNormalStyle}" />
+				</StackPanel>
+				<TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding GuildName}" Style="{StaticResource CharacterInfoNormalStyle}" HorizontalAlignment="Right" />
 			</Grid>
 			<Grid Grid.Column="2">
 				<Image Source="{Binding FavoriteImage}" Width="64" Height="64" HorizontalAlignment="Right" VerticalAlignment="Center" MouseLeftButtonDown="FavoriteToggle_MouseLeftButtonDown" />

@@ -259,7 +259,7 @@ namespace WowArmory.ViewModels
 		{
 			if (realmList == null)
 			{
-				MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK);
+				//MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK);
 				ApplicationController.Current.NavigateBack();
 				return;
 			}
@@ -309,15 +309,6 @@ namespace WowArmory.ViewModels
 
 			if (guild == null)
 			{
-				MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK);
-				return;
-			}
-
-			if (!guild.IsValid)
-			{
-				var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Caption", guild.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Caption;
-				var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_Search_Error_{0}_Text", guild.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Text;
-				MessageBox.Show(reasonText, reasonCaption, MessageBoxButton.OK);
 				return;
 			}
 

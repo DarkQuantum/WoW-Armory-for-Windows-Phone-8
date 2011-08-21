@@ -2221,6 +2221,60 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Character not found.
+        /// </summary>
+        public static string UI_ApiResponseError_CharacterNotFound_Caption {
+            get {
+                return ResourceManager.GetString("UI_ApiResponseError_CharacterNotFound_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified character could not be found.
+        /// </summary>
+        public static string UI_ApiResponseError_CharacterNotFound_Text {
+            get {
+                return ResourceManager.GetString("UI_ApiResponseError_CharacterNotFound_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guild not found.
+        /// </summary>
+        public static string UI_ApiResponseError_GuildNotFound_Caption {
+            get {
+                return ResourceManager.GetString("UI_ApiResponseError_GuildNotFound_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified guild could not be found.
+        /// </summary>
+        public static string UI_ApiResponseError_GuildNotFound_Text {
+            get {
+                return ResourceManager.GetString("UI_ApiResponseError_GuildNotFound_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Realm not found.
+        /// </summary>
+        public static string UI_ApiResponseError_RealmNotFound_Caption {
+            get {
+                return ResourceManager.GetString("UI_ApiResponseError_RealmNotFound_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The specified realm could not be found.
+        /// </summary>
+        public static string UI_ApiResponseError_RealmNotFound_Text {
+            get {
+                return ResourceManager.GetString("UI_ApiResponseError_RealmNotFound_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to average item level.
         /// </summary>
         public static string UI_CharacterDetails_Character_AverageItemLevel {
@@ -2914,11 +2968,164 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Storing guild....
+        /// </summary>
+        public static string UI_GuildDetails_Common_StoreGuild {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_Common_StoreGuild", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Alliance Guild.
+        /// </summary>
+        public static string UI_GuildDetails_Header_Faction_Alliance {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_Header_Faction_Alliance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horde Guild.
+        /// </summary>
+        public static string UI_GuildDetails_Header_Faction_Horde {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_Header_Faction_Horde", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Level {0}.
+        /// </summary>
+        public static string UI_GuildDetails_Header_Level {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_Header_Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} members.
+        /// </summary>
+        public static string UI_GuildDetails_Header_Members {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_Header_Members", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Guild Master.
+        /// </summary>
+        public static string UI_GuildDetails_Members_GuildMaster {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_Members_GuildMaster", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rank {0}.
+        /// </summary>
+        public static string UI_GuildDetails_Members_Rank {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_Members_Rank", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to members.
+        /// </summary>
+        public static string UI_GuildDetails_PivotItem_Members {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_PivotItem_Members", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to search.
         /// </summary>
         public static string UI_GuildList_ApplicationBar_Search {
             get {
                 return ResourceManager.GetString("UI_GuildList_ApplicationBar_Search", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sort by level.
+        /// </summary>
+        public static string UI_GuildList_ApplicationBar_SortByLevel {
+            get {
+                return ResourceManager.GetString("UI_GuildList_ApplicationBar_SortByLevel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sort by members.
+        /// </summary>
+        public static string UI_GuildList_ApplicationBar_SortByMembers {
+            get {
+                return ResourceManager.GetString("UI_GuildList_ApplicationBar_SortByMembers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sort by name.
+        /// </summary>
+        public static string UI_GuildList_ApplicationBar_SortByName {
+            get {
+                return ResourceManager.GetString("UI_GuildList_ApplicationBar_SortByName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to remove.
+        /// </summary>
+        public static string UI_GuildList_ContextMenuItem_Remove {
+            get {
+                return ResourceManager.GetString("UI_GuildList_ContextMenuItem_Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to update.
+        /// </summary>
+        public static string UI_GuildList_ContextMenuItem_Update {
+            get {
+                return ResourceManager.GetString("UI_GuildList_ContextMenuItem_Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove guild.
+        /// </summary>
+        public static string UI_GuildList_Delete_Caption {
+            get {
+                return ResourceManager.GetString("UI_GuildList_Delete_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This guild will be removed from the list.
+        /// </summary>
+        public static string UI_GuildList_Delete_Text {
+            get {
+                return ResourceManager.GetString("UI_GuildList_Delete_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove all guilds.
+        /// </summary>
+        public static string UI_GuildList_DeleteAll_Caption {
+            get {
+                return ResourceManager.GetString("UI_GuildList_DeleteAll_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All guilds will be removed from your list.
+        /// </summary>
+        public static string UI_GuildList_DeleteAll_Text {
+            get {
+                return ResourceManager.GetString("UI_GuildList_DeleteAll_Text", resourceCulture);
             }
         }
         
@@ -2977,60 +3184,6 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Character not found.
-        /// </summary>
-        public static string UI_Search_Error_CharacterNotFound_Caption {
-            get {
-                return ResourceManager.GetString("UI_Search_Error_CharacterNotFound_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified character could not be found.
-        /// </summary>
-        public static string UI_Search_Error_CharacterNotFound_Text {
-            get {
-                return ResourceManager.GetString("UI_Search_Error_CharacterNotFound_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Guild not found.
-        /// </summary>
-        public static string UI_Search_Error_GuildNotFound_Caption {
-            get {
-                return ResourceManager.GetString("UI_Search_Error_GuildNotFound_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified guild could not be found.
-        /// </summary>
-        public static string UI_Search_Error_GuildNotFound_Text {
-            get {
-                return ResourceManager.GetString("UI_Search_Error_GuildNotFound_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Realm not found.
-        /// </summary>
-        public static string UI_Search_Error_RealmNotFound_Caption {
-            get {
-                return ResourceManager.GetString("UI_Search_Error_RealmNotFound_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The specified realm could not be found.
-        /// </summary>
-        public static string UI_Search_Error_RealmNotFound_Text {
-            get {
-                return ResourceManager.GetString("UI_Search_Error_RealmNotFound_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Input missing.
         /// </summary>
         public static string UI_Search_Missing_Caption {
@@ -3078,9 +3231,9 @@ namespace WowArmory.Core.Languages {
         /// <summary>
         ///   Looks up a localized string similar to Guild.
         /// </summary>
-        public static string UI_Search_Text_Guild {
+        public static string UI_Search_Text_GuildName {
             get {
-                return ResourceManager.GetString("UI_Search_Text_Guild", resourceCulture);
+                return ResourceManager.GetString("UI_Search_Text_GuildName", resourceCulture);
             }
         }
         

@@ -68,6 +68,39 @@ namespace WowArmory.ViewModels
 		}
 
 		/// <summary>
+		/// Gets the name of the guild.
+		/// </summary>
+		public string GuildName
+		{
+			get
+			{
+				return Character.Guild != null ? Character.Guild.Name : String.Empty;
+			}
+		}
+
+		/// <summary>
+		/// Gets the race image.
+		/// </summary>
+		public ImageSource RaceImage
+		{
+			get
+			{
+				return CacheManager.GetImageSourceFromCache(String.Format("/WowArmory.Core;Component/Images/Icons/Races/{0}_{1}_Border.png", Character.Race, Character.Gender));
+			}
+		}
+
+		/// <summary>
+		/// Gets the class image.
+		/// </summary>
+		public ImageSource ClassImage
+		{
+			get
+			{
+				return CacheManager.GetImageSourceFromCache(String.Format("/WowArmory.Core;Component/Images/Icons/Classes/{0}_Border.png", Character.Class));
+			}
+		}
+
+		/// <summary>
 		/// Gets the character faction.
 		/// </summary>
 		public int CharacterFaction
@@ -78,6 +111,28 @@ namespace WowArmory.ViewModels
 				
 				var converter = new RaceToFactionConverter();
 				return (int)converter.Convert(Character.Race, typeof(Int32), null, CultureInfo.CurrentCulture);
+			}
+		}
+
+		/// <summary>
+		/// Gets the name of the faction.
+		/// </summary>
+		public string FactionName
+		{
+			get
+			{
+				return AppResources.ResourceManager.GetString(String.Format("UI_CharacterDetails_Faction_{0}", (CharacterFaction)CharacterFaction));
+			}
+		}
+
+		/// <summary>
+		/// Gets the faction image.
+		/// </summary>
+		public ImageSource FactionImage
+		{
+			get
+			{
+				return CacheManager.GetImageSourceFromCache(String.Format("/WowArmory.Core;Component/Images/Icons/Factions/{0}.png", CharacterFaction));
 			}
 		}
 
@@ -93,6 +148,16 @@ namespace WowArmory.ViewModels
 			}
 		}
 
+		/// <summary>
+		/// Gets the name of the region.
+		/// </summary>
+		public string RegionName
+		{
+			get
+			{
+				return AppResources.ResourceManager.GetString(String.Format("BattleNet_Region_{0}", Character.Region));
+			}
+		}
 
 		/// <summary>
 		/// Gets the average equipped item level string.

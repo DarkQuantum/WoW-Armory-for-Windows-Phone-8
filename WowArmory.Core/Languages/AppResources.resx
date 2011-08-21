@@ -357,10 +357,10 @@
   <data name="UI_Settings_ApplicationBar_Save" xml:space="preserve">
     <value>save</value>
   </data>
-  <data name="UI_Search_Error_CharacterNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_CharacterNotFound_Caption" xml:space="preserve">
     <value>Character not found</value>
   </data>
-  <data name="UI_Search_Error_CharacterNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_CharacterNotFound_Text" xml:space="preserve">
     <value>The specified character could not be found</value>
   </data>
   <data name="UI_Main_FirstTimeUsage_Caption" xml:space="preserve">
@@ -1063,16 +1063,16 @@
   <data name="Page_GuildList_Title" xml:space="preserve">
     <value>Search guilds and manage your favorites</value>
   </data>
-  <data name="UI_Search_Error_GuildNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_GuildNotFound_Caption" xml:space="preserve">
     <value>Guild not found</value>
   </data>
-  <data name="UI_Search_Error_GuildNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_GuildNotFound_Text" xml:space="preserve">
     <value>The specified guild could not be found</value>
   </data>
-  <data name="UI_Search_Error_RealmNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_RealmNotFound_Caption" xml:space="preserve">
     <value>Realm not found</value>
   </data>
-  <data name="UI_Search_Error_RealmNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_RealmNotFound_Text" xml:space="preserve">
     <value>The specified realm could not be found</value>
   </data>
   <data name="UI_Search_MissingCharacterName_Text" xml:space="preserve">
@@ -1087,7 +1087,7 @@
   <data name="UI_Search_Text_CharacterName" xml:space="preserve">
     <value>Character</value>
   </data>
-  <data name="UI_Search_Text_Guild" xml:space="preserve">
+  <data name="UI_Search_Text_GuildName" xml:space="preserve">
     <value>Guild</value>
   </data>
   <data name="UI_Search_Text_Realm" xml:space="preserve">
@@ -1182,5 +1182,56 @@
   </data>
   <data name="Item_ExternalLink_Wowhead_ViewSpell" xml:space="preserve">
     <value>View recipe on Wowhead</value>
+  </data>
+  <data name="UI_GuildDetails_Common_StoreGuild" xml:space="preserve">
+    <value>Storing guild...</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Faction_Alliance" xml:space="preserve">
+    <value>Alliance Guild</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Faction_Horde" xml:space="preserve">
+    <value>Horde Guild</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Level" xml:space="preserve">
+    <value>Level {0}</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Members" xml:space="preserve">
+    <value>{0} members</value>
+  </data>
+  <data name="UI_GuildList_ContextMenuItem_Remove" xml:space="preserve">
+    <value>remove</value>
+  </data>
+  <data name="UI_GuildList_ContextMenuItem_Update" xml:space="preserve">
+    <value>update</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByLevel" xml:space="preserve">
+    <value>sort by level</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByMembers" xml:space="preserve">
+    <value>sort by members</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByName" xml:space="preserve">
+    <value>sort by name</value>
+  </data>
+  <data name="UI_GuildList_DeleteAll_Caption" xml:space="preserve">
+    <value>Remove all guilds</value>
+  </data>
+  <data name="UI_GuildList_DeleteAll_Text" xml:space="preserve">
+    <value>All guilds will be removed from your list</value>
+  </data>
+  <data name="UI_GuildList_Delete_Caption" xml:space="preserve">
+    <value>Remove guild</value>
+  </data>
+  <data name="UI_GuildList_Delete_Text" xml:space="preserve">
+    <value>This guild will be removed from the list</value>
+  </data>
+  <data name="UI_GuildDetails_PivotItem_Members" xml:space="preserve">
+    <value>members</value>
+  </data>
+  <data name="UI_GuildDetails_Members_Rank" xml:space="preserve">
+    <value>Rank {0}</value>
+  </data>
+  <data name="UI_GuildDetails_Members_GuildMaster" xml:space="preserve">
+    <value>Guild Master</value>
   </data>
 </root>

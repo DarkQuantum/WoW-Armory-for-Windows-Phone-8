@@ -1036,22 +1036,22 @@
   <data name="Page_GuildList_Title" xml:space="preserve">
     <value>Suche Gilden und verwalte deine Favoriten</value>
   </data>
-  <data name="UI_Search_Error_CharacterNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_CharacterNotFound_Caption" xml:space="preserve">
     <value>Charakter nicht gefunden</value>
   </data>
-  <data name="UI_Search_Error_CharacterNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_CharacterNotFound_Text" xml:space="preserve">
     <value>Der angegebene Charakter konnte nicht gefunden werden</value>
   </data>
-  <data name="UI_Search_Error_GuildNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_GuildNotFound_Caption" xml:space="preserve">
     <value>Gilde nicht gefunden</value>
   </data>
-  <data name="UI_Search_Error_GuildNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_GuildNotFound_Text" xml:space="preserve">
     <value>Die angegebene Gilde konnte nicht gefunden werden</value>
   </data>
-  <data name="UI_Search_Error_RealmNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_RealmNotFound_Caption" xml:space="preserve">
     <value>Realm nicht gefunden</value>
   </data>
-  <data name="UI_Search_Error_RealmNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_RealmNotFound_Text" xml:space="preserve">
     <value>Der angegebene Realm konnte nicht gefunden werden</value>
   </data>
   <data name="UI_Search_MissingCharacterName_Text" xml:space="preserve">
@@ -1066,7 +1066,7 @@
   <data name="UI_Search_Text_CharacterName" xml:space="preserve">
     <value>Charakter</value>
   </data>
-  <data name="UI_Search_Text_Guild" xml:space="preserve">
+  <data name="UI_Search_Text_GuildName" xml:space="preserve">
     <value>Guild</value>
   </data>
   <data name="UI_Search_Text_Realm" xml:space="preserve">
@@ -1170,5 +1170,53 @@
   </data>
   <data name="Item_ExternalLink_Wowhead_ViewSpell" xml:space="preserve">
     <value>Rezept auf Wowhead anzeigen</value>
+  </data>
+  <data name="UI_GuildDetails_Common_StoreGuild" xml:space="preserve">
+    <value>Gilde wird gespeichert...</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Faction_Alliance" xml:space="preserve">
+    <value>Allianz-Gilde</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Faction_Horde" xml:space="preserve">
+    <value>Horde-Gilde</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Members" xml:space="preserve">
+    <value>{0} Mitglieder</value>
+  </data>
+  <data name="UI_GuildList_ContextMenuItem_Remove" xml:space="preserve">
+    <value>entfernen</value>
+  </data>
+  <data name="UI_GuildList_ContextMenuItem_Update" xml:space="preserve">
+    <value>aktualisieren</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByLevel" xml:space="preserve">
+    <value>nach stufe sortieren</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByMembers" xml:space="preserve">
+    <value>nach mitgliedern sortieren</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByName" xml:space="preserve">
+    <value>nach name sortieren</value>
+  </data>
+  <data name="UI_GuildList_DeleteAll_Caption" xml:space="preserve">
+    <value>Gilden entfernen</value>
+  </data>
+  <data name="UI_GuildList_DeleteAll_Text" xml:space="preserve">
+    <value>Alle Gilde aus deiner Liste werden entfernt</value>
+  </data>
+  <data name="UI_GuildList_Delete_Caption" xml:space="preserve">
+    <value>Gilde entfernen</value>
+  </data>
+  <data name="UI_GuildList_Delete_Text" xml:space="preserve">
+    <value>Diese Gilde wird aus deiner Liste entfernt</value>
+  </data>
+  <data name="UI_GuildDetails_PivotItem_Members" xml:space="preserve">
+    <value>mitglieder</value>
+  </data>
+  <data name="UI_GuildDetails_Members_Rank" xml:space="preserve">
+    <value>Rang {0}</value>
+  </data>
+  <data name="UI_GuildDetails_Members_GuildMaster" xml:space="preserve">
+    <value>Gildenmeister</value>
   </data>
 </root>

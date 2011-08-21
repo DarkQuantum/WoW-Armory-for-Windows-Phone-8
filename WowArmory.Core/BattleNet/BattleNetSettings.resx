@@ -135,6 +135,9 @@
   <data name="BattleNet_BaseUri" xml:space="preserve">
     <value>http://{0}.battle.net/api/wow/</value>
   </data>
+  <data name="BattleNet_GuildEmblemUri" xml:space="preserve">
+    <value>http://{0}.battle.net/wow/static/images/guild/tabards/</value>
+  </data>
   <data name="BattleNet_IconSize_Large" xml:space="preserve">
     <value>56</value>
   </data>

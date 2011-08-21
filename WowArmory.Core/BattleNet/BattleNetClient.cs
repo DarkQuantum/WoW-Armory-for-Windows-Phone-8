@@ -13,6 +13,7 @@ using Newtonsoft.Json;
 using WowArmory.Core.BattleNet.Helpers;
 using WowArmory.Core.BattleNet.Models;
 using WowArmory.Core.Extensions;
+using WowArmory.Core.Languages;
 using WowArmory.Core.Managers;
 
 namespace WowArmory.Core.BattleNet
@@ -123,6 +124,18 @@ namespace WowArmory.Core.BattleNet
 				return !String.IsNullOrEmpty(baseUriTemplate) ? new Uri(String.Format(baseUriTemplate, BattleNetRegionCode)) : new Uri(String.Format("http://{0}.media.blizzard.com/wow/renders/items/", BattleNetRegionCode));
 			}
 		}
+
+		/// <summary>
+		/// Gets the battle net guild emblem URI.
+		/// </summary>
+		public Uri BattleNetGuildEmblemUri
+		{
+			get
+			{
+				var baseUriTemplate = BattleNetSettings.ResourceManager.GetString("BattleNet_GuildEmblemUri");
+				return !String.IsNullOrEmpty(baseUriTemplate) ? new Uri(String.Format(baseUriTemplate, BattleNetRegionCode)) : new Uri(String.Format("http://{0}.battle.net/wow/static/images/guild/tabards/", BattleNetRegionCode));
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -201,6 +214,7 @@ namespace WowArmory.Core.BattleNet
 						{
 							character.Region = Region;
 						}
+
 						action(character);
 					}
 					catch (Exception ex)
@@ -416,6 +430,16 @@ namespace WowArmory.Core.BattleNet
 		}
 
 		/// <summary>
+		/// Gets the guild emblem url for the specified emblem path.
+		/// </summary>
+		/// <param name="emblemPath">The emblem path.</param>
+		/// <returns></returns>
+		public string GetGuildEmblemUrl(string emblemPath)
+		{
+			return String.Format("{0}{1}.png", BattleNetGuildEmblemUri, emblemPath);
+		}
+
+		/// <summary>
 		/// Builds the character fields query string from the specified fields object.
 		/// </summary>
 		/// <param name="fields">The character fields object to build the query string from.</param>
@@ -493,6 +517,24 @@ namespace WowArmory.Core.BattleNet
 						{
 							var streamReader = new StreamReader(stream);
 							var jsonResultString = streamReader.ReadToEnd();
+							
+							var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(jsonResultString);
+							if (apiResponse == null)
+							{
+								Deployment.Current.Dispatcher.BeginInvoke(() => MessageBox.Show(AppResources.UI_Common_Error_NoData_Text, AppResources.UI_Common_Error_NoData_Caption, MessageBoxButton.OK));
+								jsonResultString = String.Empty;
+							}
+							else
+							{
+								if (!apiResponse.IsValid)
+								{
+									var reasonCaption = AppResources.ResourceManager.GetString(String.Format("UI_ApiResponseError_{0}_Caption", apiResponse.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Caption;
+									var reasonText = AppResources.ResourceManager.GetString(String.Format("UI_ApiResponseError_{0}_Text", apiResponse.ReasonType)) ?? AppResources.UI_Common_Error_NoData_Text;
+									Deployment.Current.Dispatcher.BeginInvoke(() => MessageBox.Show(reasonText, reasonCaption, MessageBoxButton.OK));
+									jsonResultString = String.Empty;
+								}
+							}
+
 							Deployment.Current.Dispatcher.BeginInvoke(() => action(jsonResultString));
 						}
 					}
