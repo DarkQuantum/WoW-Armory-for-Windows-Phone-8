@@ -47,6 +47,14 @@ namespace WowArmory.Core.Managers
 				_cachedRealmLists = value;
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets the cached guild perks.
+		/// </summary>
+		/// <value>
+		/// The cached guild perks.
+		/// </value>
+		public static GuildPerks CachedGuildPerks { get; set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------

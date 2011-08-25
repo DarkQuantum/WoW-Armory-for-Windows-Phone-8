@@ -316,7 +316,7 @@ namespace WowArmory.Core.BattleNet
 		/// Gets the item for the specified id.
 		/// </summary>
 		/// <param name="itemId">The item id.</param>
-		/// <param name="action">The action.</param>
+		/// <param name="action">The action to execute once the response was received.</param>
 		public void GetItemAsync(int itemId, Action<Item> action)
 		{
 			try
@@ -345,7 +345,7 @@ namespace WowArmory.Core.BattleNet
 		/// Gets the quest for the specified id.
 		/// </summary>
 		/// <param name="questId">The quest id.</param>
-		/// <param name="action">The action.</param>
+		/// <param name="action">The action to execute once the response was received.</param>
 		public void GetQuestAsync(int questId, Action<Quest> action)
 		{
 			try
@@ -357,6 +357,34 @@ namespace WowArmory.Core.BattleNet
 					{
 						var quest = JsonConvert.DeserializeObject<Quest>(jsonResult);
 						action(quest);
+					}
+					catch (Exception ex)
+					{
+						action(null);
+					}
+				});
+			}
+			catch (Exception ex)
+			{
+				action(null);
+			}
+		}
+
+		/// <summary>
+		/// Gets the guild perks.
+		/// </summary>
+		/// <param name="action">The action to execute once the response was received.</param>
+		public void GetGuildPerksAsync(Action<GuildPerks> action)
+		{
+			try
+			{
+				var apiMethod = new Uri(BattleNetBaseUri, BattleNetSettings.BattleNet_Api_GuildPerks).ToString();
+				CallApiMethodAsync(apiMethod, jsonResult =>
+				{
+					try
+					{
+						var guildPerks = JsonConvert.DeserializeObject<GuildPerks>(jsonResult);
+						action(guildPerks);
 					}
 					catch (Exception ex)
 					{

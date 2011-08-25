@@ -79,6 +79,15 @@ namespace WowArmory.Core.BattleNet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to data/guild/perks.
+        /// </summary>
+        internal static string BattleNet_Api_GuildPerks {
+            get {
+                return ResourceManager.GetString("BattleNet_Api_GuildPerks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to item/{0}.
         /// </summary>
         internal static string BattleNet_Api_Item {

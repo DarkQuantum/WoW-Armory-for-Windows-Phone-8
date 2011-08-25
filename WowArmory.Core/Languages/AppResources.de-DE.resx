@@ -1219,4 +1219,13 @@
   <data name="UI_GuildDetails_Members_GuildMaster" xml:space="preserve">
     <value>Gildenmeister</value>
   </data>
+  <data name="UI_GuildDetails_PivotItem_Perks" xml:space="preserve">
+    <value>boni</value>
+  </data>
+  <data name="UI_GuildDetails_Perks_NotRetrieved" xml:space="preserve">
+    <value>Boni-Liste konnte nicht empfangen werden</value>
+  </data>
+  <data name="UI_GuildDetails_Perks_Level" xml:space="preserve">
+    <value>Stufe {0}</value>
+  </data>
 </root>

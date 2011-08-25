@@ -3031,11 +3031,38 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Level {0}.
+        /// </summary>
+        public static string UI_GuildDetails_Perks_Level {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_Perks_Level", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not retrieve perks list.
+        /// </summary>
+        public static string UI_GuildDetails_Perks_NotRetrieved {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_Perks_NotRetrieved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to members.
         /// </summary>
         public static string UI_GuildDetails_PivotItem_Members {
             get {
                 return ResourceManager.GetString("UI_GuildDetails_PivotItem_Members", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to perks.
+        /// </summary>
+        public static string UI_GuildDetails_PivotItem_Perks {
+            get {
+                return ResourceManager.GetString("UI_GuildDetails_PivotItem_Perks", resourceCulture);
             }
         }
         

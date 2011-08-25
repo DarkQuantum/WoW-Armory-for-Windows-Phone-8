@@ -26,6 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Files", "Solution 
 		Json_NET_License.txt = Json_NET_License.txt
 		LICENSE = LICENSE
 		README.markdown = README.markdown
+		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Media", "Media", "{E58D69AE-8433-4FA0-B650-4A188AA862DF}"
@@ -114,6 +115,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Icons", "Icons", "{E38956DD
 		Media\Icons\Icon_Background.png = Media\Icons\Icon_Background.png
 		Media\Icons\Icon_Border.png = Media\Icons\Icon_Border.png
 		Media\Icons\Icon_Mask.png = Media\Icons\Icon_Mask.png
+		Media\Icons\Locked.png = Media\Icons\Locked.png
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MainPage", "MainPage", "{22D83C24-EFA4-4D83-A082-EA8591A5EA85}"

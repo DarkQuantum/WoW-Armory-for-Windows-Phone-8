@@ -27,6 +27,7 @@ namespace WowArmory.ViewModels
 		private Guild _guild;
 		private ObservableCollection<GuildMemberItem> _members;
 		private GuildMemberItem _selectedMember;
+		private int _dataToLoad = 0;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -35,7 +36,7 @@ namespace WowArmory.ViewModels
 		//----------------------------------------------------------------------
 		#region --- Events ---
 		//----------------------------------------------------------------------
-		public delegate void GuildLoadedEventHandler(Guild guild);
+		public delegate void GuildLoadedEventHandler();
 		public event GuildLoadedEventHandler OnGuildLoaded;
 		//----------------------------------------------------------------------
 		#endregion
@@ -97,11 +98,6 @@ namespace WowArmory.ViewModels
 				_guild = value;
 				Members = null;
 				RaisePropertyChanged("Guild");
-
-				if (OnGuildLoaded != null)
-				{
-					OnGuildLoaded(value);
-				}
 			}
 		}
 
@@ -285,7 +281,11 @@ namespace WowArmory.ViewModels
 
 		public void RefreshView()
 		{
-			Deployment.Current.Dispatcher.BeginInvoke(BuildMembersList);
+			//Deployment.Current.Dispatcher.BeginInvoke(BuildMembersList);
+
+			_dataToLoad = 2;
+			BuildMembersList();
+			BuildGuildPerks();
 		}
 
 		/// <summary>
@@ -306,9 +306,63 @@ namespace WowArmory.ViewModels
 			Deployment.Current.Dispatcher.BeginInvoke(() =>
 			{
 				Members = Guild.Members.Select(m => new GuildMemberItem(m) { Region = Guild.Region }).ToObservableCollection();
+				_dataToLoad--;
+				if (_dataToLoad > 0)
+				{
+					return;
+				}
 				IsProgressBarIndeterminate = false;
 				IsProgressBarVisible = false;
+				if (OnGuildLoaded != null)
+				{
+					OnGuildLoaded();
+				}
 			});
+		}
+
+		private void BuildGuildPerks()
+		{
+			if (CacheManager.CachedGuildPerks == null)
+			{
+				IsProgressBarIndeterminate = true;
+				IsProgressBarVisible = true;
+
+				BattleNetClient.Current.GetGuildPerksAsync(OnGuildPerksRetrievedFromArmory);
+			}
+			else
+			{
+				_dataToLoad--;
+				if (_dataToLoad > 0)
+				{
+					return;
+				}
+				IsProgressBarIndeterminate = false;
+				IsProgressBarVisible = false;
+				if (OnGuildLoaded != null)
+				{
+					OnGuildLoaded();
+				}
+			}
+		}
+
+		/// <summary>
+		/// Called when the guild perks list was retrieved from the armory.
+		/// </summary>
+		/// <param name="perks">The guild perks list retrieved from the armory.</param>
+		private void OnGuildPerksRetrievedFromArmory(GuildPerks perks)
+		{
+			CacheManager.CachedGuildPerks = perks;
+			_dataToLoad--;
+			if (_dataToLoad > 0)
+			{
+				return;
+			}
+			IsProgressBarIndeterminate = false;
+			IsProgressBarVisible = false;
+			if (OnGuildLoaded != null)
+			{
+				OnGuildLoaded();
+			}
 		}
 
 		/// <summary>

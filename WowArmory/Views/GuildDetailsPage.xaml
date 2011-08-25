@@ -51,6 +51,52 @@
 			<Setter Property="TextWrapping" Value="Wrap" />
 			<Setter Property="VerticalAlignment" Value="Center" />
 		</Style>
+		
+		<Style x:Key="PerkNameStyle" BasedOn="{StaticResource PhoneTextAccentStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="PerkNameInactiveStyle" BasedOn="{StaticResource PerkNameStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}" />
+		</Style>
+
+		<Style x:Key="PerkLevelStyle" BasedOn="{StaticResource PhoneTextAccentStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="PerkLevelInactiveStyle" BasedOn="{StaticResource PerkLevelStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}" />
+		</Style>
+
+		<Style x:Key="PerkTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeXSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="PerkTextInactiveStyle" BasedOn="{StaticResource PerkTextStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}" />
+		</Style>
+
+		<Style x:Key="PerkSpellStyle" BasedOn="{StaticResource PhoneTextSubtleStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeXSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="PerkSpellInactiveStyle" BasedOn="{StaticResource PerkSpellStyle}" TargetType="TextBlock">
+		</Style>
 	</phone:PhoneApplicationPage.Resources>
 
 	<!--LayoutRoot is the root grid where all page content is placed-->
@@ -141,6 +187,13 @@
 								</DataTemplate>
 							</telerikPrim:RadDataBoundListBox.ItemTemplate>
 						</telerikPrim:RadDataBoundListBox>
+					</Grid>
+				</ctrl:PivotItem>
+				<ctrl:PivotItem x:Name="piPerks" Header="{Binding LocalizedResources.UI_GuildDetails_PivotItem_Perks, Source={StaticResource LocalizedResources}}">
+					<Grid x:Name="PerksPiotItem">
+						<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+							<StackPanel x:Name="spPerks" Orientation="Vertical" />
+						</ScrollViewer>
 					</Grid>
 				</ctrl:PivotItem>
 			</ctrl:Pivot>

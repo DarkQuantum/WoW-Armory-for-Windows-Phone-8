@@ -1,0 +1,10 @@
+Character List:
+- Groups, custom grouping of characters
+
+Character Details:
+- Reputation, make it sortable
+- Achievements
+- Activity
+
+Settings:
+- Alternative character list style, bring back previous colored character list styling

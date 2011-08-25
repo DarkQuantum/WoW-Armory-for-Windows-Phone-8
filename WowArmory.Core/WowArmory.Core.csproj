@@ -91,6 +91,9 @@
     <Compile Include="BattleNet\Models\GuildFields.cs" />
     <Compile Include="BattleNet\Models\GuildMember.cs" />
     <Compile Include="BattleNet\Models\GuildMemberCharacter.cs" />
+    <Compile Include="BattleNet\Models\GuildPerk.cs" />
+    <Compile Include="BattleNet\Models\GuildPerks.cs" />
+    <Compile Include="BattleNet\Models\GuildPerkSpell.cs" />
     <Compile Include="BattleNet\Models\GuildSide.cs" />
     <Compile Include="BattleNet\Models\InventoryType.cs" />
     <Compile Include="BattleNet\Models\Item.cs" />
@@ -151,6 +154,7 @@
     <Compile Include="Extensions\EnumExtentions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helper\AsyncImageLoader.cs" />
+    <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Helper\UIHelper.cs" />
     <Compile Include="Languages\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1008,6 +1012,11 @@
     </Resource>
     <Resource Include="..\Media\GuildDetails\Emblem_Border_6.png">
       <Link>Images\GuildDetails\Emblem_Border_6.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\Locked.png">
+      <Link>Images\Icons\Locked.png</Link>
     </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

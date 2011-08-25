@@ -123,6 +123,9 @@
   <data name="BattleNet_Api_Guild" xml:space="preserve">
     <value>guild/{0}/{1}{2}</value>
   </data>
+  <data name="BattleNet_Api_GuildPerks" xml:space="preserve">
+    <value>data/guild/perks</value>
+  </data>
   <data name="BattleNet_Api_Item" xml:space="preserve">
     <value>item/{0}</value>
   </data>
