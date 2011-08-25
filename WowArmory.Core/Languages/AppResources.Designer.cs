@@ -313,6 +313,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Goblin.
+        /// </summary>
+        public static string BattleNet_Races_Goblin {
+            get {
+                return ResourceManager.GetString("BattleNet_Races_Goblin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Human.
         /// </summary>
         public static string BattleNet_Races_Human {
@@ -363,6 +372,15 @@ namespace WowArmory.Core.Languages {
         public static string BattleNet_Races_Undead {
             get {
                 return ResourceManager.GetString("BattleNet_Races_Undead", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Worgen.
+        /// </summary>
+        public static string BattleNet_Races_Worgen {
+            get {
+                return ResourceManager.GetString("BattleNet_Races_Worgen", resourceCulture);
             }
         }
         
@@ -3324,24 +3342,6 @@ namespace WowArmory.Core.Languages {
         public static string UI_Settings_Character_ShowGemName {
             get {
                 return ResourceManager.GetString("UI_Settings_Character_ShowGemName", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Level.
-        /// </summary>
-        public static string UI_Settings_General_CharacterList_OrderBy_Level {
-            get {
-                return ResourceManager.GetString("UI_Settings_General_CharacterList_OrderBy_Level", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Name.
-        /// </summary>
-        public static string UI_Settings_General_CharacterList_OrderBy_Name {
-            get {
-                return ResourceManager.GetString("UI_Settings_General_CharacterList_OrderBy_Name", resourceCulture);
             }
         }
         

@@ -372,12 +372,6 @@
   <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
     <value>Show welcome message again</value>
   </data>
-  <data name="UI_Settings_General_CharacterList_OrderBy_Level" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="UI_Settings_General_CharacterList_OrderBy_Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
   <data name="UI_CharacterList_ApplicationBar_Search" xml:space="preserve">
     <value>search</value>
   </data>
@@ -1242,5 +1236,11 @@
   </data>
   <data name="UI_GuildDetails_Perks_Level" xml:space="preserve">
     <value>Level {0}</value>
+  </data>
+  <data name="BattleNet_Races_Goblin" xml:space="preserve">
+    <value>Goblin</value>
+  </data>
+  <data name="BattleNet_Races_Worgen" xml:space="preserve">
+    <value>Worgen</value>
   </data>
 </root>

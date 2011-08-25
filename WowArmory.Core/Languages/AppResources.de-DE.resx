@@ -366,12 +366,6 @@
   <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
     <value>Willkommensnachricht anzeigen</value>
   </data>
-  <data name="UI_Settings_General_CharacterList_OrderBy_Level" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="UI_Settings_General_CharacterList_OrderBy_Name" xml:space="preserve">
-    <value>Name</value>
-  </data>
   <data name="UI_CharacterList_ApplicationBar_Search" xml:space="preserve">
     <value>suchen</value>
   </data>
@@ -628,7 +622,7 @@
     <value>Quest</value>
   </data>
   <data name="Item_ItemClass_Quiver" xml:space="preserve">
-    <value>Kächer</value>
+    <value>Köcher</value>
   </data>
   <data name="Item_ItemClass_Reagent" xml:space="preserve">
     <value>Reagenz</value>
@@ -1227,5 +1221,26 @@
   </data>
   <data name="UI_GuildDetails_Perks_Level" xml:space="preserve">
     <value>Stufe {0}</value>
+  </data>
+  <data name="Item_SocketType_GREEN" xml:space="preserve">
+    <value>Grün</value>
+  </data>
+  <data name="Item_SocketType_META" xml:space="preserve">
+    <value>Meta</value>
+  </data>
+  <data name="Item_SocketType_ORANGE" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="Item_SocketType_PURPLE" xml:space="preserve">
+    <value>Violett</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Level" xml:space="preserve">
+    <value>Stufe {0}</value>
+  </data>
+  <data name="BattleNet_Races_Goblin" xml:space="preserve">
+    <value>Goblin</value>
+  </data>
+  <data name="BattleNet_Races_Worgen" xml:space="preserve">
+    <value>Worgen</value>
   </data>
 </root>
