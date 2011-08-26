@@ -88,7 +88,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Latest app news:.
+        ///   Looks up a localized string similar to Latest app news and more:.
         /// </summary>
         public static string About_Links {
             get {
@@ -97,7 +97,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Visit project page.
+        ///   Looks up a localized string similar to Github (source code).
         /// </summary>
         public static string About_SourceButton {
             get {

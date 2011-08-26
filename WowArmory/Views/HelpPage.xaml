@@ -43,7 +43,6 @@
 						<TextBlock Text="{Binding LocalizedResources.About_Links, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Margin="12,6,12,0" />
 						<Button Content="{Binding LocalizedResources.About_TwitterURL, Source={StaticResource LocalizedResources}}" cmd:ButtonBaseExtensions.Command="{Binding OpenTwitterPageCommand}" />
 						<Button Content="{Binding LocalizedResources.About_FacebookURL, Source={StaticResource LocalizedResources}}" cmd:ButtonBaseExtensions.Command="{Binding OpenFacebookPageCommand}" />
-						<TextBlock Text="{Binding LocalizedResources.About_SourceText, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Margin="12,6,12,0" />
 						<Button Content="{Binding LocalizedResources.About_SourceButton, Source={StaticResource LocalizedResources}}" cmd:ButtonBaseExtensions.Command="{Binding OpenSourcePageCommand}" />
 						<TextBlock Text="{Binding LocalizedResources.About_Trademarks, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextSubtleStyle}" TextWrapping="Wrap" Margin="12,12,12,0" />
 						<TextBlock Text="{Binding LocalizedResources.About_Copyright, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextSubtleStyle}" TextWrapping="Wrap" />

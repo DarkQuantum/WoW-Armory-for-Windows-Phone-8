@@ -331,7 +331,7 @@
     <value>Created by Christian Krueger</value>
   </data>
   <data name="About_Links" xml:space="preserve">
-    <value>Latest app news:</value>
+    <value>Latest app news and more:</value>
   </data>
   <data name="About_Trademarks" xml:space="preserve">
     <value>All trademarks referenced in this application are the properties of their respective owners.</value>
@@ -511,7 +511,7 @@
     <value>Source code for this app is available at GitHub:</value>
   </data>
   <data name="About_SourceButton" xml:space="preserve">
-    <value>Visit project page</value>
+    <value>Github (source code)</value>
   </data>
   <data name="About_SourceURL" xml:space="preserve">
     <value>http://github.com/ckrueger/WoW-Armory-for-Windows-Phone-7</value>
