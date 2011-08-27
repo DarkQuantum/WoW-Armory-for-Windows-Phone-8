@@ -114,6 +114,14 @@ namespace WowArmory.Models
 				return AppResources.ResourceManager.GetString(String.Format("BattleNet_Region_{0}", Region));
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets a value indicating whether the remove from group context menu item is visible.
+		/// </summary>
+		/// <value>
+		/// 	<c>true</c> if the remove from group context menu item is visible; otherwise, <c>false</c>.
+		/// </value>
+		public bool IsRemoveFromGroupVisible { get; set; }
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -147,6 +155,9 @@ namespace WowArmory.Models
 			base.Realm = storageData.Realm;
 			base.Region = storageData.Region;
 			base.Thumbnail = storageData.Thumbnail;
+			base.CharacterListGroup = storageData.CharacterListGroup;
+
+			IsRemoveFromGroupVisible = false;
 		}
 		//----------------------------------------------------------------------
 		#endregion

@@ -8,9 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{98CA23BF-C174-44CD-9934-0A9F42EEA2CB}"
 	ProjectSection(SolutionItems) = preProject
 		Lib\GalaSoft.MvvmLight.Extras.WP7.dll = Lib\GalaSoft.MvvmLight.Extras.WP7.dll
-		Lib\GalaSoft.MvvmLight.Extras.WP7.XML = Lib\GalaSoft.MvvmLight.Extras.WP7.XML
 		Lib\GalaSoft.MvvmLight.WP7.dll = Lib\GalaSoft.MvvmLight.WP7.dll
-		Lib\GalaSoft.MvvmLight.WP7.XML = Lib\GalaSoft.MvvmLight.WP7.XML
 		Lib\PhoneToolkit.snk = Lib\PhoneToolkit.snk
 		Lib\Telerik.Windows.Controls.Chart.dll = Lib\Telerik.Windows.Controls.Chart.dll
 		Lib\Telerik.Windows.Controls.Data.dll = Lib\Telerik.Windows.Controls.Data.dll
@@ -141,6 +139,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CharacterList", "CharacterList", "{3747578C-1B15-4E0B-9C04-608562DC793A}"
 	ProjectSection(SolutionItems) = preProject
 		Media\ApplicationBar\CharacterList\delete.png = Media\ApplicationBar\CharacterList\delete.png
+		Media\ApplicationBar\CharacterList\groups.png = Media\ApplicationBar\CharacterList\groups.png
 		Media\ApplicationBar\CharacterList\search.png = Media\ApplicationBar\CharacterList\search.png
 		Media\ApplicationBar\CharacterList\update.png = Media\ApplicationBar\CharacterList\update.png
 	EndProjectSection
@@ -386,6 +385,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GuildList", "GuildList", "{805AEC53-B9BB-462B-92BA-58F25FA2957E}"
 	ProjectSection(SolutionItems) = preProject
 		Media\ApplicationBar\GuildList\delete.png = Media\ApplicationBar\GuildList\delete.png
+		Media\ApplicationBar\GuildList\groups.png = Media\ApplicationBar\GuildList\groups.png
 		Media\ApplicationBar\GuildList\search.png = Media\ApplicationBar\GuildList\search.png
 		Media\ApplicationBar\GuildList\update.png = Media\ApplicationBar\GuildList\update.png
 	EndProjectSection
@@ -395,6 +395,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Factions", "Factions", "{38
 		Media\Icons\Factions\0.png = Media\Icons\Factions\0.png
 		Media\Icons\Factions\1.png = Media\Icons\Factions\1.png
 		Media\Icons\Factions\WithBorder.psd = Media\Icons\Factions\WithBorder.psd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GroupManagement", "GroupManagement", "{4281C8B2-3DD6-4C06-A696-A129F694C63D}"
+	ProjectSection(SolutionItems) = preProject
+		Media\ApplicationBar\GroupManagement\add.png = Media\ApplicationBar\GroupManagement\add.png
+		Media\ApplicationBar\GroupManagement\delete.png = Media\ApplicationBar\GroupManagement\delete.png
 	EndProjectSection
 EndProject
 Global
@@ -446,5 +452,6 @@ Global
 		{3747578C-1B15-4E0B-9C04-608562DC793A} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{F223F66E-D6DF-4D1C-AAB6-9220B8418D6D} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 		{805AEC53-B9BB-462B-92BA-58F25FA2957E} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
+		{4281C8B2-3DD6-4C06-A696-A129F694C63D} = {D30C058C-315B-4D7F-8B27-BE2C0DF35184}
 	EndGlobalSection
 EndGlobal

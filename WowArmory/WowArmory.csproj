@@ -89,6 +89,7 @@
     <Compile Include="Controls\MainPageButton.cs" />
     <Compile Include="Controls\RelativeAnimatingContentControl.cs" />
     <Compile Include="Controls\StyledButton.cs" />
+    <Compile Include="Enumerations\GroupManagementType.cs" />
     <Compile Include="Enumerations\Page.cs" />
     <Compile Include="Models\CharacterListItem.cs" />
     <Compile Include="Models\GuildListItem.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="ViewModels\CharacterDetailsViewModel.cs" />
     <Compile Include="ViewModels\CharacterListViewModel.cs" />
     <Compile Include="ViewModels\CharacterSearchViewModel.cs" />
+    <Compile Include="ViewModels\GroupManagementViewModel.cs" />
     <Compile Include="ViewModels\GuildDetailsViewModel.cs" />
     <Compile Include="ViewModels\GuildListViewModel.cs" />
     <Compile Include="ViewModels\GuildSearchViewModel.cs" />
@@ -116,6 +118,9 @@
     </Compile>
     <Compile Include="Views\CharacterSearchPage.xaml.cs">
       <DependentUpon>CharacterSearchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GroupManagementPage.xaml.cs">
+      <DependentUpon>GroupManagementPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\GuildDetailsPage.xaml.cs">
       <DependentUpon>GuildDetailsPage.xaml</DependentUpon>
@@ -179,6 +184,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\GroupManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\GuildDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -228,14 +237,26 @@
     <Content Include="..\Media\ApplicationBar\CharacterList\delete.png">
       <Link>Images\ApplicationBar\CharacterList\delete.png</Link>
     </Content>
+    <Content Include="..\Media\ApplicationBar\CharacterList\groups.png">
+      <Link>Images\ApplicationBar\CharacterList\groups.png</Link>
+    </Content>
     <Content Include="..\Media\ApplicationBar\CharacterList\search.png">
       <Link>Images\ApplicationBar\CharacterList\search.png</Link>
     </Content>
     <Content Include="..\Media\ApplicationBar\CharacterList\update.png">
       <Link>Images\ApplicationBar\CharacterList\update.png</Link>
     </Content>
+    <Content Include="..\Media\ApplicationBar\GroupManagement\add.png">
+      <Link>Images\ApplicationBar\GroupManagement\add.png</Link>
+    </Content>
+    <Content Include="..\Media\ApplicationBar\GroupManagement\delete.png">
+      <Link>Images\ApplicationBar\GroupManagement\delete.png</Link>
+    </Content>
     <Content Include="..\Media\ApplicationBar\GuildList\delete.png">
       <Link>Images\ApplicationBar\GuildList\delete.png</Link>
+    </Content>
+    <Content Include="..\Media\ApplicationBar\GuildList\groups.png">
+      <Link>Images\ApplicationBar\GuildList\groups.png</Link>
     </Content>
     <Content Include="..\Media\ApplicationBar\GuildList\search.png">
       <Link>Images\ApplicationBar\GuildList\search.png</Link>

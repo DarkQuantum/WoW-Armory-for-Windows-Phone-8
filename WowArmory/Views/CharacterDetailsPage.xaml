@@ -14,7 +14,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="false"
+    shell:SystemTray.IsVisible="False"
 	Loaded="PhoneApplicationPage_Loaded"
 	Unloaded="PhoneApplicationPage_Unloaded">
 

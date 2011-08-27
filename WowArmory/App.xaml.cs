@@ -121,6 +121,10 @@ namespace WowArmory
 				{
 					ViewModelLocator.CharacterDetailsStatic.ItemContainerControl = (string)state["CharacterDetails_ItemToolTip_ItemContainerControl"];
 				}
+				if (state.ContainsKey("GroupManagement_Name"))
+				{
+					ViewModelLocator.GroupManagementStatic.Name = (string)state["GroupManagement_Name"];
+				}
 			}
 		}
 
@@ -138,11 +142,11 @@ namespace WowArmory
 			this.SaveToPhoneState("GuildSearch_Name", ViewModelLocator.GuildSearchStatic.Name);
 			this.SaveToPhoneState("GuildDetails_Guild", ViewModelLocator.GuildDetailsStatic.Guild);
 			this.SaveToPhoneState("RealmList_Cache", CacheManager.CachedRealmLists);
-
 			this.SaveToPhoneState("CharacterDetails_CachedItems", ViewModelLocator.CharacterDetailsStatic.CachedItems);
 			this.SaveToPhoneState("CharacterDetails_CachedGems", ViewModelLocator.CharacterDetailsStatic.CachedGems);
 			this.SaveToPhoneState("CharacterDetails_ItemToolTip_IsOpen", ViewModelLocator.CharacterDetailsStatic.IsItemToolTipOpen);
 			this.SaveToPhoneState("CharacterDetails_ItemToolTip_ItemContainerControl", ViewModelLocator.CharacterDetailsStatic.ItemContainerControl);
+			this.SaveToPhoneState("GroupManagement_Name", ViewModelLocator.GroupManagementStatic.Name);
 		}
 
 		// Code to execute when the application is closing (eg, user hit Back)
@@ -208,6 +212,7 @@ namespace WowArmory
 			ApplicationController.Current.Register(Page.GuildList, new Uri("/Views/GuildListPage.xaml", UriKind.Relative));
 			ApplicationController.Current.Register(Page.GuildSearch, new Uri("/Views/GuildSearchPage.xaml", UriKind.Relative));
 			ApplicationController.Current.Register(Page.GuildDetails, new Uri("/Views/GuildDetailsPage.xaml", UriKind.Relative));
+			ApplicationController.Current.Register(Page.GroupManagement, new Uri("/Views/GroupManagementPage.xaml", UriKind.Relative));
 		}
 
 		// Do not add any additional code to this method

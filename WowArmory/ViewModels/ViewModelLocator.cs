@@ -16,6 +16,7 @@
 		private static GuildListViewModel _guildList;
 		private static GuildSearchViewModel _guildSearch;
 		private static GuildDetailsViewModel _guildDetails;
+		private static GroupManagementViewModel _groupManagement;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -198,6 +199,22 @@
 		public static GuildDetailsViewModel GuildDetailsStatic
 		{
 			get { return _guildDetails ?? (_guildDetails = new GuildDetailsViewModel()); }
+		}
+
+		/// <summary>
+		/// Gets the group management view model.
+		/// </summary>
+		public GroupManagementViewModel GroupManagement
+		{
+			get { return GroupManagementStatic; }
+		}
+
+		/// <summary>
+		/// Gets the static group management view model.
+		/// </summary>
+		public static GroupManagementViewModel GroupManagementStatic
+		{
+			get { return _groupManagement ?? (_groupManagement = new GroupManagementViewModel()); }
 		}
 		//----------------------------------------------------------------------
 		#endregion

@@ -1243,4 +1243,58 @@
   <data name="BattleNet_Races_Worgen" xml:space="preserve">
     <value>Worgen</value>
   </data>
+  <data name="UI_CharacterList_PivotItem_All" xml:space="preserve">
+    <value>alle</value>
+  </data>
+  <data name="Page_GroupManagement_Title" xml:space="preserve">
+    <value>Verwalte deine Gruppen</value>
+  </data>
+  <data name="UI_GroupManagement_ApplicationBar_Add" xml:space="preserve">
+    <value>hinzufügen</value>
+  </data>
+  <data name="UI_GroupManagement_ApplicationBar_DeleteAll" xml:space="preserve">
+    <value>alle entfernen</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_Groups" xml:space="preserve">
+    <value>gruppen</value>
+  </data>
+  <data name="UI_GroupManagement_Add" xml:space="preserve">
+    <value>Gruppe hinzufügen</value>
+  </data>
+  <data name="UI_GroupManagement_ApplicationBar_Delete" xml:space="preserve">
+    <value>entfernen</value>
+  </data>
+  <data name="UI_GroupManagement_DeleteAll_Caption" xml:space="preserve">
+    <value>Gruppen entfernen</value>
+  </data>
+  <data name="UI_GroupManagement_DeleteAll_Text" xml:space="preserve">
+    <value>Alle Gruppen aus deiner Liste werden entfernt</value>
+  </data>
+  <data name="UI_GroupManagement_Delete_Caption" xml:space="preserve">
+    <value>Gruppen entfernen</value>
+  </data>
+  <data name="UI_GroupManagement_Delete_Text" xml:space="preserve">
+    <value>Die ausgewählten Gruppen aus deiner Liste werden entfernt</value>
+  </data>
+  <data name="UI_GroupManagement_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooLong_Caption" xml:space="preserve">
+    <value>Name zu lang</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooLong_Text" xml:space="preserve">
+    <value>Bitte gib einen kürzeren Namen an</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooShort_Caption" xml:space="preserve">
+    <value>Name zu kurz</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooShort_Text" xml:space="preserve">
+    <value>Bitte gib einen längeren Namen an</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_RemoveFromGroup" xml:space="preserve">
+    <value>aus gruppe entfernen</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_MoveToGroup" xml:space="preserve">
+    <value>in gruppe verschieben</value>
+  </data>
 </root>

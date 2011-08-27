@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
 using System.IO;
@@ -63,6 +64,42 @@ namespace WowArmory.Core.Managers
 			set
 			{
 				SetValue("Storage_Guilds", value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the character list groups.
+		/// </summary>
+		/// <value>
+		/// The character list groups.
+		/// </value>
+		public static Dictionary<Guid, string> CharacterListGroups
+		{
+			get
+			{
+				return GetValue("Storage_CharacterListGroups", new Dictionary<Guid, string>());
+			}
+			set
+			{
+				SetValue("Storage_CharacterListGroups", value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the guild list groups.
+		/// </summary>
+		/// <value>
+		/// The guild list groups.
+		/// </value>
+		public static Dictionary<Guid, string> GuildListGroups
+		{
+			get
+			{
+				return GetValue("Storage_GuildListGroups", new Dictionary<Guid, string>());
+			}
+			set
+			{
+				SetValue("Storage_GuildListGroups", value);
 			}
 		}
 		//----------------------------------------------------------------------

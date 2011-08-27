@@ -1,13 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Media;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using WowArmory.Controllers;
 using WowArmory.Core.Enumerations;
 using WowArmory.Core.Languages;
 using WowArmory.Core.Managers;
+using WowArmory.Enumerations;
 using WowArmory.Models;
 using WowArmory.ViewModels;
+using Page = WowArmory.Enumerations.Page;
 
 namespace WowArmory.Views
 {
@@ -20,6 +27,7 @@ namespace WowArmory.Views
 		private ApplicationBarMenuItem _sortByNameMenuItem;
 		private ApplicationBarMenuItem _sortByLevelMenuItem;
 		private ApplicationBarMenuItem _sortByAchievementPointsMenuItem;
+		private CharacterListItem _character;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -73,6 +81,10 @@ namespace WowArmory.Views
 			searchButton.Text = AppResources.UI_CharacterList_ApplicationBar_Search;
 			searchButton.Click += ShowCharacterSearchView;
 
+			var groupsButton = new ApplicationBarIconButton(new Uri("/Images/ApplicationBar/CharacterList/groups.png", UriKind.Relative));
+			groupsButton.Text = AppResources.UI_CharacterList_ApplicationBar_Groups;
+			groupsButton.Click += groupsButton_Click;
+
 			_deleteAllButton = new ApplicationBarIconButton(new Uri("/Images/ApplicationBar/CharacterList/delete.png", UriKind.Relative));
 			_deleteAllButton.Text = AppResources.UI_CharacterList_ApplicationBar_DeleteAll;
 			_deleteAllButton.Click += DeleteAll;
@@ -87,12 +99,65 @@ namespace WowArmory.Views
 			_sortByAchievementPointsMenuItem.Click += SortByAchievementPoints;
 
 			ApplicationBar.Buttons.Add(searchButton);
+			ApplicationBar.Buttons.Add(groupsButton);
 			ApplicationBar.Buttons.Add(_deleteAllButton);
 			ApplicationBar.MenuItems.Add(_sortByNameMenuItem);
 			ApplicationBar.MenuItems.Add(_sortByLevelMenuItem);
 			ApplicationBar.MenuItems.Add(_sortByAchievementPointsMenuItem);
 
 			UpdateApplicationBarItems();
+		}
+
+		/// <summary>
+		/// Builds the groups.
+		/// </summary>
+		private void BuildGroups()
+		{
+			while (pvGroups.Items.Count > 1)
+			{
+				pvGroups.Items.RemoveAt(1);
+			}
+
+			lbGroups.Items.Clear();
+
+			foreach (var group in IsolatedStorageManager.CharacterListGroups)
+			{
+				var localGroup = group;
+
+				var pivotItem = new PivotItem();
+				pivotItem.Header = group.Value;
+				pivotItem.Tag = group.Key;
+				pvGroups.Items.Add(pivotItem);
+
+				var listbox = new ListBox();
+				listbox.SelectedItem = new Binding { Source = ViewModel, Path = new PropertyPath("SelectedCharacter"), Mode = BindingMode.TwoWay };
+				listbox.SelectionChanged += ListBox_SelectionChanged;
+				listbox.ItemTemplate = (DataTemplate)Resources["CharacterListItemTemplate"];
+				pivotItem.Content = listbox;
+
+				lbGroups.Items.Add(group);
+			}
+
+			FillGroups();
+		}
+
+		/// <summary>
+		/// Fills the groups.
+		/// </summary>
+		private void FillGroups()
+		{
+			foreach (var item in pvGroups.Items)
+			{
+				var pivotItem = (PivotItem)item;
+				var tag = pivotItem.Tag;
+
+				if (tag != null &&
+					!tag.ToString().Equals("All", StringComparison.CurrentCultureIgnoreCase))
+				{
+					var listbox = (ListBox)pivotItem.Content;
+					listbox.ItemsSource = ViewModel.FavoriteCharacters.Where(c => c.CharacterListGroup == new Guid(tag.ToString()));
+				}
+			}
 		}
 
 		/// <summary>
@@ -184,6 +249,7 @@ namespace WowArmory.Views
 		{
 			ViewModel.RefreshView();
 			UpdateApplicationBarItems();
+			FillGroups();
 		}
 
 		/// <summary>
@@ -205,6 +271,7 @@ namespace WowArmory.Views
 		{
 			ViewModel.RefreshView();
 			UpdateApplicationBarItems();
+			BuildGroups();
 		}
 
 		/// <summary>
@@ -241,6 +308,7 @@ namespace WowArmory.Views
 
 			ViewModel.RefreshView();
 			UpdateApplicationBarItems();
+			FillGroups();
 		}
 
 		/// <summary>
@@ -253,6 +321,7 @@ namespace WowArmory.Views
 			ViewModel.PreventNextNavigation = true;
 			var character = (CharacterListItem)((MenuItem)sender).DataContext;
 			ViewModel.UpdateCharacter(character.Region, character.Realm, character.Character);
+			FillGroups();
 		}
 
 		/// <summary>
@@ -273,6 +342,109 @@ namespace WowArmory.Views
 
 			ViewModel.RefreshView();
 			UpdateApplicationBarItems();
+			FillGroups();
+		}
+
+		/// <summary>
+		/// Handles the Click event of the groupsButton control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void groupsButton_Click(object sender, EventArgs e)
+		{
+			ViewModelLocator.GroupManagementStatic.GroupType = GroupManagementType.CharacterList;
+			ApplicationController.Current.NavigateTo(Page.GroupManagement);
+		}
+
+		/// <summary>
+		/// Handles the Click event of the CharacterContextMenuItemRemoveFromGroup control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void CharacterContextMenuItemRemoveFromGroup_Click(object sender, RoutedEventArgs e)
+		{
+			var character = (CharacterListItem)((MenuItem)sender).DataContext;
+			character.CharacterListGroup = Guid.Empty;
+			FillGroups();
+		}
+
+		/// <summary>
+		/// Handles the SelectionChanged event of the pvGroups control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+		private void pvGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (e.AddedItems != null &&
+				e.AddedItems[0] != null &&
+				((PivotItem)e.AddedItems[0]).Tag != null &&
+				!((PivotItem)e.AddedItems[0]).Tag.ToString().Equals("All", StringComparison.CurrentCultureIgnoreCase))
+			{
+				foreach (var character in ViewModel.FavoriteCharacters)
+				{
+					character.IsRemoveFromGroupVisible = true;
+				}
+			}
+			else
+			{
+				foreach (var character in ViewModel.FavoriteCharacters)
+				{
+					character.IsRemoveFromGroupVisible = false;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Handles the SelectionChanged event of the lbGroups control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
+		private void lbGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (lbGroups.SelectedItem == null)
+			{
+				return;
+			}
+
+			var guid = ((KeyValuePair<Guid, string>)e.AddedItems[0]).Key;
+			IsolatedStorageManager.StoredCharacters.Where(c => c.Guid == _character.Guid).First().CharacterListGroup = guid;
+			_character = null;
+			lbGroups.SelectedItem = null;
+			gdGroups.Visibility = Visibility.Collapsed;
+			ViewModel.RefreshView();
+			BuildApplicationBar();
+			FillGroups();
+		}
+
+		/// <summary>
+		/// Handles the Click event of the CharacterContextMenuItemMoveToGroup control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void CharacterContextMenuItemMoveToGroup_Click(object sender, RoutedEventArgs e)
+		{
+			var character = (CharacterListItem)((FrameworkElement)sender).DataContext;
+			_character = character;
+			gdGroups.Visibility = Visibility.Visible;
+			ApplicationBar = null;
+		}
+
+		/// <summary>
+		/// This method is called when the hardware back key is pressed.
+		/// </summary>
+		/// <param name="e">Set e.Cancel to true to indicate that the request was handled by the application.</param>
+		protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+		{
+			base.OnBackKeyPress(e);
+
+			if (gdGroups.Visibility == Visibility.Visible)
+			{
+				gdGroups.Visibility = Visibility.Collapsed;
+				_character = null;
+				BuildApplicationBar();
+				FillGroups();
+				e.Cancel = true;
+			}
 		}
 		//----------------------------------------------------------------------
 		#endregion

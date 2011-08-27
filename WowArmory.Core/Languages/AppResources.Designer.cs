@@ -2113,6 +2113,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Manage your groups.
+        /// </summary>
+        public static string Page_GroupManagement_Title {
+            get {
+                return ResourceManager.GetString("Page_GroupManagement_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search guilds and manage your favorites.
         /// </summary>
         public static string Page_GuildList_Title {
@@ -2869,6 +2878,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to groups.
+        /// </summary>
+        public static string UI_CharacterList_ApplicationBar_Groups {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_ApplicationBar_Groups", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to search.
         /// </summary>
         public static string UI_CharacterList_ApplicationBar_Search {
@@ -2905,11 +2923,29 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to move to group.
+        /// </summary>
+        public static string UI_CharacterList_ContextMenuItem_MoveToGroup {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_ContextMenuItem_MoveToGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to remove.
         /// </summary>
         public static string UI_CharacterList_ContextMenuItem_Remove {
             get {
                 return ResourceManager.GetString("UI_CharacterList_ContextMenuItem_Remove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to remove from group.
+        /// </summary>
+        public static string UI_CharacterList_ContextMenuItem_RemoveFromGroup {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_ContextMenuItem_RemoveFromGroup", resourceCulture);
             }
         }
         
@@ -2959,6 +2995,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to all.
+        /// </summary>
+        public static string UI_CharacterList_PivotItem_All {
+            get {
+                return ResourceManager.GetString("UI_CharacterList_PivotItem_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No data retrieved.
         /// </summary>
         public static string UI_Common_Error_NoData_Caption {
@@ -2982,6 +3027,123 @@ namespace WowArmory.Core.Languages {
         public static string UI_Common_LoadingData {
             get {
                 return ResourceManager.GetString("UI_Common_LoadingData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add group.
+        /// </summary>
+        public static string UI_GroupManagement_Add {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to add.
+        /// </summary>
+        public static string UI_GroupManagement_ApplicationBar_Add {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_ApplicationBar_Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to remove.
+        /// </summary>
+        public static string UI_GroupManagement_ApplicationBar_Delete {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_ApplicationBar_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to remove all.
+        /// </summary>
+        public static string UI_GroupManagement_ApplicationBar_DeleteAll {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_ApplicationBar_DeleteAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove selected groups.
+        /// </summary>
+        public static string UI_GroupManagement_Delete_Caption {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_Delete_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selected groups will be removed from your list.
+        /// </summary>
+        public static string UI_GroupManagement_Delete_Text {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_Delete_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove all groups.
+        /// </summary>
+        public static string UI_GroupManagement_DeleteAll_Caption {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_DeleteAll_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All groups will be removed from your list.
+        /// </summary>
+        public static string UI_GroupManagement_DeleteAll_Text {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_DeleteAll_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name.
+        /// </summary>
+        public static string UI_GroupManagement_Name {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name too long.
+        /// </summary>
+        public static string UI_GroupManagement_NameTooLong_Caption {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_NameTooLong_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please use a shorter name.
+        /// </summary>
+        public static string UI_GroupManagement_NameTooLong_Text {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_NameTooLong_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name too short.
+        /// </summary>
+        public static string UI_GroupManagement_NameTooShort_Caption {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_NameTooShort_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please use a longer name.
+        /// </summary>
+        public static string UI_GroupManagement_NameTooShort_Text {
+            get {
+                return ResourceManager.GetString("UI_GroupManagement_NameTooShort_Text", resourceCulture);
             }
         }
         

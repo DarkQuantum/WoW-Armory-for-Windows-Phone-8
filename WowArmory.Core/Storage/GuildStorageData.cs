@@ -27,5 +27,7 @@ namespace WowArmory.Core.Storage
 		public List<GuildMember> Members { get; set; }
 		[DataMember]
 		public GuildEmblem Emblem { get; set; }
+		[DataMember]
+		public Guid GuildListGroup { get; set; }
 	}
 }
