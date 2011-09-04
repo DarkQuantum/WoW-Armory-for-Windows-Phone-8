@@ -2869,6 +2869,15 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to View character.
+        /// </summary>
+        public static string UI_CharacterDetails_ViewCharacter {
+            get {
+                return ResourceManager.GetString("UI_CharacterDetails_ViewCharacter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to remove all.
         /// </summary>
         public static string UI_CharacterList_ApplicationBar_DeleteAll {

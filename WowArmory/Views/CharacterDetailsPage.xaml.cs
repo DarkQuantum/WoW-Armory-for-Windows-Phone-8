@@ -5,8 +5,10 @@ using System.Net;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Tasks;
 using WowArmory.Controllers;
@@ -30,10 +32,18 @@ namespace WowArmory.Views
 		private bool _isToolTipLoading = false;
 		private int _toolTipCancel = 0;
 		private WriteableBitmap _writeableBitmap = null;
-		private double _currentFrame = 0;
-		private int _maxFrames = 0;
-		private int _frameWidth = 0;
-		private int _imageWidth = 0;
+		private double _itemCurrentFrame = 0;
+		private int _itemMaxFrames = 0;
+		private int _itemFrameWidth = 0;
+		private int _itemImageWidth = 0;
+		private double _itemImageVelocity = 0.0;
+		private DispatcherTimer _itemImageTimer;
+		private int _profileImageWidth = 1076;
+		private int _profileImageHeight = 800;
+		private int _profileImageFrameWidth = 480;
+		private double _profileImageLeft;
+		private double _profileImageVelocity = 0.0;
+		private DispatcherTimer _profileImageTimer;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -156,6 +166,24 @@ namespace WowArmory.Views
 			{
 				ShowToolTip(ViewModel.ItemContainerForToolTip);
 			}
+
+			_itemImageTimer = new DispatcherTimer();
+			_itemImageTimer.Interval = TimeSpan.FromMilliseconds(35);
+			_itemImageTimer.Tick += OnItemImageTimerTick;
+
+			_profileImageTimer = new DispatcherTimer();
+			_profileImageTimer.Interval = TimeSpan.FromMilliseconds(35);
+			_profileImageTimer.Tick += OnProfileImageTimerTick;
+
+			cvCharacterViewer.Width = _profileImageFrameWidth;
+			cvCharacterViewer.Height = _profileImageHeight;
+			rgCharacterViewer.Rect = new Rect(0, 0, _profileImageFrameWidth, _profileImageHeight);
+			imgCharacterViewer.Width = _profileImageWidth;
+			imgCharacterViewer.Height = _profileImageHeight;
+			imgCharacterViewer.Source = CacheManager.GetImageSourceFromCache(BattleNetClient.Current.GetProfileImageUrl(ViewModel.Character));
+			_profileImageLeft = ((_profileImageWidth - _profileImageFrameWidth) / 2.0) * -1;
+			Canvas.SetLeft(imgCharacterViewer, _profileImageLeft);
+			Canvas.SetTop(imgCharacterViewer, 0);
 		}
 
 		/// <summary>
@@ -1173,16 +1201,16 @@ namespace WowArmory.Views
 				{
 					try
 					{
-						_imageWidth = 6720;
-						_frameWidth = 280;
-						_maxFrames = _imageWidth / _frameWidth;
-						_writeableBitmap = new WriteableBitmap(_imageWidth, _frameWidth);
+						_itemImageWidth = 6720;
+						_itemFrameWidth = 280;
+						_itemMaxFrames = _itemImageWidth / _itemFrameWidth;
+						_writeableBitmap = new WriteableBitmap(_itemImageWidth, _itemFrameWidth);
 						_writeableBitmap.LoadJpeg(openReadCompletedEventArgs.Result);
-						cvItemViewerSpriteStrip.Width = _frameWidth;
-						cvItemViewerSpriteStrip.Height = _frameWidth;
-						rgItemViewerSpriteStrip.Rect = new Rect(0, 0, _frameWidth, _frameWidth);
-						imgItemViewerSpriteStrip.Width = _imageWidth;
-						imgItemViewerSpriteStrip.Height = _frameWidth;
+						cvItemViewerSpriteStrip.Width = _itemFrameWidth;
+						cvItemViewerSpriteStrip.Height = _itemFrameWidth;
+						rgItemViewerSpriteStrip.Rect = new Rect(0, 0, _itemFrameWidth, _itemFrameWidth);
+						imgItemViewerSpriteStrip.Width = _itemImageWidth;
+						imgItemViewerSpriteStrip.Height = _itemFrameWidth;
 						imgItemViewerSpriteStrip.Source = _writeableBitmap;
 						Canvas.SetLeft(imgItemViewerSpriteStrip, 0);
 						Canvas.SetTop(imgItemViewerSpriteStrip, 0);
@@ -1405,6 +1433,13 @@ namespace WowArmory.Views
 				return;
 			}
 
+			if (gdCharacterViewer.Visibility == Visibility.Visible)
+			{
+				gdCharacterViewer.Visibility = Visibility.Collapsed;
+				e.Cancel = true;
+				return;
+			}
+
 			if (brdItemToolTip.Visibility == Visibility.Visible)
 			{
 				HideAllItemContainerSelections();
@@ -1441,33 +1476,155 @@ namespace WowArmory.Views
 		}
 
 		/// <summary>
+		/// Handles the ManipulationStarted event of the gdItemViewer control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.ManipulationStartedEventArgs"/> instance containing the event data.</param>
+		private void gdItemViewer_ManipulationStarted(object sender, System.Windows.Input.ManipulationStartedEventArgs e)
+		{
+			_itemImageTimer.Stop();
+		}
+
+		/// <summary>
 		/// Handles the ManipulationDelta event of the gdItemViewer control.
 		/// </summary>
 		/// <param name="sender">The source of the event.</param>
 		/// <param name="e">The <see cref="System.Windows.Input.ManipulationDeltaEventArgs"/> instance containing the event data.</param>
 		private void gdItemViewer_ManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e)
 		{
-			var amount = Math.Abs(e.DeltaManipulation.Translation.X) / 10.0;
+			_itemImageTimer.Stop();
+			var amount = (e.DeltaManipulation.Translation.X / 10.0) * -1;
+			_itemCurrentFrame += amount;
 
-			if (e.DeltaManipulation.Translation.X >= 1)
+			if (_itemCurrentFrame < 0)
 			{
-				_currentFrame = _currentFrame - amount;
+				_itemCurrentFrame = _itemMaxFrames - 1;
 			}
-			else if (e.DeltaManipulation.Translation.X <= -1)
+			else if (_itemCurrentFrame >= _itemMaxFrames)
 			{
-				_currentFrame = _currentFrame + amount;
-			}
-
-			if (_currentFrame < 0)
-			{
-				_currentFrame = _maxFrames - 1;
-			}
-			else if (_currentFrame >= _maxFrames)
-			{
-				_currentFrame = 1;
+				_itemCurrentFrame = 1;
 			}
 
-			Canvas.SetLeft(imgItemViewerSpriteStrip, (Math.Floor(_currentFrame) * _frameWidth) * -1);
+			Canvas.SetLeft(imgItemViewerSpriteStrip, (Math.Floor(_itemCurrentFrame) * _itemFrameWidth) * -1);
+		}
+
+		/// <summary>
+		/// Handles the ManipulationCompleted event of the gdItemViewer control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.ManipulationCompletedEventArgs"/> instance containing the event data.</param>
+		private void gdItemViewer_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
+		{
+			if (e.IsInertial)
+			{
+				_itemImageVelocity = e.FinalVelocities.LinearVelocity.X / 350.0;
+				_itemImageTimer.Start();
+			}
+		}
+
+		/// <summary>
+		/// Called when the item image timer ticks.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void OnItemImageTimerTick(object sender, EventArgs e)
+		{
+			var amount = _itemImageVelocity * -1;
+			_itemCurrentFrame += amount;
+
+			if (_itemCurrentFrame < 0)
+			{
+				_itemCurrentFrame = _itemMaxFrames - 1;
+			}
+			else if (_itemCurrentFrame >= _itemMaxFrames)
+			{
+				_itemCurrentFrame = 1;
+			}
+
+			Canvas.SetLeft(imgItemViewerSpriteStrip, (Math.Floor(_itemCurrentFrame) * _itemFrameWidth) * -1);
+
+			_itemImageVelocity *= 0.95;
+
+			if (Math.Abs(_itemImageVelocity) < 0.5)
+			{
+				_itemImageTimer.Stop();
+			}
+		}
+
+		/// <summary>
+		/// Handles the ManipulationStarted event of the gdCharacterViewer control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.ManipulationStartedEventArgs"/> instance containing the event data.</param>
+		private void gdCharacterViewer_ManipulationStarted(object sender, System.Windows.Input.ManipulationStartedEventArgs e)
+		{
+			_profileImageTimer.Stop();
+		}
+
+		/// <summary>
+		/// Handles the ManipulationDelta event of the gdCharacterViewer control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.ManipulationDeltaEventArgs"/> instance containing the event data.</param>
+		private void gdCharacterViewer_ManipulationDelta(object sender, System.Windows.Input.ManipulationDeltaEventArgs e)
+		{
+			_profileImageTimer.Stop();
+			var amount = e.DeltaManipulation.Translation.X;
+			_profileImageLeft = _profileImageLeft + amount;
+
+			if (_profileImageLeft <= ((_profileImageWidth - _profileImageFrameWidth) * -1))
+			{
+				_profileImageLeft = (_profileImageWidth - _profileImageFrameWidth) * -1;
+			}
+			else if (_profileImageLeft >= 0)
+			{
+				_profileImageLeft = 0;
+			}
+
+			Canvas.SetLeft(imgCharacterViewer, _profileImageLeft);
+		}
+
+		/// <summary>
+		/// Handles the ManipulationCompleted event of the gdCharacterViewer control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.ManipulationCompletedEventArgs"/> instance containing the event data.</param>
+		private void gdCharacterViewer_ManipulationCompleted(object sender, System.Windows.Input.ManipulationCompletedEventArgs e)
+		{
+			if (e.IsInertial)
+			{
+				_profileImageVelocity = e.FinalVelocities.LinearVelocity.X / 25.0;
+				_profileImageTimer.Start();
+			}
+		}
+
+		/// <summary>
+		/// Called when the profile image timer ticks.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
+		private void OnProfileImageTimerTick(object sender, EventArgs e)
+		{
+			var amount = _profileImageVelocity;
+			_profileImageLeft = _profileImageLeft + amount;
+
+			if (_profileImageLeft <= ((_profileImageWidth - _profileImageFrameWidth) * -1))
+			{
+				_profileImageLeft = (_profileImageWidth - _profileImageFrameWidth) * -1;
+			}
+			else if (_profileImageLeft >= 0)
+			{
+				_profileImageLeft = 0;
+			}
+
+			Canvas.SetLeft(imgCharacterViewer, _profileImageLeft);
+
+			_profileImageVelocity *= 0.9;
+
+			if (Math.Abs(_profileImageVelocity) < 1.0)
+			{
+				_profileImageTimer.Stop();
+			}
 		}
 
 		/// <summary>
@@ -1478,6 +1635,16 @@ namespace WowArmory.Views
 		private void OpenItemViewer(object sender, RoutedEventArgs e)
 		{
 			gdItemViewer.Visibility = Visibility.Visible;
+		}
+
+		/// <summary>
+		/// Opens the character viewer.
+		/// </summary>
+		/// <param name="sender">The sender.</param>
+		/// <param name="e">The <see cref="System.Windows.RoutedEventArgs"/> instance containing the event data.</param>
+		private void OpenCharacterViewer(object sender, RoutedEventArgs e)
+		{
+			gdCharacterViewer.Visibility = Visibility.Visible;
 		}
 
 		/// <summary>

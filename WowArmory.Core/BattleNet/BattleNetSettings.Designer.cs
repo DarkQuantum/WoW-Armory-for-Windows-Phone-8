@@ -178,6 +178,15 @@ namespace WowArmory.Core.BattleNet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to http://{0}.battle.net/static-render/{0}/{{0}}/{{1}}/{{2}}-profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/{{3}}-{{4}}.jpg.
+        /// </summary>
+        internal static string BattleNet_ProfileImageUri {
+            get {
+                return ResourceManager.GetString("BattleNet_ProfileImageUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to eu.
         /// </summary>
         internal static string BattleNet_Region_Europe {

@@ -322,6 +322,10 @@
 							<ScrollViewer x:Name="svCharacterStats" Grid.Row="0" Margin="12,0,12,12" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
 								<StackPanel Orientation="Vertical">
 									<Grid Margin="0,0,0,12">
+										<ctrl:StyledButton Text="{Binding LocalizedResources.UI_CharacterDetails_ViewCharacter, Source={StaticResource LocalizedResources}}"
+														   Click="OpenCharacterViewer"/>
+									</Grid>
+									<Grid Margin="0,0,0,12">
 										<Grid.ColumnDefinitions>
 											<ColumnDefinition Width="*" />
 											<ColumnDefinition Width="Auto" />
@@ -670,7 +674,9 @@
 			<ProgressBar x:Name="pbStoreCharacter" Style="{StaticResource PerformanceProgressBar}" Margin="0,36,0,0" VerticalAlignment="Center" />
 		</Grid>
 		<Grid x:Name="gdItemViewer" Grid.Row="0" Grid.RowSpan="2" Visibility="Collapsed"
-			  ManipulationDelta="gdItemViewer_ManipulationDelta">
+			  ManipulationStarted="gdItemViewer_ManipulationStarted"
+			  ManipulationDelta="gdItemViewer_ManipulationDelta"
+			  ManipulationCompleted="gdItemViewer_ManipulationCompleted">	
 			<Grid Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" />
 			<Border x:Name="brdItemViewerSpriteStrip" Background="#ff381a0f" BorderBrush="#ff542818" BorderThickness="1" CornerRadius="4"
 				Padding="4" HorizontalAlignment="Center" VerticalAlignment="Center">
@@ -681,6 +687,17 @@
 					<Image x:Name="imgItemViewerSpriteStrip" />
 				</Canvas>
 			</Border>
+		</Grid>
+		<Grid x:Name="gdCharacterViewer" Grid.Row="0" Grid.RowSpan="2" Visibility="Collapsed"
+			  ManipulationStarted="gdCharacterViewer_ManipulationStarted"
+			  ManipulationDelta="gdCharacterViewer_ManipulationDelta"
+			  ManipulationCompleted="gdCharacterViewer_ManipulationCompleted">
+			<Canvas x:Name="cvCharacterViewer">
+				<Canvas.Clip>
+					<RectangleGeometry x:Name="rgCharacterViewer" />
+				</Canvas.Clip>
+				<Image x:Name="imgCharacterViewer" />
+			</Canvas>
 		</Grid>
 	</Grid>    
 </phone:PhoneApplicationPage>

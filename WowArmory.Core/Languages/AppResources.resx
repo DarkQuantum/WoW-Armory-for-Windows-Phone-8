@@ -1297,4 +1297,7 @@
   <data name="UI_CharacterList_ContextMenuItem_MoveToGroup" xml:space="preserve">
     <value>move to group</value>
   </data>
+  <data name="UI_CharacterDetails_ViewCharacter" xml:space="preserve">
+    <value>View character</value>
+  </data>
 </root>

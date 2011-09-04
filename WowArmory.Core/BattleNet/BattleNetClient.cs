@@ -7,6 +7,7 @@ using System.Net;
 using System.Reflection;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media;
 using Newtonsoft.Json;
@@ -134,6 +135,18 @@ namespace WowArmory.Core.BattleNet
 			{
 				var baseUriTemplate = BattleNetSettings.ResourceManager.GetString("BattleNet_GuildEmblemUri");
 				return !String.IsNullOrEmpty(baseUriTemplate) ? new Uri(String.Format(baseUriTemplate, BattleNetRegionCode)) : new Uri(String.Format("http://{0}.battle.net/wow/static/images/guild/tabards/", BattleNetRegionCode));
+			}
+		}
+
+		/// <summary>
+		/// Gets the battle net profile image URI.
+		/// </summary>
+		public Uri BattleNetProfileImageUri
+		{
+			get
+			{
+				var baseUriTemplate = BattleNetSettings.ResourceManager.GetString("BattleNet_ProfileImageUri");
+				return !String.IsNullOrEmpty(baseUriTemplate) ? new Uri(String.Format(baseUriTemplate, BattleNetRegionCode)) : new Uri(String.Format("http://{0}.battle.net/static-render/{0}/{{0}}/{{1}}/{{2}}-profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/{{3}}-{{4}}.jpg", BattleNetRegionCode));
 			}
 		}
 		//----------------------------------------------------------------------
@@ -465,6 +478,27 @@ namespace WowArmory.Core.BattleNet
 		public string GetGuildEmblemUrl(string emblemPath)
 		{
 			return String.Format("{0}{1}.png", BattleNetGuildEmblemUri, emblemPath);
+		}
+
+		/// <summary>
+		/// Gets the profile image URL for the specified character.
+		/// </summary>
+		/// <param name="character">The character.</param>
+		/// <returns></returns>
+		public string GetProfileImageUrl(Character character)
+		{
+			var regex = new Regex("([a-z-]*)/([0-9]*)/([0-9]*)-avatar.jpg");
+			var matches = regex.Matches(character.Thumbnail);
+			if (matches.Count == 1)
+			{
+				var realm = matches[0].Groups[1].Value;
+				var key1 = matches[0].Groups[2].Value;
+				var key2 = matches[0].Groups[3].Value;
+
+				return String.Format(BattleNetProfileImageUri.ToString(), realm, key1, key2, character.Race, character.Gender);
+			}
+
+			return String.Empty;
 		}
 
 		/// <summary>

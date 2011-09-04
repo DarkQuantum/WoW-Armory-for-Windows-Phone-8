@@ -156,6 +156,9 @@
   <data name="BattleNet_ItemRenderUri" xml:space="preserve">
     <value>http://{0}.media.blizzard.com/wow/renders/items/</value>
   </data>
+  <data name="BattleNet_ProfileImageUri" xml:space="preserve">
+    <value>http://{0}.battle.net/static-render/{0}/{{0}}/{{1}}/{{2}}-profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/{{3}}-{{4}}.jpg</value>
+  </data>
   <data name="BattleNet_Region_Europe" xml:space="preserve">
     <value>eu</value>
   </data>
