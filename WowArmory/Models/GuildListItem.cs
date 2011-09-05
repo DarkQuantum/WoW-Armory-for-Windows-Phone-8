@@ -76,6 +76,17 @@ namespace WowArmory.Models
 				return CacheManager.GetImageSourceFromCache(String.Format("/WowArmory.Core;Component/Images/GuildDetails/Emblem_Default_{0}.png", Side));
 			}
 		}
+
+		/// <summary>
+		/// Gets the guild emblem image.
+		/// </summary>
+		public ImageSource GuildEmblemImage
+		{
+			get
+			{
+				return CacheManager.GetGuildEmblemImage(Region, Realm, Name, Emblem, Side);
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------

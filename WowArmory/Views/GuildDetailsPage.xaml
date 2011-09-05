@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 	xmlns:ctrl="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
 	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core"
-	xmlns:telerikPrim="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives" xmlns:ctrls="clr-namespace:WowArmory.Controls" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	xmlns:telerikPrim="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives" xmlns:ctrls="clr-namespace:WowArmory.Controls" xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
@@ -111,7 +111,7 @@
 				<ColumnDefinition Width="*" />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
-			<Image Grid.Column="0" Source="{Binding EmblemDefaultImage}" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<Image Grid.Column="0" Source="{Binding GuildEmblemImage}" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonDown="GuildEmblemImage_MouseLeftButtonDown" />
 			<Grid Grid.Column="1" Margin="12,0,6,0">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="*" />
@@ -202,6 +202,10 @@
 			<Grid Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" />
 			<TextBlock Text="{Binding LocalizedResources.UI_Common_LoadingData, Source={StaticResource LocalizedResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 			<ProgressBar Style="{StaticResource PerformanceProgressBar}" IsIndeterminate="{Binding IsProgressBarIndeterminate}" Margin="0,36,0,0" VerticalAlignment="Center" />
+		</Grid>
+		<Grid x:Name="gdEmblemViewer" Grid.Row="0" Grid.RowSpan="2" Visibility="Collapsed">
+			<Grid Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" />
+			<Image Source="{Binding GuildEmblemImage}" Width="216" Height="240" HorizontalAlignment="Center" VerticalAlignment="Center" />
 		</Grid>
 		<Grid x:Name="gdStoreGuildOverlay" Grid.Row="0" Grid.RowSpan="2" Visibility="Collapsed">
 			<Grid Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" />

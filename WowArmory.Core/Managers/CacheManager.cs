@@ -4,6 +4,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using WowArmory.Core.BattleNet;
 using WowArmory.Core.BattleNet.Models;
+using WowArmory.Core.Helper;
 
 namespace WowArmory.Core.Managers
 {
@@ -133,6 +134,28 @@ namespace WowArmory.Core.Managers
 			if (!ImageCache.ContainsKey(key))
 			{
 				ImageCache.Add(key, imageSource);
+			}
+
+			return ImageCache[key];
+		}
+
+		/// <summary>
+		/// Gets the guild emblem image.
+		/// </summary>
+		/// <param name="region">The region.</param>
+		/// <param name="realm">The realm.</param>
+		/// <param name="name">The name.</param>
+		/// <param name="guildEmblem">The guild emblem.</param>
+		/// <param name="guildSide">The guild side.</param>
+		/// <returns></returns>
+		public static ImageSource GetGuildEmblemImage(Region region, string realm, string name, GuildEmblem guildEmblem, GuildSide guildSide)
+		{
+			var key = String.Format("{0}_{1}_{2}", region.ToString().ToLower(), realm.Replace(" ", "-").ToLower().Trim(), name.Replace(" ", "-").ToLower().Trim());
+
+			if (!ImageCache.ContainsKey(key))
+			{
+				var guildEmblemImage = ImageHelper.GenerateGuildEmblemImage(guildEmblem, guildSide);
+				ImageCache.Add(key, guildEmblemImage);
 			}
 
 			return ImageCache[key];

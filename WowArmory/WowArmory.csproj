@@ -161,6 +161,10 @@
     <None Include="Properties\WMAppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Lib\Microsoft.Phone.Controls.Toolkit\Microsoft.Phone.Controls.Toolkit.csproj">
+      <Project>{0754458A-7AFC-463A-B27D-2F6980522119}</Project>
+      <Name>Microsoft.Phone.Controls.Toolkit</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WowArmory.Core\WowArmory.Core.csproj">
       <Project>{311B0216-014C-4FB7-B8C1-34A4292B3B16}</Project>
       <Name>WowArmory.Core</Name>

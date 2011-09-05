@@ -299,6 +299,32 @@ namespace WowArmory.Views
 			ViewModel.IsProgressBarIndeterminate = false;
 			ViewModel.IsProgressBarVisible = false;
 		}
+
+		/// <summary>
+		/// Handles the MouseLeftButtonDown event of the GuildEmblemImage control.
+		/// </summary>
+		/// <param name="sender">The source of the event.</param>
+		/// <param name="e">The <see cref="System.Windows.Input.MouseButtonEventArgs"/> instance containing the event data.</param>
+		private void GuildEmblemImage_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		{
+			gdEmblemViewer.Visibility = Visibility.Visible;
+		}
+
+		/// <summary>
+		/// This method is called when the hardware back key is pressed.
+		/// </summary>
+		/// <param name="e">Set e.Cancel to true to indicate that the request was handled by the application.</param>
+		protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+		{
+			base.OnBackKeyPress(e);
+
+			if (gdEmblemViewer.Visibility == Visibility.Visible)
+			{
+				gdEmblemViewer.Visibility = Visibility.Collapsed;
+				e.Cancel = true;
+				return;
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------

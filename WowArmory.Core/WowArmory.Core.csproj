@@ -169,7 +169,6 @@
     <Compile Include="Managers\AuthenticationManager.cs" />
     <Compile Include="Managers\CacheManager.cs" />
     <Compile Include="Managers\EncryptionManager.cs" />
-    <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\IsolatedStorageManager.cs" />
     <Compile Include="Models\AuthenticationData.cs" />
     <Compile Include="Models\EncryptionData.cs" />
