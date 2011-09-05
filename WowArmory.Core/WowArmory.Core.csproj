@@ -60,6 +60,9 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml.Serialization" />
+    <Reference Include="WriteableBitmapExWinPhone">
+      <HintPath>..\Lib\WriteableBitmapExWinPhone.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleNet\BattleNetSettings.Designer.cs">
@@ -166,6 +169,7 @@
     <Compile Include="Managers\AuthenticationManager.cs" />
     <Compile Include="Managers\CacheManager.cs" />
     <Compile Include="Managers\EncryptionManager.cs" />
+    <Compile Include="Managers\ImageManager.cs" />
     <Compile Include="Managers\IsolatedStorageManager.cs" />
     <Compile Include="Models\AuthenticationData.cs" />
     <Compile Include="Models\EncryptionData.cs" />
@@ -1602,6 +1606,12 @@
     <Resource Include="..\Media\GuildDetails\Emblems\Emblem_195.png">
       <Link>Images\GuildDetails\Emblems\Emblem_195.png</Link>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib\Newtonsoft.Json\Newtonsoft.Json.WindowsPhone.csproj">
+      <Project>{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}</Project>
+      <Name>Newtonsoft.Json.WindowsPhone</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

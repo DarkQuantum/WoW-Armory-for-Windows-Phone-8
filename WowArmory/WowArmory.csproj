@@ -79,6 +79,9 @@
     <Reference Include="Telerik.Windows.Controls.Primitives, Version=2011.2.712.1037, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Core, Version=2011.2.712.1037, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
     <Reference Include="Telerik.Windows.Data, Version=2011.2.712.1037, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL" />
+    <Reference Include="WriteableBitmapExWinPhone">
+      <HintPath>..\Lib\WriteableBitmapExWinPhone.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">

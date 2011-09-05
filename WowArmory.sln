@@ -5,6 +5,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowArmory", "WowArmory\WowA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WowArmory.Core", "WowArmory.Core\WowArmory.Core.csproj", "{311B0216-014C-4FB7-B8C1-34A4292B3B16}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{10A576FF-8B62-4461-9B4F-F17978C9E4FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Phone.Controls.Toolkit", "Lib\Microsoft.Phone.Controls.Toolkit\Microsoft.Phone.Controls.Toolkit.csproj", "{0754458A-7AFC-463A-B27D-2F6980522119}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.WindowsPhone", "Lib\Newtonsoft.Json\Newtonsoft.Json.WindowsPhone.csproj", "{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +27,20 @@ Global
 		{311B0216-014C-4FB7-B8C1-34A4292B3B16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{311B0216-014C-4FB7-B8C1-34A4292B3B16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{311B0216-014C-4FB7-B8C1-34A4292B3B16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0754458A-7AFC-463A-B27D-2F6980522119}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0754458A-7AFC-463A-B27D-2F6980522119}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0754458A-7AFC-463A-B27D-2F6980522119}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0754458A-7AFC-463A-B27D-2F6980522119}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0754458A-7AFC-463A-B27D-2F6980522119} = {10A576FF-8B62-4461-9B4F-F17978C9E4FF}
+		{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E} = {10A576FF-8B62-4461-9B4F-F17978C9E4FF}
 	EndGlobalSection
 EndGlobal
