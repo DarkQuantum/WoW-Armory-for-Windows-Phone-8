@@ -122,15 +122,13 @@ namespace WowArmory.Views
 
 			foreach (var group in IsolatedStorageManager.CharacterListGroups)
 			{
-				var localGroup = group;
-
 				var pivotItem = new PivotItem();
 				pivotItem.Header = group.Value;
 				pivotItem.Tag = group.Key;
 				pvGroups.Items.Add(pivotItem);
 
 				var listbox = new ListBox();
-				listbox.SelectedItem = new Binding { Source = ViewModel, Path = new PropertyPath("SelectedCharacter"), Mode = BindingMode.TwoWay };
+				//listbox.SelectedItem = new Binding { Source = ViewModel, Path = new PropertyPath("SelectedCharacter"), Mode = BindingMode.TwoWay };
 				listbox.SelectionChanged += ListBox_SelectionChanged;
 				listbox.ItemTemplate = (DataTemplate)Resources["CharacterListItemTemplate"];
 				pivotItem.Content = listbox;
@@ -281,6 +279,15 @@ namespace WowArmory.Views
 		/// <param name="e">The <see cref="System.Windows.Controls.SelectionChangedEventArgs"/> instance containing the event data.</param>
 		private void ListBox_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
 		{
+			if (e.AddedItems != null && e.AddedItems.Count == 1)
+			{
+				ViewModel.SelectedCharacter = (CharacterListItem)e.AddedItems[0];
+			}
+			else
+			{
+				ViewModel.SelectedCharacter = null;
+			}
+
 			if (ViewModel.SelectedCharacter == null)
 			{
 				return;

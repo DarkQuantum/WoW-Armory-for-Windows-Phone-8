@@ -104,7 +104,6 @@
 			<ctrl:Pivot x:Name="pvGroups" SelectionChanged="pvGroups_SelectionChanged">
 				<ctrl:PivotItem Tag="All" Header="{Binding LocalizedResources.UI_CharacterList_PivotItem_All, Source={StaticResource LocalizedResources}}">
 					<ListBox ItemsSource="{Binding FavoriteCharacters}"
-							 SelectedItem="{Binding SelectedCharacter, Mode=TwoWay}"
 							 SelectionChanged="ListBox_SelectionChanged"
 							 ItemTemplate="{StaticResource CharacterListItemTemplate}" />
 				</ctrl:PivotItem>
