@@ -61,7 +61,7 @@ namespace WowArmory.Core.Languages {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ©2010-2011 Christian Krueger. All rights reserved..
+        ///   Looks up a localized string similar to ©2011 Christian Krueger. All rights reserved..
         /// </summary>
         public static string About_Copyright {
             get {
