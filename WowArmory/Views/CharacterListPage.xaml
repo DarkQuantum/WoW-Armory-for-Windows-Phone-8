@@ -119,7 +119,18 @@
 			<ListBox x:Name="lbGroups" SelectionChanged="lbGroups_SelectionChanged" Margin="36">
 				<ListBox.ItemTemplate>
 					<DataTemplate>
-						<TextBlock Text="{Binding Value}" Style="{StaticResource PhoneTextTitle2Style}" Margin="0,0,0,12" />
+						<Grid Margin="0,0,0,6">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Rectangle Grid.Column="0" Fill="{StaticResource PhoneForegroundBrush}" Width="48" Height="48" Margin="0,0,12,0">
+								<Rectangle.OpacityMask>
+									<ImageBrush ImageSource="/Images/ApplicationBar/CharacterList/groups.png" />
+								</Rectangle.OpacityMask>
+							</Rectangle>
+							<TextBlock Grid.Column="1" Text="{Binding Value}" Style="{StaticResource PhoneTextTitle2Style}" Margin="0,0,0,12" />
+						</Grid>
 					</DataTemplate>
 				</ListBox.ItemTemplate>
 			</ListBox>
