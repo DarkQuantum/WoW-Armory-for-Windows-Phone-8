@@ -44,6 +44,7 @@ namespace WowArmory.Views
 		private double _profileImageLeft;
 		private double _profileImageVelocity = 0.0;
 		private DispatcherTimer _profileImageTimer;
+		private int _requestedItemId;
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------
@@ -710,6 +711,8 @@ namespace WowArmory.Views
 			brdItemToolTip.Visibility = Visibility.Visible;
 			ViewModel.IsItemToolTipOpen = true;
 
+			_requestedItemId = ((CharacterItem)itemContainer.DataContext).Id;
+
 			if (ViewModel.CachedItems.ContainsKey(((CharacterItem)itemContainer.DataContext).Id))
 			{
 				OnItemReceived(ViewModel.CachedItems[((CharacterItem)itemContainer.DataContext).Id]);
@@ -726,6 +729,11 @@ namespace WowArmory.Views
 		/// <param name="item">The item.</param>
 		private void OnItemReceived(Item item)
 		{
+			if (item.Id != _requestedItemId)
+			{
+				return;
+			}
+
 			ViewModel.ItemForToolTip = item;
 
 			if (item == null)
