@@ -6,7 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core" xmlns:tk="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core" xmlns:tk="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" xmlns:ctrl="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
@@ -17,7 +17,7 @@
 	<phone:PhoneApplicationPage.DataContext>
 		<Binding Path="CharacterList" Source="{StaticResource ViewModelLocator}" />
 	</phone:PhoneApplicationPage.DataContext>
-	
+
 	<phone:PhoneApplicationPage.Resources>
 		<Style x:Key="CharacterInformationNameTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
@@ -25,14 +25,65 @@
 			<Setter Property="TextWrapping" Value="Wrap" />
 			<Setter Property="VerticalAlignment" Value="Center" />
 		</Style>
-		
+
 		<Style x:Key="CharacterInformationNormalTextStyle" BasedOn="{StaticResource PhoneTextSubtleStyle}" TargetType="TextBlock">
 			<Setter Property="Margin" Value="0" />
 			<Setter Property="Padding" Value="0" />
-			<Setter Property="FontSize" Value="16" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeXSmall}" />
 			<Setter Property="TextWrapping" Value="Wrap" />
 			<Setter Property="VerticalAlignment" Value="Center" />
 		</Style>
+
+		<DataTemplate x:Key="CharacterListItemTemplate">
+			<Grid Width="456" Margin="0,0,0,12" Background="{StaticResource PhoneBackgroundBrush}">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+				</Grid.ColumnDefinitions>
+				<Image Grid.Column="0" Source="{Binding ., Converter={StaticResource CharacterToThumbnail}}" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" />
+				<Image Grid.Column="0" helper:AsyncImageLoader.ImageUrl="{Binding ThumbnailImageUrl}" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" />
+				<Grid Grid.Column="1" VerticalAlignment="Center" Margin="12,0,0,0">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Text="{Binding Character, Converter={StaticResource StringToUppercase}}" Style="{StaticResource CharacterInformationNameTextStyle}" VerticalAlignment="Center" Margin="0" Padding="0" />
+					<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+						<TextBlock Text="{Binding AchievementPoints}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
+						<Image Source="/WowArmory.Core;Component/Images/Icons/Achievementpoints.png" VerticalAlignment="Center" Margin="4,0,0,0" />
+					</StackPanel>
+					<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+						<Image Source="{Binding RaceImage}" Width="24" Height="24" Margin="0,0,4,0" VerticalAlignment="Center" />
+						<Image Source="{Binding ClassImage}" Width="24" Height="24" Margin="0,0,4,0" VerticalAlignment="Center" />
+						<TextBlock Text="{Binding Level}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
+						<TextBlock Text="{Binding ClassAsInt, Converter={StaticResource ClassToLocalizedString}}" Style="{StaticResource CharacterInformationNormalTextStyle}" Margin="4,0,0,0" />
+					</StackPanel>
+					<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+						<TextBlock Text="{Binding FactionName}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
+						<Image Source="{Binding FactionImage}" Width="24" Height="24" VerticalAlignment="Center" Margin="4,0,0,0" />
+					</StackPanel>
+					<StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+						<TextBlock Text="{Binding RegionName}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
+						<TextBlock Text="-" Style="{StaticResource CharacterInformationNormalTextStyle}" Margin="4,0,4,0" />
+						<TextBlock Text="{Binding Realm}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
+					</StackPanel>
+					<TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Guild}" Style="{StaticResource CharacterInformationNormalTextStyle}" HorizontalAlignment="Right" />
+				</Grid>
+				<tk:ContextMenuService.ContextMenu>
+					<tk:ContextMenu IsZoomEnabled="True">
+						<tk:MenuItem Header="{Binding LocalizedResources.UI_CharacterList_ContextMenuItem_Update, Source={StaticResource LocalizedResources}}" Click="CharacterContextMenuItemUpdate_Click" />
+						<tk:MenuItem Header="{Binding LocalizedResources.UI_CharacterList_ContextMenuItem_Remove, Source={StaticResource LocalizedResources}}" Click="CharacterContextMenuItemRemove_Click" />
+						<tk:MenuItem Header="{Binding LocalizedResources.UI_CharacterList_ContextMenuItem_MoveToGroup, Source={StaticResource LocalizedResources}}" Click="CharacterContextMenuItemMoveToGroup_Click" />
+						<tk:MenuItem Header="{Binding LocalizedResources.UI_CharacterList_ContextMenuItem_RemoveFromGroup, Source={StaticResource LocalizedResources}}" Click="CharacterContextMenuItemRemoveFromGroup_Click" Visibility="{Binding IsRemoveFromGroupVisible, Converter={StaticResource BooleanToVisibility}}" />
+					</tk:ContextMenu>
+				</tk:ContextMenuService.ContextMenu>
+			</Grid>
+		</DataTemplate>
 	</phone:PhoneApplicationPage.Resources>
 
 	<!--LayoutRoot is the root grid where all page content is placed-->
@@ -48,67 +99,41 @@
 			<TextBlock Text="{Binding LocalizedResources.Page_CharacterList_Title, Source={StaticResource LocalizedResources}}" Style="{StaticResource PhoneTextAccentStyle}" />
 		</StackPanel>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-			<ListBox ItemsSource="{Binding FavoriteCharacters}"
-					 SelectedItem="{Binding SelectedCharacter, Mode=TwoWay}"
-					 SelectionChanged="ListBox_SelectionChanged">
-				<ListBox.ItemTemplate>
-					<DataTemplate>
-						<Grid Width="456" Margin="0,0,0,12" Background="{StaticResource PhoneBackgroundBrush}">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition Width="Auto" />
-								<ColumnDefinition Width="*" />
-							</Grid.ColumnDefinitions>
-							<Image Grid.Column="0" Source="{Binding ., Converter={StaticResource CharacterToThumbnail}}" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" />
-							<Image Grid.Column="0" helper:AsyncImageLoader.ImageUrl="{Binding ThumbnailImageUrl}" Width="64" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" />
-							<Grid Grid.Column="1" VerticalAlignment="Center" Margin="12,0,0,0">
-								<Grid.RowDefinitions>
-									<RowDefinition Height="Auto" />
-									<RowDefinition Height="Auto" />
-									<RowDefinition Height="Auto" />
-								</Grid.RowDefinitions>
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="*" />
-									<ColumnDefinition Width="Auto" />
-								</Grid.ColumnDefinitions>
-								<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Text="{Binding Character, Converter={StaticResource StringToUppercase}}" Style="{StaticResource CharacterInformationNameTextStyle}" VerticalAlignment="Center" Margin="0" Padding="0" />
-								<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-									<TextBlock Text="{Binding AchievementPoints}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
-									<Image Source="/WowArmory.Core;Component/Images/Icons/Achievementpoints.png" VerticalAlignment="Center" Margin="4,0,0,0" />
-								</StackPanel>
-								<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-									<Image Source="{Binding RaceImage}" Width="24" Height="24" Margin="0,0,4,0" VerticalAlignment="Center" />
-									<Image Source="{Binding ClassImage}" Width="24" Height="24" Margin="0,0,4,0" VerticalAlignment="Center" />
-									<TextBlock Text="{Binding Level}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
-									<TextBlock Text="{Binding ClassAsInt, Converter={StaticResource ClassToLocalizedString}}" Style="{StaticResource CharacterInformationNormalTextStyle}" Margin="4,0,0,0" />
-								</StackPanel>
-								<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
-									<TextBlock Text="{Binding FactionName}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
-									<Image Source="{Binding FactionImage}" Width="24" Height="24" VerticalAlignment="Center" Margin="4,0,0,0" />
-								</StackPanel>
-								<StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
-									<TextBlock Text="{Binding RegionName}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
-									<TextBlock Text="-" Style="{StaticResource CharacterInformationNormalTextStyle}" Margin="4,0,4,0" />
-									<TextBlock Text="{Binding Realm}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
-								</StackPanel>
-								<TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Guild}" Style="{StaticResource CharacterInformationNormalTextStyle}" HorizontalAlignment="Right" />
-							</Grid>
-							<tk:ContextMenuService.ContextMenu>
-								<tk:ContextMenu IsZoomEnabled="True">
-									<tk:MenuItem Header="{Binding LocalizedResources.UI_CharacterList_ContextMenuItem_Update, Source={StaticResource LocalizedResources}}" Click="CharacterContextMenuItemUpdate_Click" />
-									<tk:MenuItem Header="{Binding LocalizedResources.UI_CharacterList_ContextMenuItem_Remove, Source={StaticResource LocalizedResources}}" Click="CharacterContextMenuItemRemove_Click" />
-								</tk:ContextMenu>
-							</tk:ContextMenuService.ContextMenu>
-						</Grid>
-					</DataTemplate>
-				</ListBox.ItemTemplate>
-			</ListBox>
+		<!--ContentPanel - place additional content here-->
+		<Grid x:Name="ContentPanel" Grid.Row="1">
+			<ctrl:Pivot x:Name="pvGroups" SelectionChanged="pvGroups_SelectionChanged">
+				<ctrl:PivotItem Tag="All" Header="{Binding LocalizedResources.UI_CharacterList_PivotItem_All, Source={StaticResource LocalizedResources}}">
+					<ListBox ItemsSource="{Binding FavoriteCharacters}"
+							 SelectionChanged="ListBox_SelectionChanged"
+							 ItemTemplate="{StaticResource CharacterListItemTemplate}" />
+				</ctrl:PivotItem>
+			</ctrl:Pivot>
 			<Grid Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" Visibility="{Binding IsProgressBarVisible, Converter={StaticResource BooleanToVisibility}}" />
 			<TextBlock Text="{Binding LocalizedResources.UI_Common_LoadingData, Source={StaticResource LocalizedResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding IsProgressBarVisible, Converter={StaticResource BooleanToVisibility}}" />
 			<ProgressBar Style="{StaticResource PerformanceProgressBar}" Margin="0,36,0,0" VerticalAlignment="Center"
 						 IsIndeterminate="{Binding IsProgressBarIndeterminate}"
 						 Visibility="{Binding IsProgressBarVisible, Converter={StaticResource BooleanToVisibility}}"/>
 		</Grid>
-    </Grid>
+
+		<Grid x:Name="gdGroups" Grid.Row="0" Grid.RowSpan="2" Background="{StaticResource PhoneChromeBrush}" Visibility="Collapsed">
+			<ListBox x:Name="lbGroups" SelectionChanged="lbGroups_SelectionChanged" Margin="36">
+				<ListBox.ItemTemplate>
+					<DataTemplate>
+						<Grid Margin="0,0,0,6">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Rectangle Grid.Column="0" Fill="{StaticResource PhoneForegroundBrush}" Width="48" Height="48" Margin="0,0,12,0">
+								<Rectangle.OpacityMask>
+									<ImageBrush ImageSource="/Images/ApplicationBar/CharacterList/groups.png" />
+								</Rectangle.OpacityMask>
+							</Rectangle>
+							<TextBlock Grid.Column="1" Text="{Binding Value}" Style="{StaticResource PhoneTextTitle2Style}" Margin="0,0,0,12" />
+						</Grid>
+					</DataTemplate>
+				</ListBox.ItemTemplate>
+			</ListBox>
+		</Grid>
+	</Grid>
 </phone:PhoneApplicationPage>

@@ -133,6 +133,42 @@ namespace WowArmory.Core.Managers
 				IsolatedStorageManager.SetValue("Setting_Is3DItemViewerEnabled", value);
 			}
 		}
+
+		/// <summary>
+		/// Gets or sets the key in which the guild list is sorted by.
+		/// </summary>
+		/// <value>
+		/// The key in which the guild list is sorted by.
+		/// </value>
+		public static GuildListSortBy GuildListSortBy
+		{
+			get
+			{
+				return IsolatedStorageManager.GetValue("Setting_GuildListSortBy", GuildListSortBy.Name);
+			}
+			set
+			{
+				IsolatedStorageManager.SetValue("Setting_GuildListSortBy", value);
+			}
+		}
+
+		/// <summary>
+		/// Gets or sets the type the guild list is sorted by.
+		/// </summary>
+		/// <value>
+		/// The type the guild list is sorted by.
+		/// </value>
+		public static SortBy GuildListSortByType
+		{
+			get
+			{
+				return IsolatedStorageManager.GetValue("Setting_GuildListSortByType", SortBy.Ascending);
+			}
+			set
+			{
+				IsolatedStorageManager.SetValue("Setting_GuildListSortByType", value);
+			}
+		}
 		//----------------------------------------------------------------------
 		#endregion
 		//----------------------------------------------------------------------

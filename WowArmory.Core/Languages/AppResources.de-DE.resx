@@ -325,19 +325,19 @@
     <value>information</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
-    <value>©2010-2011 Christian Krüger. Alle Rechte vorbehalten.</value>
+    <value>©2011 Christian Krüger. Alle Rechte vorbehalten.</value>
   </data>
   <data name="About_CreatedBy" xml:space="preserve">
     <value>Erstellt von Christian Krüger</value>
   </data>
   <data name="About_Links" xml:space="preserve">
-    <value>Aktuellste Neuigkeiten:</value>
+    <value>Aktuellste Neuigkeiten und mehr:</value>
   </data>
   <data name="About_Trademarks" xml:space="preserve">
     <value>Alle in dieser Applikation genannten Markenzeichen sind Besitz der jeweiligen Besitzer.</value>
   </data>
   <data name="About_Version" xml:space="preserve">
-    <value>Version 2.0</value>
+    <value>Version 2.2</value>
   </data>
   <data name="About_FacebookURL" xml:space="preserve">
     <value>facebook.com/wp7wowarmory</value>
@@ -365,12 +365,6 @@
   </data>
   <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
     <value>Willkommensnachricht anzeigen</value>
-  </data>
-  <data name="UI_Settings_General_CharacterList_OrderBy_Level" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="UI_Settings_General_CharacterList_OrderBy_Name" xml:space="preserve">
-    <value>Name</value>
   </data>
   <data name="UI_CharacterList_ApplicationBar_Search" xml:space="preserve">
     <value>suchen</value>
@@ -511,7 +505,7 @@
     <value>Der Quellcode diese App ist verfügbar auf Github:</value>
   </data>
   <data name="About_SourceButton" xml:space="preserve">
-    <value>Besuche Projektseite</value>
+    <value>Github (Quellcode)</value>
   </data>
   <data name="About_SourceURL" xml:space="preserve">
     <value>http://github.com/ckrueger/WoW-Armory-for-Windows-Phone-7</value>
@@ -628,7 +622,7 @@
     <value>Quest</value>
   </data>
   <data name="Item_ItemClass_Quiver" xml:space="preserve">
-    <value>Kächer</value>
+    <value>Köcher</value>
   </data>
   <data name="Item_ItemClass_Reagent" xml:space="preserve">
     <value>Reagenz</value>
@@ -1036,22 +1030,22 @@
   <data name="Page_GuildList_Title" xml:space="preserve">
     <value>Suche Gilden und verwalte deine Favoriten</value>
   </data>
-  <data name="UI_Search_Error_CharacterNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_CharacterNotFound_Caption" xml:space="preserve">
     <value>Charakter nicht gefunden</value>
   </data>
-  <data name="UI_Search_Error_CharacterNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_CharacterNotFound_Text" xml:space="preserve">
     <value>Der angegebene Charakter konnte nicht gefunden werden</value>
   </data>
-  <data name="UI_Search_Error_GuildNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_GuildNotFound_Caption" xml:space="preserve">
     <value>Gilde nicht gefunden</value>
   </data>
-  <data name="UI_Search_Error_GuildNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_GuildNotFound_Text" xml:space="preserve">
     <value>Die angegebene Gilde konnte nicht gefunden werden</value>
   </data>
-  <data name="UI_Search_Error_RealmNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_RealmNotFound_Caption" xml:space="preserve">
     <value>Realm nicht gefunden</value>
   </data>
-  <data name="UI_Search_Error_RealmNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_RealmNotFound_Text" xml:space="preserve">
     <value>Der angegebene Realm konnte nicht gefunden werden</value>
   </data>
   <data name="UI_Search_MissingCharacterName_Text" xml:space="preserve">
@@ -1066,7 +1060,7 @@
   <data name="UI_Search_Text_CharacterName" xml:space="preserve">
     <value>Charakter</value>
   </data>
-  <data name="UI_Search_Text_Guild" xml:space="preserve">
+  <data name="UI_Search_Text_GuildName" xml:space="preserve">
     <value>Guild</value>
   </data>
   <data name="UI_Search_Text_Realm" xml:space="preserve">
@@ -1170,5 +1164,140 @@
   </data>
   <data name="Item_ExternalLink_Wowhead_ViewSpell" xml:space="preserve">
     <value>Rezept auf Wowhead anzeigen</value>
+  </data>
+  <data name="UI_GuildDetails_Common_StoreGuild" xml:space="preserve">
+    <value>Gilde wird gespeichert...</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Faction_Alliance" xml:space="preserve">
+    <value>Allianz-Gilde</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Faction_Horde" xml:space="preserve">
+    <value>Horde-Gilde</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Members" xml:space="preserve">
+    <value>{0} Mitglieder</value>
+  </data>
+  <data name="UI_GuildList_ContextMenuItem_Remove" xml:space="preserve">
+    <value>entfernen</value>
+  </data>
+  <data name="UI_GuildList_ContextMenuItem_Update" xml:space="preserve">
+    <value>aktualisieren</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByLevel" xml:space="preserve">
+    <value>nach stufe sortieren</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByMembers" xml:space="preserve">
+    <value>nach mitgliedern sortieren</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByName" xml:space="preserve">
+    <value>nach name sortieren</value>
+  </data>
+  <data name="UI_GuildList_DeleteAll_Caption" xml:space="preserve">
+    <value>Gilden entfernen</value>
+  </data>
+  <data name="UI_GuildList_DeleteAll_Text" xml:space="preserve">
+    <value>Alle Gilde aus deiner Liste werden entfernt</value>
+  </data>
+  <data name="UI_GuildList_Delete_Caption" xml:space="preserve">
+    <value>Gilde entfernen</value>
+  </data>
+  <data name="UI_GuildList_Delete_Text" xml:space="preserve">
+    <value>Diese Gilde wird aus deiner Liste entfernt</value>
+  </data>
+  <data name="UI_GuildDetails_PivotItem_Members" xml:space="preserve">
+    <value>mitglieder</value>
+  </data>
+  <data name="UI_GuildDetails_Members_Rank" xml:space="preserve">
+    <value>Rang {0}</value>
+  </data>
+  <data name="UI_GuildDetails_Members_GuildMaster" xml:space="preserve">
+    <value>Gildenmeister</value>
+  </data>
+  <data name="UI_GuildDetails_PivotItem_Perks" xml:space="preserve">
+    <value>boni</value>
+  </data>
+  <data name="UI_GuildDetails_Perks_NotRetrieved" xml:space="preserve">
+    <value>Boni-Liste konnte nicht empfangen werden</value>
+  </data>
+  <data name="UI_GuildDetails_Perks_Level" xml:space="preserve">
+    <value>Stufe {0}</value>
+  </data>
+  <data name="Item_SocketType_GREEN" xml:space="preserve">
+    <value>Grün</value>
+  </data>
+  <data name="Item_SocketType_META" xml:space="preserve">
+    <value>Meta</value>
+  </data>
+  <data name="Item_SocketType_ORANGE" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="Item_SocketType_PURPLE" xml:space="preserve">
+    <value>Violett</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Level" xml:space="preserve">
+    <value>Stufe {0}</value>
+  </data>
+  <data name="BattleNet_Races_Goblin" xml:space="preserve">
+    <value>Goblin</value>
+  </data>
+  <data name="BattleNet_Races_Worgen" xml:space="preserve">
+    <value>Worgen</value>
+  </data>
+  <data name="UI_CharacterList_PivotItem_All" xml:space="preserve">
+    <value>alle</value>
+  </data>
+  <data name="Page_GroupManagement_Title" xml:space="preserve">
+    <value>Verwalte deine Gruppen</value>
+  </data>
+  <data name="UI_GroupManagement_ApplicationBar_Add" xml:space="preserve">
+    <value>hinzufügen</value>
+  </data>
+  <data name="UI_GroupManagement_ApplicationBar_DeleteAll" xml:space="preserve">
+    <value>alle entfernen</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_Groups" xml:space="preserve">
+    <value>gruppen</value>
+  </data>
+  <data name="UI_GroupManagement_Add" xml:space="preserve">
+    <value>Gruppe hinzufügen</value>
+  </data>
+  <data name="UI_GroupManagement_ApplicationBar_Delete" xml:space="preserve">
+    <value>entfernen</value>
+  </data>
+  <data name="UI_GroupManagement_DeleteAll_Caption" xml:space="preserve">
+    <value>Gruppen entfernen</value>
+  </data>
+  <data name="UI_GroupManagement_DeleteAll_Text" xml:space="preserve">
+    <value>Alle Gruppen aus deiner Liste werden entfernt</value>
+  </data>
+  <data name="UI_GroupManagement_Delete_Caption" xml:space="preserve">
+    <value>Gruppen entfernen</value>
+  </data>
+  <data name="UI_GroupManagement_Delete_Text" xml:space="preserve">
+    <value>Die ausgewählten Gruppen aus deiner Liste werden entfernt</value>
+  </data>
+  <data name="UI_GroupManagement_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooLong_Caption" xml:space="preserve">
+    <value>Name zu lang</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooLong_Text" xml:space="preserve">
+    <value>Bitte gib einen kürzeren Namen an</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooShort_Caption" xml:space="preserve">
+    <value>Name zu kurz</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooShort_Text" xml:space="preserve">
+    <value>Bitte gib einen längeren Namen an</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_RemoveFromGroup" xml:space="preserve">
+    <value>aus gruppe entfernen</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_MoveToGroup" xml:space="preserve">
+    <value>in gruppe verschieben</value>
+  </data>
+  <data name="UI_CharacterDetails_ViewCharacter" xml:space="preserve">
+    <value>Charakter betrachten</value>
   </data>
 </root>

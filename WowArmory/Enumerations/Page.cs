@@ -12,6 +12,7 @@
 		CharacterDetails,
 		GuildList,
 		GuildSearch,
-		GuildDetails
+		GuildDetails,
+		GroupManagement
 	}
 }

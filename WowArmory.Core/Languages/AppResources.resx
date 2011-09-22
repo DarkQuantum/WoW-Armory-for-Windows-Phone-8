@@ -325,19 +325,19 @@
     <value>about</value>
   </data>
   <data name="About_Copyright" xml:space="preserve">
-    <value>©2010-2011 Christian Krueger. All rights reserved.</value>
+    <value>©2011 Christian Krueger. All rights reserved.</value>
   </data>
   <data name="About_CreatedBy" xml:space="preserve">
     <value>Created by Christian Krueger</value>
   </data>
   <data name="About_Links" xml:space="preserve">
-    <value>Latest app news:</value>
+    <value>Latest app news and more:</value>
   </data>
   <data name="About_Trademarks" xml:space="preserve">
     <value>All trademarks referenced in this application are the properties of their respective owners.</value>
   </data>
   <data name="About_Version" xml:space="preserve">
-    <value>Version 2.0</value>
+    <value>Version 2.2</value>
   </data>
   <data name="About_FacebookURL" xml:space="preserve">
     <value>facebook.com/wp7wowarmory</value>
@@ -357,10 +357,10 @@
   <data name="UI_Settings_ApplicationBar_Save" xml:space="preserve">
     <value>save</value>
   </data>
-  <data name="UI_Search_Error_CharacterNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_CharacterNotFound_Caption" xml:space="preserve">
     <value>Character not found</value>
   </data>
-  <data name="UI_Search_Error_CharacterNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_CharacterNotFound_Text" xml:space="preserve">
     <value>The specified character could not be found</value>
   </data>
   <data name="UI_Main_FirstTimeUsage_Caption" xml:space="preserve">
@@ -371,12 +371,6 @@
   </data>
   <data name="UI_Settings_General_IsFirstTimeUsage" xml:space="preserve">
     <value>Show welcome message again</value>
-  </data>
-  <data name="UI_Settings_General_CharacterList_OrderBy_Level" xml:space="preserve">
-    <value>Level</value>
-  </data>
-  <data name="UI_Settings_General_CharacterList_OrderBy_Name" xml:space="preserve">
-    <value>Name</value>
   </data>
   <data name="UI_CharacterList_ApplicationBar_Search" xml:space="preserve">
     <value>search</value>
@@ -517,7 +511,7 @@
     <value>Source code for this app is available at GitHub:</value>
   </data>
   <data name="About_SourceButton" xml:space="preserve">
-    <value>Visit project page</value>
+    <value>Github (source code)</value>
   </data>
   <data name="About_SourceURL" xml:space="preserve">
     <value>http://github.com/ckrueger/WoW-Armory-for-Windows-Phone-7</value>
@@ -1063,16 +1057,16 @@
   <data name="Page_GuildList_Title" xml:space="preserve">
     <value>Search guilds and manage your favorites</value>
   </data>
-  <data name="UI_Search_Error_GuildNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_GuildNotFound_Caption" xml:space="preserve">
     <value>Guild not found</value>
   </data>
-  <data name="UI_Search_Error_GuildNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_GuildNotFound_Text" xml:space="preserve">
     <value>The specified guild could not be found</value>
   </data>
-  <data name="UI_Search_Error_RealmNotFound_Caption" xml:space="preserve">
+  <data name="UI_ApiResponseError_RealmNotFound_Caption" xml:space="preserve">
     <value>Realm not found</value>
   </data>
-  <data name="UI_Search_Error_RealmNotFound_Text" xml:space="preserve">
+  <data name="UI_ApiResponseError_RealmNotFound_Text" xml:space="preserve">
     <value>The specified realm could not be found</value>
   </data>
   <data name="UI_Search_MissingCharacterName_Text" xml:space="preserve">
@@ -1087,7 +1081,7 @@
   <data name="UI_Search_Text_CharacterName" xml:space="preserve">
     <value>Character</value>
   </data>
-  <data name="UI_Search_Text_Guild" xml:space="preserve">
+  <data name="UI_Search_Text_GuildName" xml:space="preserve">
     <value>Guild</value>
   </data>
   <data name="UI_Search_Text_Realm" xml:space="preserve">
@@ -1182,5 +1176,128 @@
   </data>
   <data name="Item_ExternalLink_Wowhead_ViewSpell" xml:space="preserve">
     <value>View recipe on Wowhead</value>
+  </data>
+  <data name="UI_GuildDetails_Common_StoreGuild" xml:space="preserve">
+    <value>Storing guild...</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Faction_Alliance" xml:space="preserve">
+    <value>Alliance Guild</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Faction_Horde" xml:space="preserve">
+    <value>Horde Guild</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Level" xml:space="preserve">
+    <value>Level {0}</value>
+  </data>
+  <data name="UI_GuildDetails_Header_Members" xml:space="preserve">
+    <value>{0} members</value>
+  </data>
+  <data name="UI_GuildList_ContextMenuItem_Remove" xml:space="preserve">
+    <value>remove</value>
+  </data>
+  <data name="UI_GuildList_ContextMenuItem_Update" xml:space="preserve">
+    <value>update</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByLevel" xml:space="preserve">
+    <value>sort by level</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByMembers" xml:space="preserve">
+    <value>sort by members</value>
+  </data>
+  <data name="UI_GuildList_ApplicationBar_SortByName" xml:space="preserve">
+    <value>sort by name</value>
+  </data>
+  <data name="UI_GuildList_DeleteAll_Caption" xml:space="preserve">
+    <value>Remove all guilds</value>
+  </data>
+  <data name="UI_GuildList_DeleteAll_Text" xml:space="preserve">
+    <value>All guilds will be removed from your list</value>
+  </data>
+  <data name="UI_GuildList_Delete_Caption" xml:space="preserve">
+    <value>Remove guild</value>
+  </data>
+  <data name="UI_GuildList_Delete_Text" xml:space="preserve">
+    <value>This guild will be removed from the list</value>
+  </data>
+  <data name="UI_GuildDetails_PivotItem_Members" xml:space="preserve">
+    <value>members</value>
+  </data>
+  <data name="UI_GuildDetails_Members_Rank" xml:space="preserve">
+    <value>Rank {0}</value>
+  </data>
+  <data name="UI_GuildDetails_Members_GuildMaster" xml:space="preserve">
+    <value>Guild Master</value>
+  </data>
+  <data name="UI_GuildDetails_PivotItem_Perks" xml:space="preserve">
+    <value>perks</value>
+  </data>
+  <data name="UI_GuildDetails_Perks_NotRetrieved" xml:space="preserve">
+    <value>Could not retrieve perks list</value>
+  </data>
+  <data name="UI_GuildDetails_Perks_Level" xml:space="preserve">
+    <value>Level {0}</value>
+  </data>
+  <data name="BattleNet_Races_Goblin" xml:space="preserve">
+    <value>Goblin</value>
+  </data>
+  <data name="BattleNet_Races_Worgen" xml:space="preserve">
+    <value>Worgen</value>
+  </data>
+  <data name="UI_CharacterList_PivotItem_All" xml:space="preserve">
+    <value>all</value>
+  </data>
+  <data name="Page_GroupManagement_Title" xml:space="preserve">
+    <value>Manage your groups</value>
+  </data>
+  <data name="UI_GroupManagement_ApplicationBar_Add" xml:space="preserve">
+    <value>add</value>
+  </data>
+  <data name="UI_GroupManagement_ApplicationBar_DeleteAll" xml:space="preserve">
+    <value>remove all</value>
+  </data>
+  <data name="UI_CharacterList_ApplicationBar_Groups" xml:space="preserve">
+    <value>groups</value>
+  </data>
+  <data name="UI_GroupManagement_Add" xml:space="preserve">
+    <value>Add group</value>
+  </data>
+  <data name="UI_GroupManagement_ApplicationBar_Delete" xml:space="preserve">
+    <value>remove</value>
+  </data>
+  <data name="UI_GroupManagement_DeleteAll_Caption" xml:space="preserve">
+    <value>Remove all groups</value>
+  </data>
+  <data name="UI_GroupManagement_DeleteAll_Text" xml:space="preserve">
+    <value>All groups will be removed from your list</value>
+  </data>
+  <data name="UI_GroupManagement_Delete_Caption" xml:space="preserve">
+    <value>Remove selected groups</value>
+  </data>
+  <data name="UI_GroupManagement_Delete_Text" xml:space="preserve">
+    <value>Selected groups will be removed from your list</value>
+  </data>
+  <data name="UI_GroupManagement_Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooLong_Caption" xml:space="preserve">
+    <value>Name too long</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooLong_Text" xml:space="preserve">
+    <value>Please use a shorter name</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooShort_Caption" xml:space="preserve">
+    <value>Name too short</value>
+  </data>
+  <data name="UI_GroupManagement_NameTooShort_Text" xml:space="preserve">
+    <value>Please use a longer name</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_RemoveFromGroup" xml:space="preserve">
+    <value>remove from group</value>
+  </data>
+  <data name="UI_CharacterList_ContextMenuItem_MoveToGroup" xml:space="preserve">
+    <value>move to group</value>
+  </data>
+  <data name="UI_CharacterDetails_ViewCharacter" xml:space="preserve">
+    <value>View character</value>
   </data>
 </root>

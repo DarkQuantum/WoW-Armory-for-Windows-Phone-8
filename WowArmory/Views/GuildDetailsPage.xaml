@@ -6,7 +6,9 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+	xmlns:ctrl="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
+	xmlns:helper="clr-namespace:WowArmory.Core.Helper;assembly=WowArmory.Core"
+	xmlns:telerikPrim="clr-namespace:Telerik.Windows.Controls;assembly=Telerik.Windows.Controls.Primitives" xmlns:ctrls="clr-namespace:WowArmory.Controls" xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
@@ -17,6 +19,85 @@
 	<phone:PhoneApplicationPage.DataContext>
 		<Binding Path="GuildDetails" Source="{StaticResource ViewModelLocator}" />
 	</phone:PhoneApplicationPage.DataContext>
+	
+	<phone:PhoneApplicationPage.Resources>
+		<Style x:Key="GuildInfoNameStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="GuildInfoNormalStyle" BasedOn="{StaticResource PhoneTextSubtleStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeXSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="CharacterInformationNameTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeXSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="CharacterInformationNormalTextStyle" BasedOn="{StaticResource PhoneTextSubtleStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeXSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+		
+		<Style x:Key="PerkNameStyle" BasedOn="{StaticResource PhoneTextAccentStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="PerkNameInactiveStyle" BasedOn="{StaticResource PerkNameStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}" />
+		</Style>
+
+		<Style x:Key="PerkLevelStyle" BasedOn="{StaticResource PhoneTextAccentStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="PerkLevelInactiveStyle" BasedOn="{StaticResource PerkLevelStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}" />
+		</Style>
+
+		<Style x:Key="PerkTextStyle" BasedOn="{StaticResource PhoneTextNormalStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeXSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="PerkTextInactiveStyle" BasedOn="{StaticResource PerkTextStyle}" TargetType="TextBlock">
+			<Setter Property="Foreground" Value="{StaticResource PhoneSubtleBrush}" />
+		</Style>
+
+		<Style x:Key="PerkSpellStyle" BasedOn="{StaticResource PhoneTextSubtleStyle}" TargetType="TextBlock">
+			<Setter Property="Margin" Value="0" />
+			<Setter Property="Padding" Value="0" />
+			<Setter Property="FontSize" Value="{StaticResource PhoneFontSizeXSmall}" />
+			<Setter Property="TextWrapping" Value="Wrap" />
+			<Setter Property="VerticalAlignment" Value="Center" />
+		</Style>
+
+		<Style x:Key="PerkSpellInactiveStyle" BasedOn="{StaticResource PerkSpellStyle}" TargetType="TextBlock">
+		</Style>
+	</phone:PhoneApplicationPage.Resources>
 
 	<!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -24,10 +105,112 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-			<TextBlock Text="TODO" HorizontalAlignment="Center" VerticalAlignment="Center" />
+		<Grid Grid.Row="0">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Image Grid.Column="0" Source="{Binding GuildEmblemImage}" Height="64" HorizontalAlignment="Center" VerticalAlignment="Center" MouseLeftButtonDown="GuildEmblemImage_MouseLeftButtonDown" />
+			<Grid Grid.Column="1" Margin="12,0,6,0">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="*" />
+					<RowDefinition Height="Auto" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Text="{Binding Guild.Name, Converter={StaticResource StringToUppercase}}" Style="{StaticResource GuildInfoNameStyle}" />
+				<StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+					<TextBlock Text="{Binding Level}" Style="{StaticResource GuildInfoNormalStyle}" />
+					<Image Source="{Binding FactionImage}" Width="24" Height="24" VerticalAlignment="Center" Margin="4,0,4,0" />
+					<TextBlock Text="{Binding Faction}" Style="{StaticResource GuildInfoNormalStyle}" />
+				</StackPanel>
+				<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+					<TextBlock Text="{Binding Guild.AchievementPoints}" Style="{StaticResource GuildInfoNormalStyle}" />
+					<Image Source="/WowArmory.Core;Component/Images/Icons/Achievementpoints.png" Width="11" Height="16" Margin="4,0,0,0" VerticalAlignment="Center" />
+				</StackPanel>
+				<StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+					<TextBlock Text="{Binding RegionString}" Style="{StaticResource GuildInfoNormalStyle}" />
+					<TextBlock Text="-" Style="{StaticResource GuildInfoNormalStyle}" Margin="4,0,4,0" />
+					<TextBlock Grid.Row="2" Grid.Column="0" Text="{Binding Guild.Realm}" Style="{StaticResource GuildInfoNormalStyle}" />
+				</StackPanel>
+				<TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding MemberCount}" Style="{StaticResource GuildInfoNormalStyle}" HorizontalAlignment="Right" />
+			</Grid>
+			<Image Grid.Column="2" Source="{Binding FavoriteImage}" Width="64" Height="64" HorizontalAlignment="Right" VerticalAlignment="Center" MouseLeftButtonDown="FavoriteToggle_MouseLeftButtonDown" />
+		</Grid>
+        <Grid Grid.Row="1">
+			<ctrl:Pivot x:Name="GuildPivot" SelectionChanged="GuildPivot_SelectionChanged">
+				<ctrl:PivotItem Header="{Binding LocalizedResources.UI_GuildDetails_PivotItem_Members, Source={StaticResource LocalizedResources}}">
+					<Grid x:Name="MembersPivotItem">
+						<telerikPrim:RadDataBoundListBox ItemsSource="{Binding Members}"
+														 SelectedItem="{Binding SelectedMember, Mode=TwoWay}"
+														 SelectionChanged="ListBox_SelectionChanged"
+														 EmptyContent="">
+							<telerikPrim:RadDataBoundListBox.ItemTemplate>
+								<DataTemplate>
+									<Grid Width="456" Margin="0,0,0,6" Background="{StaticResource PhoneBackgroundBrush}">
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto" />
+											<ColumnDefinition Width="*" />
+										</Grid.ColumnDefinitions>
+										<Image Grid.Column="0" Source="{Binding Character, Converter={StaticResource CharacterToThumbnail}}" Width="48" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
+										<Image Grid.Column="0" helper:AsyncImageLoader.ImageUrl="{Binding ThumbnailImageUrl}" Width="48" Height="48" HorizontalAlignment="Center" VerticalAlignment="Center" />
+										<Grid Grid.Column="1" VerticalAlignment="Center" Margin="12,-6,0,0">
+											<Grid.RowDefinitions>
+												<RowDefinition Height="Auto" />
+												<RowDefinition Height="Auto" />
+											</Grid.RowDefinitions>
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="*" />
+												<ColumnDefinition Width="Auto" />
+											</Grid.ColumnDefinitions>
+											<TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Text="{Binding Character.Name, Converter={StaticResource StringToUppercase}}" Style="{StaticResource CharacterInformationNameTextStyle}" />
+											<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+												<TextBlock Text="{Binding Character.AchievementPoints}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
+												<Image Source="/WowArmory.Core;Component/Images/Icons/Achievementpoints.png" VerticalAlignment="Center" Margin="4,0,0,0" />
+											</StackPanel>
+											<StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center">
+												<Image Source="{Binding RaceImage}" Width="24" Height="24" Margin="0,0,4,0" VerticalAlignment="Center" />
+												<Image Source="{Binding ClassImage}" Width="24" Height="24" Margin="0,0,4,0" VerticalAlignment="Center" />
+												<TextBlock Text="{Binding Character.Level}" Style="{StaticResource CharacterInformationNormalTextStyle}" />
+												<TextBlock Text="{Binding ClassAsInt, Converter={StaticResource ClassToLocalizedString}}" Style="{StaticResource CharacterInformationNormalTextStyle}" Margin="4,0,0,0" />
+											</StackPanel>
+											<StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+												<Image Source="/WowArmory.Core;Component/Images/Icons/Guildmaster.png" Width="24" Height="24" VerticalAlignment="Center" Margin="0,0,4,0" Visibility="{Binding IsGuildMaster, Converter={StaticResource BooleanToVisibility}}" />
+												<TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding RankString}" Style="{StaticResource CharacterInformationNormalTextStyle}" HorizontalAlignment="Right" />
+											</StackPanel>
+										</Grid>
+									</Grid>
+								</DataTemplate>
+							</telerikPrim:RadDataBoundListBox.ItemTemplate>
+						</telerikPrim:RadDataBoundListBox>
+					</Grid>
+				</ctrl:PivotItem>
+				<ctrl:PivotItem x:Name="piPerks" Header="{Binding LocalizedResources.UI_GuildDetails_PivotItem_Perks, Source={StaticResource LocalizedResources}}">
+					<Grid x:Name="PerksPiotItem">
+						<ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+							<StackPanel x:Name="spPerks" Orientation="Vertical" />
+						</ScrollViewer>
+					</Grid>
+				</ctrl:PivotItem>
+			</ctrl:Pivot>
+		</Grid>
+		<Grid Grid.Row="0" Grid.RowSpan="2" Visibility="{Binding IsProgressBarVisible, Converter={StaticResource BooleanToVisibility}}">
+			<Grid Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" />
+			<TextBlock Text="{Binding LocalizedResources.UI_Common_LoadingData, Source={StaticResource LocalizedResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<ProgressBar Style="{StaticResource PerformanceProgressBar}" IsIndeterminate="{Binding IsProgressBarIndeterminate}" Margin="0,36,0,0" VerticalAlignment="Center" />
+		</Grid>
+		<Grid x:Name="gdEmblemViewer" Grid.Row="0" Grid.RowSpan="2" Visibility="Collapsed">
+			<Grid Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" />
+			<Image Source="{Binding GuildEmblemImage}" Width="216" Height="240" HorizontalAlignment="Center" VerticalAlignment="Center" />
+		</Grid>
+		<Grid x:Name="gdStoreGuildOverlay" Grid.Row="0" Grid.RowSpan="2" Visibility="Collapsed">
+			<Grid Background="{StaticResource PhoneBackgroundBrush}" Opacity="0.75" />
+			<TextBlock Text="{Binding LocalizedResources.UI_GuildDetails_Common_StoreGuild, Source={StaticResource LocalizedResources}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+			<ProgressBar x:Name="pbStoreGuild" Style="{StaticResource PerformanceProgressBar}" Margin="0,36,0,0" VerticalAlignment="Center" />
 		</Grid>
     </Grid>
 </phone:PhoneApplicationPage>

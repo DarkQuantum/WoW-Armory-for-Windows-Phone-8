@@ -60,6 +60,9 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml.Serialization" />
+    <Reference Include="WriteableBitmapExWinPhone">
+      <HintPath>..\Lib\WriteableBitmapExWinPhone.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleNet\BattleNetSettings.Designer.cs">
@@ -91,6 +94,9 @@
     <Compile Include="BattleNet\Models\GuildFields.cs" />
     <Compile Include="BattleNet\Models\GuildMember.cs" />
     <Compile Include="BattleNet\Models\GuildMemberCharacter.cs" />
+    <Compile Include="BattleNet\Models\GuildPerk.cs" />
+    <Compile Include="BattleNet\Models\GuildPerks.cs" />
+    <Compile Include="BattleNet\Models\GuildPerkSpell.cs" />
     <Compile Include="BattleNet\Models\GuildSide.cs" />
     <Compile Include="BattleNet\Models\InventoryType.cs" />
     <Compile Include="BattleNet\Models\Item.cs" />
@@ -145,11 +151,13 @@
     <Compile Include="Converters\ThumbnailImageUrlConverter.cs" />
     <Compile Include="Converters\AppImageUrlConverter.cs" />
     <Compile Include="Enumerations\CharacterListSortBy.cs" />
+    <Compile Include="Enumerations\GuildListSortBy.cs" />
     <Compile Include="Enumerations\SortBy.cs" />
     <Compile Include="Extensions\ApplicationExtensions.cs" />
     <Compile Include="Extensions\EnumExtentions.cs" />
     <Compile Include="Extensions\EnumerableExtensions.cs" />
     <Compile Include="Helper\AsyncImageLoader.cs" />
+    <Compile Include="Helper\ImageHelper.cs" />
     <Compile Include="Helper\UIHelper.cs" />
     <Compile Include="Languages\AppResources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -178,12 +186,6 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Lib\Newtonsoft.Json\Newtonsoft.Json.WindowsPhone.csproj">
-      <Project>{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}</Project>
-      <Name>Newtonsoft.Json.WindowsPhone</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\media\characterdetails\Faction_Header_0.png">
@@ -945,6 +947,670 @@
     <Resource Include="..\Media\Icons\Factions\1.png">
       <Link>Images\Icons\Factions\1.png</Link>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Faction_Header_0.png">
+      <Link>Images\GuildDetails\Faction_Header_0.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Faction_Header_1.png">
+      <Link>Images\GuildDetails\Faction_Header_1.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\Guildmaster.png">
+      <Link>Images\Icons\Guildmaster.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Emblem_Background_Alliance.png">
+      <Link>Images\GuildDetails\Emblem_Background_Alliance.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Background_Horde.png">
+      <Link>Images\GuildDetails\Emblem_Background_Horde.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Emblem_Background.png">
+      <Link>Images\GuildDetails\Emblem_Background.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Hooks.png">
+      <Link>Images\GuildDetails\Emblem_Hooks.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Shadow.png">
+      <Link>Images\GuildDetails\Emblem_Shadow.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Emblem_Default_Alliance.png">
+      <Link>Images\GuildDetails\Emblem_Default_Alliance.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Default_Horde.png">
+      <Link>Images\GuildDetails\Emblem_Default_Horde.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_0.png">
+      <Link>Images\GuildDetails\Emblem_Border_0.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_1.png">
+      <Link>Images\GuildDetails\Emblem_Border_1.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_2.png">
+      <Link>Images\GuildDetails\Emblem_Border_2.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_3.png">
+      <Link>Images\GuildDetails\Emblem_Border_3.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_4.png">
+      <Link>Images\GuildDetails\Emblem_Border_4.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_5.png">
+      <Link>Images\GuildDetails\Emblem_Border_5.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblem_Border_6.png">
+      <Link>Images\GuildDetails\Emblem_Border_6.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\Icons\Locked.png">
+      <Link>Images\Icons\Locked.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_000.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_000.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_001.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_001.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_002.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_002.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_003.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_003.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_004.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_004.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_005.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_005.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_006.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_006.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_007.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_007.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_008.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_008.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_009.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_009.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_010.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_010.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_011.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_011.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_012.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_012.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_013.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_013.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_014.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_014.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_015.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_015.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_016.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_016.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_017.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_017.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_018.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_018.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_019.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_019.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_020.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_020.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_021.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_021.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_022.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_022.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_023.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_023.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_024.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_024.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_025.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_025.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_026.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_026.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_027.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_027.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_028.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_028.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_029.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_029.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_030.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_030.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_031.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_031.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_032.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_032.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_033.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_033.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_034.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_034.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_035.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_035.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_036.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_036.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_037.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_037.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_038.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_038.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_039.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_039.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_040.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_040.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_041.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_041.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_042.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_042.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_043.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_043.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_044.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_044.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_045.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_045.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_046.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_046.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_047.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_047.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_048.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_048.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_049.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_049.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_050.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_050.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_051.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_051.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_052.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_052.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_053.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_053.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_054.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_054.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_055.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_055.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_056.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_056.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_057.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_057.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_058.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_058.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_059.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_059.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_060.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_060.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_061.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_061.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_062.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_062.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_063.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_063.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_064.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_064.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_065.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_065.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_066.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_066.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_067.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_067.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_068.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_068.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_069.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_069.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_070.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_070.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_071.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_071.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_072.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_072.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_073.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_073.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_074.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_074.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_075.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_075.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_076.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_076.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_077.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_077.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_078.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_078.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_079.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_079.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_080.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_080.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_081.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_081.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_082.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_082.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_083.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_083.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_084.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_084.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_085.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_085.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_086.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_086.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_087.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_087.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_088.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_088.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_089.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_089.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_090.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_090.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_091.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_091.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_092.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_092.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_093.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_093.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_094.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_094.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_095.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_095.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_096.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_096.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_097.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_097.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_098.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_098.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_099.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_099.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_100.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_100.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_101.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_101.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_102.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_102.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_103.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_103.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_104.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_104.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_105.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_105.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_106.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_106.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_107.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_107.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_108.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_108.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_109.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_109.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_110.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_110.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_111.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_111.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_112.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_112.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_113.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_113.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_114.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_114.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_115.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_115.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_116.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_116.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_117.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_117.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_118.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_118.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_119.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_119.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_120.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_120.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_121.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_121.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_122.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_122.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_123.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_123.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_124.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_124.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_125.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_125.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_126.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_126.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_127.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_127.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_128.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_128.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_129.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_129.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_130.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_130.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_131.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_131.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_132.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_132.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_133.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_133.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_134.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_134.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_135.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_135.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_136.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_136.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_137.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_137.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_138.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_138.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_139.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_139.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_140.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_140.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_141.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_141.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_142.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_142.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_143.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_143.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_144.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_144.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_145.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_145.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_146.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_146.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_147.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_147.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_148.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_148.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_149.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_149.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_150.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_150.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_151.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_151.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_152.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_152.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_153.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_153.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_154.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_154.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_155.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_155.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_156.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_156.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_157.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_157.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_158.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_158.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_159.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_159.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_160.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_160.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_161.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_161.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_162.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_162.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_163.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_163.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_164.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_164.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_165.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_165.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_166.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_166.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_167.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_167.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_168.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_168.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_169.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_169.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_170.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_170.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_171.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_171.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_172.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_172.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_173.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_173.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_174.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_174.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_175.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_175.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_176.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_176.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_177.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_177.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_178.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_178.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_179.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_179.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_180.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_180.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_181.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_181.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_182.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_182.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_183.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_183.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_184.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_184.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_185.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_185.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_186.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_186.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_187.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_187.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_188.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_188.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_189.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_189.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_190.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_190.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_191.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_191.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_192.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_192.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_193.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_193.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_194.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_194.png</Link>
+    </Resource>
+    <Resource Include="..\Media\GuildDetails\Emblems\Emblem_195.png">
+      <Link>Images\GuildDetails\Emblems\Emblem_195.png</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lib\Newtonsoft.Json\Newtonsoft.Json.WindowsPhone.csproj">
+      <Project>{7A7F70AB-5C07-47ED-BDD2-ECC14DBACA5E}</Project>
+      <Name>Newtonsoft.Json.WindowsPhone</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />

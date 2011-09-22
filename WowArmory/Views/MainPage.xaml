@@ -51,7 +51,7 @@
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
 					</ctrl:MainPageButton>
-					<!--<ctrl:MainPageButton x:Name="mpbGuilds" Label="{Binding LocalizedResources.Pages_Main_Button_Guilds, Source={StaticResource LocalizedResources}}"
+					<ctrl:MainPageButton x:Name="mpbGuilds" Label="{Binding LocalizedResources.Pages_Main_Button_Guilds, Source={StaticResource LocalizedResources}}"
 										 IconSource="/WowArmory.Core;Component/Images/Icons/MainPage/Guilds.png"
 										 Click="MainPageButtonClicked">
 						<i:Interaction.Triggers>
@@ -59,7 +59,7 @@
 								<cmd:EventToCommand Command="{Binding ShowGuildListPageCommand}" />
 							</i:EventTrigger>
 						</i:Interaction.Triggers>
-					</ctrl:MainPageButton>-->
+					</ctrl:MainPageButton>
 					<ctrl:MainPageButton Label="{Binding LocalizedResources.Pages_Main_Button_Realms, Source={StaticResource LocalizedResources}}"
 										 IconSource="/WowArmory.Core;Component/Images/Icons/MainPage/Realms.png"
 										 Click="MainPageButtonClicked">

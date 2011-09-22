@@ -79,6 +79,15 @@ namespace WowArmory.Core.BattleNet {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to data/guild/perks.
+        /// </summary>
+        internal static string BattleNet_Api_GuildPerks {
+            get {
+                return ResourceManager.GetString("BattleNet_Api_GuildPerks", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to item/{0}.
         /// </summary>
         internal static string BattleNet_Api_Item {
@@ -111,6 +120,15 @@ namespace WowArmory.Core.BattleNet {
         internal static string BattleNet_BaseUri {
             get {
                 return ResourceManager.GetString("BattleNet_BaseUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://{0}.battle.net/wow/static/images/guild/tabards/.
+        /// </summary>
+        internal static string BattleNet_GuildEmblemUri {
+            get {
+                return ResourceManager.GetString("BattleNet_GuildEmblemUri", resourceCulture);
             }
         }
         
@@ -156,6 +174,15 @@ namespace WowArmory.Core.BattleNet {
         internal static string BattleNet_ItemRenderUri {
             get {
                 return ResourceManager.GetString("BattleNet_ItemRenderUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to http://{0}.battle.net/static-render/{0}/{{0}}/{{1}}/{{2}}-profilemain.jpg?alt=/wow/static/images/2d/profilemain/race/{{3}}-{{4}}.jpg.
+        /// </summary>
+        internal static string BattleNet_ProfileImageUri {
+            get {
+                return ResourceManager.GetString("BattleNet_ProfileImageUri", resourceCulture);
             }
         }
         
