@@ -781,11 +781,11 @@ namespace WowArmory.Views
 			if (ViewModel.ItemForToolTip.WeaponInfo != null)
 			{
 				// damage
-				if (ViewModel.ItemForToolTip.WeaponInfo.Damage != null && ViewModel.ItemForToolTip.WeaponInfo.Damage.Count > 0)
+				if (ViewModel.ItemForToolTip.WeaponInfo.Damage != null)
 				{
-					if (ViewModel.ItemForToolTip.WeaponInfo.Damage[0].MinDamage > 0 && ViewModel.ItemForToolTip.WeaponInfo.Damage[0].MaxDamage > 0)
+					if (ViewModel.ItemForToolTip.WeaponInfo.Damage.Min > 0 && ViewModel.ItemForToolTip.WeaponInfo.Damage.Max > 0)
 					{
-						ShowToolTipText(tbItemToolTipWeaponInfoDamage, String.Format(AppResources.Item_WeaponInfo_Damage, ViewModel.ItemForToolTip.WeaponInfo.Damage[0].MinDamage, ViewModel.ItemForToolTip.WeaponInfo.Damage[0].MaxDamage));
+						ShowToolTipText(tbItemToolTipWeaponInfoDamage, String.Format(AppResources.Item_WeaponInfo_Damage, ViewModel.ItemForToolTip.WeaponInfo.Damage.Min, ViewModel.ItemForToolTip.WeaponInfo.Damage.Max));
 					}
 				}
 				// speed

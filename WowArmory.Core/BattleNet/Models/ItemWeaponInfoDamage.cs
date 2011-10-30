@@ -7,10 +7,10 @@ namespace WowArmory.Core.BattleNet.Models
 	public class ItemWeaponInfoDamage
 	{
 		[DataMember]
-		[XmlElement("minDamage")]
-		public int MinDamage { get; set; }
+		[XmlElement("min")]
+		public int Min { get; set; }
 		[DataMember]
-		[XmlElement("maxDamage")]
-		public int MaxDamage { get; set; }
+		[XmlElement("max")]
+		public int Max { get; set; }
 	}
 }
