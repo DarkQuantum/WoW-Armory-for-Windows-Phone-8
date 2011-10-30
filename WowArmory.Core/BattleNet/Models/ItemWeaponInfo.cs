@@ -9,7 +9,7 @@ namespace WowArmory.Core.BattleNet.Models
 	{
 		[DataMember]
 		[XmlArray("damage")]
-		public List<ItemWeaponInfoDamage> Damage { get; set; }
+		public ItemWeaponInfoDamage Damage { get; set; }
 		[DataMember]
 		[XmlElement("weaponSpeed")]
 		public float WeaponSpeed { get; set; }
