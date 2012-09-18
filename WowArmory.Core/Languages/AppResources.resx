@@ -769,8 +769,8 @@
   <data name="Item_BonusStat_RangedHasteRating" xml:space="preserve">
     <value>Equip: Increases your haste rating by {0}.</value>
   </data>
-  <data name="Item_BonusStat_ResilienceRating" xml:space="preserve">
-    <value>Equip: Increases your resilience rating by {0}.</value>
+  <data name="Item_BonusStat_PvPResilienceRating" xml:space="preserve">
+    <value>Equip: Increases your pvp resilience rating by {0}.</value>
   </data>
   <data name="Item_BonusStat_ShieldBlockRating" xml:space="preserve">
     <value>Equip: Increases shield block rating by {0}.</value>
@@ -1299,5 +1299,8 @@
   </data>
   <data name="UI_CharacterDetails_ViewCharacter" xml:space="preserve">
     <value>View character</value>
+  </data>
+  <data name="Item_BonusStat_PvPPower" xml:space="preserve">
+    <value>Equip: Increases your pvp power by {0}.</value>
   </data>
 </root>

@@ -108,6 +108,7 @@
     <Compile Include="BattleNet\Models\ItemGemInfoBonus.cs" />
     <Compile Include="BattleNet\Models\ItemGemInfoType.cs" />
     <Compile Include="BattleNet\Models\ItemQuality.cs" />
+    <Compile Include="BattleNet\Models\ItemSetDetails.cs" />
     <Compile Include="BattleNet\Models\ItemSlot.cs" />
     <Compile Include="BattleNet\Models\ItemSocket.cs" />
     <Compile Include="BattleNet\Models\ItemSocketInfo.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="BattleNet\Models\ReforgeStat.cs" />
     <Compile Include="BattleNet\Models\Reputation.cs" />
     <Compile Include="BattleNet\Models\ReputationStanding.cs" />
+    <Compile Include="BattleNet\Models\SetBonus.cs" />
     <Compile Include="BattleNet\Models\TalentTree.cs" />
     <Compile Include="BattleNet\Region.cs" />
     <Compile Include="BattleNet\Helpers\ApiUrlField.cs" />
@@ -704,12 +706,6 @@
     <Resource Include="..\Media\Item\Reforge_Arrow.png">
       <Link>Images\Item\Reforge_Arrow.png</Link>
     </Resource>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Authentication.key" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Encryption.key" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\Media\CharacterDetails\Character_Title.png">

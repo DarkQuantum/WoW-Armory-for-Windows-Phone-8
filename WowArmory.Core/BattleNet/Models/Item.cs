@@ -11,6 +11,9 @@ namespace WowArmory.Core.BattleNet.Models
 		[XmlElement("id")]
 		public int Id { get; set; }
 		[DataMember]
+		[XmlElement("disenchantingSkillRank")]
+		public int DisenchantSkillRank { get; set; }
+        [DataMember]
 		[XmlElement("description")]
 		public string Description { get; set; }
 		[DataMember]
@@ -62,9 +65,9 @@ namespace WowArmory.Core.BattleNet.Models
 		[DataMember]
 		[XmlElement("itemLevel")]
 		public int ItemLevel { get; set; }
-		[DataMember]
-		[XmlElement("itemSet", IsNullable = true)]
-		public string ItemSet { get; set; }
+        [DataMember]
+        [XmlElement("itemSet", IsNullable = true)]
+        public ItemSetDetails ItemSet { get; set; }
 		[DataMember]
 		[XmlElement("maxCount")]
 		public int MaxCount { get; set; }

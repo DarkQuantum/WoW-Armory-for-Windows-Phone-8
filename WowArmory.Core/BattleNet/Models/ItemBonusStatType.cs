@@ -68,7 +68,7 @@ namespace WowArmory.Core.BattleNet.Models
 		[EnumMember]
 		CriticalAvoidanceRating = 34,
 		[EnumMember]
-		ResilienceRating = 35,
+		PvPResilienceRating = 35,
 		[EnumMember]
 		HasteRating = 36,
 		[EnumMember]
@@ -96,6 +96,8 @@ namespace WowArmory.Core.BattleNet.Models
 		[EnumMember]
 		BlockValue = 48,
 		[EnumMember]
-		Mastery = 49
+		Mastery = 49,
+        [EnumMember]
+        PvPPower = 57
 	}
 }

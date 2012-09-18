@@ -10,5 +10,8 @@ namespace WowArmory.Core.BattleNet.Models
 		[DataMember]
 		[XmlArray("sockets")]
 		public List<ItemSocket> Sockets { get; set; }
+        [DataMember]
+        [XmlElement("socketBonus")]
+        public string SocketBonus { get; set; }
 	}
 }
